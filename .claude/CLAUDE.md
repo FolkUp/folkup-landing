@@ -12,7 +12,7 @@ Landing page for folkup.app — FolkUp ecosystem hub.
 - SSG: output = pre-rendered static HTML (NOT SPA)
 - 6 sections: Hero, About, Projects, Roadmap, Support, Footer
 - 3 languages: EN, RU, PT (lightweight composable, localStorage)
-- Gertruda hero illustrations: 5 styles, random on mount
+- Gertruda hero illustrations: 17 styles, random on mount (WebP, 26-197KB each)
 
 ## Deploy
 - Build: `npm run build` → `dist/`
@@ -30,7 +30,6 @@ Landing page for folkup.app — FolkUp ecosystem hub.
 - Legal pages: /privacy, /terms, /cookies (static HTML)
 
 ## Remaining Work
-- Phase 3: Gertruda images (5 WebP, Replicate generation)
 - Phase 4: Storybook (4 stories)
 - Phase 5: Tests (Vitest + axe-core)
 - Phase 6: OG Image + favicon + sitemap + deploy
