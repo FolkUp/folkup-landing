@@ -17,8 +17,9 @@ Landing page for folkup.app — FolkUp ecosystem hub.
 ## Deploy
 - Build: `npm run build` → `dist/`
 - Deploy: `npx wrangler pages deploy dist/ --project-name=folkup-deck`
-- Worker: `_worker.js` (security headers, CSP, HSTS)
+- Worker: `public/_worker.js` (security headers, CSP, HSTS) — MUST be in public/ for Vite inclusion
 - Rollback: `cd ../folkup-docs/deck && npx wrangler pages deploy . --project-name=folkup-deck`
+- **Status:** LIVE (deployed 04.03.2026, commit `c001005`)
 
 ## Performance Budget
 - Lighthouse >= 95, LCP < 1.5s, bundle < 60KB gzip
@@ -30,7 +31,7 @@ Landing page for folkup.app — FolkUp ecosystem hub.
 - Legal pages: /privacy, /terms, /cookies (static HTML)
 
 ## Remaining Work
-- Phase 4: Storybook (4 stories)
-- Phase 5: Tests (Vitest + axe-core)
-- Phase 6: OG Image + favicon + sitemap + deploy
-- Legal pages i18n (3 languages)
+- Umami analytics: create website in analytics.folkup.app, add script (requires VPN)
+- FD-026: Replicate project icons for landing (5 images)
+- Storybook (P3, icebox)
+- Sitemap.xml (vite-ssg plugin)

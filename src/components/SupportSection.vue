@@ -18,6 +18,7 @@ const formula = computed(() => {
     <span class="section-label">{{ t('supportLabel') }}</span>
     <h2 class="section-title">{{ t('supportTitle') }}</h2>
     <p class="support-text">{{ t('supportText') }}</p>
+    <p class="support-how">{{ t('supportHow') }}</p>
     <p class="support-stats">{{ t('supportStats') }}</p>
     <p class="support-formula">{{ formula }}</p>
     <a
@@ -37,6 +38,14 @@ const formula = computed(() => {
   line-height: 1.75;
   color: var(--color-text);
   max-width: 600px;
+}
+
+.support-how {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 600px;
+  margin-top: 0.75rem;
 }
 
 .support-stats {

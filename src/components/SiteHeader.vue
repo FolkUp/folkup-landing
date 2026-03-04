@@ -17,6 +17,7 @@ const { t } = useI18n()
       <a href="#hero" class="header-logo" aria-label="FolkUp">FolkUp</a>
       <nav class="header-nav" aria-label="Main navigation">
         <a href="#projects">{{ t('navProjects') }}</a>
+        <a href="#team">{{ t('navTeam') }}</a>
         <a href="#support">{{ t('navSupport') }}</a>
       </nav>
       <LangToggle />

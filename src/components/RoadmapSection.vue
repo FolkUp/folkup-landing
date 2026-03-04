@@ -7,6 +7,7 @@ const steps = [
   { key: 'Done', icon: '✓', status: 'done' as const },
   { key: 'Now', icon: '→', status: 'now' as const },
   { key: 'Next', icon: '○', status: 'next' as const },
+  { key: 'Future', icon: '◇', status: 'future' as const },
 ]
 </script>
 
@@ -32,10 +33,6 @@ const steps = [
 </template>
 
 <style scoped>
-.section-title {
-  margin-bottom: 2rem;
-}
-
 .timeline {
   display: flex;
   flex-direction: column;
@@ -86,7 +83,8 @@ const steps = [
   color: var(--color-text);
 }
 
-.next .timeline-icon {
+.next .timeline-icon,
+.future .timeline-icon {
   background: var(--color-surface);
   color: var(--color-muted);
   border: 2px solid var(--color-border);
@@ -106,5 +104,4 @@ const steps = [
   color: var(--color-muted);
   margin: 0;
 }
-
 </style>

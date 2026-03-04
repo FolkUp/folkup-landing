@@ -6,6 +6,8 @@ defineProps<{
   description: string
   url: string
   accent: string
+  langs?: string
+  category?: string
 }>()
 </script>
 
@@ -20,6 +22,10 @@ defineProps<{
         <span class="card-count">{{ count }}</span>
       </div>
       <p>{{ description }}</p>
+      <div v-if="langs || category" class="card-meta">
+        <span v-if="category" class="card-category">{{ category }}</span>
+        <span v-if="langs" class="card-langs">{{ langs }}</span>
+      </div>
     </div>
   </a>
 </template>
@@ -89,5 +95,32 @@ defineProps<{
   line-height: 1.5;
   color: var(--color-muted);
   margin: 0;
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.card-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-sage);
+  background: color-mix(in srgb, var(--color-sage) 12%, transparent);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.card-langs {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: var(--color-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
 }
 </style>

@@ -21,7 +21,10 @@ const { src, style } = useGertruda()
     <h1 class="hero-title">FolkUp</h1>
     <p class="hero-subtitle">{{ t('heroSubtitle') }}</p>
     <p class="hero-tagline">{{ t('heroTagline') }}</p>
-    <a href="#projects" class="hero-cta">{{ t('heroCta') }}</a>
+    <div class="hero-actions">
+      <a href="#projects" class="hero-cta">{{ t('heroCta') }}</a>
+      <a href="#framework" class="hero-cta hero-cta--secondary">{{ t('heroCtaSecondary') }}</a>
+    </div>
   </section>
 </template>
 
@@ -73,6 +76,13 @@ const { src, style } = useGertruda()
   margin: 0 0 2rem;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -86,10 +96,21 @@ const { src, style } = useGertruda()
   border-radius: 6px;
   text-decoration: none;
   min-height: 44px;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .hero-cta:hover {
   background: var(--color-bordo-hover);
+}
+
+.hero-cta--secondary {
+  background: transparent;
+  color: var(--color-bordo);
+  border: 1.5px solid var(--color-bordo);
+}
+
+.hero-cta--secondary:hover {
+  background: var(--color-bordo);
+  color: #fff;
 }
 </style>

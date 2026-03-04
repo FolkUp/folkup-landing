@@ -6,11 +6,11 @@ import ProjectCard from './ProjectCard.vue'
 const { t } = useI18n()
 
 const projects = [
-  { key: 'barnes', letter: 'B', accent: 'var(--color-accent-barnes)', url: PROJECT_URLS.barnes },
-  { key: 'padel', letter: 'P', accent: 'var(--color-accent-padel)', url: PROJECT_URLS.padel },
-  { key: 'setubal', letter: 'S', accent: 'var(--color-accent-setubal)', url: PROJECT_URLS.setubal },
-  { key: 'cogumelos', letter: 'C', accent: 'var(--color-accent-cogumelos)', url: PROJECT_URLS.cogumelos },
-  { key: 'tarot', letter: 'T', accent: 'var(--color-accent-tarot)', url: PROJECT_URLS.tarot },
+  { key: 'barnes', letter: 'B', accent: 'var(--color-accent-barnes)', url: PROJECT_URLS.barnes, categoryKey: 'projectsCategoryCity' },
+  { key: 'padel', letter: 'P', accent: 'var(--color-accent-padel)', url: PROJECT_URLS.padel, categoryKey: 'projectsCategorySport' },
+  { key: 'setubal', letter: 'S', accent: 'var(--color-accent-setubal)', url: PROJECT_URLS.setubal, categoryKey: 'projectsCategoryCity' },
+  { key: 'cogumelos', letter: 'C', accent: 'var(--color-accent-cogumelos)', url: PROJECT_URLS.cogumelos, categoryKey: 'projectsCategoryNature' },
+  { key: 'tarot', letter: 'T', accent: 'var(--color-accent-tarot)', url: PROJECT_URLS.tarot, categoryKey: 'projectsCategoryCulture' },
 ]
 </script>
 
@@ -28,6 +28,8 @@ const projects = [
         :description="t(`${p.key}Desc`)"
         :url="p.url"
         :accent="p.accent"
+        :langs="t(`${p.key}Langs`)"
+        :category="t(p.categoryKey)"
       />
     </div>
   </section>
@@ -47,5 +49,4 @@ const projects = [
 @media (min-width: 800px) {
   .projects-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
-
 </style>
