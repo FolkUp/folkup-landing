@@ -1,0 +1,25 @@
+node_modules/
+dist/
+*.local
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+*.tsbuildinfo
+
+# Local context (not for remote)
+.claude/SESSION_CONTEXT.md
+.claude/settings.local.json
+.claude/PLAN.md
+
+# Storybook
+storybook-static/
