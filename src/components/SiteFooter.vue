@@ -19,9 +19,9 @@ const { t } = useI18n()
         <router-link to="/cookies">{{ t('footerCookies') }}</router-link>
       </nav>
       <div class="footer-social">
-        <a href="https://t.me/folkup" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
-        <a href="https://instagram.com/folkup.app" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-        <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener noreferrer" aria-label="Ko-fi">Ko-fi</a>
+        <a href="https://t.me/johndoe_was_here" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
+        <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+        <a href="https://habr.com/ru/users/anklem/" target="_blank" rel="noopener noreferrer" aria-label="Habr">Habr</a>
       </div>
       <LangToggle />
     </div>
