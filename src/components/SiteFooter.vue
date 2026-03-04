@@ -7,6 +7,7 @@ const { t } = useI18n()
 
 <template>
   <footer class="site-footer" role="contentinfo">
+    <p class="dedication">{{ t('dedication') }}</p>
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="footer-logo">FolkUp</span>
@@ -28,6 +29,17 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
+.dedication {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+  margin: 0;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
 .site-footer {
   border-top: 1px solid var(--color-border);
   padding: 3rem 1.5rem;
