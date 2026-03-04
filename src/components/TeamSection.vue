@@ -5,11 +5,11 @@ import TeamCard from './TeamCard.vue'
 const { t } = useI18n()
 
 const members = [
-  { key: 'alice' },
-  { key: 'gonzo' },
-  { key: 'cooper' },
-  { key: 'lantern' },
-  { key: 'lev' },
+  { key: 'alice', avatar: '/images/team/alice.webp' },
+  { key: 'gonzo', avatar: '/images/team/gonzo.webp' },
+  { key: 'cooper', avatar: '/images/team/cooper.webp' },
+  { key: 'lantern', avatar: '/images/team/lantern.webp' },
+  { key: 'lev', avatar: '/images/team/lev.webp' },
 ]
 </script>
 
@@ -25,6 +25,7 @@ const members = [
         :name="t(`${m.key}Name`)"
         :role="t(`${m.key}Role`)"
         :oneliner="t(`${m.key}Oneliner`)"
+        :avatar="m.avatar"
       />
     </div>
   </section>
