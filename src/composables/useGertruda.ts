@@ -1,12 +1,11 @@
 import { ref, onMounted } from 'vue'
 
-const GERTRUDA_COUNT = 5
+const GERTRUDA_COUNT = 17
 const GERTRUDA_STYLES = [
-  'watercolor',
-  'storybook',
-  'botanical',
-  'hygge',
-  'detailed',
+  'watercolor', 'storybook', 'botanical', 'hygge', 'detailed',
+  'sand', 'chalk', 'pencil', 'woodcut', 'inkwash',
+  'mosaic', 'stainedglass', 'papercut', 'retrogame', 'steampunk',
+  'neon', 'cyber',
 ] as const
 
 export type GertrudaStyle = typeof GERTRUDA_STYLES[number]
@@ -36,13 +35,6 @@ export function useGertruda() {
   onMounted(() => {
     // Randomize on client hydration
     rotate()
-
-    // Preload next image
-    const nextIdx = (index.value + 1) % GERTRUDA_COUNT
-    const link = document.createElement('link')
-    link.rel = 'prefetch'
-    link.href = getSrc(nextIdx)
-    document.head.appendChild(link)
   })
 
   return { src, style, rotate }

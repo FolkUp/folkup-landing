@@ -9,17 +9,14 @@ const { src, style } = useGertruda()
 <template>
   <section id="hero" class="hero">
     <div class="hero-gertruda" aria-hidden="true">
-      <picture>
-        <source :srcset="src" type="image/webp" />
-        <img
-          :src="src.replace('.webp', '.png')"
-          alt=""
-          width="280"
-          height="280"
-          loading="eager"
-          :data-style="style"
-        />
-      </picture>
+      <img
+        :src="src"
+        alt=""
+        width="280"
+        height="280"
+        loading="eager"
+        :data-style="style"
+      />
     </div>
     <h1 class="hero-title">FolkUp</h1>
     <p class="hero-subtitle">{{ t('heroSubtitle') }}</p>
