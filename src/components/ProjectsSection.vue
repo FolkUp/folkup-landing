@@ -6,11 +6,11 @@ import ProjectCard from './ProjectCard.vue'
 const { t } = useI18n()
 
 const projects = [
-  { key: 'barnes', letter: 'B', accent: 'var(--color-accent-barnes)', url: PROJECT_URLS.barnes, categoryKey: 'projectsCategoryCity' },
-  { key: 'padel', letter: 'P', accent: 'var(--color-accent-padel)', url: PROJECT_URLS.padel, categoryKey: 'projectsCategorySport' },
-  { key: 'setubal', letter: 'S', accent: 'var(--color-accent-setubal)', url: PROJECT_URLS.setubal, categoryKey: 'projectsCategoryCity' },
-  { key: 'cogumelos', letter: 'C', accent: 'var(--color-accent-cogumelos)', url: PROJECT_URLS.cogumelos, categoryKey: 'projectsCategoryNature' },
-  { key: 'tarot', letter: 'T', accent: 'var(--color-accent-tarot)', url: PROJECT_URLS.tarot, categoryKey: 'projectsCategoryCulture' },
+  { key: 'barnes', icon: '/images/project-icons/barnes.webp', accent: 'var(--color-accent-barnes)', url: PROJECT_URLS.barnes, categoryKey: 'projectsCategoryCity' },
+  { key: 'padel', icon: '/images/project-icons/padel.webp', accent: 'var(--color-accent-padel)', url: PROJECT_URLS.padel, categoryKey: 'projectsCategorySport' },
+  { key: 'setubal', icon: '/images/project-icons/setubal.webp', accent: 'var(--color-accent-setubal)', url: PROJECT_URLS.setubal, categoryKey: 'projectsCategoryCity' },
+  { key: 'cogumelos', icon: '/images/project-icons/cogumelos.webp', accent: 'var(--color-accent-cogumelos)', url: PROJECT_URLS.cogumelos, categoryKey: 'projectsCategoryNature' },
+  { key: 'tarot', icon: '/images/project-icons/tarot.webp', accent: 'var(--color-accent-tarot)', url: PROJECT_URLS.tarot, categoryKey: 'projectsCategoryCulture' },
 ]
 </script>
 
@@ -23,7 +23,7 @@ const projects = [
         v-for="p in projects"
         :key="p.key"
         :name="t(`${p.key}Name`)"
-        :letter="p.letter"
+        :icon="p.icon"
         :count="t(`${p.key}Count`)"
         :description="t(`${p.key}Desc`)"
         :url="p.url"

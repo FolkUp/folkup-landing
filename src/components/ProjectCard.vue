@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   name: string
-  letter: string
+  icon: string
   count: string
   description: string
   url: string
@@ -13,8 +13,8 @@ defineProps<{
 
 <template>
   <a :href="url" class="project-card" target="_blank" rel="noopener noreferrer">
-    <div class="card-icon" :style="{ backgroundColor: accent }">
-      <span>{{ letter }}</span>
+    <div class="card-icon">
+      <img :src="icon" :alt="name" width="72" height="72" loading="lazy">
     </div>
     <div class="card-body">
       <div class="card-header">
@@ -50,19 +50,17 @@ defineProps<{
 
 .card-icon {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.card-icon span {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #fff;
+.card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-body {
