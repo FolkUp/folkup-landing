@@ -7,8 +7,9 @@ const { locale } = useI18n()
 </script>
 
 <template>
+  <a href="#main" class="skip-to-content">Skip to content</a>
   <SiteHeader :visible="true" />
-  <main class="legal-page">
+  <main id="main" class="legal-page">
     <article v-if="locale === 'ru'">
       <h1>Политика в отношении cookie</h1>
       <p><strong>Последнее обновление:</strong> март 2026</p>

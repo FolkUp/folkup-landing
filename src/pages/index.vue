@@ -19,8 +19,9 @@ useFadeIn()
 </script>
 
 <template>
+  <a href="#main" class="skip-to-content">Skip to content</a>
   <SiteHeader :visible="headerVisible" />
-  <main>
+  <main id="main">
     <div ref="heroEl">
       <HeroSection />
     </div>
