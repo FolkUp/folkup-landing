@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CASE FR-2026-001 — DECLASSIFIED — FolkUp Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #f4efe4;
+      --paper-dark: #ebe5d6;
+      --ink: #1a1a1a;
+      --ink-light: #555;
+      --red: #8b1a1a;
+      --red-light: rgba(139,26,26,0.12);
+      --border: #c5bca8;
+      --black: #111;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #d5cfc0;
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Classification bars */
+    .class-bar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 7px 12px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .class-bar--struck {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    /* Paper */
+    .paper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper);
+      background-image:
+        linear-gradient(180deg, var(--paper-dark) 0%, var(--paper) 3%, var(--paper) 97%, var(--paper-dark) 100%);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25), 0 0 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-inner {
+      padding: 50px 60px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Watermark */
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-28deg);
+      font-size: min(9vw, 5.5rem);
+      font-weight: 900;
+      color: rgba(139,26,26,0.04);
+      letter-spacing: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+
+    /* Stamps */
+    .stamp {
+      display: inline-block;
+      font-weight: 900;
+      color: var(--red);
+      border: 3px double var(--red);
+      padding: 6px 18px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      opacity: 0.75;
+      transform: rotate(-4deg);
+      margin: 16px 0;
+      animation: stampIn 0.4s ease-out;
+    }
+
+    @keyframes stampIn {
+      0% { opacity: 0; transform: rotate(-4deg) scale(1.5); }
+      60% { opacity: 0.85; transform: rotate(-4deg) scale(0.97); }
+      100% { opacity: 0.75; transform: rotate(-4deg) scale(1); }
+    }
+
+    /* Document header */
+    .doc-header {
+      text-align: center;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .agency {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+
+    .division {
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .doc-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 20px;
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+
+    .doc-meta dt {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .doc-meta dd {
+      color: var(--ink);
+    }
+
+    .separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    .separator--heavy {
+      border-top: 2px solid var(--ink);
+    }
+
+    /* Sections */
+    .section {
+      margin: 28px 0;
+    }
+
+    .section h2 {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .section h3 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+
+    .section p, .section li {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li::before {
+      content: '•';
+      margin-right: 8px;
+      color: var(--ink-light);
+    }
+
+    /* Redaction */
+    .r {
+      background: var(--black);
+      color: var(--black);
+      padding: 1px 2px;
+      border-radius: 1px;
+      cursor: help;
+      font-size: 0.92em;
+      letter-spacing: -0.5px;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 12.5px;
+    }
+
+    thead th {
+      background: var(--paper-dark);
+      text-align: left;
+      padding: 7px 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .mono {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .badge--red { background: #f8d7d7; color: #8b1a1a; }
+    .badge--yellow { background: #fef3c7; color: #856404; }
+    .badge--green { background: #d4edda; color: #155724; }
+    .badge--gray { background: #e8e8e8; color: #555; }
+
+    /* Assessment boxes */
+    .assess {
+      border-left: 4px solid;
+      padding: 10px 14px;
+      margin: 14px 0;
+      font-size: 12.5px;
+    }
+
+    .assess--critical { border-color: #c00; background: rgba(200,0,0,0.05); }
+    .assess--warning { border-color: #c90; background: rgba(200,150,0,0.05); }
+    .assess--info { border-color: #069; background: rgba(0,100,150,0.05); }
+
+    /* Footer */
+    .doc-footer {
+      border-top: 2px solid var(--ink);
+      margin-top: 36px;
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--ink-light);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .end-mark {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--ink-light);
+      margin: 30px 0 10px;
+    }
+
+    /* FolkUp link */
+    .folkup-link {
+      text-align: center;
+      margin: 24px 0 8px;
+      font-size: 11px;
+    }
+
+    .folkup-link a {
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .folkup-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Table responsive */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; }
+      .paper { box-shadow: none; }
+      .class-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .stamp { opacity: 1 !important; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .paper-inner { padding: 28px 20px 24px; }
+      .doc-meta { grid-template-columns: 1fr; gap: 2px; }
+      .stamp { font-size: 1rem; padding: 4px 12px; letter-spacing: 3px; }
+      .watermark { font-size: 2.5rem; }
+      table { font-size: 11.5px; }
+      td, thead th { padding: 5px 6px; }
+      .doc-footer { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="class-bar class-bar--struck">&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;&#9608; — classification revoked</div>
+
+<div class="paper">
+  <div class="watermark">DECLASSIFIED</div>
+
+  <div class="paper-inner">
+
+    <!-- HEADER -->
+    <div class="doc-header">
+      <div class="agency">FOLKUP TECHNICAL INTELLIGENCE</div>
+      <div class="division">SITE AUDIT DIVISION</div>
+
+      <div class="stamp">РАССЕКРЕЧЕНО</div>
+
+      <dl class="doc-meta">
+        <dt>ДОСЬЕ:</dt>
+        <dd>FR-2026-001</dd>
+        <dt>ДАТА:</dt>
+        <dd>02 марта 2026</dd>
+        <dt>ГРИФ:</dt>
+        <dd><span class="r" title="[ИЗЪЯТО]">██████████</span> → РАССЕКРЕЧЕНО</dd>
+        <dt>АНАЛИТИК:</dt>
+        <dd>Отдел OSINT</dd>
+        <dt>ОБЪЕКТ:</dt>
+        <dd>ituzov.fun</dd>
+        <dt>ТИП:</dt>
+        <dd>Полный технический аудит веб-ресурса</dd>
+        <dt>СТАТУС:</dt>
+        <dd>АНАЛИЗ ЗАВЕРШЁН</dd>
+      </dl>
+    </div>
+
+    <!-- 1. EXECUTIVE SUMMARY -->
+    <div class="section">
+      <h2>1. Резюме</h2>
+      <p>
+        Объект анализа: персональный сайт-визитка на домене <strong>ituzov.fun</strong>,
+        принадлежащий лицу, идентифицированному как <span class="r" title="[ИЗЪЯТО]">████ ██████</span>
+        (самоидентификация: «Product Engineer»).
+      </p>
+      <p>
+        Сайт представляет собой одностраничный статический HTML-документ в стилистике
+        терминального интерфейса. Заявлен опыт 7+ лет, 20+ проектов, работа в крупнейших
+        российских организациях.
+      </p>
+      <div class="assess assess--critical">
+        <strong>КЛЮЧЕВОЙ ВЫВОД:</strong> Заявленный профессиональный опыт
+        НЕ ПОДТВЕРЖДАЕТСЯ публичными источниками. GitHub-профиль отсутствует.
+        Продукты не имеют внешних следов за пределами сайта.
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 2. INFRASTRUCTURE -->
+    <div class="section">
+      <h2>2. Инфраструктура</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Параметр</th><th>Значение</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>IP-адрес</td><td class="mono">85.198.83.198</td></tr>
+            <tr><td>Хостинг</td><td>Timeweb (JSC), Москва, AS9123</td></tr>
+            <tr><td>Веб-сервер</td><td class="mono">nginx/1.29.5</td></tr>
+            <tr><td>SSL</td><td>Let's Encrypt (R13), TLS 1.3, до 29.05.2026</td></tr>
+            <tr><td>Регистратор</td><td>reg.ru (ns1.reg.ru, ns2.reg.ru)</td></tr>
+            <tr><td>Почта (MX)</td><td>Yandex (mx.yandex.net)</td></tr>
+            <tr><td>SPF</td><td class="mono">redirect=_spf.yandex.net</td></tr>
+            <tr><td>TXT</td><td class="mono">yandex-verification: 67ed2c41167f68e7</td></tr>
+            <tr><td>IPv6</td><td><span class="badge badge--yellow">Отсутствует</span></td></tr>
+            <tr><td>Размер страницы</td><td>71 006 байт (один HTML-файл)</td></tr>
+            <tr><td>Последнее обновление</td><td>01.03.2026 17:03:19 GMT</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="assess assess--info">
+        <strong>ПРИМЕЧАНИЕ:</strong> Стандартная бюджетная инфраструктура.
+        Timeweb — крупный российский хостер. Всё в одном файле — без CDN,
+        без балансировки, без кэширования.
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 3. TECHNOLOGY -->
+    <div class="section">
+      <h2>3. Технологии</h2>
+      <p>
+        Сайт построен на чистом <strong>HTML + CSS + JavaScript</strong> без использования
+        фреймворков, библиотек или систем сборки. Весь код (разметка, стили, скрипты)
+        размещён в одном файле размером 71 006 байт.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Компонент</th><th>Реализация</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Шрифт</td><td>JetBrains Mono (системный, без @font-face)</td></tr>
+            <tr><td>CSS</td><td>Custom properties, media queries (768px, 480px)</td></tr>
+            <tr><td>JS</td><td>Intersection Observer, vanilla DOM</td></tr>
+            <tr><td>Фреймворки</td><td><span class="badge badge--gray">Нет</span></td></tr>
+            <tr><td>Зависимости</td><td><span class="badge badge--gray">Нет</span></td></tr>
+            <tr><td>Bundler / Build</td><td><span class="badge badge--gray">Нет</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>Оценка:</strong> технически примитивный, но функциональный сайт.
+        Нулевые внешние зависимости — плюс для надёжности, минус для масштабирования.
+      </p>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 4. DESIGN -->
+    <div class="section">
+      <h2>4. Дизайн и оригинальность</h2>
+      <p>
+        Стилистика: «Terminal Portfolio» — массово популярный жанр среди разработчиков
+        с начала 2020-х. На GitHub обнаружено <strong>50+ аналогичных шаблонов</strong>.
+      </p>
+
+      <h3>4.1. Палитра</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Элемент</th><th>Цвет</th><th>Примечание</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Background</td><td class="mono">#0d1117</td><td>GitHub Dark — стандарт жанра</td></tr>
+            <tr><td>Accent</td><td class="mono">#00ff41</td><td>Matrix green — стандарт жанра</td></tr>
+            <tr><td>Blue</td><td class="mono">#58a6ff</td><td>GitHub blue</td></tr>
+            <tr><td>Purple</td><td class="mono">#bc8cff</td><td>Дополнительный акцент</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.2. Типовые элементы (все — стандартные для жанра)</h3>
+      <ul>
+        <li>macOS-style terminal header с 3 цветными точками</li>
+        <li>ASCII-арт имени субъекта</li>
+        <li>Ввод «команд» в терминал (hidden input)</li>
+        <li>Easter egg: sudo rm -rf / → BSOD (код 0xDEADBEEF)</li>
+        <li>Dark theme, моноширинный шрифт</li>
+        <li>Фиксированный status bar внизу: «● online UTF-8 LF»</li>
+        <li>Emoji вместо иконок</li>
+      </ul>
+
+      <h3>4.3. Аналогичные шаблоны на GitHub</h3>
+      <ul>
+        <li>satnaing/terminal-portfolio (React/TypeScript, 1K+ stars)</li>
+        <li>navnee1h/terminal-portfolio (React)</li>
+        <li>iamdhakrey/terminal-portfolio (vanilla JS)</li>
+        <li>GitHub topics: terminal-portfolio, terminal-style-website (50+ repos)</li>
+      </ul>
+
+      <div class="assess assess--warning">
+        <strong>ОЦЕНКА ОРИГИНАЛЬНОСТИ: НИЗКАЯ.</strong>
+        Шаблонное решение без уникальных элементов дизайна.
+        Каждый визуальный компонент — типовой для жанра «terminal portfolio».
+        Конкретный шаблон-прототип не установлен, но паттерн
+        воспроизведён полностью.
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 5. CONTENT VERIFICATION -->
+    <div class="section">
+      <h2>5. Контент и верификация</h2>
+
+      <h3>5.1. Идентификация субъекта</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Платформа</th><th>Идентификатор</th><th>Статус</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Telegram (канал)</td>
+              <td><span class="r" title="[ИЗЪЯТО]">█████████████</span> — 1 277 подписчиков</td>
+              <td><span class="badge badge--green">Активен</span></td>
+            </tr>
+            <tr>
+              <td>Telegram (чат)</td>
+              <td><span class="r" title="[ИЗЪЯТО]">█████████████</span></td>
+              <td><span class="badge badge--gray">Не проверен</span></td>
+            </tr>
+            <tr>
+              <td>TikTok</td>
+              <td><span class="r" title="[ИЗЪЯТО]">██████████</span> — ник «<span class="r" title="[ИЗЪЯТО]">████████████████</span>», 1 видео найдено</td>
+              <td><span class="badge badge--yellow">Неактивен</span></td>
+            </tr>
+            <tr>
+              <td>Instagram</td>
+              <td><span class="r" title="[ИЗЪЯТО]">██████████████</span></td>
+              <td><span class="badge badge--red">Заблокирован РКН</span></td>
+            </tr>
+            <tr>
+              <td>GitHub</td>
+              <td>—</td>
+              <td><span class="badge badge--red">Не найден</span></td>
+            </tr>
+            <tr>
+              <td>LinkedIn</td>
+              <td>—</td>
+              <td><span class="badge badge--red">Не найден</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="assess assess--critical">
+        <strong>АНОМАЛИЯ:</strong> Для «Product Engineer с 7+ лет опыта и 20+ проектами»
+        отсутствие публичного GitHub и LinkedIn — крайне нетипично.
+      </div>
+
+      <h3>5.2. Заявленный опыт работы (11 компаний)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Компания</th><th>Тип</th><th>Верификация</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ЦБ РФ</td><td>Госорган</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>Лемана ПРО</td><td>Ритейл</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>Nielsen</td><td>Аналитика</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>Газпром нефть</td><td>Энергетика</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>РЖД</td><td>Транспорт</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>Яков и Партнёры</td><td>Консалтинг (ex-McKinsey)</td><td><span class="badge badge--red">Не подтверждено</span></td></tr>
+            <tr><td>КИС СПб</td><td>Госорган</td><td><span class="badge badge--yellow">Организация существует</span></td></tr>
+            <tr><td>ГрадПроект</td><td>—</td><td><span class="badge badge--red">Не найдено</span></td></tr>
+            <tr><td>MetaMentor</td><td>AI-разработка</td><td><span class="badge badge--yellow">Компания есть, связь не подтверждена</span></td></tr>
+            <tr><td>Юг-монтаж</td><td>Строительство</td><td><span class="badge badge--yellow">Похожие компании найдены</span></td></tr>
+            <tr><td>Aleksandr Corides</td><td>—</td><td><span class="badge badge--red">Не найдено</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="assess assess--critical">
+        <strong>ВЫВОД:</strong> 0 из 11 заявленных мест работы подтверждено через публичные
+        источники. Ни одного LinkedIn-профиля, ни упоминания в корпоративных материалах.
+      </div>
+
+      <h3>5.3. Заявленные продукты</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Продукт</th><th>Тип</th><th>Стек (заявлен)</th><th>Верификация</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MyFitnessBro</td>
+              <td>Telegram-бот (AI-тренер)</td>
+              <td class="mono">Bun, Grammy.js, Hono, Supabase, OpenRouter, HTMX</td>
+              <td><span class="badge badge--red">Нет внешних следов</span></td>
+            </tr>
+            <tr>
+              <td>Arkanum</td>
+              <td>Telegram mini-app (эзотерика)</td>
+              <td class="mono">FastAPI, PostgreSQL, Next.js, Tailwind, shadcn/ui, ELK</td>
+              <td><span class="badge badge--red">Нет внешних следов</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Оба продукта заявлены как Telegram-боты, однако поиск по имени бота и названию
+        продукта не даёт результатов за пределами самого сайта.
+      </p>
+
+      <h3>5.4. Telegram-канал</h3>
+      <p>
+        Канал <span class="r" title="[ИЗЪЯТО]">█████████████</span>: 1 277 подписчиков.
+        Описание: «Как заработать на коде, продуктах и контенте с AI».
+        Тематика — типичный инфобиз/продуктовый блог.
+      </p>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 6. SECURITY & SEO -->
+    <div class="section">
+      <h2>6. Безопасность и SEO</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Проблема</th><th>Серьёзность</th><th>Описание</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Нет security headers</td>
+              <td><span class="badge badge--red">Высокая</span></td>
+              <td>Отсутствуют CSP, X-Frame-Options, X-Content-Type-Options, HSTS</td>
+            </tr>
+            <tr>
+              <td>Nginx version exposed</td>
+              <td><span class="badge badge--yellow">Средняя</span></td>
+              <td>Заголовок server: nginx/1.29.5 — утечка информации</td>
+            </tr>
+            <tr>
+              <td>robots.txt</td>
+              <td><span class="badge badge--yellow">Средняя</span></td>
+              <td>Отсутствует (404)</td>
+            </tr>
+            <tr>
+              <td>sitemap.xml</td>
+              <td><span class="badge badge--yellow">Средняя</span></td>
+              <td>Отсутствует (404)</td>
+            </tr>
+            <tr>
+              <td>Meta description</td>
+              <td><span class="badge badge--yellow">Средняя</span></td>
+              <td>Отсутствует — SEO-невидимость</td>
+            </tr>
+            <tr>
+              <td>Open Graph tags</td>
+              <td><span class="badge badge--yellow">Средняя</span></td>
+              <td>Отсутствуют — нет превью при шеринге</td>
+            </tr>
+            <tr>
+              <td>IPv6 (AAAA)</td>
+              <td><span class="badge badge--gray">Низкая</span></td>
+              <td>Запись отсутствует</td>
+            </tr>
+            <tr>
+              <td>Favicon</td>
+              <td><span class="badge badge--gray">Низкая</span></td>
+              <td>Не указан через meta-теги</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        В индексе Google — только 1 страница.
+        Полное отсутствие базовых SEO-практик и security hardening.
+      </p>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 7. HIDDEN ELEMENTS -->
+    <div class="section">
+      <h2>7. Скрытые элементы (Easter Eggs)</h2>
+      <ul>
+        <li><strong>sudo rm -rf /</strong> — ввод в терминал запускает имитацию BSOD
+          (Blue Screen of Death) с кодом <code>0xDEADBEEF</code>.
+          Страница «перезагружается» через 4 секунды.</li>
+        <li><strong>Переключение цитат</strong> — клик по автору цитаты переключает
+          между Линусом Торвальдсом и Робертом Хайнлайном.</li>
+        <li><strong>Console.log</strong> — при открытии DevTools показывается приветствие
+          с ссылкой на Telegram.</li>
+        <li><strong>Glitch-эффект</strong> — при наведении на ASCII-арт.</li>
+        <li><strong>Hidden input</strong> — любая команда кроме sudo → «command not found».</li>
+      </ul>
+      <div class="assess assess--info">
+        <strong>БЕЗОПАСНОСТЬ:</strong> Утечек API-ключей, токенов, секретных путей
+        или скрытых endpoint'ов не обнаружено.
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- 8. FINAL ASSESSMENT -->
+    <div class="section">
+      <h2>8. Итоговая оценка</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Аспект</th><th>Оценка</th><th>Комментарий</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Технологии</td>
+              <td><span class="badge badge--gray">Примитивно</span></td>
+              <td>Один HTML-файл, 0 зависимостей. Работает.</td>
+            </tr>
+            <tr>
+              <td>Дизайн</td>
+              <td><span class="badge badge--yellow">Шаблонно</span></td>
+              <td>«Terminal portfolio» — избитый жанр, 0 оригинальности.</td>
+            </tr>
+            <tr>
+              <td>Контент</td>
+              <td><span class="badge badge--red">Не верифицирован</span></td>
+              <td>0/11 мест работы подтверждено, 0/2 продуктов найдено.</td>
+            </tr>
+            <tr>
+              <td>SEO</td>
+              <td><span class="badge badge--red">Отсутствует</span></td>
+              <td>Нет robots.txt, sitemap, meta, OG.</td>
+            </tr>
+            <tr>
+              <td>Безопасность</td>
+              <td><span class="badge badge--yellow">Слабая</span></td>
+              <td>Нет security headers, exposed server version.</td>
+            </tr>
+            <tr>
+              <td>Инфраструктура</td>
+              <td><span class="badge badge--gray">Стандартная</span></td>
+              <td>Timeweb VPS + reg.ru + Let's Encrypt.</td>
+            </tr>
+            <tr>
+              <td>Онлайн-присутствие</td>
+              <td><span class="badge badge--yellow">Минимальное</span></td>
+              <td>TG 1.3K подписчиков, TikTok мёртв, нет GitHub.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="assess assess--critical">
+        <strong>ЗАКЛЮЧЕНИЕ:</strong> Визитка с хорошим визуальным исполнением на шаблонном
+        дизайне, но с серьёзными вопросами к достоверности заявленного опыта.
+        Отсутствие подтверждения работы в заявленных компаниях, отсутствие публичного
+        GitHub при заявленных 20+ проектах, и отсутствие внешних следов «продуктов»
+        формируют картину, требующую дополнительной проверки.
+      </div>
+    </div>
+
+    <hr class="separator separator--heavy">
+
+    <div class="end-mark">— КОНЕЦ ДОКУМЕНТА —</div>
+
+    <div class="doc-footer">
+      <span>FR-2026-001 / Стр. 1 из 1</span>
+      <span>FolkUp Intelligence Division</span>
+      <span>02.03.2026</span>
+    </div>
+
+    <div class="folkup-link">
+      <a href="https://folkup.app/reviews/">← вернуться к списку аудитов</a>
+    </div>
+
+  </div><!-- /paper-inner -->
+</div><!-- /paper -->
+
+<div class="class-bar class-bar--struck">&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;&#9608; — classification revoked</div>
+
+</body>
+</html>

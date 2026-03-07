@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Site Audits — FolkUp Intelligence Division</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #f4efe4;
+      --paper-dark: #ebe5d6;
+      --ink: #1a1a1a;
+      --ink-light: #555;
+      --red: #8b1a1a;
+      --border: #c5bca8;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #d5cfc0;
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 14px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      max-width: 680px;
+      width: 100%;
+      background: var(--paper);
+      background-image:
+        linear-gradient(180deg, var(--paper-dark) 0%, var(--paper) 4%, var(--paper) 96%, var(--paper-dark) 100%);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      padding: 48px 52px 36px;
+    }
+
+    .agency {
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--ink-light);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 15px;
+      letter-spacing: 3px;
+      text-align: center;
+      font-weight: 700;
+      margin: 4px 0 28px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid var(--ink);
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      text-align: left;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--border);
+      background: var(--paper-dark);
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 2px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 20px;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    @media (max-width: 540px) {
+      .card { padding: 28px 20px 24px; }
+      table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="agency">FOLKUP TECHNICAL INTELLIGENCE</div>
+    <h1>SITE AUDIT DIVISION</h1>
+    <hr class="divider">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Досье</th>
+          <th>Дата</th>
+          <th>Объект</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="./case-001/">FR-2026-001</a></td>
+          <td>02.03.2026</td>
+          <td>ituzov.fun</td>
+          <td><span class="badge">Завершён</span></td>
+        </tr>
+        <tr>
+          <td><a href="./case-002/">FR-2026-002</a></td>
+          <td>03.03.2026</td>
+          <td>web.kartinium.ru</td>
+          <td><span class="badge">Завершён</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">FolkUp Intelligence Division — 2026</div>
+  </div>
+
+</body>
+</html>

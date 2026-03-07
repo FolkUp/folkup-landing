@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CASE FR-{{YEAR}}-{{NUM}} — DECLASSIFIED — FolkUp Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #f4efe4;
+      --paper-dark: #ebe5d6;
+      --ink: #1a1a1a;
+      --ink-light: #555;
+      --red: #8b1a1a;
+      --red-light: rgba(139,26,26,0.12);
+      --border: #c5bca8;
+      --black: #111;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #d5cfc0;
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Classification bars */
+    .class-bar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 7px 12px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .class-bar--struck {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    /* Paper */
+    .paper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper);
+      background-image:
+        linear-gradient(180deg, var(--paper-dark) 0%, var(--paper) 3%, var(--paper) 97%, var(--paper-dark) 100%);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25), 0 0 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-inner {
+      padding: 50px 60px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Watermark */
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-28deg);
+      font-size: min(9vw, 5.5rem);
+      font-weight: 900;
+      color: rgba(139,26,26,0.04);
+      letter-spacing: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+
+    /* Stamps */
+    .stamp {
+      display: inline-block;
+      font-weight: 900;
+      color: var(--red);
+      border: 3px double var(--red);
+      padding: 6px 18px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      opacity: 0.75;
+      transform: rotate(-4deg);
+      margin: 16px 0;
+      animation: stampIn 0.4s ease-out;
+    }
+
+    @keyframes stampIn {
+      0% { opacity: 0; transform: rotate(-4deg) scale(1.5); }
+      60% { opacity: 0.85; transform: rotate(-4deg) scale(0.97); }
+      100% { opacity: 0.75; transform: rotate(-4deg) scale(1); }
+    }
+
+    /* Document header */
+    .doc-header {
+      text-align: center;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .agency {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+
+    .division {
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .doc-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 20px;
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+
+    .doc-meta dt {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .doc-meta dd {
+      color: var(--ink);
+    }
+
+    .separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    .separator--heavy {
+      border-top: 2px solid var(--ink);
+    }
+
+    /* Sections */
+    .section {
+      margin: 28px 0;
+    }
+
+    .section h2 {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .section h3 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+
+    .section p, .section li {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li::before {
+      content: '•';
+      margin-right: 8px;
+      color: var(--ink-light);
+    }
+
+    /* Redaction — use class="r" with ████ characters inside */
+    .r {
+      background: var(--black);
+      color: var(--black);
+      padding: 1px 2px;
+      border-radius: 1px;
+      cursor: help;
+      font-size: 0.92em;
+      letter-spacing: -0.5px;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 12.5px;
+    }
+
+    thead th {
+      background: var(--paper-dark);
+      text-align: left;
+      padding: 7px 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .mono {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .badge--red { background: #f8d7d7; color: #8b1a1a; }
+    .badge--yellow { background: #fef3c7; color: #856404; }
+    .badge--green { background: #d4edda; color: #155724; }
+    .badge--gray { background: #e8e8e8; color: #555; }
+
+    /* Assessment boxes */
+    .assess {
+      border-left: 4px solid;
+      padding: 10px 14px;
+      margin: 14px 0;
+      font-size: 12.5px;
+    }
+
+    .assess--critical { border-color: #c00; background: rgba(200,0,0,0.05); }
+    .assess--warning { border-color: #c90; background: rgba(200,150,0,0.05); }
+    .assess--info { border-color: #069; background: rgba(0,100,150,0.05); }
+
+    /* Footer */
+    .doc-footer {
+      border-top: 2px solid var(--ink);
+      margin-top: 36px;
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--ink-light);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .end-mark {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--ink-light);
+      margin: 30px 0 10px;
+    }
+
+    /* FolkUp link */
+    .folkup-link {
+      text-align: center;
+      margin: 24px 0 8px;
+      font-size: 11px;
+    }
+
+    .folkup-link a {
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .folkup-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Table responsive */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; }
+      .paper { box-shadow: none; }
+      .class-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .stamp { opacity: 1 !important; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .paper-inner { padding: 28px 20px 24px; }
+      .doc-meta { grid-template-columns: 1fr; gap: 2px; }
+      .stamp { font-size: 1rem; padding: 4px 12px; letter-spacing: 3px; }
+      .watermark { font-size: 2.5rem; }
+      table { font-size: 11.5px; }
+      td, thead th { padding: 5px 6px; }
+      .doc-footer { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  FOLKUP SITE AUDIT — DECLASSIFIED DOCUMENT TEMPLATE        ║
+  ║                                                            ║
+  ║  Плейсхолдеры:                                             ║
+  ║    {{YEAR}}    — год (2026)                                 ║
+  ║    {{NUM}}     — номер досье (001, 002, ...)                ║
+  ║    {{DATE}}    — дата аудита (02 марта 2026)                ║
+  ║    {{DOMAIN}}  — домен объекта (example.com)                ║
+  ║                                                            ║
+  ║  Редакция ПД:                                              ║
+  ║    <span class="r" title="[ИЗЪЯТО]">████████</span>        ║
+  ║    Количество █ ≈ длина скрытого текста                     ║
+  ║                                                            ║
+  ║  Бейджи:                                                   ║
+  ║    badge--red    — критично / не подтверждено               ║
+  ║    badge--yellow — предупреждение / частично                ║
+  ║    badge--green  — ОК / подтверждено                        ║
+  ║    badge--gray   — нейтрально / нет данных                  ║
+  ║                                                            ║
+  ║  Блоки оценки:                                             ║
+  ║    assess--critical — красный (проблема)                    ║
+  ║    assess--warning  — жёлтый (внимание)                     ║
+  ║    assess--info     — синий (примечание)                    ║
+  ║                                                            ║
+  ║  Секции (добавлять/удалять по необходимости):              ║
+  ║    1. Резюме                                               ║
+  ║    2. Инфраструктура                                       ║
+  ║    3. Технологии                                           ║
+  ║    4. Дизайн и оригинальность                              ║
+  ║    5. Контент и верификация                                ║
+  ║    6. Безопасность и SEO                                   ║
+  ║    7. Скрытые элементы                                     ║
+  ║    8. Итоговая оценка                                      ║
+  ║                                                            ║
+  ║  После создания:                                           ║
+  ║    1. Сохранить в deck/reviews/case-{{NUM}}/index.html     ║
+  ║    2. Добавить строку в deck/reviews/index.html (хаб)      ║
+  ║    3. Деплой: npx wrangler pages deploy deck/              ║
+  ║       --project-name=folkup-deck --branch=main             ║
+  ║       --commit-dirty=true                                  ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+
+<div class="class-bar class-bar--struck">&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;&#9608; — classification revoked</div>
+
+<div class="paper">
+  <div class="watermark">DECLASSIFIED</div>
+
+  <div class="paper-inner">
+
+    <!-- ═══ HEADER ═══ -->
+    <div class="doc-header">
+      <div class="agency">FOLKUP TECHNICAL INTELLIGENCE</div>
+      <div class="division">SITE AUDIT DIVISION</div>
+
+      <div class="stamp">РАССЕКРЕЧЕНО</div>
+
+      <dl class="doc-meta">
+        <dt>ДОСЬЕ:</dt>
+        <dd>FR-{{YEAR}}-{{NUM}}</dd>
+        <dt>ДАТА:</dt>
+        <dd>{{DATE}}</dd>
+        <dt>ГРИФ:</dt>
+        <dd><span class="r" title="[ИЗЪЯТО]">██████████</span> → РАССЕКРЕЧЕНО</dd>
+        <dt>АНАЛИТИК:</dt>
+        <dd>Отдел OSINT</dd>
+        <dt>ОБЪЕКТ:</dt>
+        <dd>{{DOMAIN}}</dd>
+        <dt>ТИП:</dt>
+        <dd>Полный технический аудит веб-ресурса</dd>
+        <dt>СТАТУС:</dt>
+        <dd>АНАЛИЗ ЗАВЕРШЁН</dd>
+      </dl>
+    </div>
+
+    <!-- ═══ 1. РЕЗЮМЕ ═══ -->
+    <div class="section">
+      <h2>1. Резюме</h2>
+      <p>
+        Объект анализа: <!-- описание сайта, тип, владелец (с редакцией ПД) -->
+      </p>
+      <div class="assess assess--critical">
+        <strong>КЛЮЧЕВОЙ ВЫВОД:</strong> <!-- главный результат аудита -->
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 2. ИНФРАСТРУКТУРА ═══ -->
+    <div class="section">
+      <h2>2. Инфраструктура</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Параметр</th><th>Значение</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>IP-адрес</td><td class="mono"><!-- IP --></td></tr>
+            <tr><td>Хостинг</td><td><!-- провайдер, город, ASN --></td></tr>
+            <tr><td>Веб-сервер</td><td class="mono"><!-- nginx/apache/etc --></td></tr>
+            <tr><td>SSL</td><td><!-- CA, версия TLS, срок --></td></tr>
+            <tr><td>Регистратор</td><td><!-- registrar, NS --></td></tr>
+            <tr><td>Почта (MX)</td><td><!-- MX record --></td></tr>
+            <tr><td>IPv6</td><td><span class="badge badge--yellow"><!-- есть/нет --></span></td></tr>
+            <tr><td>Размер страницы</td><td><!-- bytes --></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 3. ТЕХНОЛОГИИ ═══ -->
+    <div class="section">
+      <h2>3. Технологии</h2>
+      <p><!-- описание tech stack --></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Компонент</th><th>Реализация</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Фреймворк</td><td><!-- React/Vue/Hugo/etc --></td></tr>
+            <tr><td>CSS</td><td><!-- Tailwind/custom/etc --></td></tr>
+            <tr><td>JS</td><td><!-- vanilla/jQuery/etc --></td></tr>
+            <tr><td>CMS</td><td><!-- WordPress/headless/etc --></td></tr>
+            <tr><td>Bundler</td><td><!-- Vite/Webpack/none --></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 4. ДИЗАЙН И ОРИГИНАЛЬНОСТЬ ═══ -->
+    <div class="section">
+      <h2>4. Дизайн и оригинальность</h2>
+      <p><!-- общая оценка дизайна --></p>
+
+      <h3>4.1. Палитра</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Элемент</th><th>Цвет</th><th>Примечание</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Background</td><td class="mono"><!-- #hex --></td><td><!-- комментарий --></td></tr>
+            <tr><td>Accent</td><td class="mono"><!-- #hex --></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.2. Оригинальность элементов</h3>
+      <ul>
+        <li><!-- элемент 1 --></li>
+        <li><!-- элемент 2 --></li>
+      </ul>
+
+      <div class="assess assess--warning">
+        <strong>ОЦЕНКА ОРИГИНАЛЬНОСТИ: <!-- ВЫСОКАЯ / СРЕДНЯЯ / НИЗКАЯ --></strong>
+        <!-- пояснение -->
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 5. КОНТЕНТ И ВЕРИФИКАЦИЯ ═══ -->
+    <div class="section">
+      <h2>5. Контент и верификация</h2>
+
+      <h3>5.1. Идентификация субъекта</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Платформа</th><th>Идентификатор</th><th>Статус</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><!-- платформа --></td>
+              <td><span class="r" title="[ИЗЪЯТО]">█████████████</span></td>
+              <td><span class="badge badge--green"><!-- статус --></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.2. Верификация заявлений</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Заявление</th><th>Верификация</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><!-- что заявлено --></td>
+              <td><span class="badge badge--red"><!-- результат --></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 6. БЕЗОПАСНОСТЬ И SEO ═══ -->
+    <div class="section">
+      <h2>6. Безопасность и SEO</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Проблема</th><th>Серьёзность</th><th>Описание</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><!-- проблема --></td>
+              <td><span class="badge badge--red"><!-- уровень --></span></td>
+              <td><!-- описание --></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 7. СКРЫТЫЕ ЭЛЕМЕНТЫ ═══ -->
+    <div class="section">
+      <h2>7. Скрытые элементы (Easter Eggs)</h2>
+      <ul>
+        <li><!-- easter egg 1 --></li>
+      </ul>
+      <div class="assess assess--info">
+        <strong>БЕЗОПАСНОСТЬ:</strong> <!-- есть ли утечки -->
+      </div>
+    </div>
+
+    <hr class="separator">
+
+    <!-- ═══ 8. ИТОГОВАЯ ОЦЕНКА ═══ -->
+    <div class="section">
+      <h2>8. Итоговая оценка</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Аспект</th><th>Оценка</th><th>Комментарий</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Технологии</td>
+              <td><span class="badge badge--gray"><!-- оценка --></span></td>
+              <td><!-- комментарий --></td>
+            </tr>
+            <tr>
+              <td>Дизайн</td>
+              <td><span class="badge badge--yellow"><!-- оценка --></span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Контент</td>
+              <td><span class="badge badge--red"><!-- оценка --></span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>SEO</td>
+              <td><span class="badge badge--yellow"><!-- оценка --></span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Безопасность</td>
+              <td><span class="badge badge--yellow"><!-- оценка --></span></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="assess assess--critical">
+        <strong>ЗАКЛЮЧЕНИЕ:</strong> <!-- итоговый вердикт -->
+      </div>
+    </div>
+
+    <hr class="separator separator--heavy">
+
+    <div class="end-mark">— КОНЕЦ ДОКУМЕНТА —</div>
+
+    <div class="doc-footer">
+      <span>FR-{{YEAR}}-{{NUM}} / Стр. 1 из 1</span>
+      <span>FolkUp Intelligence Division</span>
+      <span>{{DATE}}</span>
+    </div>
+
+    <div class="folkup-link">
+      <a href="https://folkup.app/reviews/">← вернуться к списку аудитов</a>
+    </div>
+
+  </div><!-- /paper-inner -->
+</div><!-- /paper -->
+
+<div class="class-bar class-bar--struck">&#9608;&#9608;&#9608; &#9608;&#9608;&#9608;&#9608;&#9608;&#9608; — classification revoked</div>
+
+</body>
+</html>
