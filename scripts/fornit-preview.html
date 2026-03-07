@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>FolkUp Fornit Avatars — Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #FEFCF6; color: #2C2C2C; padding: 2rem; }
+  h1 { text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem; color: #7D4450; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 2rem; font-size: 0.9rem; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 3rem; }
+  .card { background: #F5F0EB; border-radius: 10px; padding: 1.5rem 1rem; text-align: center; }
+  .avatar { width: 160px; height: 160px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 2px solid #E0D8CF; background: #FEFCF6; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
+  .role { font-size: 0.8rem; font-weight: 600; color: #839E75; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .oneliner { font-style: italic; font-size: 0.85rem; color: #888; line-height: 1.5; }
+
+  /* Actual size comparison */
+  h2 { text-align: center; font-size: 1.2rem; margin-bottom: 1rem; color: #7D4450; }
+  .actual-grid { display: flex; gap: 2rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; margin-bottom: 3rem; }
+  .actual-card { text-align: center; }
+  .actual-avatar { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 0.5rem; border: 2px solid #E0D8CF; background: #FEFCF6; }
+  .actual-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .actual-name { font-size: 0.85rem; font-weight: 600; }
+
+  /* Full size */
+  .full-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+  .full-img { width: 100%; border-radius: 8px; border: 1px solid #E0D8CF; }
+  .full-label { text-align: center; font-size: 0.8rem; color: #888; margin-top: 0.5rem; }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .full-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<h1>Fornit Avatars — Preview</h1>
+<p class="subtitle">Watercolor style, Flux 1.1 Pro, 512x512, quality 75</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="avatar"><img src="../public/images/team/alice.webp" alt="Alice"></div>
+    <div class="name">Алиса</div>
+    <div class="role">Ресёрчер и навигатор</div>
+    <div class="oneliner">Прыгает в нору с фонарём. Всегда возвращается с находкой.</div>
+  </div>
+  <div class="card">
+    <div class="avatar"><img src="../public/images/team/gonzo.webp" alt="CyberGonzo"></div>
+    <div class="name">КиберГонзо</div>
+    <div class="role">OSINT и верификация</div>
+    <div class="oneliner">Ходит в Зону за артефактами. Всё проверяет дважды, не доверяет ни разу.</div>
+  </div>
+  <div class="card">
+    <div class="avatar"><img src="../public/images/team/cooper.webp" alt="Cooper"></div>
+    <div class="name">Купер</div>
+    <div class="role">Офицер безопасности</div>
+    <div class="oneliner">Видит паттерны там, где другие видят шум. Совы — не то, чем кажутся.</div>
+  </div>
+  <div class="card">
+    <div class="avatar"><img src="../public/images/team/lantern.webp" alt="Lamplighter"></div>
+    <div class="name">Фонарщик</div>
+    <div class="role">Бренд и визуальная идентичность</div>
+    <div class="oneliner">Его не видно, но без него темно. Следит за светом, хранит тепло.</div>
+  </div>
+  <div class="card">
+    <div class="avatar"><img src="../public/images/team/lev.webp" alt="Lev"></div>
+    <div class="name">Лев</div>
+    <div class="role">Legal и compliance</div>
+    <div class="oneliner">Стены и замки библиотеки. Каждая дверь открыта, каждый замок на месте.</div>
+  </div>
+</div>
+
+<h2>Actual Size (80px circle — как на лендинге)</h2>
+<div class="actual-grid">
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/alice.webp" alt="Alice"></div>
+    <div class="actual-name">Алиса</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/gonzo.webp" alt="CyberGonzo"></div>
+    <div class="actual-name">КиберГонзо</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/cooper.webp" alt="Cooper"></div>
+    <div class="actual-name">Купер</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/lantern.webp" alt="Lamplighter"></div>
+    <div class="actual-name">Фонарщик</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/lev.webp" alt="Lev"></div>
+    <div class="actual-name">Лев</div>
+  </div>
+</div>
+
+<h2>Full Size (512x512)</h2>
+<div class="full-grid">
+  <div>
+    <img class="full-img" src="../public/images/team/alice.webp" alt="Alice">
+    <div class="full-label">Алиса — 97.6 KB</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/gonzo.webp" alt="CyberGonzo">
+    <div class="full-label">КиберГонзо — 37.3 KB</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/cooper.webp" alt="Cooper">
+    <div class="full-label">Купер — 74.8 KB</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/lantern.webp" alt="Lamplighter">
+    <div class="full-label">Фонарщик — 16.1 KB</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/lev.webp" alt="Lev">
+    <div class="full-label">Лев — 111.3 KB</div>
+  </div>
+</div>
+
+</body>
+</html>
