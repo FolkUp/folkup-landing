@@ -15,7 +15,7 @@ const { locale } = useI18n()
       <p><strong>Последнее обновление:</strong> март 2026</p>
 
       <h2>Кто мы</h2>
-      <p>FolkUp — независимый проект, создающий бесплатные энциклопедии. Этот сайт работает на folkup.app.</p>
+      <p>FolkUp — исследовательская платформа, создающая инструменты знаний для живых людей. Этот сайт работает на folkup.app.</p>
 
       <h2>Какие данные мы собираем</h2>
       <p>Мы можем собирать анонимную статистику использования с помощью инструмента аналитики, ориентированного на конфиденциальность, без файлов cookie, размещённого на нашей собственной инфраструктуре. При активации персональные данные, файлы cookie и IP-адреса не сохраняются. По состоянию на март 2026 года аналитика на этой странице ещё не активирована.</p>
@@ -38,7 +38,7 @@ const { locale } = useI18n()
       <p><strong>Última atualização:</strong> março de 2026</p>
 
       <h2>Quem somos</h2>
-      <p>O FolkUp é um projeto independente que cria enciclopédias gratuitas. Este site opera em folkup.app.</p>
+      <p>O FolkUp é uma plataforma de investigação que cria ferramentas de conhecimento para pessoas reais. Este site opera em folkup.app.</p>
 
       <h2>Que dados recolhemos</h2>
       <p>Podemos recolher estatísticas de utilização anónimas através de uma ferramenta de análise focada na privacidade, sem cookies, alojada na nossa própria infraestrutura. Quando ativa, não são armazenados dados pessoais, cookies ou endereços IP. Em março de 2026, a análise ainda não está ativa nesta página.</p>
@@ -61,7 +61,7 @@ const { locale } = useI18n()
       <p><strong>Last updated:</strong> March 2026</p>
 
       <h2>Who we are</h2>
-      <p>FolkUp is an independent project that creates free encyclopedias. This website is operated at folkup.app.</p>
+      <p>FolkUp is a research platform that builds knowledge tools for real people. This website is operated at folkup.app.</p>
 
       <h2>What data we collect</h2>
       <p>We may collect anonymous usage statistics using a privacy-focused, cookie-free analytics tool hosted on our own infrastructure. When active, no personal data, cookies, or IP addresses are stored. As of March 2026, analytics are not yet enabled on this landing page.</p>
