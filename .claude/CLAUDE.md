@@ -32,6 +32,6 @@ Landing page for folkup.app — FolkUp ecosystem hub.
 
 ## Remaining Work
 - Umami analytics: create website in analytics.folkup.app, add script (requires VPN)
-- FD-026: Replicate project icons for landing (5 images)
+- DOCS-026: Replicate project icons for landing (5 images)
 - Storybook (P3, icebox)
 - Sitemap.xml (vite-ssg plugin)
