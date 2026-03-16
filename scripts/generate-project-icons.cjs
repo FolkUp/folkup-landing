@@ -22,9 +22,6 @@ const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'images', 'project-icons
 const STYLE = 'Warm watercolor storybook illustration, muted earthy tones with golden amber accents, loose painterly brushstrokes, soft edges, delicate translucent layers, white paper background, hand-drawn quality, no text, no words, no lettering, no watermark, centered composition, single subject';
 
 const ICONS = {
-  barnes: {
-    prompt: `${STYLE}, a small medieval Portuguese stone castle tower with crenellations, vine leaves growing on the walls, warm bordeaux and sage green watercolor washes, fairy tale fortress`,
-  },
   padel: {
     prompt: `${STYLE}, a padel tennis racket with round perforated head and short handle, a padel ball beside it, sage green and warm earth tones, sporty yet organic feel`,
   },

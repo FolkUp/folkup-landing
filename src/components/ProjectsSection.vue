@@ -6,7 +6,6 @@ import ProjectCard from './ProjectCard.vue'
 const { t } = useI18n()
 
 const projects = [
-  { key: 'barnes', icon: '/images/project-icons/barnes.webp', accent: 'var(--color-accent-barnes)', url: PROJECT_URLS.barnes, categoryKey: 'projectsCategoryCity' },
   { key: 'padel', icon: '/images/project-icons/padel.webp', accent: 'var(--color-accent-padel)', url: PROJECT_URLS.padel, categoryKey: 'projectsCategorySport' },
   { key: 'setubal', icon: '/images/project-icons/setubal.webp', accent: 'var(--color-accent-setubal)', url: PROJECT_URLS.setubal, categoryKey: 'projectsCategoryCity' },
   { key: 'cogumelos', icon: '/images/project-icons/cogumelos.webp', accent: 'var(--color-accent-cogumelos)', url: PROJECT_URLS.cogumelos, categoryKey: 'projectsCategoryNature' },
