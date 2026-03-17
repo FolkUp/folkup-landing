@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>FolkUp — видео для своих</title>
+  <!-- TODO: self-host fonts for production (GDPR compliance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #7D4450;
+      --accent: #E8AD4A;
+      --bg: #FEFCF6;
+      --surface: #F0EDE8;
+      --text: #2A2725;
+      --text-muted: #6B6560;
+      --border: #E0DCD7;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: rgba(200, 140, 130, 1);
+        --accent: #E8AD4A;
+        --bg: #1A1816;
+        --surface: #242220;
+        --text: rgba(225, 220, 215, 1);
+        --text-muted: rgba(160, 155, 148, 1);
+        --border: #3A3634;
+      }
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 56rem;
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-container video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+
+    .controls span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+    }
+
+    .controls button {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .controls button:hover {
+      border-color: var(--accent);
+    }
+
+    .controls button.active {
+      background: var(--accent);
+      color: #2A2725;
+      border-color: var(--accent);
+    }
+
+    .back {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .back a {
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .back a:hover {
+      border-bottom-color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .logo { font-size: 1.5rem; }
+      body { padding: 1rem 0.5rem; }
+    }
+
+    @media print { body { display: none; } }
+  </style>
+</head>
+<body>
+
+  <a class="logo" href="folkup-overview.html">FolkUp</a>
+
+  <div class="card">
+    <div class="video-container">
+      <video id="vid" controls preload="metadata">
+        <source src="folkup-overview-video-family.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+    <div class="controls">
+      <span>Скорость:</span>
+      <button type="button" data-speed="0.5">0.5×</button>
+      <button type="button" data-speed="1" class="active">1×</button>
+      <button type="button" data-speed="1.5">1.5×</button>
+      <button type="button" data-speed="2">2×</button>
+    </div>
+  </div>
+
+  <p class="back">← <a href="folkup-overview.html">Вернуться к обзору</a></p>
+
+  <script>
+    (function () {
+      var vid = document.getElementById('vid');
+      var btns = document.querySelectorAll('.controls button');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          vid.playbackRate = parseFloat(this.getAttribute('data-speed'));
+          btns.forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

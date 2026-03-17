@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FolkUp — что это и зачем</title>
+  <meta name="description" content="FolkUp — экосистема из 11 проектов: энциклопедии, инструменты, авторские колоды Таро. Одним человеком с автоматизированными инструментами.">
+  <link rel="canonical" href="https://folkup.app/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FolkUp — что это и зачем">
+  <meta property="og:description" content="Экосистема из 11 проектов: энциклопедии знаний, авторские колоды Таро, исследовательская лаборатория. Построено одним человеком.">
+  <meta property="og:url" content="https://folkup.app/">
+  <meta property="og:site_name" content="FolkUp">
+  <meta property="og:locale" content="ru_RU">
+  <!-- TODO: self-host fonts for production (GDPR compliance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       FolkUp Overview v2 — Theme Switcher
+       Brand Guide v2.5 base + custom palettes
+       ======================================== */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Base palette — Библиотека (default) */
+      --primary: #7D4450;
+      --secondary: #839E75;
+      --accent: #E8AD4A;
+      --bg: #FEFCF6;
+      --surface: #F0EDE8;
+      --text: #2A2725;
+      --text-muted: #6B6560;
+      --border: #E0DCD7;
+      --card-shadow: rgba(42, 39, 37, 0.06);
+      --glow: rgba(232, 173, 74, 0.15);
+
+      /* Type scale — 1.25 Major Third */
+      --text-xs: 0.64rem;
+      --text-sm: 0.8rem;
+      --text-base: 1rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.563rem;
+      --text-2xl: 1.953rem;
+      --text-3xl: 2.441rem;
+      --text-4xl: 3.052rem;
+
+      /* Spacing — 4px base */
+      --sp-1: 0.25rem;
+      --sp-2: 0.5rem;
+      --sp-3: 0.75rem;
+      --sp-4: 1rem;
+      --sp-6: 1.5rem;
+      --sp-8: 2rem;
+      --sp-10: 2.5rem;
+      --sp-12: 3rem;
+      --sp-16: 4rem;
+      --sp-20: 5rem;
+
+      /* Misc */
+      --radius: 6px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+      --max-width: 72rem;
+      --transition: 0.25s ease;
+      --transition-slow: 0.5s ease;
+    }
+
+    /* ---- Theme palettes ---- */
+
+    [data-theme="ocean"] {
+      --primary: #2E6B8A;
+      --secondary: #5BA68A;
+      --accent: #F0A050;
+      --bg: #F4F9FC;
+      --surface: #E8F1F6;
+      --text: #1A2F3A;
+      --text-muted: #5A7080;
+      --border: #D0DEE6;
+      --card-shadow: rgba(46, 107, 138, 0.08);
+      --glow: rgba(240, 160, 80, 0.15);
+    }
+
+    [data-theme="sunset"] {
+      --primary: #C45B3A;
+      --secondary: #7A9E5E;
+      --accent: #F5C842;
+      --bg: #FFFBF5;
+      --surface: #FFF0E0;
+      --text: #3A2215;
+      --text-muted: #8A6550;
+      --border: #F0D8C0;
+      --card-shadow: rgba(196, 91, 58, 0.08);
+      --glow: rgba(245, 200, 66, 0.2);
+    }
+
+    [data-theme="forest"] {
+      --primary: #3A6B45;
+      --secondary: #8A7C5A;
+      --accent: #D4A843;
+      --bg: #F6F8F4;
+      --surface: #EAF0E6;
+      --text: #1C2A1E;
+      --text-muted: #5A6B55;
+      --border: #D0DCC8;
+      --card-shadow: rgba(58, 107, 69, 0.08);
+      --glow: rgba(212, 168, 67, 0.15);
+    }
+
+    [data-theme="lavender"] {
+      --primary: #7B5EA7;
+      --secondary: #A07DAA;
+      --accent: #E8A85A;
+      --bg: #FAF8FE;
+      --surface: #F0ECF6;
+      --text: #2A2235;
+      --text-muted: #7A6B8A;
+      --border: #DED6EA;
+      --card-shadow: rgba(123, 94, 167, 0.08);
+      --glow: rgba(232, 168, 90, 0.15);
+    }
+
+    [data-theme="midnight"] {
+      --primary: #B09070;
+      --secondary: #80A890;
+      --accent: #E8AD4A;
+      --bg: #1A1816;
+      --surface: #242220;
+      --text: #E1DCD7;
+      --text-muted: #9A9590;
+      --border: #3A3634;
+      --card-shadow: rgba(0, 0, 0, 0.2);
+      --glow: rgba(232, 173, 74, 0.1);
+    }
+
+    [data-theme="mono-light"] {
+      --primary: #333333;
+      --secondary: #666666;
+      --accent: #333333;
+      --bg: #FFFFFF;
+      --surface: #F2F2F2;
+      --text: #111111;
+      --text-muted: #666666;
+      --border: #DDDDDD;
+      --card-shadow: rgba(0, 0, 0, 0.06);
+      --glow: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="mono-dark"] {
+      --primary: #CCCCCC;
+      --secondary: #999999;
+      --accent: #FFFFFF;
+      --bg: #111111;
+      --surface: #1E1E1E;
+      --text: #EEEEEE;
+      --text-muted: #999999;
+      --border: #333333;
+      --card-shadow: rgba(0, 0, 0, 0.3);
+      --glow: rgba(255, 255, 255, 0.05);
+    }
+
+    /* ---- Base ---- */
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-md);
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      transition: background-color var(--transition-slow), color var(--transition-slow);
+    }
+
+    /* ---- Focus ---- */
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: var(--radius);
+    }
+
+    /* ---- Typography ---- */
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: var(--text-4xl);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--sp-6);
+    }
+
+    h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--sp-4);
+    }
+
+    p {
+      margin-bottom: var(--sp-6);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    /* ---- Layout ---- */
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--sp-8);
+    }
+
+    section {
+      padding: var(--sp-16) 0;
+    }
+
+    /* ---- Scroll reveal ---- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ---- Header ---- */
+
+    .site-header {
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+      transition: background-color var(--transition-slow), border-color var(--transition-slow);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-family: 'Pacifico', cursive;
+      font-size: var(--text-xl);
+      color: var(--primary);
+      transition: color var(--transition);
+    }
+
+    /* ---- Theme switcher ---- */
+
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+    }
+
+    .theme-switcher-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-right: var(--sp-1);
+    }
+
+    .theme-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      padding: 0;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* 44px touch target via transparent hit area */
+    .theme-btn::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.2);
+      border-color: var(--text-muted);
+    }
+
+    .theme-btn.active {
+      border-color: var(--text);
+      box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text);
+    }
+
+    .theme-btn[data-theme="default"] { background: linear-gradient(135deg, #7D4450 50%, #E8AD4A 50%); }
+    .theme-btn[data-theme="ocean"] { background: linear-gradient(135deg, #2E6B8A 50%, #F0A050 50%); }
+    .theme-btn[data-theme="sunset"] { background: linear-gradient(135deg, #C45B3A 50%, #F5C842 50%); }
+    .theme-btn[data-theme="forest"] { background: linear-gradient(135deg, #3A6B45 50%, #D4A843 50%); }
+    .theme-btn[data-theme="lavender"] { background: linear-gradient(135deg, #7B5EA7 50%, #E8A85A 50%); }
+    .theme-btn[data-theme="midnight"] { background: linear-gradient(135deg, #1A1816 50%, #E8AD4A 50%); }
+    .theme-btn[data-theme="mono-light"] { background: linear-gradient(135deg, #333 50%, #FFF 50%); }
+    .theme-btn[data-theme="mono-dark"] { background: linear-gradient(135deg, #111 50%, #EEE 50%); }
+
+    /* ---- Hero ---- */
+
+    .hero {
+      padding-top: var(--sp-12);
+      padding-bottom: var(--sp-16);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--sp-6);
+    }
+
+    .hero-intro {
+      max-width: 42rem;
+      font-size: var(--text-lg);
+      color: var(--text-muted);
+      margin-bottom: var(--sp-10);
+    }
+
+    .hero-mascot {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-xl);
+      object-fit: cover;
+      filter: drop-shadow(0 8px 24px var(--card-shadow));
+    }
+
+    /* ---- Video ---- */
+
+    .video-wrapper {
+      position: relative;
+      max-width: 56rem;
+    }
+
+    .video-container {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #1A1816;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: var(--radius-lg);
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-4);
+      color: rgba(225, 220, 215, 0.5);
+      user-select: none;
+    }
+
+    .video-placeholder svg {
+      width: 4rem;
+      height: 4rem;
+      fill: currentColor;
+      opacity: 0.4;
+    }
+
+    .video-placeholder span {
+      font-size: var(--text-sm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .video-speed {
+      display: flex;
+      gap: var(--sp-2);
+      margin-top: var(--sp-3);
+    }
+
+    .video-speed button {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      padding: var(--sp-2) var(--sp-3);
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .video-speed button:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .video-speed button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* ---- Video details/summary ---- */
+
+    .video-details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--sp-4);
+      background: var(--surface);
+    }
+
+    .video-summary {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-md);
+      font-weight: 600;
+      padding: var(--sp-4) var(--sp-6);
+      cursor: pointer;
+      color: var(--text);
+      transition: background var(--transition);
+      list-style: none;
+    }
+
+    .video-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .video-summary::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: var(--sp-3);
+      font-size: var(--text-sm);
+      transition: transform var(--transition);
+      color: var(--accent);
+    }
+
+    .video-details[open] > .video-summary::before {
+      transform: rotate(90deg);
+    }
+
+    .video-summary:hover {
+      background: var(--bg);
+    }
+
+    .video-details[open] > .video-wrapper {
+      padding: 0 var(--sp-4) var(--sp-4);
+    }
+
+    /* ---- Manifesto ---- */
+
+    .manifesto {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background-color var(--transition-slow), border-color var(--transition-slow);
+    }
+
+    .manifesto-inner {
+      max-width: 48rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .manifesto blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-2xl);
+      font-style: italic;
+      color: var(--primary);
+      margin-bottom: var(--sp-8);
+      line-height: 1.4;
+      transition: color var(--transition-slow);
+    }
+
+    .manifesto-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      list-style: none;
+      padding: 0;
+    }
+
+    .manifesto-principles li {
+      padding: var(--sp-4);
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+      text-align: left;
+      transition: border-color var(--transition);
+    }
+
+    .manifesto-principles li strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: var(--sp-1);
+    }
+
+    /* ---- Projects ---- */
+
+    .projects-intro {
+      max-width: 40rem;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-10);
+    }
+
+    .projects-group-title {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-4);
+      padding-bottom: var(--sp-2);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-10);
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: var(--sp-6);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition), background-color var(--transition-slow);
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px var(--card-shadow);
+      transform: translateY(-3px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      gap: var(--sp-2);
+      min-width: 0;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+
+    .card-badge {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: var(--sp-1) var(--sp-2);
+      border-radius: var(--radius);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-live {
+      background: rgba(131, 158, 117, 0.15);
+      color: var(--secondary);
+    }
+
+    .badge-invite {
+      background: rgba(232, 173, 74, 0.15);
+      color: var(--accent);
+    }
+
+    .badge-dev {
+      background: rgba(107, 101, 96, 0.12);
+      color: var(--text-muted);
+    }
+
+    .badge-internal {
+      background: rgba(125, 68, 80, 0.12);
+      color: var(--primary);
+    }
+
+    .card-desc {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .card--no-link {
+      cursor: default;
+    }
+
+    .card--no-link:hover {
+      border-color: var(--border);
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* ---- Fornits ---- */
+
+    .fornits-content {
+      max-width: 48rem;
+    }
+
+    .fornits-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--sp-6) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .fornit-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-6);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border-left: 3px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition-slow);
+    }
+
+    .fornit-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 2px 12px var(--card-shadow);
+    }
+
+    .fornit-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+      transition: border-color var(--transition);
+    }
+
+    .fornit-item:hover .fornit-avatar {
+      border-color: var(--accent);
+    }
+
+    .fornit-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fornit-avatar--placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: background-color var(--transition-slow), border-color var(--transition);
+    }
+
+    .fornit-item:hover .fornit-avatar--placeholder {
+      border-color: var(--accent);
+    }
+
+    .fornit-name {
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: var(--sp-1);
+    }
+
+    .fornit-desc {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    /* ---- How it works ---- */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-8);
+      margin-bottom: var(--sp-8);
+    }
+
+    .audience-block {
+      padding: var(--sp-6);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      transition: background-color var(--transition-slow);
+    }
+
+    .audience-block h3 {
+      color: var(--primary);
+    }
+
+    .article-ref {
+      padding: var(--sp-4) var(--sp-6);
+      background: var(--glow);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .article-ref a {
+      font-weight: 600;
+    }
+
+    /* ---- Under the hood ---- */
+
+    .infra-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-10);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--sp-6) var(--sp-4);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition), background-color var(--transition-slow);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      line-height: 1.1;
+      margin-bottom: var(--sp-2);
+    }
+
+    .stat-label {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .infra-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-6);
+      max-width: 56rem;
+    }
+
+    .infra-feature {
+      padding: var(--sp-4) var(--sp-6);
+      background: var(--surface);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--accent);
+      transition: background-color var(--transition-slow);
+    }
+
+    .infra-feature strong {
+      color: var(--primary);
+    }
+
+    .infra-feature details {
+      margin-top: var(--sp-2);
+    }
+
+    .infra-feature summary {
+      font-size: var(--text-sm);
+      color: var(--primary);
+      cursor: pointer;
+      user-select: none;
+      padding: var(--sp-1) 0;
+      transition: color var(--transition);
+    }
+
+    .infra-feature summary:hover {
+      color: var(--primary);
+    }
+
+    .infra-feature details[open] summary {
+      margin-bottom: var(--sp-2);
+    }
+
+    .infra-detail {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border, var(--surface));
+    }
+
+    .infra-detail code {
+      font-size: 0.85em;
+      background: var(--surface);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      font-family: 'Source Code Pro', 'Consolas', monospace;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .infra-detail ul {
+      margin: var(--sp-2) 0 0;
+      padding-left: var(--sp-5);
+    }
+
+    .infra-detail li {
+      margin-bottom: var(--sp-1);
+    }
+
+    /* ---- Theme demo callout ---- */
+
+    .theme-demo {
+      padding: var(--sp-6);
+      background: var(--glow);
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--accent);
+      margin-top: var(--sp-8);
+      max-width: 48rem;
+    }
+
+    .theme-demo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--sp-3);
+    }
+
+    .theme-demo p {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    /* ---- Page timing ---- */
+
+    .page-timing {
+      padding: var(--sp-6) var(--sp-8);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--secondary);
+      max-width: 48rem;
+      margin: var(--sp-10) auto var(--sp-6);
+    }
+
+    .page-timing-title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: var(--sp-3);
+    }
+
+    .page-timing p {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    /* ---- Author's note ---- */
+
+    .authors-note {
+      max-width: 48rem;
+      margin: var(--sp-12) auto var(--sp-8);
+      padding: var(--sp-8) var(--sp-8);
+      border-left: 3px solid var(--accent);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: var(--text-lg);
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .authors-note-sign {
+      display: block;
+      margin-top: var(--sp-4);
+      font-family: 'Source Sans 3', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    /* ---- Outro video ---- */
+
+    .outro-video {
+      display: block;
+      position: relative;
+      max-width: 48rem;
+      margin: 0 auto var(--sp-12);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .outro-video:hover .outro-video-play svg path:first-child {
+      fill: #c00;
+    }
+
+    .outro-video-thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .outro-video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity var(--transition);
+    }
+
+    .outro-video:hover .outro-video-play {
+      opacity: 0.9;
+    }
+
+    /* ---- Lucerna ---- */
+
+    .lucerna-content {
+      max-width: 48rem;
+    }
+
+    .lucerna-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-weight: 600;
+      padding: var(--sp-3) var(--sp-6);
+      background: var(--surface);
+      border-radius: var(--radius);
+      margin-top: var(--sp-4);
+      text-decoration: none;
+      min-height: 44px;
+      transition: background var(--transition);
+    }
+
+    .lucerna-link:hover {
+      background: var(--glow);
+    }
+
+    .lucerna-link svg {
+      width: 1rem;
+      height: 1rem;
+      fill: currentColor;
+    }
+
+    @media print {
+      .theme-switcher { display: none; }
+    }
+
+    /* ---- Footer ---- */
+
+    .site-footer {
+      padding: var(--sp-10) 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      transition: border-color var(--transition-slow);
+    }
+
+    .footer-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: var(--text-xl);
+      color: var(--primary);
+      margin-bottom: var(--sp-4);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-4);
+      font-size: var(--text-sm);
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    /* ---- Section divider ---- */
+
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+      transition: background-color var(--transition-slow);
+    }
+
+    /* ---- Tarot gallery ---- */
+
+    .tarot-showcase {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background-color var(--transition-slow), border-color var(--transition-slow);
+    }
+
+    .tarot-intro {
+      max-width: 42rem;
+      color: var(--text-muted);
+      margin-bottom: var(--sp-10);
+    }
+
+    .tarot-decks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      max-width: 56rem;
+    }
+
+    .tarot-deck-title {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--sp-4);
+      text-align: center;
+    }
+
+    .tarot-cards {
+      display: flex;
+      gap: var(--sp-4);
+      justify-content: center;
+    }
+
+    .tarot-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      transition: transform var(--transition);
+    }
+
+    .tarot-card:hover {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+
+    .tarot-card:nth-child(2):hover {
+      transform: translateY(-6px) rotate(1deg);
+    }
+
+    .tarot-card img {
+      width: 140px;
+      height: auto;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 16px var(--card-shadow);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .tarot-card:hover img {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px var(--card-shadow);
+    }
+
+    .tarot-card-name {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .tarot-decks {
+        grid-template-columns: 1fr;
+        gap: var(--sp-8);
+      }
+
+      .tarot-card img {
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .tarot-cards {
+        gap: var(--sp-2);
+      }
+
+      .tarot-card img {
+        width: 80px;
+      }
+    }
+
+    /* ---- Interlude (humor breaks) ---- */
+
+    .interlude {
+      text-align: center;
+      padding: var(--sp-8) var(--sp-4);
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .interlude-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      max-width: 36rem;
+      margin: 0 auto var(--sp-2);
+    }
+
+    .interlude-attr {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-sm);
+      font-style: normal;
+      opacity: 0.6;
+    }
+
+    .interlude-brainrot {
+      font-size: var(--text-xs);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      margin-top: var(--sp-3);
+      cursor: default;
+      user-select: none;
+    }
+
+    .interlude:hover .interlude-brainrot {
+      opacity: 0.35;
+    }
+
+    /* ---- Responsive ---- */
+
+    @media (max-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .infra-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-mascot {
+        width: 140px;
+        height: 140px;
+        justify-self: center;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--sp-4);
+      }
+
+      h1 {
+        font-size: var(--text-3xl);
+      }
+
+      h2 {
+        font-size: var(--text-xl);
+      }
+
+      section {
+        padding: var(--sp-10) 0;
+      }
+
+      .hero {
+        padding-top: var(--sp-8);
+        padding-bottom: var(--sp-10);
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .manifesto-principles {
+        grid-template-columns: 1fr;
+      }
+
+      .manifesto blockquote {
+        font-size: var(--text-xl);
+      }
+
+      .infra-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-4);
+      }
+
+      .infra-features {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      .theme-switcher {
+        width: 100%;
+        justify-content: center;
+        padding-top: var(--sp-2);
+        border-top: 1px solid var(--border);
+      }
+
+      .hero-mascot {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: var(--text-2xl);
+      }
+
+      .hero-intro {
+        font-size: var(--text-base);
+      }
+
+      .stat-number {
+        font-size: var(--text-2xl);
+      }
+
+      .theme-btn {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo-group">
+          <img class="logo-icon" src="images/gertruda/gertruda-01.webp" alt="FolkUp" width="40" height="40" loading="eager">
+          <span class="logo-text">FolkUp</span>
+        </div>
+        <div class="theme-switcher" role="group" aria-label="Выбор цветовой темы">
+          <span class="theme-switcher-label">Тема</span>
+          <button type="button" class="theme-btn active" data-theme="default" title="Библиотека" aria-label="Тема Библиотека"></button>
+          <button type="button" class="theme-btn" data-theme="ocean" title="Океан" aria-label="Тема Океан"></button>
+          <button type="button" class="theme-btn" data-theme="sunset" title="Закат" aria-label="Тема Закат"></button>
+          <button type="button" class="theme-btn" data-theme="forest" title="Лес" aria-label="Тема Лес"></button>
+          <button type="button" class="theme-btn" data-theme="lavender" title="Лаванда" aria-label="Тема Лаванда"></button>
+          <button type="button" class="theme-btn" data-theme="midnight" title="Полночь" aria-label="Тема Полночь"></button>
+          <button type="button" class="theme-btn" data-theme="mono-light" title="Ч/Б" aria-label="Тема чёрно-белая"></button>
+          <button type="button" class="theme-btn" data-theme="mono-dark" title="Б/Ч" aria-label="Тема бело-чёрная"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero + Video -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-layout">
+          <div>
+            <h1 class="reveal">Что это и зачем</h1>
+            <p class="hero-intro reveal reveal-delay-1">Меня зовут Андрей. Живу в Сетубале, Португалия. FolkUp — это то, чем я занимаюсь последний год. Если ты читаешь эту страницу, значит я кинул тебе ссылку, потому что ты спросил «чем ты там занимаешься» или «что это за FolkUp». Ниже видео — можно посмотреть, а можно просто почитать текст.</p>
+          </div>
+          <img class="hero-mascot reveal reveal-delay-2" src="images/gertruda/gertruda-01.webp" alt="Гертруда — символ FolkUp: фонарь с корнями" width="200" height="200" loading="eager">
+        </div>
+        <details class="video-details reveal reveal-delay-3">
+          <summary class="video-summary">Видео-обзор (короткое)</summary>
+          <div class="video-wrapper">
+            <div class="video-container">
+              <video class="overview-video" controls preload="metadata">
+                <source src="folkup-overview-video-2.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+              </video>
+            </div>
+            <div class="video-speed" role="group" aria-label="Скорость воспроизведения">
+              <button type="button" data-speed="0.5">0.5×</button>
+              <button type="button" data-speed="1" class="active">1×</button>
+              <button type="button" data-speed="1.5">1.5×</button>
+              <button type="button" data-speed="2">2×</button>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto" id="manifesto">
+      <div class="container">
+        <div class="manifesto-inner">
+          <blockquote class="reveal">«Соседи помогают соседям»</blockquote>
+          <ul class="manifesto-principles" role="list">
+            <li class="reveal reveal-delay-1">
+              <strong>Знания для людей</strong>
+              Всё бесплатно и открыто. Без пейволлов, без рекламы.
+            </li>
+            <li class="reveal reveal-delay-2">
+              <strong>Инструменты, а не продукты</strong>
+              Каждый проект решает конкретную задачу. FolkUp не продаёт — FolkUp строит.
+            </li>
+            <li class="reveal reveal-delay-3">
+              <strong>Бабушкин наказ</strong>
+              Прогресс важнее перфекционизма. Но если что-то можно сделать хорошо — мы делаем хорошо. «Не тяп-ляп».
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="interlude reveal">
+      <p class="interlude-quote">"Outside of a dog, a book is man's best friend. Inside of a dog it's too dark to read."</p>
+      <span class="interlude-attr">Groucho Marx</span>
+      <div class="interlude-brainrot">this page is lowkey sigma fr fr</div>
+    </div>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="reveal">Проекты</h2>
+        <p class="projects-intro reveal reveal-delay-1">Всё ниже — живые проекты. Большинство можно открыть и потрогать. Некоторые доступны по приглашению через авторизацию.</p>
+
+        <div class="projects-group-title reveal">Энциклопедии знаний</div>
+        <div class="card-grid">
+
+          <a class="card reveal" href="https://dialup.folkup.city" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">Retro-Tech</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Компьютеры, консоли и модемы, которые когда-то меняли мир.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-1" href="https://barnes.folkup.city" target="_blank" rel="noopener">
+            <div class="card-header">
+              <img class="card-icon" src="images/project-icons/barnes.webp" alt="" width="36" height="36" loading="lazy">
+              <div class="card-title-group">
+                <span class="card-title">Barnes</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Энциклопедия Barnes, London SW13 — история, люди, природа, архитектура района.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-2" href="https://tarot.folkup.life" target="_blank" rel="noopener">
+            <div class="card-header">
+              <img class="card-icon" src="images/project-icons/tarot.webp" alt="" width="36" height="36" loading="lazy">
+              <div class="card-title-group">
+                <span class="card-title">Tarot Hub</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">История и символика Таро. Не гадание, а культурный справочник. Плюс две авторские колоды (Lantern и Ember) с guidebook и Print&Play.</p>
+          </a>
+
+          <a class="card reveal" href="https://setubal.folkup.city" target="_blank" rel="noopener">
+            <div class="card-header">
+              <img class="card-icon" src="images/project-icons/setubal.webp" alt="" width="36" height="36" loading="lazy">
+              <div class="card-title-group">
+                <span class="card-title">Setúbal</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Энциклопедия города, в котором мы живём. История, культура, места.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-1" href="https://cogumelos.folkup.fit" target="_blank" rel="noopener">
+            <div class="card-header">
+              <img class="card-icon" src="images/project-icons/cogumelos.webp" alt="" width="36" height="36" loading="lazy">
+              <div class="card-title-group">
+                <span class="card-title">Грибы Португалии</span>
+                <span class="card-badge badge-invite">По приглашению</span>
+              </div>
+            </div>
+            <p class="card-desc">30 видов грибов: токсичность, сезоны, фотографии, места сбора.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-2" href="https://padel.folkup.fit" target="_blank" rel="noopener">
+            <div class="card-header">
+              <img class="card-icon" src="images/project-icons/padel.webp" alt="" width="36" height="36" loading="lazy">
+              <div class="card-title-group">
+                <span class="card-title">Padel</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Падел-теннис: техника, правила, площадки.</p>
+          </a>
+
+          <a class="card reveal" href="https://aquarium.folkup.city" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">Аквариумистика</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Энциклопедия аквариумных рыб и их содержания.</p>
+          </a>
+
+        </div>
+
+        <div class="projects-group-title reveal">Другие проекты</div>
+        <div class="card-grid">
+
+          <div class="card card--no-link reveal">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">DayForge</span>
+                <span class="card-badge badge-internal">Внутренний</span>
+              </div>
+            </div>
+            <p class="card-desc">Ежедневный планировщик задач. Мой инструмент тайм-менеджмента.</p>
+          </div>
+
+          <a class="card reveal reveal-delay-1" href="https://t.me/johndoe_was_here" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">JohnDoe was here!</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Telegram-канал. Четыре голоса: я, блюзмен Дэн и два форнита.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-2" href="https://quest.folkup.app" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">FolkUp Quest</span>
+                <span class="card-badge badge-dev">В разработке</span>
+              </div>
+            </div>
+            <p class="card-desc">Текстовое приключение по вселенной FolkUp. Интерактивный квест на движке Ink.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-3" href="https://comic.folkup.app" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">Comic</span>
+                <span class="card-badge badge-dev">В разработке</span>
+              </div>
+            </div>
+            <p class="card-desc">Графическая новелла про форнитов. Акварельный стиль, сюжет, персонажи — от сценария до генерации панелей.</p>
+          </a>
+
+          <div class="card card--no-link reveal">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">Игральная колода</span>
+                <span class="card-badge badge-dev">В разработке</span>
+              </div>
+            </div>
+            <p class="card-desc">54 карты по лору FolkUp. Форниты, проекты, архетипы — от концепции до печати.</p>
+          </div>
+
+        </div>
+
+        <div class="projects-group-title reveal">Инфраструктура</div>
+        <div class="card-grid">
+
+          <a class="card reveal" href="https://docs.folkup.app" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">FolkUp Docs</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Документация экосистемы. Brand Guide, стандарты, процессы — всё в одном месте.</p>
+          </a>
+
+          <a class="card reveal reveal-delay-1" href="https://auth.folkup.app" target="_blank" rel="noopener">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">FolkUp Auth</span>
+                <span class="card-badge badge-live">Live</span>
+              </div>
+            </div>
+            <p class="card-desc">Единая авторизация. Один аккаунт для всех проектов FolkUp.</p>
+          </a>
+
+          <div class="card card--no-link reveal reveal-delay-2">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="card-title">ЦУП Фонарная</span>
+                <span class="card-badge badge-internal">Внутренний</span>
+              </div>
+            </div>
+            <p class="card-desc">Мониторинг экосистемы: контейнеры, аптайм, граф проектов. Панель управления всем хозяйством.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="interlude reveal">
+      <p class="interlude-quote">"The early bird gets the worm, but the second mouse gets the cheese."</p>
+      <span class="interlude-attr">Steven Wright</span>
+      <div class="interlude-brainrot">11 projects and no chill? that's NPC behavior</div>
+    </div>
+
+    <!-- Tarot showcase -->
+    <section class="tarot-showcase" id="tarot-gallery">
+      <div class="container">
+        <h2 class="reveal">Не только текст</h2>
+        <p class="tarot-intro reveal reveal-delay-1">Две авторские колоды Таро — Lantern и Ember. 78 карт в каждой, акварельный стиль, полные guidebook'и и Print&Play. Вот несколько карт для примера.</p>
+
+        <div class="tarot-decks">
+          <div class="reveal">
+            <div class="tarot-deck-title">Lantern Tarot</div>
+            <div class="tarot-cards">
+              <div class="tarot-card">
+                <img src="images/tarot/lantern-the-fool.webp" alt="The Fool — Lantern Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Fool</span>
+              </div>
+              <div class="tarot-card">
+                <img src="images/tarot/lantern-the-magician.webp" alt="The Magician — Lantern Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Magician</span>
+              </div>
+              <div class="tarot-card">
+                <img src="images/tarot/lantern-the-star.webp" alt="The Star — Lantern Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Star</span>
+              </div>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div class="tarot-deck-title">Ember Tarot</div>
+            <div class="tarot-cards">
+              <div class="tarot-card">
+                <img src="images/tarot/ember-the-fool.webp" alt="The Fool — Ember Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Fool</span>
+              </div>
+              <div class="tarot-card">
+                <img src="images/tarot/ember-the-moon.webp" alt="The Moon — Ember Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Moon</span>
+              </div>
+              <div class="tarot-card">
+                <img src="images/tarot/ember-the-tower.webp" alt="The Tower — Ember Tarot" width="140" height="245" loading="lazy">
+                <span class="tarot-card-name">The Tower</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fornits -->
+    <section class="fornits" id="fornits">
+      <div class="container">
+        <h2 class="reveal">Кто такие форниты</h2>
+        <div class="fornits-content">
+          <p class="reveal">Форниты — из рассказа Стивена Кинга «Баллада о гибкой пуле». Маленькие существа, которые живут в печатной машинке и помогают автору писать. Невидимые, но реальные для того, кто работает. Рассказ, конечно, жутковатый — Кинг же. Но метафора попала точно: инструмент работает лучше, когда внутри кто-то есть.</p>
+          <p class="reveal reveal-delay-1">У нас форниты — наборы инструкций для автоматизированных помощников. Каждый заточен под свою область. Вместо «запусти процесс номер семь для security-аудита» я говорю «Купер, посмотри». Вместо «применить набор правил юридической проверки» — «отдай Льву». Так проще думать, проще управлять, проще объяснять.</p>
+          <p class="reveal reveal-delay-2">За каждым именем — конкретные компетенции, чеклисты, стандарты. Алиса ныряет в кроличью нору за фактами. КиберГонзо ходит в Зону за артефактами и ничему не верит на слово. Купер видит паттерны там, где другие видят шум. Фонарщик невидим, но без него темно. Лев строит стены и замки библиотеки. Это не ролевая игра и не декорация.</p>
+          <ul class="fornits-list" role="list">
+            <li class="fornit-item reveal">
+              <img class="fornit-avatar" src="images/team/alice.webp" alt="Алиса" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Алиса</span>
+                <span class="fornit-desc">Ресёрч и музыка. Прыгает в кроличью нору и приносит факты</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-1">
+              <img class="fornit-avatar" src="images/team/gonzo.webp" alt="КиберГонзо" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">КиберГонзо</span>
+                <span class="fornit-desc">Проверка фактов из открытых источников. Не верит ничему на слово</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-2">
+              <img class="fornit-avatar" src="images/team/cooper.webp" alt="Купер" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Купер</span>
+                <span class="fornit-desc">Безопасность. Ищет дыры раньше, чем их найдёт кто-то другой</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-3">
+              <img class="fornit-avatar" src="images/team/lantern.webp" alt="Фонарщик" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Фонарщик</span>
+                <span class="fornit-desc">Бренд и визуал. Следит, чтобы всё выглядело как надо</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-4">
+              <img class="fornit-avatar" src="images/team/lev.webp" alt="Лев" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Лев</span>
+                <span class="fornit-desc">Юридическое соответствие. GDPR, лицензии, правовые вопросы</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal">
+              <img class="fornit-avatar" src="images/team/pechkin.webp" alt="Печкин" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Печкин</span>
+                <span class="fornit-desc">Почта и рассылки. Черновики писем, шаблоны, сортировка файлов, архивы</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-1">
+              <img class="fornit-avatar" src="images/team/johnny.webp" alt="Johnny" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Johnny</span>
+                <span class="fornit-desc">Фронтенд-архитектор. CSS, вёрстка, типографика, доступность. Следит за каждым пикселем</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-2">
+              <img class="fornit-avatar" src="images/team/stoker.webp" alt="Кочегар" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Кочегар</span>
+                <span class="fornit-desc">DevOps. Docker, серверы, деплой, мониторинг. Держит топку горячей, чтобы всё работало</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-3">
+              <img class="fornit-avatar" src="images/team/typesetter.webp" alt="Наборщик" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Наборщик</span>
+                <span class="fornit-desc">Редактор. Стиль, структура, факты, вычитка. Каждая статья проходит через его руки</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal reveal-delay-4">
+              <img class="fornit-avatar" src="images/team/cartographer.webp" alt="Картограф" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Картограф</span>
+                <span class="fornit-desc">Стратег энциклопедий. Белые пятна, покрытие, кросс-проектная координация</span>
+              </div>
+            </li>
+            <li class="fornit-item reveal">
+              <img class="fornit-avatar" src="images/team/oracle.webp" alt="Оракул" width="56" height="56" loading="lazy">
+              <div class="fornit-info">
+                <span class="fornit-name">Оракул</span>
+                <span class="fornit-desc">Эксперт по карточным традициям. Таро, оракулы, ленорман: рынок, печать, культурный контекст</span>
+              </div>
+            </li>
+          </ul>
+          <p class="reveal">Это не разговор с вымышленными персонажами и не ролевая игра. Просто удобная система имён для сложного многоуровневого процесса.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="interlude reveal">
+      <p class="interlude-quote">"An escalator can never break: it can only become stairs."</p>
+      <span class="interlude-attr">Mitch Hedberg</span>
+      <div class="interlude-brainrot">fornits ate and left no crumbs tbh</div>
+    </div>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how">
+      <div class="container">
+        <h2 class="reveal">Как это работает</h2>
+
+        <div class="two-col">
+          <div class="audience-block reveal">
+            <h3>Если ты программист</h3>
+            <p>Да, я знаю. «AI не может заменить разработчика». Согласен. Не может. Архитектурные решения, бизнес-контекст, выбор «делать или не делать» — это человек. Тут спорить не о чем.</p>
+            <p>Но рутину ускоряет здорово. Мне не нужно гуглить синтаксис CSS-свойства или вспоминать параметры CLI-команды — я описываю, что хочу, получаю черновик, ревьюю, правлю, еду дальше. Каждый коммит проходит валидацию, два независимых ревью и проверки на безопасность. Не потому что я параноик. Потому что без этого всё ломается.</p>
+            <p>Вот проекты выше. Сколько людей нужно, чтобы сделать всё это за два года? Пять? Семь? Ну, или один — с правильно настроенными инструментами за несколько месяцев. Код тот же. Процесс другой.</p>
+          </div>
+          <div class="audience-block reveal reveal-delay-1">
+            <h3>Если ты не программист</h3>
+            <p>Ты наверняка пробовал спросить что-то у AI и получил уверенную чушь. Я тоже пробовал. Модели галлюцинируют, теряют контекст, врут с каменным лицом. Это не баг, это особенность технологии. И да, это проблема.</p>
+            <p>Фокус в другом: как именно ты инструмент используешь. Молоток в руках плотника и молоток в руках пятилетки — один предмет, два результата. У нас любой факт в энциклопедиях проверяется из двух независимых источников минимум. Текст проходит ревью. Изменения фиксируются — кто, когда, зачем. Не на словах, а в системе контроля версий, где каждую правку можно откатить.</p>
+            <p>Процесс простой: спланировал, сделал, проверил, поправил. На каждом шаге один процесс специально ищет ошибки в работе другого. Мы называем это «враждебная верификация». Звучит пугающе, работает надёжно. Не идеально — но на порядок лучше, чем «напиши мне статью про грибы».</p>
+          </div>
+        </div>
+
+        <p class="article-ref reveal">Подробнее о том, как устроена современная разработка с автоматизированными инструментами, в <a href="https://www.technologyreview.com/2025/11/05/1127477/from-vibe-coding-to-context-engineering-2025-in-software-development/" target="_blank" rel="noopener noreferrer">статье MIT Technology Review</a>.</p>
+        <p class="article-ref reveal reveal-delay-1">А о том, как конкретно устроен этот процесс у нас, я написал <a href="https://habr.com/ru/articles/1006606/" target="_blank" rel="noopener noreferrer">статью на Хабре</a>.</p>
+      </div>
+    </section>
+
+    <div class="interlude reveal">
+      <p class="interlude-quote">"I am ready to meet my maker. Whether my maker is prepared for the great ordeal of meeting me is another matter."</p>
+      <span class="interlude-attr">Winston Churchill</span>
+      <div class="interlude-brainrot">17 containers? ohio level infrastructure</div>
+    </div>
+
+    <!-- Under the hood -->
+    <section class="infra" id="infra">
+      <div class="container">
+        <h2 class="reveal">Под капотом</h2>
+        <p class="reveal reveal-delay-1" style="max-width: 48rem; color: var(--text-muted); margin-bottom: var(--sp-10);">Весь стек — наш. Серверы наши, код наш, правила наши. Чужое — только DNS и CDN, и для обоих есть план миграции на случай чего. Ниже — для тех, кому интересно, что внутри.</p>
+
+        <div class="infra-stats">
+          <div class="stat-card reveal" data-last-verified="2026-03-17">
+            <span class="stat-number">11</span>
+            <span class="stat-label">сайтов</span>
+          </div>
+          <div class="stat-card reveal reveal-delay-1">
+            <span class="stat-number">9</span>
+            <span class="stat-label">доменов</span>
+          </div>
+          <div class="stat-card reveal reveal-delay-2">
+            <span class="stat-number">17</span>
+            <span class="stat-label">контейнеров</span>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">мониторинг</span>
+          </div>
+        </div>
+
+        <div class="infra-features">
+          <div class="infra-feature reveal">
+            <strong>Сборка и деплой</strong> — от коммита до продакшена без ручных шагов.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Hugo SSG генерирует статику. 17 Docker-контейнеров на 4 VPS. Nginx как reverse proxy с автоматическим TLS через Let's Encrypt. Gitea для хостинга репозиториев. CI/CD pipeline: <code>git push</code> → 10 self-hosted раннеров → build → lint → validate frontmatter → security check → deploy. Pre-commit и pre-push хуки для Level&nbsp;1 compliance. Среднее время от пуша до продакшена — меньше двух минут.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal reveal-delay-1">
+            <strong>Авторизация и секреты</strong> — единый вход на все сервисы, шифрование на уровне репозитория.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Keycloak SSO — единая точка авторизации. OAuth2-Proxy перед каждым защищённым сервисом. Секреты шифруются через SOPS + age прямо в репозитории — никаких <code>.env</code> файлов на серверах, никаких plaintext credentials. Ротация ключей, разделение по scopes. Recovery-процедура задокументирована.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal reveal-delay-2">
+            <strong>Безопасность</strong> — пять уровней от интернета до контента.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                <ul>
+                  <li><strong>Уровень 1:</strong> fail2ban + CrowdSec — автоматическая блокировка по поведению и репутации IP</li>
+                  <li><strong>Уровень 2:</strong> WireGuard VPN — админские интерфейсы недоступны из публичного интернета</li>
+                  <li><strong>Уровень 3:</strong> Keycloak — аутентификация, роли, MFA</li>
+                  <li><strong>Уровень 4:</strong> OAuth2-Proxy — каждый сервис за отдельным прокси</li>
+                  <li><strong>Уровень 5:</strong> SOPS + age — секреты зашифрованы в покое</li>
+                </ul>
+                Security headers на каждом домене: HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy. Оценка на securityheaders.com — A и выше.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal reveal-delay-3">
+            <strong>Почта</strong> — свой почтовый сервер, четыре домена, полная аутентификация.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Stalwart Mail Server (self-hosted). 4 домена с полной цепочкой: DKIM, SPF, DMARC. Брендированные HTML-шаблоны для автоматических нотификаций (деплой, алерты, отчёты). Brevo как fallback relay. Каждый деплой каждого проекта — письмо команде с diff-ссылкой за секунды.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal">
+            <strong>Мониторинг</strong> — 18 точек контроля, алерты за секунды.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Uptime Kuma — 18 эндпоинтов, интервал 60 секунд. Мониторим: HTTP status codes, response time, SSL certificate expiry, DNS resolution. Telegram-бот для алертов: даунтайм, recovery, деплой, истечение сертификатов. Средний uptime за последний квартал — 99.9%+.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal reveal-delay-1">
+            <strong>Контент и SEO</strong> — мультиязычность, метаданные, всё при сборке.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Суффиксный i18n: <code>slug.md</code> (RU) + <code>slug.en.md</code> (EN) — переключатель языков, параллельные версии связаны через Hugo taxonomy. При билде автоматически: sitemap.xml, Open Graph теги, JSON-LD structured data, canonical URLs, <code>robots.txt</code>. Frontmatter-валидация через CI: title, status, confidence, sources[], date_created, date_updated — ни одна статья не уйдёт в прод без полных метаданных.
+              </div>
+            </details>
+          </div>
+          <div class="infra-feature reveal reveal-delay-2">
+            <strong>Лицензирование и аудит</strong> — каждая зависимость проверена, vendor lock-in = 0.
+            <details>
+              <summary>Технические детали</summary>
+              <div class="infra-detail">
+                Каждая зависимость, шрифт, иконка и сторонний ассет проходит аудит совместимости лицензий. SPDX-идентификаторы в каждом репозитории. GPL в MIT-проекте — автоматический блокер. Для каждого внешнего сервиса (DNS, CDN, email relay) задокументирована self-hosted альтернатива и план миграции. Нулевой vendor lock-in — принципиальная позиция.
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Theme demo callout -->
+        <div class="theme-demo reveal">
+          <div class="theme-demo-title">Кстати, про скорость</div>
+          <p>Видел переключатель тем в шапке? Восемь палитр, автоконтрасты, плавные переходы, запоминание выбора. Под капотом — CSS-переменные и 40 строк JavaScript. От идеи до работающей штуки — одна итерация. Попробуй переключить, если ещё не.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Lucerna -->
+    <section class="lucerna" id="lucerna">
+      <div class="container">
+        <h2 class="reveal">Люцерна</h2>
+        <div class="lucerna-content">
+          <p class="reveal">Люцерна — лаборатория FolkUp. Здесь мы тестируем инструменты на настоящих задачах: OSINT (разведка по открытым источникам), верификация фактов, работа с юридическими документами, техаудиты. Если короче — проверяем, на что способна автоматизация, когда ей дают сложное.</p>
+          <p class="reveal reveal-delay-1">Если зайдёшь и увидишь статьи про грибы, псилоцибин или скатологию — не пугайся. Это не бред и не провокация. Мы специально берём деликатные темы, чтобы проверить: инструменты справляются? Compliance-проверки проходят? Опасных рекомендаций не генерируют? Лаборатория, не таблоид.</p>
+          <a class="lucerna-link reveal reveal-delay-2" href="https://lucerna.folkup.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5H5z"/></svg>
+            lucerna.folkup.app
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page timing -->
+    <div class="container">
+      <div class="page-timing reveal">
+        <div class="page-timing-title">Сколько времени ушло на эту страницу</div>
+        <p>Бриф, планирование, два раунда враждебного ревью, вёрстка, восемь тем, анимации, мобильная адаптация, проверки доступности. Один день. Один человек. Автоматизированные инструменты. Спорить о подходе можно, но результат — вот он, ты на него смотришь.</p>
+      </div>
+    </div>
+
+    <!-- Author's note -->
+    <div class="container">
+      <div class="authors-note reveal">
+        <p>Я всегда мечтал иметь свою маленькую, но крепкую и плавучую цифровую крепость в бескрайнем океане сети. Я свою мечту исполнил. Получилось или нет — судить только мне. Я не просто разместил объяву о мопеде, я его спроектировал и собрал на коленке. Если вы поняли, о чём я :)</p>
+        <span class="authors-note-sign">— Андрей</span>
+      </div>
+
+      <a class="outro-video reveal" href="https://youtu.be/3c09THxNmKA" target="_blank" rel="noopener">
+        <img class="outro-video-thumb" src="https://img.youtube.com/vi/3c09THxNmKA/maxresdefault.jpg" alt="YouTube video" loading="lazy">
+        <div class="outro-video-play" aria-hidden="true">
+          <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">FolkUp</div>
+      <nav class="footer-links" aria-label="Юридическая информация">
+        <a href="https://docs.folkup.app/legal/privacy/" target="_blank" rel="noopener">Политика конфиденциальности</a>
+      </nav>
+      <p class="footer-copy">© 2026 FolkUp. Соседи помогают соседям.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Theme switcher ---- */
+      var STORAGE_KEY = 'folkup-theme';
+      var themeButtons = document.querySelectorAll('.theme-btn');
+      var root = document.documentElement;
+
+      function setTheme(name) {
+        if (name === 'default') {
+          root.removeAttribute('data-theme');
+        } else {
+          root.setAttribute('data-theme', name);
+        }
+        themeButtons.forEach(function (btn) {
+          var isActive = btn.getAttribute('data-theme') === name;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        try { localStorage.setItem(STORAGE_KEY, name); } catch (e) {}
+      }
+
+      themeButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTheme(this.getAttribute('data-theme'));
+        });
+      });
+
+      // Restore saved theme
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) { setTheme(saved); }
+      } catch (e) {}
+
+      /* ---- Video speed controls ---- */
+      document.querySelectorAll('.video-details').forEach(function (details) {
+        var vid = details.querySelector('video');
+        var btns = details.querySelectorAll('.video-speed button');
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var speed = parseFloat(this.getAttribute('data-speed'));
+            if (vid) { vid.playbackRate = speed; }
+            btns.forEach(function (b) { b.classList.remove('active'); });
+            this.classList.add('active');
+          });
+        });
+      });
+
+      /* ---- Scroll reveal ---- */
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show everything
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>
