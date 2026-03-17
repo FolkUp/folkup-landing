@@ -22,23 +22,55 @@ if (!TOKEN) {
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'images', 'team');
 
 // Unified style prefix — soft watercolor, craft texture, warm brand tones
-const STYLE = 'soft watercolor illustration on warm ivory parchment background, craft paper texture, warm muted tones of bordeaux and sage green with golden amber accents, centered composition, single focal point';
+// ANTI_TEXT in position #2 to suppress Flux text rendering
+const STYLE = 'soft watercolor illustration on warm ivory parchment background, no text no words no letters no numbers no symbols no labels no captions, craft paper texture, warm muted tones of bordeaux and sage green with golden amber accents, centered composition, single focal point';
 
 const FORNITS = {
+  // --- Original 5 ---
   alice: {
     prompt: `${STYLE}, silhouette of a young woman standing before an ornate oval mirror, amber light reflecting from the mirror surface, sage green moss around the mirror frame, mysterious and contemplative mood`,
+    seed: 42,
   },
   gonzo: {
     prompt: `${STYLE}, silhouette of a figure wearing a vintage gas mask with a glowing amber lens, surrounded by soft misty fog, bordeaux and sage tones, mysterious stalker atmosphere, industrial and organic mix`,
+    seed: 42,
   },
   cooper: {
     prompt: `${STYLE}, a wise owl perched on a gnarled branch, glowing amber eyes as focal point, dark bordeaux shadows behind, sage green leaves, watchful and mysterious, detailed feather texture in watercolor`,
+    seed: 42,
   },
   lantern: {
     prompt: `${STYLE}, a single floating wrought iron street lantern glowing warm amber light, suspended in air with soft light rays emanating outward, ethereal and weightless, warm and inviting glow, empty space around`,
+    seed: 42,
   },
   lev: {
-    prompt: `${STYLE}, silhouette of a figure reading behind an open ancient book, an ornate key held in one hand, stone library arch in background, bordeaux leather binding, sage green ivy on stone, scholarly and protective`,
+    prompt: `${STYLE}, silhouette of a figure reading behind an open ancient book, an ornate key held in one hand, stone arch in background, bordeaux leather binding, sage green ivy on stone, scholarly and protective`,
+    seed: 42,
+  },
+  // --- New 6 (GNRL-134) ---
+  johnny: {
+    prompt: `${STYLE}, silhouette of a figure seated before a dark glowing screen showing geometric grid pattern, amber light lines forming rectangles and columns on the display, sage green circuit traces on the desk, focused and precise atmosphere`,
+    seed: 42,
+  },
+  stoker: {
+    prompt: `${STYLE}, silhouette of a figure standing before an open industrial furnace door, amber flames and warm glow spilling out, heavy iron gears and pipes around, steam rising, bordeaux metal surfaces, sage green patina on copper fittings, engine room atmosphere`,
+    seed: 42,
+  },
+  typesetter: {
+    prompt: `${STYLE}, silhouette of a figure operating a vintage iron printing press with heavy roller mechanism, amber glow from a desk lamp illuminating the press, small metal stamps scattered on the workbench, sage green ink stains, old workshop atmosphere`,
+    seed: 42,
+  },
+  cartographer: {
+    prompt: `${STYLE}, silhouette of a figure bent over a large blank parchment with an ornate brass compass rose, amber trail lines and route markers spreading across the surface, sage green terrain shapes, magnifying glass in hand, explorer study atmosphere`,
+    seed: 42,
+  },
+  oracle: {
+    prompt: `${STYLE}, silhouette of a figure at a round table with fanned face-down rectangular objects showing ornate geometric backs, amber candlelight from two tall candles, bordeaux velvet draped table, sage green crystal sphere nearby, mystical and contemplative`,
+    seed: 42,
+  },
+  pechkin: {
+    prompt: `${STYLE}, silhouette of a figure carrying a worn leather satchel overflowing with sealed parcels and wrapped packages, amber wax seal glowing on one parcel, sage green ribbon ties, vintage brass mailbox nearby, courier on a quiet morning`,
+    seed: 42,
   },
 };
 
@@ -103,6 +135,7 @@ async function generate(name) {
     {
       input: {
         prompt: fornit.prompt,
+        seed: fornit.seed || 42,
         width: 512,
         height: 512,
         output_format: 'webp',
@@ -163,9 +196,13 @@ async function main() {
   const names = arg === 'all' ? Object.keys(FORNITS) : [arg];
   const results = [];
 
-  for (const name of names) {
-    const result = await generate(name);
-    results.push({ name, path: result });
+  for (let i = 0; i < names.length; i++) {
+    if (i > 0) {
+      console.log('  Waiting 11s (rate limit)...');
+      await new Promise((r) => setTimeout(r, 11000));
+    }
+    const result = await generate(names[i]);
+    results.push({ name: names[i], path: result });
   }
 
   console.log('\n--- Summary ---');

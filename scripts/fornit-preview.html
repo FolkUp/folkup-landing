@@ -2,74 +2,138 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>FolkUp Fornit Avatars — Preview</title>
+<title>FolkUp Fornit Avatars — Preview (11)</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', sans-serif; background: #FEFCF6; color: #2C2C2C; padding: 2rem; }
   h1 { text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem; color: #7D4450; }
   .subtitle { text-align: center; color: #888; margin-bottom: 2rem; font-size: 0.9rem; }
-  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 3rem; }
-  .card { background: #F5F0EB; border-radius: 10px; padding: 1.5rem 1rem; text-align: center; }
+  .section-label { text-align: center; font-size: 0.9rem; font-weight: 700; color: #839E75; text-transform: uppercase; letter-spacing: 0.08em; margin: 2rem 0 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto 2rem; }
+  .card { background: #F5F0EB; border-radius: 10px; padding: 1.5rem 1rem; text-align: center; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-3px); }
+  .card.new { border: 2px solid #E8AD4A; }
+  .badge { display: inline-block; font-size: 0.65rem; padding: 0.15em 0.5em; border-radius: 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .badge.existing { background: #839E75; color: #fff; }
+  .badge.new { background: #E8AD4A; color: #2C2C2C; }
   .avatar { width: 160px; height: 160px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 2px solid #E0D8CF; background: #FEFCF6; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
   .name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
-  .role { font-size: 0.8rem; font-weight: 600; color: #839E75; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .role { font-size: 0.8rem; font-weight: 600; color: #839E75; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
   .oneliner { font-style: italic; font-size: 0.85rem; color: #888; line-height: 1.5; }
+  .size { font-size: 0.75rem; color: #aaa; margin-top: 0.5rem; }
 
-  /* Actual size comparison */
-  h2 { text-align: center; font-size: 1.2rem; margin-bottom: 1rem; color: #7D4450; }
-  .actual-grid { display: flex; gap: 2rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; margin-bottom: 3rem; }
+  h2 { text-align: center; font-size: 1.2rem; margin: 3rem 0 1rem; color: #7D4450; }
+  .actual-grid { display: flex; gap: 1.5rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; margin-bottom: 3rem; }
   .actual-card { text-align: center; }
   .actual-avatar { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 0.5rem; border: 2px solid #E0D8CF; background: #FEFCF6; }
   .actual-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .actual-name { font-size: 0.85rem; font-weight: 600; }
+  .actual-name { font-size: 0.8rem; font-weight: 600; }
 
-  /* Full size */
-  .full-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+  .full-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; }
   .full-img { width: 100%; border-radius: 8px; border: 1px solid #E0D8CF; }
   .full-label { text-align: center; font-size: 0.8rem; color: #888; margin-top: 0.5rem; }
 
-  @media (max-width: 800px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-    .full-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1A1816; color: #E1DCD7; }
+    h1, h2 { color: #C88C82; }
+    .card { background: #242220; }
+    .avatar { border-color: #3A3634; background: #1A1816; }
+    .role { color: #A0BE91; }
+    .oneliner, .size { color: #6B6560; }
+    .full-img { border-color: #3A3634; }
+    .section-label { color: #A0BE91; }
+    .badge.existing { background: #6B8A5E; }
   }
 </style>
 </head>
 <body>
 
-<h1>Fornit Avatars — Preview</h1>
-<p class="subtitle">Watercolor style, Flux 1.1 Pro, 512x512, quality 75</p>
+<h1>Fornit Avatars — Full Team Preview</h1>
+<p class="subtitle">11 avatars. Watercolor style, Flux 1.1 Pro, 512x512, quality 75, seed 42</p>
 
+<div class="section-label">Existing (5)</div>
 <div class="grid">
   <div class="card">
+    <span class="badge existing">v1</span>
     <div class="avatar"><img src="../public/images/team/alice.webp" alt="Alice"></div>
     <div class="name">Алиса</div>
-    <div class="role">Ресёрчер и навигатор</div>
+    <div class="role">PM, навигатор</div>
     <div class="oneliner">Прыгает в нору с фонарём. Всегда возвращается с находкой.</div>
   </div>
   <div class="card">
+    <span class="badge existing">v1</span>
     <div class="avatar"><img src="../public/images/team/gonzo.webp" alt="CyberGonzo"></div>
     <div class="name">КиберГонзо</div>
     <div class="role">OSINT и верификация</div>
     <div class="oneliner">Ходит в Зону за артефактами. Всё проверяет дважды, не доверяет ни разу.</div>
   </div>
   <div class="card">
+    <span class="badge existing">v1</span>
     <div class="avatar"><img src="../public/images/team/cooper.webp" alt="Cooper"></div>
     <div class="name">Купер</div>
-    <div class="role">Офицер безопасности</div>
+    <div class="role">Безопасность</div>
     <div class="oneliner">Видит паттерны там, где другие видят шум. Совы — не то, чем кажутся.</div>
   </div>
   <div class="card">
+    <span class="badge existing">v1</span>
     <div class="avatar"><img src="../public/images/team/lantern.webp" alt="Lamplighter"></div>
     <div class="name">Фонарщик</div>
-    <div class="role">Бренд и визуальная идентичность</div>
+    <div class="role">Бренд и визуал</div>
     <div class="oneliner">Его не видно, но без него темно. Следит за светом, хранит тепло.</div>
   </div>
   <div class="card">
+    <span class="badge existing">v1</span>
     <div class="avatar"><img src="../public/images/team/lev.webp" alt="Lev"></div>
     <div class="name">Лев</div>
     <div class="role">Legal и compliance</div>
     <div class="oneliner">Стены и замки библиотеки. Каждая дверь открыта, каждый замок на месте.</div>
+  </div>
+</div>
+
+<div class="section-label">New (6) — GNRL-134</div>
+<div class="grid">
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/johnny.webp" alt="Johnny"></div>
+    <div class="name">Johnny</div>
+    <div class="role">Frontend Architect</div>
+    <div class="oneliner">Сетка, ритм, пиксели. Каждый пиксель на своём месте.</div>
+  </div>
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/stoker.webp" alt="Stoker"></div>
+    <div class="name">Кочегар</div>
+    <div class="role">DevOps</div>
+    <div class="oneliner">Серверная — его котельная. Трубы гудят, контейнеры работают.</div>
+  </div>
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/typesetter.webp" alt="Typesetter"></div>
+    <div class="name">Наборщик</div>
+    <div class="role">Редактор</div>
+    <div class="oneliner">Стиль, структура, факты. Наборный станок не прощает ошибок.</div>
+  </div>
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/cartographer.webp" alt="Cartographer"></div>
+    <div class="name">Картограф</div>
+    <div class="role">Менеджер энциклопедий</div>
+    <div class="oneliner">Белые пятна на карте — его работа. Компас всегда при себе.</div>
+  </div>
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/oracle.webp" alt="Oracle"></div>
+    <div class="name">Оракул</div>
+    <div class="role">Карточные колоды</div>
+    <div class="oneliner">Карты не врут. Но и не говорят всей правды.</div>
+  </div>
+  <div class="card new">
+    <span class="badge new">NEW</span>
+    <div class="avatar"><img src="../public/images/team/pechkin.webp" alt="Pechkin"></div>
+    <div class="name">Печкин</div>
+    <div class="role">Почта и архивы</div>
+    <div class="oneliner">Письма, посылки, архивы. Ничего не теряется, всё доставляется.</div>
   </div>
 </div>
 
@@ -95,29 +159,77 @@
     <div class="actual-avatar"><img src="../public/images/team/lev.webp" alt="Lev"></div>
     <div class="actual-name">Лев</div>
   </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/johnny.webp" alt="Johnny"></div>
+    <div class="actual-name">Johnny</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/stoker.webp" alt="Stoker"></div>
+    <div class="actual-name">Кочегар</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/typesetter.webp" alt="Typesetter"></div>
+    <div class="actual-name">Наборщик</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/cartographer.webp" alt="Cartographer"></div>
+    <div class="actual-name">Картограф</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/oracle.webp" alt="Oracle"></div>
+    <div class="actual-name">Оракул</div>
+  </div>
+  <div class="actual-card">
+    <div class="actual-avatar"><img src="../public/images/team/pechkin.webp" alt="Pechkin"></div>
+    <div class="actual-name">Печкин</div>
+  </div>
 </div>
 
 <h2>Full Size (512x512)</h2>
 <div class="full-grid">
   <div>
     <img class="full-img" src="../public/images/team/alice.webp" alt="Alice">
-    <div class="full-label">Алиса — 97.6 KB</div>
+    <div class="full-label">Алиса</div>
   </div>
   <div>
     <img class="full-img" src="../public/images/team/gonzo.webp" alt="CyberGonzo">
-    <div class="full-label">КиберГонзо — 37.3 KB</div>
+    <div class="full-label">КиберГонзо</div>
   </div>
   <div>
     <img class="full-img" src="../public/images/team/cooper.webp" alt="Cooper">
-    <div class="full-label">Купер — 74.8 KB</div>
+    <div class="full-label">Купер</div>
   </div>
   <div>
     <img class="full-img" src="../public/images/team/lantern.webp" alt="Lamplighter">
-    <div class="full-label">Фонарщик — 16.1 KB</div>
+    <div class="full-label">Фонарщик</div>
   </div>
   <div>
     <img class="full-img" src="../public/images/team/lev.webp" alt="Lev">
-    <div class="full-label">Лев — 111.3 KB</div>
+    <div class="full-label">Лев</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/johnny.webp" alt="Johnny">
+    <div class="full-label">Johnny</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/stoker.webp" alt="Stoker">
+    <div class="full-label">Кочегар</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/typesetter.webp" alt="Typesetter">
+    <div class="full-label">Наборщик</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/cartographer.webp" alt="Cartographer">
+    <div class="full-label">Картограф</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/oracle.webp" alt="Oracle">
+    <div class="full-label">Оракул</div>
+  </div>
+  <div>
+    <img class="full-img" src="../public/images/team/pechkin.webp" alt="Pechkin">
+    <div class="full-label">Печкин</div>
   </div>
 </div>
 
