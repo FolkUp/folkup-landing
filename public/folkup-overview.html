@@ -6,13 +6,19 @@
   <title>FolkUp — что это и зачем</title>
   <meta name="description" content="FolkUp — экосистема из 11 проектов: энциклопедии, инструменты, авторские колоды Таро. Одним человеком с автоматизированными инструментами.">
   <link rel="canonical" href="https://folkup.app/">
+  <link rel="alternate" hreflang="ru" href="https://folkup.app/folkup-overview.html">
+  <link rel="alternate" hreflang="en" href="https://folkup.app/folkup-overview.html?lang=en">
+  <link rel="alternate" hreflang="pt" href="https://folkup.app/folkup-overview.html?lang=pt">
+  <link rel="alternate" hreflang="x-default" href="https://folkup.app/folkup-overview.html">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="FolkUp — что это и зачем">
-  <meta property="og:description" content="Экосистема из 11 проектов: энциклопедии знаний, авторские колоды Таро, исследовательская лаборатория. Построено одним человеком.">
+  <meta property="og:title" id="og-title" content="FolkUp — что это и зачем">
+  <meta property="og:description" id="og-desc" content="Экосистема из 11 проектов: энциклопедии знаний, авторские колоды Таро, исследовательская лаборатория. Построено одним человеком.">
   <meta property="og:url" content="https://folkup.app/">
   <meta property="og:site_name" content="FolkUp">
-  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale" id="og-locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="pt_PT">
   <!-- TODO: self-host fonts for production (GDPR compliance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1354,9 +1360,60 @@
         height: 24px;
       }
     }
+
+    /* ---- FOUC prevention ---- */
+    .i18n-loading { visibility: hidden; }
+    .i18n-ready { visibility: visible; }
+
+    /* ---- Language switcher ---- */
+    .lang-switcher {
+      display: flex;
+      gap: var(--sp-1);
+      align-items: center;
+      margin-left: var(--sp-4);
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--sp-1) var(--sp-2);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      min-width: 36px;
+      min-height: 32px;
+      text-align: center;
+    }
+
+    .lang-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .lang-switcher {
+        margin-left: 0;
+        margin-top: var(--sp-2);
+      }
+    }
   </style>
 </head>
-<body>
+<body class="i18n-loading">
 
   <!-- Header -->
   <header class="site-header">
@@ -1376,6 +1433,11 @@
           <button type="button" class="theme-btn" data-theme="midnight" title="Полночь" aria-label="Тема Полночь"></button>
           <button type="button" class="theme-btn" data-theme="mono-light" title="Ч/Б" aria-label="Тема чёрно-белая"></button>
           <button type="button" class="theme-btn" data-theme="mono-dark" title="Б/Ч" aria-label="Тема бело-чёрная"></button>
+        </div>
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="ru" aria-pressed="true">RU</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="pt" aria-pressed="false">PT</button>
         </div>
       </div>
     </div>
@@ -1780,8 +1842,8 @@
     </section>
 
     <div class="interlude reveal">
-      <p class="interlude-quote">"I am ready to meet my maker. Whether my maker is prepared for the great ordeal of meeting me is another matter."</p>
-      <span class="interlude-attr">Winston Churchill</span>
+      <p class="interlude-quote">"In theory, there is no difference between theory and practice. In practice, there is."</p>
+      <span class="interlude-attr">Yogi Berra</span>
       <div class="interlude-brainrot">17 containers? ohio level infrastructure</div>
     </div>
 
@@ -1970,6 +2032,8 @@
       <div class="footer-logo">FolkUp</div>
       <nav class="footer-links" aria-label="Юридическая информация">
         <a href="https://docs.folkup.app/legal/privacy-policy/" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="https://docs.folkup.app/legal/terms-of-use/" target="_blank" rel="noopener">Условия использования</a>
+        <a href="https://docs.folkup.app/legal/cookie-policy/" target="_blank" rel="noopener">Политика cookies</a>
       </nav>
       <p class="footer-copy">© 2026 FolkUp. Соседи помогают соседям.</p>
     </div>
@@ -1979,16 +2043,641 @@
     (function () {
       'use strict';
 
+      /* ============================================================
+         i18n — selector-based translations
+         ============================================================ */
+      var LANG_KEY = 'folkup-lang';
+      var DEFAULT_LANG = 'ru';
+
+      /* Translation map: selector → { ru, en, pt }
+         Only translatable text. Interludes (EN quotes + brainrot) stay as-is. */
+      var T = {
+        /* -- Head / Meta (handled separately in setLang) -- */
+        _title: {
+          ru: 'FolkUp — что это и зачем',
+          en: 'FolkUp — what it is and why',
+          pt: 'FolkUp — o que é e porquê'
+        },
+        _description: {
+          ru: 'FolkUp — экосистема из 11 проектов: энциклопедии, инструменты, авторские колоды Таро. Одним человеком с автоматизированными инструментами.',
+          en: 'FolkUp — an ecosystem of 11 projects: encyclopedias, tools, original Tarot decks. Built by one person with automated tools.',
+          pt: 'FolkUp — ecossistema de 11 projetos: enciclopédias, ferramentas, baralhos de Tarot originais. Construído por uma pessoa com ferramentas automatizadas.'
+        },
+        _og_title: {
+          ru: 'FolkUp — что это и зачем',
+          en: 'FolkUp — what it is and why',
+          pt: 'FolkUp — o que é e porquê'
+        },
+        _og_desc: {
+          ru: 'Экосистема из 11 проектов: энциклопедии знаний, авторские колоды Таро, исследовательская лаборатория. Построено одним человеком.',
+          en: 'An ecosystem of 11 projects: knowledge encyclopedias, original Tarot decks, research lab. Built by one person.',
+          pt: 'Ecossistema de 11 projetos: enciclopédias de conhecimento, baralhos de Tarot originais, laboratório de investigação. Construído por uma pessoa.'
+        },
+        _og_locale: { ru: 'ru_RU', en: 'en_US', pt: 'pt_PT' },
+
+        /* -- Header -- */
+        '.theme-switcher-label': { ru: 'Тема', en: 'Theme', pt: 'Tema' },
+
+        /* -- Hero -- */
+        '.hero h1': { ru: 'Что это и зачем', en: 'What this is and why', pt: 'O que é isto e porquê' },
+        '.hero-intro': {
+          ru: 'Меня зовут Андрей. Живу в Сетубале, Португалия. FolkUp — это то, чем я занимаюсь последний год. Если ты читаешь эту страницу, значит я кинул тебе ссылку, потому что ты спросил «чем ты там занимаешься» или «что это за FolkUp». Ниже видео — можно посмотреть, а можно просто почитать текст.',
+          en: 'My name is Andrey. I live in Setúbal, Portugal. FolkUp is what I\u2019ve been doing for the past year. If you\u2019re reading this, I probably sent you the link because you asked \u201cwhat are you working on\u201d or \u201cwhat\u2019s this FolkUp thing.\u201d There\u2019s a video below if you prefer watching, or just keep reading.',
+          pt: 'Chamo-me Andrey. Vivo em Setúbal, Portugal. FolkUp é aquilo em que tenho trabalhado no último ano. Se estás a ler isto, provavelmente enviei-te o link porque perguntaste \u201co que andas a fazer\u201d ou \u201co que é esse FolkUp.\u201d Há um vídeo abaixo se preferires ver, ou simplesmente continua a ler.'
+        },
+        '.hero-mascot': {
+          _attr: 'alt',
+          ru: 'Гертруда — символ FolkUp: фонарь с корнями',
+          en: 'Gertruda — FolkUp symbol: a lantern with roots',
+          pt: 'Gertruda — símbolo FolkUp: lanterna com raízes'
+        },
+        '.video-summary': { ru: 'Видео-обзор (короткое)', en: 'Video overview (short)', pt: 'Vídeo de apresentação (curto)' },
+
+        /* -- Manifesto -- */
+        '.manifesto blockquote': { ru: '«Соседи помогают соседям»', en: '\u201cNeighbours help neighbours\u201d', pt: '\u201cVizinhos ajudam vizinhos\u201d' },
+        '.manifesto-principles li:nth-child(1) strong': { ru: 'Бесплатно', en: 'Free', pt: 'Gratuito' },
+        '.manifesto-principles li:nth-child(2) strong': { ru: 'Конкретные задачи, не «продукт»', en: 'Real problems, not \u201cproducts\u201d', pt: 'Problemas reais, não \u201cprodutos\u201d' },
+        '.manifesto-principles li:nth-child(3) strong': { ru: '«Не тяп-ляп»', en: '\u201cNo half-measures\u201d', pt: '\u201cSem atalhos\u201d' },
+
+        /* -- Projects -- */
+        '.projects h2': { ru: 'Проекты', en: 'Projects', pt: 'Projetos' },
+        '.projects-intro': {
+          ru: 'Всё ниже — живые проекты. Большинство можно открыть и потрогать. Некоторые доступны по приглашению через авторизацию.',
+          en: 'Everything below is a live project. Most are public — you can open and explore them. Some require an invitation.',
+          pt: 'Tudo abaixo são projetos reais. A maioria é pública — podes abrir e explorar. Alguns requerem convite.'
+        },
+
+        /* -- Badges handled in BADGES object inside setLang -- */
+
+        /* -- Tarot showcase -- */
+        '.tarot-showcase h2': { ru: 'Не только текст', en: 'Not just text', pt: 'Não é só texto' },
+        '.tarot-intro': {
+          ru: 'Две авторские колоды Таро — Lantern и Ember. 78 карт в каждой, акварельный стиль, полные guidebook\u2019и и Print&Play. Вот несколько карт для примера.',
+          en: 'Two original Tarot decks — Lantern and Ember. 78 cards each, watercolor style, full guidebooks and Print & Play. Here are a few sample cards.',
+          pt: 'Dois baralhos de Tarot originais — Lantern e Ember. 78 cartas cada, estilo aguarela, guidebooks completos e Print & Play. Aqui estão algumas cartas de exemplo.'
+        },
+
+        /* -- Fornits -- */
+        '.fornits h2': { ru: 'Кто такие форниты', en: 'What are fornits', pt: 'O que são fornits' },
+
+        /* -- How it works -- */
+        '.how-it-works h2': { ru: 'Как это работает', en: 'How it works', pt: 'Como funciona' },
+        '.audience-block:first-child h3': { ru: 'Если ты программист', en: 'If you\u2019re a programmer', pt: 'Se és programador' },
+        '.audience-block:last-child h3': { ru: 'Если ты не программист', en: 'If you\u2019re not a programmer', pt: 'Se não és programador' },
+
+        /* -- Infra -- */
+        '.infra h2': { ru: 'Под капотом', en: 'Under the hood', pt: 'Debaixo do capô' },
+
+        /* -- Lucerna -- */
+        '.lucerna h2': { ru: 'Люцерна', en: 'Lucerna', pt: 'Lucerna' },
+
+        /* -- Page timing -- */
+        '.page-timing-title': {
+          ru: 'Сколько времени ушло на эту страницу',
+          en: 'How long this page took',
+          pt: 'Quanto tempo levou esta página'
+        },
+
+        /* -- Footer -- */
+        '.footer-copy': {
+          ru: '© 2026 FolkUp. Соседи помогают соседям.',
+          en: '© 2026 FolkUp. Neighbours help neighbours.',
+          pt: '© 2026 FolkUp. Vizinhos ajudam vizinhos.'
+        },
+
+        /* -- Aria labels -- */
+        '.theme-switcher': {
+          _attr: 'aria-label',
+          ru: 'Выбор цветовой темы',
+          en: 'Color theme selection',
+          pt: 'Seleção de tema de cor'
+        },
+        '.footer-links': {
+          _attr: 'aria-label',
+          ru: 'Юридическая информация',
+          en: 'Legal information',
+          pt: 'Informação legal'
+        },
+        '.video-speed': {
+          _attr: 'aria-label',
+          ru: 'Скорость воспроизведения',
+          en: 'Playback speed',
+          pt: 'Velocidade de reprodução'
+        }
+      };
+
+      /* Paragraph-level translations — applied by index within parent selector */
+      var T_PARAGRAPHS = {
+        '.manifesto-principles li:nth-child(1)': {
+          /* Text node after <strong> */
+          ru: 'Всё, что мы делаем — без рекламы, подписок и пейволлов. Хорошая информация не должна стоить денег.',
+          en: 'Everything we do is ad-free, subscription-free, and paywall-free. Good information shouldn\u2019t cost money.',
+          pt: 'Tudo o que fazemos é sem publicidade, sem subscrições e sem paywalls. Boa informação não devia custar dinheiro.'
+        },
+        '.manifesto-principles li:nth-child(2)': {
+          ru: 'Нет нормальной энциклопедии ретро-компьютеров на русском — делаем. Нужен грибной справочник для Португалии — делаем. Здесь не стартап, здесь инструменты.',
+          en: 'No decent retro-computer encyclopedia in Russian? We build one. Need a mushroom guide for Portugal? We build one. This isn\u2019t a startup. These are tools.',
+          pt: 'Não há uma enciclopédia decente de retro-computadores em russo? Fazemos uma. Precisa-se de um guia de cogumelos para Portugal? Fazemos um. Isto não é uma startup. São ferramentas.'
+        },
+        '.manifesto-principles li:nth-child(3)': {
+          ru: 'Бабушкин наказ. Прогресс важнее перфекционизма, но халтура — нет. Каждый факт проверяем, каждый текст вычитываем.',
+          en: 'Grandma\u2019s rule. Progress over perfectionism, but no shoddy work. Every fact is verified, every text is proofread.',
+          pt: 'A regra da avó. Progresso acima do perfeccionismo, mas sem trabalho descuidado. Cada facto é verificado, cada texto é revisto.'
+        },
+        '.fornits-content > p:nth-of-type(1)': {
+          ru: 'Форниты — из рассказа Стивена Кинга «Баллада о гибкой пуле». Маленькие существа, которые живут в печатной машинке и помогают автору писать. Невидимые, но реальные для того, кто работает. Рассказ, конечно, жутковатый — Кинг же. Но метафора попала точно: инструмент работает лучше, когда внутри кто-то есть.',
+          en: 'Fornits come from Stephen King\u2019s short story \u201cThe Ballad of the Flexible Bullet.\u201d Small creatures living inside a typewriter, helping the author write. Invisible, but real to whoever\u2019s working. The story is unsettling (it\u2019s King), but the metaphor is spot on: a tool works better when there\u2019s someone inside.',
+          pt: 'Os fornits vêm do conto de Stephen King \u201cThe Ballad of the Flexible Bullet.\u201d Pequenas criaturas que vivem dentro de uma máquina de escrever e ajudam o autor. Invisíveis, mas reais para quem trabalha. A história é perturbante (é o King), mas a metáfora acerta em cheio: uma ferramenta funciona melhor quando há alguém lá dentro.'
+        },
+        '.fornits-content > p:nth-of-type(2)': {
+          ru: 'У нас форниты — наборы инструкций для автоматизированных помощников. Каждый заточен под свою область. Вместо «запусти процесс номер семь для security-аудита» я говорю «Купер, посмотри». Вместо «применить набор правил юридической проверки» — «отдай Льву». Так проще думать, проще управлять, проще объяснять.',
+          en: 'In our case, fornits are instruction sets for automated assistants. Each one is tuned for its domain. Instead of \u201crun process seven for a security audit\u201d I say \u201cCooper, take a look.\u201d Instead of \u201capply the legal compliance ruleset\u201d \u2014 \u201cgive it to Lev.\u201d Easier to think, easier to manage, easier to explain.',
+          pt: 'No nosso caso, os fornits são conjuntos de instruções para assistentes automatizados. Cada um é especializado na sua área. Em vez de \u201cexecuta o processo sete para auditoria de segurança\u201d digo \u201cCooper, dá uma olhada.\u201d Em vez de \u201caplica o conjunto de regras de conformidade legal\u201d \u2014 \u201centrega ao Lev.\u201d Mais fácil de pensar, gerir e explicar.'
+        },
+        '.fornits-content > p:nth-of-type(3)': {
+          ru: 'За каждым именем — конкретные компетенции, чеклисты, стандарты. Алиса ныряет в кроличью нору за фактами. КиберГонзо ходит в Зону за артефактами и ничему не верит на слово. Купер видит паттерны там, где другие видят шум. Фонарщик невидим, но без него темно. Лев строит стены и замки библиотеки. Это не ролевая игра и не декорация.',
+          en: 'Behind each name are specific competencies, checklists, and standards. Alice dives down the rabbit hole for facts. CyberGonzo walks into the Zone for artifacts and takes nothing at face value. Cooper sees patterns where others see noise. The Lamplighter is invisible, but without him it\u2019s dark. Lev builds the walls and locks of the library. It\u2019s not roleplay or decoration.',
+          pt: 'Por trás de cada nome estão competências específicas, checklists e padrões. Alice mergulha na toca do coelho à procura de factos. CyberGonzo entra na Zona à procura de artefactos e não aceita nada sem provas. Cooper vê padrões onde outros vêem ruído. O Lampião é invisível, mas sem ele fica escuro. Lev constrói as paredes e fechaduras da biblioteca. Não é jogo de papéis nem decoração.'
+        },
+        '.fornits-content > p:last-of-type': {
+          ru: 'Это не разговор с вымышленными персонажами и не ролевая игра. Просто удобная система имён для сложного многоуровневого процесса.',
+          en: 'It\u2019s not talking to fictional characters or playing a game. Just a convenient naming system for a complex multi-layered process.',
+          pt: 'Não é conversar com personagens fictícios nem jogar um jogo. Apenas um sistema de nomes conveniente para um processo complexo e multicamada.'
+        },
+        '.audience-block:first-child p:nth-of-type(1)': {
+          ru: 'Да, я знаю. «AI не может заменить разработчика». Согласен. Не может. Архитектурные решения, бизнес-контекст, выбор «делать или не делать» — это человек. Тут спорить не о чем.',
+          en: 'Yes, I know. \u201cAI can\u2019t replace a developer.\u201d Agreed. It can\u2019t. Architectural decisions, business context, the choice of what to build and what not to \u2014 that\u2019s a human\u2019s job. No argument there.',
+          pt: 'Sim, eu sei. \u201cA IA não substitui um programador.\u201d Concordo. Não substitui. Decisões de arquitetura, contexto de negócio, escolher o que fazer e o que não fazer \u2014 isso é trabalho humano. Sem discussão.'
+        },
+        '.audience-block:first-child p:nth-of-type(2)': {
+          ru: 'Но рутину ускоряет здорово. Мне не нужно гуглить синтаксис CSS-свойства или вспоминать параметры CLI-команды — я описываю, что хочу, получаю черновик, ревьюю, правлю, еду дальше. Каждый коммит проходит валидацию, два независимых ревью и проверки на безопасность. Не потому что я параноик. Потому что без этого всё ломается.',
+          en: 'But it speeds up the routine massively. I don\u2019t need to google CSS property syntax or recall CLI flags \u2014 I describe what I need, get a draft, review, fix, move on. Every commit goes through validation, two independent reviews, and security checks. Not because I\u2019m paranoid. Because without it, everything breaks.',
+          pt: 'Mas acelera enormemente a rotina. Não preciso de pesquisar a sintaxe de propriedades CSS ou recordar flags de CLI \u2014 descrevo o que preciso, recebo um rascunho, revejo, corrijo, avanço. Cada commit passa por validação, duas revisões independentes e verificações de segurança. Não porque sou paranoico. Porque sem isso, tudo se parte.'
+        },
+        '.audience-block:first-child p:nth-of-type(3)': {
+          ru: 'Вот проекты выше. Сколько людей нужно, чтобы сделать всё это за два года? Пять? Семь? Ну, или один — с правильно настроенными инструментами за несколько месяцев. Код тот же. Процесс другой.',
+          en: 'Look at the projects above. How many people would it take to build all of this in two years? Five? Seven? Or one \u2014 with properly configured tools, in a few months. Same code. Different process.',
+          pt: 'Olha para os projetos acima. Quantas pessoas seriam precisas para construir tudo isto em dois anos? Cinco? Sete? Ou uma \u2014 com ferramentas bem configuradas, em poucos meses. O mesmo código. Processo diferente.'
+        },
+        '.audience-block:last-child p:nth-of-type(1)': {
+          ru: 'Ты наверняка пробовал спросить что-то у AI и получил уверенную чушь. Я тоже пробовал. Модели галлюцинируют, теряют контекст, врут с каменным лицом. Это не баг, это особенность технологии. И да, это проблема.',
+          en: 'You\u2019ve probably asked AI something and got a confident pile of nonsense. Me too. Models hallucinate, lose context, and lie with a straight face. That\u2019s not a bug \u2014 it\u2019s a feature of the technology. And yes, it\u2019s a problem.',
+          pt: 'Provavelmente já perguntaste algo à IA e recebeste disparates confiantes. Eu também. Os modelos alucinam, perdem contexto e mentem sem pestanejar. Não é um bug \u2014 é uma característica da tecnologia. E sim, é um problema.'
+        },
+        '.audience-block:last-child p:nth-of-type(2)': {
+          ru: 'Фокус в другом: как именно ты инструмент используешь. Молоток в руках плотника и молоток в руках пятилетки — один предмет, два результата. У нас любой факт в энциклопедиях проверяется из двух независимых источников минимум. Текст проходит ревью. Изменения фиксируются — кто, когда, зачем. Не на словах, а в системе контроля версий, где каждую правку можно откатить.',
+          en: 'The point is different: it\u2019s how you use the tool. A hammer in a carpenter\u2019s hand and a hammer in a five-year-old\u2019s \u2014 same object, different results. In our encyclopedias, every fact is verified from at least two independent sources. Every text is reviewed. Every change is tracked \u2014 who, when, why. Not in words, but in version control, where every edit can be rolled back.',
+          pt: 'O ponto é outro: como usas a ferramenta. Um martelo na mão de um carpinteiro e um martelo na mão de uma criança \u2014 o mesmo objeto, resultados diferentes. Nas nossas enciclopédias, cada facto é verificado a partir de pelo menos duas fontes independentes. Cada texto é revisto. Cada alteração é registada \u2014 quem, quando, porquê. Não em palavras, mas em controlo de versões, onde cada edição pode ser revertida.'
+        },
+        '.audience-block:last-child p:nth-of-type(3)': {
+          ru: 'Процесс простой: спланировал, сделал, проверил, поправил. На каждом шаге один процесс специально ищет ошибки в работе другого. Мы называем это «враждебная верификация». Звучит пугающе, работает надёжно. Не идеально — но на порядок лучше, чем «напиши мне статью про грибы».',
+          en: 'The process is simple: plan, execute, verify, correct. At every step, one process deliberately looks for errors in another\u2019s work. We call it \u201chostile verification.\u201d Sounds scary, works reliably. Not perfect \u2014 but orders of magnitude better than \u201cwrite me an article about mushrooms.\u201d',
+          pt: 'O processo é simples: planear, executar, verificar, corrigir. Em cada passo, um processo procura deliberadamente erros no trabalho do outro. Chamamos-lhe \u201cverificação hostil.\u201d Soa assustador, funciona de forma fiável. Não é perfeito \u2014 mas ordens de magnitude melhor do que \u201cescreve-me um artigo sobre cogumelos.\u201d'
+        },
+        '.article-ref:first-of-type': {
+          _html: true,
+          ru: 'Подробнее о том, как устроена современная разработка с автоматизированными инструментами, в <a href="https://www.technologyreview.com/2025/11/05/1127477/from-vibe-coding-to-context-engineering-2025-in-software-development/" target="_blank" rel="noopener noreferrer">статье MIT Technology Review</a>.',
+          en: 'More about modern development with automated tools in this <a href="https://www.technologyreview.com/2025/11/05/1127477/from-vibe-coding-to-context-engineering-2025-in-software-development/" target="_blank" rel="noopener noreferrer">MIT Technology Review article</a>.',
+          pt: 'Mais sobre desenvolvimento moderno com ferramentas automatizadas neste <a href="https://www.technologyreview.com/2025/11/05/1127477/from-vibe-coding-to-context-engineering-2025-in-software-development/" target="_blank" rel="noopener noreferrer">artigo da MIT Technology Review</a>.'
+        },
+        '.article-ref:last-of-type': {
+          _html: true,
+          ru: 'А о том, как конкретно устроен этот процесс у нас, я написал <a href="https://habr.com/ru/articles/1006606/" target="_blank" rel="noopener noreferrer">статью на Хабре</a>.',
+          en: 'And about how this process works specifically for us, I wrote <a href="https://habr.com/ru/articles/1006606/" target="_blank" rel="noopener noreferrer">an article on Habr</a> (in Russian).',
+          pt: 'E sobre como este processo funciona especificamente para nós, escrevi <a href="https://habr.com/ru/articles/1006606/" target="_blank" rel="noopener noreferrer">um artigo no Habr</a> (em russo).'
+        },
+        '.infra > .container > .reveal.reveal-delay-1': {
+          ru: 'Весь стек — наш. Серверы наши, код наш, правила наши. Чужое — только DNS и CDN, и для обоих есть план миграции на случай чего. Ниже — для тех, кому интересно, что внутри.',
+          en: 'The entire stack is ours. Our servers, our code, our rules. Third-party is only DNS and CDN, and for both there\u2019s a migration plan. Below is for those curious about what\u2019s inside.',
+          pt: 'Toda a infraestrutura é nossa. Nossos servidores, nosso código, nossas regras. De terceiros apenas DNS e CDN, e para ambos há plano de migração. Abaixo para quem tem curiosidade sobre o que está por dentro.'
+        },
+        '.lucerna-content > p:nth-of-type(1)': {
+          ru: 'Люцерна — лаборатория FolkUp. Здесь мы тестируем инструменты на настоящих задачах: OSINT (разведка по открытым источникам), верификация фактов, работа с юридическими документами, техаудиты. Если короче — проверяем, на что способна автоматизация, когда ей дают сложное.',
+          en: 'Lucerna is FolkUp\u2019s research lab. We test tools on real tasks: OSINT (open source intelligence), fact verification, legal document processing, tech audits. In short \u2014 testing what automation can do when given something hard.',
+          pt: 'A Lucerna é o laboratório de investigação do FolkUp. Testamos ferramentas em tarefas reais: OSINT (inteligência de fontes abertas), verificação de factos, processamento de documentos legais, auditorias técnicas. Em resumo \u2014 testar o que a automação consegue quando lhe dão algo difícil.'
+        },
+        '.lucerna-content > p:nth-of-type(2)': {
+          ru: 'Если зайдёшь и увидишь статьи про грибы, псилоцибин или скатологию — не пугайся. Это не бред и не провокация. Мы специально берём деликатные темы, чтобы проверить: инструменты справляются? Compliance-проверки проходят? Опасных рекомендаций не генерируют? Лаборатория, не таблоид.',
+          en: 'If you visit and see articles about mushrooms, psilocybin, or scatology \u2014 don\u2019t worry. It\u2019s not nonsense or provocation. We deliberately take sensitive topics to test: do the tools handle them? Do compliance checks pass? No dangerous recommendations generated? It\u2019s a lab, not a tabloid.',
+          pt: 'Se visitares e vires artigos sobre cogumelos, psilocibina ou escatologia \u2014 não te preocupes. Não é disparate nem provocação. Escolhemos deliberadamente temas sensíveis para testar: as ferramentas lidam com eles? Os testes de conformidade passam? Não geram recomendações perigosas? É um laboratório, não um tablóide.'
+        },
+        '.page-timing p': {
+          ru: 'Бриф, планирование, два раунда враждебного ревью, вёрстка, восемь тем, анимации, мобильная адаптация, проверки доступности. Один день. Один человек. Автоматизированные инструменты. Спорить о подходе можно, но результат — вот он, ты на него смотришь.',
+          en: 'Brief, planning, two rounds of hostile review, layout, eight themes, animations, mobile adaptation, accessibility checks. One day. One person. Automated tools. You can argue about the approach, but the result is right here \u2014 you\u2019re looking at it.',
+          pt: 'Briefing, planeamento, duas rondas de revisão hostil, layout, oito temas, animações, adaptação móvel, verificações de acessibilidade. Um dia. Uma pessoa. Ferramentas automatizadas. Podes discutir a abordagem, mas o resultado está aqui \u2014 estás a olhar para ele.'
+        },
+        '.authors-note p': {
+          ru: 'Я всегда мечтал иметь свою маленькую, но крепкую и плавучую цифровую крепость в бескрайнем океане сети. Я свою мечту исполнил. Получилось или нет — судить только мне. Я не просто разместил объяву о мопеде, я его спроектировал и собрал на коленке. Если вы поняли, о чём я :)',
+          en: 'I always dreamed of having my own small but sturdy digital fortress in the vast ocean of the internet. I made that dream come true. Whether it turned out well \u2014 that\u2019s for me to judge. I didn\u2019t just post an ad for a moped, I designed and built it from scratch. If you know what I mean :)',
+          pt: 'Sempre sonhei ter a minha própria fortaleza digital, pequena mas resistente, no vasto oceano da internet. Realizei esse sonho. Se resultou ou não \u2014 só eu posso julgar. Não publiquei apenas um anúncio de motorizada, projetei-a e construí-a de raiz. Se percebes o que quero dizer :)'
+        },
+        '.footer-links a:nth-child(1)': {
+          ru: 'Политика конфиденциальности',
+          en: 'Privacy Policy',
+          pt: 'Política de Privacidade'
+        },
+        '.footer-links a:nth-child(2)': {
+          ru: 'Условия использования',
+          en: 'Terms of Use',
+          pt: 'Termos de Utilização'
+        },
+        '.footer-links a:nth-child(3)': {
+          ru: 'Политика cookies',
+          en: 'Cookie Policy',
+          pt: 'Política de Cookies'
+        }
+      };
+
+      /* Fornit descriptions — by index */
+      var FORNIT_DATA = [
+        { ru: 'Алиса', en: 'Alice', pt: 'Alice' },
+        { ru: 'Ресёрч и музыка. Прыгает в кроличью нору и приносит факты', en: 'Research and music. Dives down the rabbit hole and brings back facts', pt: 'Investigação e música. Mergulha na toca do coelho e traz de volta factos' },
+        { ru: 'КиберГонзо', en: 'CyberGonzo', pt: 'CyberGonzo' },
+        { ru: 'Проверка фактов из открытых источников. Не верит ничему на слово', en: 'Open source fact-checking. Doesn\u2019t take anything at face value', pt: 'Verificação de factos de fontes abertas. Não aceita nada sem provas' },
+        { ru: 'Купер', en: 'Cooper', pt: 'Cooper' },
+        { ru: 'Безопасность. Ищет дыры раньше, чем их найдёт кто-то другой', en: 'Security. Finds holes before anyone else does', pt: 'Segurança. Encontra falhas antes de qualquer outro' },
+        { ru: 'Фонарщик', en: 'Lamplighter', pt: 'Lampião' },
+        { ru: 'Бренд и визуал. Следит, чтобы всё выглядело как надо', en: 'Brand and visual. Makes sure everything looks right', pt: 'Marca e visual. Garante que tudo tem o aspeto certo' },
+        { ru: 'Лев', en: 'Lev', pt: 'Lev' },
+        { ru: 'Юридическое соответствие. GDPR, лицензии, правовые вопросы', en: 'Legal compliance. GDPR, licenses, legal matters', pt: 'Conformidade legal. RGPD, licenças, questões jurídicas' },
+        { ru: 'Печкин', en: 'Pechkin', pt: 'Pechkin' },
+        { ru: 'Почта и рассылки. Черновики писем, шаблоны, сортировка файлов, архивы', en: 'Mail and newsletters. Letter drafts, templates, file sorting, archives', pt: 'Correio e newsletters. Rascunhos de cartas, modelos, triagem de ficheiros, arquivos' },
+        { ru: 'Johnny', en: 'Johnny', pt: 'Johnny' },
+        { ru: 'Фронтенд-архитектор. CSS, вёрстка, типографика, доступность. Следит за каждым пикселем', en: 'Frontend architect. CSS, layout, typography, accessibility. Watches every pixel', pt: 'Arquiteto frontend. CSS, layout, tipografia, acessibilidade. Vigia cada pixel' },
+        { ru: 'Кочегар', en: 'Stoker', pt: 'Fogueiro' },
+        { ru: 'DevOps. Docker, серверы, деплой, мониторинг. Держит топку горячей, чтобы всё работало', en: 'DevOps. Docker, servers, deployment, monitoring. Keeps the furnace hot so everything runs', pt: 'DevOps. Docker, servidores, implementação, monitorização. Mantém a fornalha quente para tudo funcionar' },
+        { ru: 'Наборщик', en: 'Typesetter', pt: 'Tipógrafo' },
+        { ru: 'Редактор. Стиль, структура, факты, вычитка. Каждая статья проходит через его руки', en: 'Editor. Style, structure, facts, proofreading. Every article passes through his hands', pt: 'Editor. Estilo, estrutura, factos, revisão. Cada artigo passa pelas suas mãos' },
+        { ru: 'Картограф', en: 'Cartographer', pt: 'Cartógrafo' },
+        { ru: 'Стратег энциклопедий. Белые пятна, покрытие, кросс-проектная координация', en: 'Encyclopedia strategist. Blind spots, coverage, cross-project coordination', pt: 'Estratega de enciclopédias. Pontos cegos, cobertura, coordenação entre projetos' },
+        { ru: 'Оракул', en: 'Oracle', pt: 'Oráculo' },
+        { ru: 'Эксперт по карточным традициям. Таро, оракулы, ленорман: рынок, печать, культурный контекст', en: 'Card tradition expert. Tarot, oracles, Lenormand: market, printing, cultural context', pt: 'Especialista em tradições de cartas. Tarot, oráculos, Lenormand: mercado, impressão, contexto cultural' }
+      ];
+
+      /* Card descriptions — keyed by RU title (matches HTML source) */
+      var CARD_DESCS = {
+        'Retro-Tech': {
+          ru: 'Компьютеры, консоли и модемы, которые когда-то меняли мир.',
+          en: 'Computers, consoles, and modems that once changed the world.',
+          pt: 'Computadores, consolas e modems que outrora mudaram o mundo.'
+        },
+        'Barnes': {
+          ru: 'Энциклопедия Barnes, London SW13 — история, люди, природа, архитектура района.',
+          en: 'Encyclopedia of Barnes, London SW13 — history, people, nature, architecture.',
+          pt: 'Enciclopédia de Barnes, London SW13 — história, pessoas, natureza, arquitetura.'
+        },
+        'Tarot Hub': {
+          ru: 'История и символика Таро. Не гадание, а культурный справочник. Плюс две авторские колоды (Lantern и Ember) с guidebook и Print&Play.',
+          en: 'History and symbolism of Tarot. Not fortune-telling, but a cultural reference. Plus two original decks (Lantern & Ember) with guidebooks and Print & Play.',
+          pt: 'História e simbolismo do Tarot. Não adivinhação, mas referência cultural. Mais dois baralhos originais (Lantern e Ember) com guidebooks e Print & Play.'
+        },
+        'Setúbal': {
+          ru: 'Энциклопедия города, в котором мы живём. История, культура, места.',
+          en: 'Encyclopedia of the city where we live. History, culture, places.',
+          pt: 'Enciclopédia da cidade onde vivemos. História, cultura, lugares.'
+        },
+        'Грибы Португалии': {
+          ru: '30 видов грибов: токсичность, сезоны, фотографии, места сбора.',
+          en: '30 mushroom species: toxicity, seasons, photos, foraging spots.',
+          pt: '30 espécies de cogumelos: toxicidade, épocas, fotografias, locais de recolha.'
+        },
+        'Padel': {
+          ru: 'Падел-теннис: техника, правила, площадки.',
+          en: 'Padel tennis: technique, rules, courts.',
+          pt: 'Padel: técnica, regras, campos.'
+        },
+        'Аквариумистика': {
+          ru: 'Энциклопедия аквариумных рыб и их содержания.',
+          en: 'Encyclopedia of aquarium fish and fishkeeping.',
+          pt: 'Enciclopédia de peixes de aquário e aquariofilia.'
+        },
+        'DayForge': {
+          ru: 'Ежедневный планировщик задач. Мой инструмент тайм-менеджмента.',
+          en: 'Daily task planner. My time management tool.',
+          pt: 'Planificador diário de tarefas. A minha ferramenta de gestão de tempo.'
+        },
+        'JohnDoe was here!': {
+          ru: 'Telegram-канал. Четыре голоса: я, блюзмен Дэн и два форнита.',
+          en: 'Telegram channel. Four voices: me, bluesman Dan, and two fornits.',
+          pt: 'Canal Telegram. Quatro vozes: eu, o bluesman Dan e dois fornits.'
+        },
+        'FolkUp Quest': {
+          ru: 'Текстовое приключение по вселенной FolkUp. Интерактивный квест на движке Ink.',
+          en: 'Text adventure in the FolkUp universe. Interactive quest on the Ink engine.',
+          pt: 'Aventura de texto no universo FolkUp. Quest interativa no motor Ink.'
+        },
+        'Comic': {
+          ru: 'Графическая новелла про форнитов. Акварельный стиль, сюжет, персонажи — от сценария до генерации панелей.',
+          en: 'Graphic novel about fornits. Watercolor style, plot, characters — from script to panel generation.',
+          pt: 'Novela gráfica sobre fornits. Estilo aguarela, enredo, personagens — do guião à geração de painéis.'
+        },
+        'Игральная колода': {
+          ru: '54 карты по лору FolkUp. Форниты, проекты, архетипы — от концепции до печати.',
+          en: '54 cards based on FolkUp lore. Fornits, projects, archetypes — from concept to print.',
+          pt: '54 cartas baseadas no lore FolkUp. Fornits, projetos, arquétipos — do conceito à impressão.'
+        },
+        'FolkUp Docs': {
+          ru: 'Документация экосистемы. Brand Guide, стандарты, процессы — всё в одном месте.',
+          en: 'Ecosystem documentation. Brand Guide, standards, processes — all in one place.',
+          pt: 'Documentação do ecossistema. Brand Guide, padrões, processos — tudo num só lugar.'
+        },
+        'FolkUp Auth': {
+          ru: 'Единая авторизация. Один аккаунт для всех проектов FolkUp.',
+          en: 'Single sign-on. One account for all FolkUp projects.',
+          pt: 'Autenticação única. Uma conta para todos os projetos FolkUp.'
+        },
+        'ЦУП Фонарная': {
+          ru: 'Мониторинг экосистемы: контейнеры, аптайм, граф проектов. Панель управления всем хозяйством.',
+          en: 'Ecosystem monitoring: containers, uptime, project graph. Control panel for the whole operation.',
+          pt: 'Monitorização do ecossistema: contentores, uptime, grafo de projetos. Painel de controlo de toda a operação.'
+        }
+      };
+
+      /* Group titles */
+      var GROUP_TITLES = {
+        'Энциклопедии знаний': { en: 'Knowledge Encyclopedias', pt: 'Enciclopédias de Conhecimento' },
+        'Другие проекты': { en: 'Other Projects', pt: 'Outros Projetos' },
+        'Инфраструктура': { en: 'Infrastructure', pt: 'Infraestrutura' }
+      };
+
+      /* Infra stats */
+      var STAT_LABELS = {
+        'сайтов': { en: 'websites', pt: 'sites' },
+        'доменов': { en: 'domains', pt: 'domínios' },
+        'контейнеров': { en: 'containers', pt: 'contentores' },
+        'мониторинг': { en: 'monitoring', pt: 'monitorização' }
+      };
+
+      /* Infra feature titles */
+      var INFRA_TITLES = {
+        'Сборка и деплой': { en: 'Build and deploy', pt: 'Build e deploy' },
+        'Авторизация и секреты': { en: 'Auth and secrets', pt: 'Autenticação e segredos' },
+        'Безопасность': { en: 'Security', pt: 'Segurança' },
+        'Почта': { en: 'Email', pt: 'Email' },
+        'Мониторинг': { en: 'Monitoring', pt: 'Monitorização' },
+        'Контент и SEO': { en: 'Content and SEO', pt: 'Conteúdo e SEO' },
+        'Лицензирование и аудит': { en: 'Licensing and audit', pt: 'Licenciamento e auditoria' }
+      };
+
+      /* Infra feature descriptions (text after <strong>) */
+      var INFRA_DESCS = {
+        'Сборка и деплой': {
+          ru: ' — от коммита до продакшена без ручных шагов.',
+          en: ' — from commit to production with no manual steps.',
+          pt: ' — do commit à produção sem passos manuais.'
+        },
+        'Авторизация и секреты': {
+          ru: ' — единый вход на все сервисы, шифрование на уровне репозитория.',
+          en: ' — single sign-on for all services, encryption at the repository level.',
+          pt: ' — autenticação única para todos os serviços, encriptação ao nível do repositório.'
+        },
+        'Безопасность': {
+          ru: ' — пять уровней от интернета до контента.',
+          en: ' — five layers from the internet to the content.',
+          pt: ' — cinco camadas desde a internet até ao conteúdo.'
+        },
+        'Почта': {
+          ru: ' — свой почтовый сервер, четыре домена, полная аутентификация.',
+          en: ' — own mail server, four domains, full authentication.',
+          pt: ' — servidor de email próprio, quatro domínios, autenticação completa.'
+        },
+        'Мониторинг': {
+          ru: ' — 18 точек контроля, алерты за секунды.',
+          en: ' — 18 checkpoints, alerts in seconds.',
+          pt: ' — 18 pontos de controlo, alertas em segundos.'
+        },
+        'Контент и SEO': {
+          ru: ' — мультиязычность, метаданные, всё при сборке.',
+          en: ' — multilingual, metadata, all at build time.',
+          pt: ' — multilingue, metadados, tudo no momento de build.'
+        },
+        'Лицензирование и аудит': {
+          ru: ' — каждая зависимость проверена, vendor lock-in = 0.',
+          en: ' — every dependency audited, vendor lock-in = 0.',
+          pt: ' — cada dependência auditada, vendor lock-in = 0.'
+        }
+      };
+
+      /* Theme demo */
+      var THEME_DEMO = {
+        title: {
+          ru: 'Кстати, про скорость',
+          en: 'Speaking of speed',
+          pt: 'Por falar em velocidade'
+        },
+        text: {
+          ru: 'Видел переключатель тем в шапке? Восемь палитр, автоконтрасты, плавные переходы, запоминание выбора. Под капотом — CSS-переменные и 40 строк JavaScript. От идеи до работающей штуки — одна итерация. Попробуй переключить, если ещё не.',
+          en: 'Noticed the theme switcher in the header? Eight palettes, auto-contrasts, smooth transitions, saved preference. Under the hood \u2014 CSS variables and 40 lines of JavaScript. From idea to working thing \u2014 one iteration. Try switching if you haven\u2019t yet.',
+          pt: 'Reparaste no seletor de temas no cabeçalho? Oito paletas, auto-contrastes, transições suaves, preferência guardada. Por baixo \u2014 variáveis CSS e 40 linhas de JavaScript. De ideia a coisa funcional \u2014 uma iteração. Experimenta mudar se ainda não o fizeste.'
+        }
+      };
+
+      /* Project card titles that need translation (keyed by RU) */
+      var CARD_TITLES = {
+        'Грибы Португалии': { en: 'Mushrooms of Portugal', pt: 'Cogumelos de Portugal' },
+        'Аквариумистика': { en: 'Aquaristics', pt: 'Aquariofilia' },
+        'Игральная колода': { en: 'Playing Deck', pt: 'Baralho de Jogo' },
+        'ЦУП Фонарная': { en: 'Mission Control', pt: 'Centro de Controlo' }
+      };
+
+      /* ---- i18n engine ---- */
+      function detectLang() {
+        /* 1. URL param */
+        var params = new URLSearchParams(window.location.search);
+        var urlLang = params.get('lang');
+        if (urlLang && T._title[urlLang]) return urlLang;
+        /* 2. localStorage */
+        try {
+          var stored = localStorage.getItem(LANG_KEY);
+          if (stored && T._title[stored]) return stored;
+        } catch (e) {}
+        /* 3. Accept-Language */
+        var nav = (navigator.language || '').toLowerCase();
+        if (nav.startsWith('pt')) return 'pt';
+        if (nav.startsWith('en')) return 'en';
+        return DEFAULT_LANG;
+      }
+
+      function setLang(lang) {
+        var root = document.documentElement;
+        root.setAttribute('lang', lang);
+
+        /* Head meta */
+        document.title = T._title[lang];
+        var descMeta = document.querySelector('meta[name="description"]');
+        if (descMeta) descMeta.setAttribute('content', T._description[lang]);
+        var ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.setAttribute('content', T._og_title[lang]);
+        var ogDesc = document.getElementById('og-desc');
+        if (ogDesc) ogDesc.setAttribute('content', T._og_desc[lang]);
+        var ogLocale = document.getElementById('og-locale');
+        if (ogLocale) ogLocale.setAttribute('content', T._og_locale[lang]);
+
+        /* Simple selector → textContent / attribute */
+        Object.keys(T).forEach(function (sel) {
+          if (sel.charAt(0) === '_') return; /* skip meta keys */
+          var entry = T[sel];
+          if (!entry[lang]) return;
+          var els = document.querySelectorAll(sel);
+          els.forEach(function (el) {
+            if (entry._attr) {
+              el.setAttribute(entry._attr, entry[lang]);
+            } else {
+              el.textContent = entry[lang];
+            }
+          });
+        });
+
+        /* Paragraph-level (textContent or innerHTML) */
+        Object.keys(T_PARAGRAPHS).forEach(function (sel) {
+          var entry = T_PARAGRAPHS[sel];
+          if (!entry[lang]) return;
+          var el = document.querySelector(sel);
+          if (!el) return;
+          if (entry._html) {
+            el.innerHTML = entry[lang];
+          } else {
+            /* For list items with <strong>, preserve strong */
+            var strong = el.querySelector('strong');
+            if (strong) {
+              /* Set text after strong */
+              var nodes = el.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].nodeType === 3 && nodes[i].textContent.trim()) {
+                  nodes[i].textContent = '\n              ' + entry[lang] + '\n            ';
+                  break;
+                }
+              }
+            } else {
+              el.textContent = entry[lang];
+            }
+          }
+        });
+
+        /* Fornit names and descriptions */
+        var fornitNames = document.querySelectorAll('.fornit-name');
+        var fornitDescs = document.querySelectorAll('.fornit-desc');
+        for (var i = 0; i < fornitNames.length && i * 2 + 1 < FORNIT_DATA.length; i++) {
+          fornitNames[i].textContent = FORNIT_DATA[i * 2][lang];
+          fornitDescs[i].textContent = FORNIT_DATA[i * 2 + 1][lang];
+        }
+
+        /* Card titles + descriptions — use data-key for stable lookup */
+        document.querySelectorAll('.card-title').forEach(function (titleEl) {
+          /* Bind RU key on first pass */
+          if (!titleEl.getAttribute('data-key')) {
+            titleEl.setAttribute('data-key', titleEl.textContent.trim());
+          }
+          var key = titleEl.getAttribute('data-key');
+
+          /* Title translation */
+          var td = CARD_TITLES[key];
+          if (td) titleEl.textContent = lang === 'ru' ? key : (td[lang] || key);
+
+          /* Description translation */
+          var cardData = CARD_DESCS[key];
+          if (!cardData) return;
+          var card = titleEl.closest('.card, .card--no-link');
+          var descEl = card ? card.querySelector('.card-desc') : null;
+          if (descEl) descEl.textContent = cardData[lang];
+        });
+
+        /* Group titles — data-key for stable lookup */
+        document.querySelectorAll('.projects-group-title').forEach(function (el) {
+          if (!el.getAttribute('data-key')) el.setAttribute('data-key', el.textContent.trim());
+          var key = el.getAttribute('data-key');
+          var gd = GROUP_TITLES[key];
+          if (gd) el.textContent = lang === 'ru' ? key : gd[lang];
+        });
+
+        /* Stat labels — data-key for stable lookup */
+        document.querySelectorAll('.stat-label').forEach(function (el) {
+          if (!el.getAttribute('data-key')) el.setAttribute('data-key', el.textContent.trim());
+          var key = el.getAttribute('data-key');
+          var sd = STAT_LABELS[key];
+          if (sd) el.textContent = lang === 'ru' ? key : sd[lang];
+        });
+
+        /* Infra feature titles + descriptions — data-key for stable lookup */
+        document.querySelectorAll('.infra-feature strong').forEach(function (el) {
+          if (!el.getAttribute('data-key')) el.setAttribute('data-key', el.textContent.trim());
+          var key = el.getAttribute('data-key');
+          var it = INFRA_TITLES[key];
+          if (it) el.textContent = lang === 'ru' ? key : it[lang];
+          /* Update description text node after <strong> */
+          var desc = INFRA_DESCS[key];
+          if (desc && el.nextSibling && el.nextSibling.nodeType === 3) {
+            el.nextSibling.textContent = desc[lang] + '\n            ';
+          }
+        });
+
+        /* Theme demo */
+        var demoTitle = document.querySelector('.theme-demo-title');
+        if (demoTitle) demoTitle.textContent = THEME_DEMO.title[lang];
+        var demoText = document.querySelector('.theme-demo p');
+        if (demoText) demoText.textContent = THEME_DEMO.text[lang];
+
+        /* Badge translations (replace_all on matching class) */
+        var BADGES = {
+          '.badge-live': { ru: 'Live', en: 'Live', pt: 'Live' },
+          '.badge-invite': { ru: 'По приглашению', en: 'By invitation', pt: 'Por convite' },
+          '.badge-dev': { ru: 'В разработке', en: 'In development', pt: 'Em desenvolvimento' },
+          '.badge-internal': { ru: 'Внутренний', en: 'Internal', pt: 'Interno' }
+        };
+        Object.keys(BADGES).forEach(function (sel) {
+          document.querySelectorAll(sel).forEach(function (el) {
+            el.textContent = BADGES[sel][lang];
+          });
+        });
+
+        /* Infra details summary */
+        var SUMMARY_TEXT = { ru: 'Технические детали', en: 'Technical details', pt: 'Detalhes técnicos' };
+        document.querySelectorAll('.infra-feature summary').forEach(function (el) {
+          el.textContent = SUMMARY_TEXT[lang];
+        });
+
+        /* Video fallback text */
+        var videoEl = document.querySelector('.overview-video');
+        if (videoEl) {
+          var fallbacks = { ru: 'Ваш браузер не поддерживает видео.', en: 'Your browser does not support video.', pt: 'O seu navegador não suporta vídeo.' };
+          /* Text node after <source> */
+          var nodes = videoEl.childNodes;
+          for (var j = 0; j < nodes.length; j++) {
+            if (nodes[j].nodeType === 3 && nodes[j].textContent.trim()) {
+              nodes[j].textContent = '\n                ' + fallbacks[lang] + '\n              ';
+            }
+          }
+        }
+
+        /* Update lang switcher buttons */
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          var isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        /* Save preference */
+        try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+
+        /* Update URL without reload */
+        var url = new URL(window.location);
+        if (lang === DEFAULT_LANG) {
+          url.searchParams.delete('lang');
+        } else {
+          url.searchParams.set('lang', lang);
+        }
+        history.replaceState(null, '', url.toString());
+      }
+
       /* ---- Theme switcher ---- */
       var STORAGE_KEY = 'folkup-theme';
       var themeButtons = document.querySelectorAll('.theme-btn');
-      var root = document.documentElement;
 
       function setTheme(name) {
         if (name === 'default') {
-          root.removeAttribute('data-theme');
+          document.documentElement.removeAttribute('data-theme');
         } else {
-          root.setAttribute('data-theme', name);
+          document.documentElement.setAttribute('data-theme', name);
         }
         themeButtons.forEach(function (btn) {
           var isActive = btn.getAttribute('data-theme') === name;
@@ -2004,11 +2693,25 @@
         });
       });
 
-      // Restore saved theme
       try {
         var saved = localStorage.getItem(STORAGE_KEY);
         if (saved) { setTheme(saved); }
       } catch (e) {}
+
+      /* ---- Language switcher ---- */
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(this.getAttribute('data-lang'));
+        });
+      });
+
+      /* Initialize language */
+      var currentLang = detectLang();
+      setLang(currentLang);
+
+      /* Remove FOUC class */
+      document.body.classList.remove('i18n-loading');
+      document.body.classList.add('i18n-ready');
 
       /* ---- Video speed controls ---- */
       document.querySelectorAll('.video-details').forEach(function (details) {
@@ -2039,7 +2742,6 @@
           observer.observe(el);
         });
       } else {
-        // Fallback: show everything
         document.querySelectorAll('.reveal').forEach(function (el) {
           el.classList.add('visible');
         });
