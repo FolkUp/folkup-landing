@@ -1071,7 +1071,12 @@
     }
 
     @media print {
-      .theme-switcher { display: none; }
+      .theme-switcher,
+      .lang-switcher,
+      .video-details,
+      .video-speed,
+      .interlude,
+      .speed-controls { display: none; }
     }
 
     /* ---- Footer ---- */
@@ -1365,6 +1370,14 @@
     .i18n-loading { visibility: hidden; }
     .i18n-ready { visibility: visible; }
 
+    /* No-JS fallback: if JS fails, body stays visible after 2s */
+    @keyframes fouc-fallback {
+      to { visibility: visible; }
+    }
+    .i18n-loading {
+      animation: fouc-fallback 0s 2s forwards;
+    }
+
     /* ---- Language switcher ---- */
     .lang-switcher {
       display: flex;
@@ -1387,6 +1400,14 @@
       min-width: 36px;
       min-height: 32px;
       text-align: center;
+      position: relative;
+    }
+
+    /* 44px touch target via transparent hit area */
+    .lang-btn::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
     }
 
     .lang-btn:hover {
@@ -1412,6 +1433,7 @@
       }
     }
   </style>
+  <noscript><style>.i18n-loading { visibility: visible !important; animation: none !important; }</style></noscript>
 </head>
 <body class="i18n-loading">
 
@@ -1875,7 +1897,7 @@
     <div class="interlude reveal">
       <p class="interlude-quote">"I am ready to meet my maker. Whether my maker is prepared for the great ordeal of meeting me is another matter."</p>
       <span class="interlude-attr">Winston Churchill</span>
-      <div class="interlude-brainrot">17 containers? ohio level infrastructure</div>
+      <div class="interlude-brainrot">bro wrote a whole manifesto and called it a landing page</div>
     </div>
 
     <!-- Under the hood -->
@@ -2616,6 +2638,27 @@
         if (demoTitle) demoTitle.textContent = THEME_DEMO.title[lang];
         var demoText = document.querySelector('.theme-demo p');
         if (demoText) demoText.textContent = THEME_DEMO.text[lang];
+
+        /* Theme button titles and aria-labels */
+        var THEME_NAMES = {
+          'default':    { ru: 'Библиотека', en: 'Library', pt: 'Biblioteca' },
+          'ocean':      { ru: 'Океан', en: 'Ocean', pt: 'Oceano' },
+          'sunset':     { ru: 'Закат', en: 'Sunset', pt: 'Pôr do sol' },
+          'forest':     { ru: 'Лес', en: 'Forest', pt: 'Floresta' },
+          'lavender':   { ru: 'Лаванда', en: 'Lavender', pt: 'Lavanda' },
+          'midnight':   { ru: 'Полночь', en: 'Midnight', pt: 'Meia-noite' },
+          'mono-light': { ru: 'Ч/Б', en: 'B/W', pt: 'P/B' },
+          'mono-dark':  { ru: 'Б/Ч', en: 'W/B', pt: 'B/P' }
+        };
+        var themePrefix = { ru: 'Тема ', en: 'Theme: ', pt: 'Tema ' };
+        document.querySelectorAll('.theme-btn').forEach(function (btn) {
+          var th = btn.getAttribute('data-theme');
+          var tn = THEME_NAMES[th];
+          if (tn) {
+            btn.setAttribute('title', tn[lang]);
+            btn.setAttribute('aria-label', themePrefix[lang] + tn[lang]);
+          }
+        });
 
         /* Badge translations (replace_all on matching class) */
         var BADGES = {
