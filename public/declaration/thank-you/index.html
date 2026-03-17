@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — The Unenclosed Knowledge Declaration — FolkUp</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    :root {
+      --bordo: #5E2F3A;
+      --sage: #4E6B42;
+      --sage-light: #839E75;
+      --bg: #FEFCF6;
+      --text: #1a1a1a;
+      --muted: #777;
+      --border: #e2ddd5;
+      color-scheme: light only;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header { background: var(--bordo); color: #fff; padding: 1.5rem 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: #fff; text-decoration: none; }
+    .brand:hover { opacity: 0.9; }
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      text-align: center;
+      flex: 1;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+    .message { font-size: 1.05rem; margin: 1rem 0; }
+    .check-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #f4f7f2;
+      border: 2px solid var(--sage);
+      margin-bottom: 1.5rem;
+    }
+    .check-icon svg { width: 32px; height: 32px; stroke: var(--sage); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.5rem;
+      color: var(--bordo);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .back-link:hover { border-color: var(--bordo); background: #faf8f4; }
+    .back-link:focus-visible { outline: 2px solid var(--bordo); outline-offset: 2px; }
+    a { color: var(--bordo); }
+    a:focus-visible { outline: 2px solid var(--bordo); outline-offset: 2px; }
+    .footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    .footer a { color: var(--muted); }
+    .footer a:hover { color: var(--bordo); }
+    /* Multilingual blocks — JS shows one based on referrer/param */
+    .lang-block { display: none; }
+    .lang-block.active { display: block; }
+    @media (max-width: 600px) {
+      .header { padding: 1rem; }
+      main { padding: 2.5rem 1rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="brand">FolkUp</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="check-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+
+    <!-- Pending confirmation state (form just submitted) -->
+    <div id="content-en" class="lang-block active" data-state="pending">
+      <h1>Thank you for endorsing the Declaration</h1>
+      <p class="message">Please check your email to confirm your endorsement. Once confirmed, your name will be added to the list of signatories.</p>
+      <p>Together, we build the commons.</p>
+      <a href="/declaration" class="back-link">Back to the Declaration</a>
+    </div>
+
+    <div id="content-ru" class="lang-block" data-state="pending">
+      <h1>Благодарим за поддержку Декларации</h1>
+      <p class="message">Пожалуйста, проверьте вашу электронную почту для подтверждения подписи. После подтверждения ваше имя будет добавлено в список подписантов.</p>
+      <p>Вместе мы строим общее достояние.</p>
+      <a href="/declaration/ru/" class="back-link">Вернуться к Декларации</a>
+    </div>
+
+    <div id="content-pt" class="lang-block" data-state="pending">
+      <h1>Obrigado por subscrever a Declaração</h1>
+      <p class="message">Por favor, verifique o seu email para confirmar a subscrição. Após confirmação, o seu nome será adicionado à lista de signatários.</p>
+      <p>Juntos, construímos os bens comuns.</p>
+      <a href="/declaration/pt/" class="back-link">Voltar à Declaração</a>
+    </div>
+
+    <!-- Confirmed state (user clicked email link) -->
+    <div id="confirmed-en" class="lang-block" data-state="confirmed">
+      <h1>Your endorsement is confirmed!</h1>
+      <p class="message">Your name has been added to the list of signatories. Thank you for standing with the movement for open knowledge.</p>
+      <p>Thank you for keeping knowledge open.</p>
+      <a href="/declaration" class="back-link">Back to the Declaration</a>
+    </div>
+
+    <div id="confirmed-ru" class="lang-block" data-state="confirmed">
+      <h1>Ваша подпись подтверждена!</h1>
+      <p class="message">Ваше имя добавлено в список подписантов. Благодарим за поддержку движения за открытое знание.</p>
+      <p>Спасибо за то, что знание остаётся открытым.</p>
+      <a href="/declaration/ru/" class="back-link">Вернуться к Декларации</a>
+    </div>
+
+    <div id="confirmed-pt" class="lang-block" data-state="confirmed">
+      <h1>A sua subscrição está confirmada!</h1>
+      <p class="message">O seu nome foi adicionado à lista de signatários. Obrigado por apoiar o movimento pelo conhecimento aberto.</p>
+      <p>Obrigado por manter o conhecimento aberto.</p>
+      <a href="/declaration/pt/" class="back-link">Voltar à Declaração</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>FolkUp · <a href="mailto:contact@folkup.app">contact@folkup.app</a> · <a href="/privacy">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    (function() {
+      var lang = 'en';
+      var ref = document.referrer || '';
+      var params = new URLSearchParams(window.location.search);
+      var confirmed = params.get('confirmed') === 'true';
+
+      if (params.get('lang')) {
+        lang = params.get('lang');
+      } else if (ref.indexOf('/declaration/ru') !== -1) {
+        lang = 'ru';
+      } else if (ref.indexOf('/declaration/pt') !== -1) {
+        lang = 'pt';
+      }
+
+      var valid = ['en', 'ru', 'pt'];
+      if (valid.indexOf(lang) === -1) lang = 'en';
+
+      // Hide all blocks
+      var blocks = document.querySelectorAll('.lang-block');
+      for (var i = 0; i < blocks.length; i++) {
+        blocks[i].classList.remove('active');
+      }
+
+      // Show the correct block based on state + language
+      var targetId = confirmed ? 'confirmed-' + lang : 'content-' + lang;
+      var target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+
+      document.documentElement.lang = lang === 'ru' ? 'ru' : lang === 'pt' ? 'pt' : 'en';
+    })();
+  </script>
+</body>
+</html>

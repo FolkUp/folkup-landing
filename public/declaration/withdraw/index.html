@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Withdraw Endorsement — FolkUp</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    :root {
+      --bordo: #5E2F3A;
+      --sage: #4E6B42;
+      --sage-light: #839E75;
+      --bg: #FEFCF6;
+      --text: #1a1a1a;
+      --muted: #777;
+      --border: #e2ddd5;
+      color-scheme: light only;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header { background: var(--bordo); color: #fff; padding: 1.5rem 2rem; }
+    .header-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: #fff; text-decoration: none; }
+    .brand:hover { opacity: 0.9; }
+    main {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      flex: 1;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--bordo);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .intro { text-align: center; margin-bottom: 2rem; color: var(--muted); font-size: 0.95rem; }
+    a { color: var(--bordo); }
+    a:hover { text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--bordo); outline-offset: 2px; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--text); }
+    .form-group input[type="email"] { width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; font-family: inherit; background: #fff; color: var(--text); transition: border-color 0.2s, box-shadow 0.2s; min-height: 44px; }
+    .form-group input:focus { border-color: var(--bordo); box-shadow: 0 0 0 3px rgba(94,47,58,0.15); outline: none; }
+    .form-group input[aria-invalid="true"] { border-color: #c0392b; box-shadow: 0 0 0 3px rgba(192,57,43,0.12); }
+    .field-error { color: #c0392b; font-size: 0.85rem; margin-top: 0.3rem; min-height: 1.2em; }
+    .form-submit {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 100%; margin: 0.5rem 0; padding: 0.75rem 2rem;
+      background: var(--bordo); color: #fff; border: none; border-radius: 6px;
+      font-weight: 600; font-size: 1rem; font-family: inherit; cursor: pointer;
+      transition: background 0.2s, transform 0.1s; min-height: 44px;
+    }
+    .form-submit:hover { background: #7D4450; }
+    .form-submit:active { transform: scale(0.98); }
+    .form-submit:focus-visible { outline: 2px solid var(--bordo); outline-offset: 2px; }
+    .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-alert { padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; margin-top: 1rem; text-align: center; }
+    .form-alert.error { background: #fdf0ef; border: 1px solid #e8c4c0; color: #922; }
+    .form-alert.success { background: #f0f7ee; border: 1px solid #c4ddc0; color: #295022; }
+    .back-link { display: inline-block; margin-top: 1.5rem; font-size: 0.9rem; text-align: center; }
+    .lang-block { display: none; }
+    .lang-block.active { display: block; }
+    .footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    .footer a { color: var(--muted); }
+    .footer a:hover { color: var(--bordo); }
+    @media (max-width: 600px) {
+      .header { padding: 1rem; }
+      main { padding: 2rem 1rem; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="brand">FolkUp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- EN -->
+    <div id="withdraw-en" class="lang-block active">
+      <h1>Withdraw Endorsement</h1>
+      <p class="intro">You have the right to withdraw your endorsement at any time (GDPR Art. 7.3). Enter the email you used to endorse the Declaration.</p>
+
+      <form class="withdraw-form" id="withdrawFormEn" novalidate>
+        <div class="form-group">
+          <label for="withdraw-email-en">Email</label>
+          <input type="email" id="withdraw-email-en" name="email" required autocomplete="email" aria-required="true" aria-describedby="email-error-en" maxlength="254">
+          <div id="email-error-en" class="field-error" aria-live="polite"></div>
+        </div>
+        <button type="submit" class="form-submit" id="withdrawSubmitEn">Withdraw My Endorsement</button>
+        <div id="msg-en" role="alert" aria-live="assertive"></div>
+      </form>
+      <div style="text-align:center;"><a href="/declaration" class="back-link">Back to the Declaration</a></div>
+    </div>
+
+    <!-- RU -->
+    <div id="withdraw-ru" class="lang-block">
+      <h1>Отозвать подпись</h1>
+      <p class="intro">Вы имеете право отозвать свою подпись в любой момент (GDPR ст. 7.3). Введите email, который вы использовали при подписании Декларации.</p>
+
+      <form class="withdraw-form" id="withdrawFormRu" novalidate>
+        <div class="form-group">
+          <label for="withdraw-email-ru">Электронная почта</label>
+          <input type="email" id="withdraw-email-ru" name="email" required autocomplete="email" aria-required="true" aria-describedby="email-error-ru" maxlength="254">
+          <div id="email-error-ru" class="field-error" aria-live="polite"></div>
+        </div>
+        <button type="submit" class="form-submit" id="withdrawSubmitRu">Отозвать подпись</button>
+        <div id="msg-ru" role="alert" aria-live="assertive"></div>
+      </form>
+      <div style="text-align:center;"><a href="/declaration/ru/" class="back-link">Вернуться к Декларации</a></div>
+    </div>
+
+    <!-- PT -->
+    <div id="withdraw-pt" class="lang-block">
+      <h1>Retirar subscrição</h1>
+      <p class="intro">Tem o direito de retirar a sua subscrição a qualquer momento (RGPD Art. 7.3). Introduza o email que utilizou para subscrever a Declaração.</p>
+
+      <form class="withdraw-form" id="withdrawFormPt" novalidate>
+        <div class="form-group">
+          <label for="withdraw-email-pt">Email</label>
+          <input type="email" id="withdraw-email-pt" name="email" required autocomplete="email" aria-required="true" aria-describedby="email-error-pt" maxlength="254">
+          <div id="email-error-pt" class="field-error" aria-live="polite"></div>
+        </div>
+        <button type="submit" class="form-submit" id="withdrawSubmitPt">Retirar a minha subscrição</button>
+        <div id="msg-pt" role="alert" aria-live="assertive"></div>
+      </form>
+      <div style="text-align:center;"><a href="/declaration/pt/" class="back-link">Voltar à Declaração</a></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>FolkUp · <a href="mailto:contact@folkup.app">contact@folkup.app</a> · <a href="/privacy">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    (function() {
+      'use strict';
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang') || 'en';
+      if (['en', 'ru', 'pt'].indexOf(lang) === -1) lang = 'en';
+
+      // Show correct language block
+      var blocks = document.querySelectorAll('.lang-block');
+      for (var i = 0; i < blocks.length; i++) blocks[i].classList.remove('active');
+      var target = document.getElementById('withdraw-' + lang);
+      if (target) target.classList.add('active');
+      document.documentElement.lang = lang;
+
+      var strings = {
+        en: { required: 'This field is required.', invalid: 'Please enter a valid email address.', success: 'Your endorsement has been withdrawn. You may close this page.', error: 'Something went wrong. Please try again later.', sending: 'Sending\u2026', btn: 'Withdraw My Endorsement' },
+        ru: { required: 'Это поле обязательно.', invalid: 'Введите корректный адрес электронной почты.', success: 'Ваша подпись отозвана. Вы можете закрыть эту страницу.', error: 'Произошла ошибка. Попробуйте позже.', sending: 'Отправка\u2026', btn: 'Отозвать подпись' },
+        pt: { required: 'Este campo é obrigatório.', invalid: 'Introduza um endereço de email válido.', success: 'A sua subscrição foi retirada. Pode fechar esta página.', error: 'Ocorreu um erro. Tente novamente mais tarde.', sending: 'A enviar\u2026', btn: 'Retirar a minha subscrição' }
+      };
+      var s = strings[lang];
+
+      var form = document.getElementById('withdrawForm' + lang.charAt(0).toUpperCase() + lang.slice(1));
+      var emailInput = document.getElementById('withdraw-email-' + lang);
+      var errorEl = document.getElementById('email-error-' + lang);
+      var msgEl = document.getElementById('msg-' + lang);
+      var submitBtn = document.getElementById('withdrawSubmit' + lang.charAt(0).toUpperCase() + lang.slice(1));
+
+      function validateEmail() {
+        var v = emailInput.value.trim();
+        if (!v) { errorEl.textContent = s.required; emailInput.setAttribute('aria-invalid', 'true'); return false; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { errorEl.textContent = s.invalid; emailInput.setAttribute('aria-invalid', 'true'); return false; }
+        errorEl.textContent = ''; emailInput.removeAttribute('aria-invalid'); return true;
+      }
+
+      emailInput.addEventListener('blur', validateEmail);
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        msgEl.textContent = ''; msgEl.className = '';
+        if (!validateEmail()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = s.sending;
+
+        fetch('/api/withdraw', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailInput.value.trim() })
+        })
+        .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
+        .then(function(r) {
+          if (r.data.success) {
+            msgEl.className = 'form-alert success';
+            msgEl.textContent = s.success;
+            form.reset();
+          } else {
+            msgEl.className = 'form-alert error';
+            msgEl.textContent = s.error;
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = s.btn;
+        })
+        .catch(function() {
+          msgEl.className = 'form-alert error';
+          msgEl.textContent = s.error;
+          submitBtn.disabled = false;
+          submitBtn.textContent = s.btn;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
