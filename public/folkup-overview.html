@@ -1397,18 +1397,9 @@
       color: var(--text-muted);
       cursor: pointer;
       transition: var(--transition);
-      min-width: 36px;
-      min-height: 32px;
+      min-width: 44px;
+      min-height: 44px;
       text-align: center;
-      position: relative;
-    }
-
-    /* 44px touch target via transparent hit area */
-    .lang-btn::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-    }
 
     .lang-btn:hover {
       color: var(--primary);
@@ -2494,6 +2485,19 @@
         }
       };
 
+      /* Theme button names (keyed by data-theme) */
+      var THEME_NAMES = {
+        'default':    { ru: 'Библиотека', en: 'Library', pt: 'Biblioteca' },
+        'ocean':      { ru: 'Океан', en: 'Ocean', pt: 'Oceano' },
+        'sunset':     { ru: 'Закат', en: 'Sunset', pt: 'Pôr do sol' },
+        'forest':     { ru: 'Лес', en: 'Forest', pt: 'Floresta' },
+        'lavender':   { ru: 'Лаванда', en: 'Lavender', pt: 'Lavanda' },
+        'midnight':   { ru: 'Полночь', en: 'Midnight', pt: 'Meia-noite' },
+        'mono-light': { ru: 'Ч/Б', en: 'B/W', pt: 'P/B' },
+        'mono-dark':  { ru: 'Б/Ч', en: 'W/B', pt: 'B/P' }
+      };
+      var THEME_PREFIX = { ru: 'Тема ', en: 'Theme: ', pt: 'Tema ' };
+
       /* Project card titles that need translation (keyed by RU) */
       var CARD_TITLES = {
         'Грибы Португалии': { en: 'Mushrooms of Portugal', pt: 'Cogumelos de Portugal' },
@@ -2640,23 +2644,12 @@
         if (demoText) demoText.textContent = THEME_DEMO.text[lang];
 
         /* Theme button titles and aria-labels */
-        var THEME_NAMES = {
-          'default':    { ru: 'Библиотека', en: 'Library', pt: 'Biblioteca' },
-          'ocean':      { ru: 'Океан', en: 'Ocean', pt: 'Oceano' },
-          'sunset':     { ru: 'Закат', en: 'Sunset', pt: 'Pôr do sol' },
-          'forest':     { ru: 'Лес', en: 'Forest', pt: 'Floresta' },
-          'lavender':   { ru: 'Лаванда', en: 'Lavender', pt: 'Lavanda' },
-          'midnight':   { ru: 'Полночь', en: 'Midnight', pt: 'Meia-noite' },
-          'mono-light': { ru: 'Ч/Б', en: 'B/W', pt: 'P/B' },
-          'mono-dark':  { ru: 'Б/Ч', en: 'W/B', pt: 'B/P' }
-        };
-        var themePrefix = { ru: 'Тема ', en: 'Theme: ', pt: 'Tema ' };
         document.querySelectorAll('.theme-btn').forEach(function (btn) {
           var th = btn.getAttribute('data-theme');
           var tn = THEME_NAMES[th];
           if (tn) {
             btn.setAttribute('title', tn[lang]);
-            btn.setAttribute('aria-label', themePrefix[lang] + tn[lang]);
+            btn.setAttribute('aria-label', THEME_PREFIX[lang] + tn[lang]);
           }
         });
 
