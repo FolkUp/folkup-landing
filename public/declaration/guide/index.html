@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Declaration Guide for Students — FolkUp</title>
+  <meta name="description" content="The Unenclosed Knowledge Declaration explained for students aged 13–15. Seven principles about open knowledge — in plain language.">
+  <meta property="og:title" content="Declaration Guide for Students — FolkUp">
+  <meta property="og:description" content="Seven principles about open knowledge, explained for students.">
+  <meta property="og:image" content="/images/og-folkup.png">
+  <meta property="og:url" content="https://folkup.app/declaration/guide/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Instrument Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-normal-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-italic-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Instrument Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url(../../fonts/instrument-serif-italic-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../../fonts/playfair-display-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../../fonts/playfair-display-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-cyrillic-ext.woff2) format('woff2'); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(../../fonts/inter-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+    :root {
+      --bordo: #5E2F3A;
+      --bordo-light: #7D4450;
+      --sage: #4E6B42;
+      --sage-light: #839E75;
+      --amber: #E8AD4A;
+      --bg: #FEFCF6;
+      --text: #1a1a1a;
+      --muted: #777;
+      --border: #e2ddd5;
+      --light: #f0ede6;
+      color-scheme: light only;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bordo);
+      color: #fff;
+      padding: 1.25rem 2rem;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .brand {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .brand:hover { opacity: 0.9; }
+    nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .nav-link {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link.active { color: #fff; border-bottom-color: #fff; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, var(--bordo) 0%, #3d1c24 100%);
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+    .hero-inner { max-width: 700px; margin: 0 auto; }
+    .hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+    [lang="ru"] .hero h1 { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* Language tabs */
+    .lang-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 1rem 2rem 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .lang-tab {
+      background: none;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      padding: 0.5rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 6px 6px 0 0;
+      transition: color 0.2s, background 0.2s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .lang-tab:hover { color: var(--text); background: var(--light); }
+    .lang-tab.active {
+      color: var(--bordo);
+      background: var(--bg);
+      border-color: var(--bordo);
+      font-weight: 600;
+    }
+    .lang-tab:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 2px;
+    }
+
+    /* Content */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+      border-top: 2px solid var(--bordo);
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    .content h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 400;
+      color: var(--bordo);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .content h2:first-child { margin-top: 0; }
+    [data-lang="ru"] h2 { font-family: 'Playfair Display', Georgia, serif; }
+
+    .content p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .content strong {
+      color: var(--bordo);
+      font-weight: 600;
+    }
+
+    .principle {
+      margin-bottom: 1.25rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--sage-light);
+    }
+    .principle strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      margin: 3rem 0 1rem;
+      padding: 2rem;
+      background: var(--light);
+      border-radius: 8px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--bordo);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+      min-height: 44px;
+    }
+    .cta-btn:hover { background: var(--bordo-light); transform: translateY(-1px); }
+    .cta-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+    .print-btn {
+      display: inline-block;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 0.75rem;
+      transition: color 0.2s, border-color 0.2s;
+      min-height: 44px;
+    }
+    .print-btn:hover { color: var(--text); border-color: var(--text); }
+    .print-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+    /* Footer */
+    .footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .footer a { color: var(--bordo-light); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* Print */
+    @media print {
+      .header, .lang-tabs, .print-btn, .footer { display: none; }
+      .lang-content { display: block !important; }
+      .lang-content:not(.active) { display: none !important; }
+      .content { border-top: none; padding-top: 0; }
+      .hero { background: none; color: var(--text); padding: 1rem 0; }
+      .hero h1 { color: var(--bordo); }
+      .cta { background: none; border: 1px solid var(--border); }
+      body { font-size: 11pt; }
+      h2 { break-after: avoid; }
+      .principle { break-inside: avoid; }
+      @page { margin: 2cm; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header { padding: 1rem; }
+      .hero { padding: 2rem 1.25rem 1.5rem; }
+      .content { padding: 1.5rem 1.25rem 2.5rem; }
+      .lang-tabs { padding: 1rem 1.25rem 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="brand">FolkUp</a>
+      <nav aria-label="Navigation">
+        <a href="/declaration/" class="nav-link">Declaration</a>
+        <a href="/declaration/guide/" class="nav-link active" aria-current="page">Guide</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 id="hero-title">The Unenclosed Knowledge Declaration</h1>
+      <p id="hero-subtitle">A guide for students — seven principles in plain language</p>
+    </div>
+  </section>
+
+  <div class="lang-tabs" role="tablist" aria-label="Language">
+    <button class="lang-tab active" role="tab" aria-selected="true" aria-controls="content-en" data-lang="en">English</button>
+    <button class="lang-tab" role="tab" aria-selected="false" aria-controls="content-ru" data-lang="ru">Русский</button>
+    <button class="lang-tab" role="tab" aria-selected="false" aria-controls="content-pt" data-lang="pt">Português</button>
+  </div>
+
+  <main class="content">
+
+    <!-- English -->
+    <article id="content-en" class="lang-content active" role="tabpanel" data-lang="en" lang="en">
+
+      <h2>What this is and why you should read it</h2>
+      <p>There's a document trying to say something simple: knowledge shouldn't be a commodity. Not a textbook, not a law, not a manifesto from the barricades—more like a set of principles for people building things on the internet. It's called "The Unenclosed Knowledge Declaration." Written by people who make open encyclopedias and believe information only works when it's accessible. Seven principles, no fluff. Below—what they're about and why this matters to your life right now.</p>
+
+      <h2>What is enclosed knowledge</h2>
+      <p>You're assigned a biology paper. Found an article that's perfect—but it's behind a paywall. $39.99 a month. You're a student. You don't have thirty-nine dollars for a subscription just for one article. You close the tab and grab the first free thing you find. Your paper turns out worse. Not because you're lazy, but because knowledge is enclosed.</p>
+      <p>Or this: you open TikTok for five minutes, and an hour later you're still scrolling. Not because there's that much interesting stuff. The algorithm picks videos to keep you from stopping. It doesn't ask what you need. It decides for you what you'll see. That's also an enclosure—just not around text, but around your attention.</p>
+      <p>Or something totally everyday: grandma's apple cake recipe. Someone posted it on a cooking site, the site locked it behind a subscription, and now folk knowledge that was passed down free for hundreds of years costs money. Knowledge gets enclosed—they put up a fence and charge admission.</p>
+
+      <h2>Why this affects you</h2>
+      <p>When you register on a site, accept cookies, download an app—you're paying. Not with money. With data. Who you are, where you live, what you watch, how long, what time of day. This information gets sold to advertisers. The Declaration's fifth principle says it straight: access to knowledge shouldn't cost you your privacy. But right now it does.</p>
+      <p>Recommendation algorithms work like this: the stronger the emotion, the longer you watch. Anger works best. That's why your feed is full of conflicts, provocations, shouting. This isn't accidental—it's the business model. The algorithm makes you angry because an angry viewer is an engaged viewer. The Declaration's second principle: your attention belongs to you, not the platform.</p>
+      <p>And one more thing. Scientific research is often funded from government budgets—meaning from taxes your parents pay. The results of this research get published in journals that charge for access. Your family paid for the research twice: in taxes and in subscriptions. The Declaration's first principle: knowledge created for everyone should be accessible to everyone.</p>
+
+      <h2>Seven principles in plain language</h2>
+      <div class="principle"><strong>I. Knowledge belongs to humanity.</strong> No one has the right to lock up what was created through collective effort or public funding. If research was publicly funded—its results should be open.</div>
+      <div class="principle"><strong>II. Attention is sovereign.</strong> Only you decide how to spend your time and attention. Recommendation algorithms replaced real conversation with endless content consumption. Dialogue turned into a feed, and that needs to change.</div>
+      <div class="principle"><strong>III. Creation must precede extraction.</strong> First—make something useful. Then—think about profit. Not the other way around. If a project starts with "how do we make money from this," it's almost guaranteed to end up fencing off knowledge.</div>
+      <div class="principle"><strong>IV. Transparency is non-negotiable.</strong> If a system makes decisions that affect you—you have the right to know how it works. Algorithms, moderation, data collection—everything should be explainable. No exceptions.</div>
+      <div class="principle"><strong>V. Access without surveillance.</strong> Reading an article shouldn't require handing over your personal details. Knowledge should be accessible without being tracked, profiled, and sold.</div>
+      <div class="principle"><strong>VI. Local wisdom, global commons.</strong> Every place has knowledge that exists nowhere else: language, recipes, history, crafts. This knowledge is valuable in itself and should remain part of our shared heritage, not turn into someone's exclusive content.</div>
+      <div class="principle"><strong>VII. Building, not burning.</strong> Criticizing closed systems isn't enough. We need to build open alternatives. Don't break what others made—make your own, and make it accessible.</div>
+
+      <h2>What you can do</h2>
+      <p>Check your sources. Not "found it on the internet"—but where exactly, who's the author, are there other confirmations. This is a basic skill that protects against manipulation better than any antivirus.</p>
+      <p>Share what you know. Wrote some notes—post them. Figured out a topic—explain it to others. Knowledge that isn't shared dies.</p>
+      <p>Pay attention to how the services you use actually work. What they ask in return. What data they collect. Reading the entire user agreement is unrealistic, but understanding the principle of "free service for your data"—that's necessary.</p>
+      <p>Set up your feed for yourself, not for the algorithm. Subscribe deliberately. Unsubscribe from what makes you angry instead of genuinely engaging you.</p>
+
+      <div class="cta">
+        <a class="cta-btn" href="/declaration/">Read the full Declaration</a><br>
+        <button class="print-btn" onclick="window.print()">Save as PDF</button>
+      </div>
+    </article>
+
+    <!-- Russian -->
+    <article id="content-ru" class="lang-content" role="tabpanel" data-lang="ru" lang="ru">
+
+      <h2>О чём это и зачем тебе читать</h2>
+      <p>Есть документ, который пытается сформулировать простую вещь: знание не должно быть товаром. Не учебник, не закон, не манифест с баррикад — скорее набор принципов для тех, кто строит что-то в интернете. Называется «Декларация неогороженного знания». Написали её люди, которые делают открытые энциклопедии и считают, что информация работает только тогда, когда к ней есть доступ. Семь принципов, без воды. Ниже — о чём они и почему это имеет отношение к твоей жизни прямо сейчас.</p>
+
+      <h2>Что такое огороженное знание</h2>
+      <p>Тебе задали реферат по биологии. Нашёл статью, которая идеально подходит, — но за пейволлом. $39.99 в месяц. Ты — школьник. У тебя нет тридцати девяти долларов на подписку ради одной статьи. Ты закрываешь вкладку и берёшь первое, что нашлось бесплатно. Реферат получается хуже. Не потому что ты ленивый, а потому что знание огорожено.</p>
+      <p>Или вот: ты открываешь TikTok на пять минут, а через час всё ещё листаешь. Не потому что там столько интересного. Алгоритм подбирает ролики так, чтобы ты не мог остановиться. Он не спрашивает, что тебе нужно. Он решает за тебя, что ты увидишь. Это тоже ограда — только не вокруг текста, а вокруг твоего внимания.</p>
+      <p>А вот совсем бытовое: бабушкин рецепт шарлотки. Кто-то выложил его на кулинарный сайт, сайт закрыл рецепт подпиской, и теперь народное знание, которое передавалось бесплатно сотни лет, стоит денег. Знание огораживают — ставят забор и берут плату за вход.</p>
+
+      <h2>Почему это касается тебя</h2>
+      <p>Когда ты регистрируешься на сайте, принимаешь cookies, скачиваешь приложение — ты платишь. Не деньгами. Данными. Кто ты, где живёшь, что смотришь, как долго, в какое время суток. Эту информацию продают рекламодателям. Пятый принцип Декларации говорит прямо: доступ к знанию не должен стоить твоей приватности. Но пока стоит.</p>
+      <p>Алгоритмы рекомендаций устроены так: чем сильнее эмоция, тем дольше ты смотришь. Злость работает лучше всего. Поэтому в ленте столько конфликтов, провокаций, крика. Это не случайность — это бизнес-модель. Алгоритм делает тебя злым, потому что злой зритель — вовлечённый зритель. Второй принцип Декларации: твоё внимание принадлежит тебе, а не платформе.</p>
+      <p>И ещё одна вещь. Научные исследования часто оплачиваются из государственного бюджета — то есть из налогов, которые платят твои родители. Результаты этих исследований публикуются в журналах, которые берут деньги за доступ. Твоя семья заплатила за исследование дважды: налогами и подпиской. Первый принцип Декларации: знание, созданное для всех, должно быть доступно всем.</p>
+
+      <h2>Семь принципов простым языком</h2>
+      <div class="principle"><strong>I. Знание принадлежит человечеству.</strong> Никто не имеет права запирать то, что создано общими усилиями или на общие деньги. Если исследование финансировалось из бюджета — его результаты должны быть открыты.</div>
+      <div class="principle"><strong>II. Внимание суверенно.</strong> Только ты решаешь, на что тратить своё время и внимание. Рекомендательные алгоритмы подменили настоящий разговор бесконечным потреблением контента. Диалог превратился в ленту, и это нужно менять.</div>
+      <div class="principle"><strong>III. Создание должно предшествовать извлечению.</strong> Сначала — сделай что-то полезное. Потом — думай о заработке. Не наоборот. Если проект начинается с вопроса «как на этом заработать», он почти гарантированно закончится забором вокруг знания.</div>
+      <div class="principle"><strong>IV. Прозрачность не подлежит обсуждению.</strong> Если система принимает решения, которые на тебя влияют, — ты имеешь право знать, как она работает. Алгоритм, модерация, сбор данных — всё должно быть объяснимо. Без оговорок.</div>
+      <div class="principle"><strong>V. Доступ без слежки.</strong> Чтобы прочитать статью, не нужно отдавать паспортные данные. Знание должно быть доступно без того, чтобы за тобой следили, собирали профиль и продавали его.</div>
+      <div class="principle"><strong>VI. Местная мудрость, глобальные общие блага.</strong> У каждого места есть знания, которые больше нигде не существуют: язык, рецепты, история, ремёсла. Эти знания ценны сами по себе и должны оставаться частью общего наследия, а не превращаться в чей-то эксклюзивный контент.</div>
+      <div class="principle"><strong>VII. Строить, не разрушать.</strong> Критиковать закрытые системы — недостаточно. Нужно строить открытые альтернативы. Не ломать чужое, а делать своё — и делать его доступным.</div>
+
+      <h2>Что ты можешь сделать</h2>
+      <p>Проверяй источники. Не «нашёл в интернете» — а где именно, кто автор, есть ли другие подтверждения. Это базовый навык, который защищает от манипуляций лучше любого антивируса.</p>
+      <p>Делись тем, что знаешь. Написал конспект — выложи. Разобрался в теме — объясни другим. Знание, которым не делятся, умирает.</p>
+      <p>Обращай внимание на то, как работают сервисы, которыми пользуешься. Что они просят взамен. Какие данные собирают. Читать пользовательское соглашение целиком — утопия, но понимать принцип обмена «бесплатный сервис за твои данные» — необходимость.</p>
+      <p>Настрой ленту под себя, а не под алгоритм. Подписывайся осознанно. Отписывайся от того, что тебя бесит, а не вовлекает.</p>
+
+      <div class="cta">
+        <a class="cta-btn" href="/declaration/ru/">Прочитать полную Декларацию</a><br>
+        <button class="print-btn" onclick="window.print()">Сохранить как PDF</button>
+      </div>
+    </article>
+
+    <!-- Portuguese -->
+    <article id="content-pt" class="lang-content" role="tabpanel" data-lang="pt" lang="pt">
+
+      <h2>Sobre o que é isto e porque deves ler</h2>
+      <p>Há um documento que tenta formular uma coisa simples: o conhecimento não deve ser uma mercadoria. Não é um manual escolar, nem uma lei, nem um manifesto das barricadas — é antes um conjunto de princípios para quem constrói algo na internet. Chama-se «Declaração do Conhecimento Não Cercado». Escreveram-na pessoas que fazem enciclopédias abertas e acreditam que a informação só funciona quando há acesso a ela. Sete princípios, sem paleio. Aqui em baixo — sobre o que são e porque têm a ver com a tua vida agora mesmo.</p>
+
+      <h2>O que é o conhecimento cercado</h2>
+      <p>Mandaram-te fazer um trabalho de ciências. Encontraste um artigo que servia perfeitamente — mas está atrás de um paywall. 39,99 dólares por mês. Tu és estudante. Não tens trinta e nove dólares para uma subscrição por causa de um artigo. Fechas o separador e usas a primeira coisa que encontras de graça. O trabalho fica pior. Não porque sejas preguiçoso, mas porque o conhecimento está cercado.</p>
+      <p>Ou então: abres o TikTok por cinco minutos e uma hora depois ainda estás a fazer scroll. Não porque haja assim tanto de interessante. O algoritmo escolhe os vídeos de modo a que não consigas parar. Não te pergunta o que precisas. Decide por ti o que vais ver. Isto também é uma cerca — só que não à volta do texto, mas à volta da tua atenção.</p>
+      <p>E um exemplo bem do dia a dia: a receita de caldo verde da avó. Alguém pôs-la num site de culinária, o site fechou-a com subscrição, e agora o conhecimento popular, que se transmitia gratuitamente há centenas de anos, custa dinheiro. Cercam o conhecimento — põem uma vedação e cobram à entrada.</p>
+
+      <h2>Porque é que isto tem a ver contigo</h2>
+      <p>Quando te registas num site, aceitas cookies, descarregas uma aplicação — estás a pagar. Não com dinheiro. Com dados. Quem és, onde moras, o que vês, quanto tempo, a que horas. Esta informação é vendida a anunciantes. O quinto princípio da Declaração diz claramente: o acesso ao conhecimento não deve custar a tua privacidade. Mas por enquanto custa.</p>
+      <p>Os algoritmos de recomendação funcionam assim: quanto mais forte a emoção, mais tempo ficas a ver. A raiva funciona melhor do que tudo. Por isso há tanto conflito no feed, tanta provocação, tanto grito. Não é acaso — é um modelo de negócio. O algoritmo deixa-te zangado porque um espectador zangado é um espectador envolvido. O segundo princípio da Declaração: a tua atenção pertence-te a ti, não à plataforma.</p>
+      <p>E mais uma coisa. A investigação científica é muitas vezes paga pelo orçamento de Estado — ou seja, pelos impostos que os teus pais pagam. Os resultados dessa investigação são publicados em revistas que cobram pelo acesso. A tua família pagou pela investigação duas vezes: em impostos e em subscrição. O primeiro princípio da Declaração: o conhecimento criado para todos deve estar acessível a todos.</p>
+
+      <h2>Os sete princípios em linguagem simples</h2>
+      <div class="principle"><strong>I. O conhecimento pertence à humanidade.</strong> Ninguém tem o direito de trancar aquilo que foi criado por esforço comum ou com dinheiro comum. Se uma investigação foi financiada pelo orçamento — os seus resultados devem estar abertos.</div>
+      <div class="principle"><strong>II. A atenção é soberana.</strong> Só tu decides em que gastas o teu tempo e atenção. Os algoritmos de recomendação substituíram a conversa verdadeira por consumo infinito de conteúdo. O diálogo transformou-se em feed, e isso tem de mudar.</div>
+      <div class="principle"><strong>III. A criação deve preceder a extração.</strong> Primeiro — faz algo útil. Depois — pensa em ganhar dinheiro. Não ao contrário. Se um projecto começa com a pergunta «como ganho dinheiro com isto», quase de certeza acaba com uma vedação à volta do conhecimento.</div>
+      <div class="principle"><strong>IV. A transparência é inegociável.</strong> Se um sistema toma decisões que te afectam — tens o direito de saber como funciona. Algoritmo, moderação, recolha de dados — tudo deve poder ser explicado. Sem ressalvas.</div>
+      <div class="principle"><strong>V. Acesso sem vigilância.</strong> Para ler um artigo não precisas de dar os teus dados pessoais. O conhecimento deve estar acessível sem que te vigiem, façam um perfil teu e o vendam.</div>
+      <div class="principle"><strong>VI. Sabedoria local, bens comuns globais.</strong> Cada lugar tem conhecimentos que não existem em mais lado nenhum: língua, receitas, história, ofícios. Esses conhecimentos são valiosos por si mesmos e devem continuar a fazer parte do património comum, e não transformar-se em conteúdo exclusivo de alguém.</div>
+      <div class="principle"><strong>VII. Construir, não destruir.</strong> Criticar sistemas fechados não chega. É preciso construir alternativas abertas. Não partir o que é dos outros, mas fazer o nosso — e fazê-lo acessível.</div>
+
+      <h2>O que podes fazer</h2>
+      <p>Verifica as fontes. Não «encontrei na internet» — mas onde exactamente, quem é o autor, há outras confirmações. É uma competência básica que te protege de manipulações melhor do que qualquer antivírus.</p>
+      <p>Partilha o que sabes. Fizeste apontamentos — põe-nos online. Percebeste um tema — explica aos outros. O conhecimento que não se partilha morre.</p>
+      <p>Presta atenção a como funcionam os serviços que usas. O que pedem em troca. Que dados recolhem. Ler o acordo de utilização todo é utopia, mas perceber o princípio da troca «serviço grátis pelos teus dados» é necessário.</p>
+      <p>Ajusta o feed a ti, não ao algoritmo. Segue com consciência. Deixa de seguir o que te irrita, em vez de te envolver.</p>
+
+      <div class="cta">
+        <a class="cta-btn" href="/declaration/pt/">Ler a Declaração completa</a><br>
+        <button class="print-btn" onclick="window.print()">Guardar como PDF</button>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 <a href="/">FolkUp</a> &mdash; Knowledge, organized.</p>
+    <p><a href="https://docs.folkup.app/legal/privacy-policy/">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      var tabs = document.querySelectorAll('.lang-tab');
+      var panels = document.querySelectorAll('.lang-content');
+      var heroTitle = document.getElementById('hero-title');
+      var heroSub = document.getElementById('hero-subtitle');
+
+      var titles = {
+        en: 'The Unenclosed Knowledge Declaration',
+        ru: 'Декларация неогороженного знания',
+        pt: 'Declaração do Conhecimento Não Cercado'
+      };
+      var subtitles = {
+        en: 'A guide for students — seven principles in plain language',
+        ru: 'Путеводитель для школьников — семь принципов простым языком',
+        pt: 'Um guia para estudantes — sete princípios em linguagem simples'
+      };
+      var navDecl = {
+        en: 'Declaration', ru: 'Декларация', pt: 'Declaração'
+      };
+      var navGuide = {
+        en: 'Guide', ru: 'Путеводитель', pt: 'Guia'
+      };
+
+      function switchLang(lang) {
+        tabs.forEach(function (t) {
+          var isActive = t.getAttribute('data-lang') === lang;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle('active', p.getAttribute('data-lang') === lang);
+        });
+        heroTitle.textContent = titles[lang] || titles.en;
+        heroSub.textContent = subtitles[lang] || subtitles.en;
+        document.documentElement.lang = lang;
+
+        var links = document.querySelectorAll('.nav-link');
+        if (links[0]) links[0].textContent = navDecl[lang] || navDecl.en;
+        if (links[1]) links[1].textContent = navGuide[lang] || navGuide.en;
+
+        try { sessionStorage.setItem('guide-lang', lang); } catch (e) {}
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          switchLang(this.getAttribute('data-lang'));
+        });
+      });
+
+      /* Restore saved language or detect from URL */
+      var saved = null;
+      try { saved = sessionStorage.getItem('guide-lang'); } catch (e) {}
+      var fromUrl = new URLSearchParams(window.location.search).get('lang');
+      if (fromUrl && titles[fromUrl]) {
+        switchLang(fromUrl);
+      } else if (saved && titles[saved]) {
+        switchLang(saved);
+      }
+    })();
+  </script>
+
+</body>
+</html>
