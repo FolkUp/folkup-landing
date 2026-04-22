@@ -30,4 +30,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name folkup-deck --branch main --commit-hash ${{ github.sha }}
         env:
-          WRANGLER_LOG: none
+          WRANGLER_LOG: debug
