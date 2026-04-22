@@ -332,7 +332,9 @@
 
     /* Print */
     @media print {
-      .header, .lang-tabs, .print-btn, .footer { display: none; }
+      .header, .lang-tabs, .print-btn { display: none; }
+      .footer p { display: none; }
+      .footer .ai-notice { display: block; margin-bottom: 1rem; }
       .lang-content { display: block !important; }
       .lang-content:not(.active) { display: none !important; }
       .content { border-top: none; padding-top: 0; }
@@ -783,6 +785,7 @@
       var panels = document.querySelectorAll('.lang-content');
       var heroTitle = document.getElementById('hero-title');
       var heroSub = document.getElementById('hero-subtitle');
+      var aiNotice = document.querySelector('.ai-notice');
 
       var titles = {
         en: 'The Unenclosed Knowledge Declaration',
@@ -800,6 +803,11 @@
       var navGuide = {
         en: 'Guide', ru: 'Путеводитель', pt: 'Guia'
       };
+      var disclosures = {
+        en: '<strong>Transparent Creation:</strong> This guide\'s illustrations were created using automated tools with human curation and oversight. All content and visual elements are shared under CC BY 4.0 license to support open knowledge principles.',
+        ru: '<strong>Прозрачность создания:</strong> Иллюстрации к этому руководству созданы при помощи автоматизированных инструментов при кураторстве и контроле человека. Весь контент и визуальные элементы распространяются под лицензией CC BY 4.0 для поддержки принципов открытого знания.',
+        pt: '<strong>Criação Transparente:</strong> As ilustrações deste guia foram criadas usando ferramentas automatizadas com curadoria e supervisão humana. Todo o conteúdo e elementos visuais são compartilhados sob licença CC BY 4.0 para apoiar os princípios do conhecimento aberto.'
+      };
 
       function switchLang(lang) {
         tabs.forEach(function (t) {
@@ -812,6 +820,10 @@
         });
         heroTitle.textContent = titles[lang] || titles.en;
         heroSub.textContent = subtitles[lang] || subtitles.en;
+        if (aiNotice) {
+          aiNotice.innerHTML = disclosures[lang] || disclosures.en;
+          aiNotice.setAttribute('lang', lang);
+        }
         document.documentElement.lang = lang;
 
         var links = document.querySelectorAll('.nav-link');
