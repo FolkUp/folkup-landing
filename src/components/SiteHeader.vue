@@ -82,4 +82,8 @@ const { t } = useI18n()
 .header-nav a:hover {
   color: var(--color-bordo);
 }
+
+.header-nav a:focus-visible {
+  text-decoration: underline;
+}
 </style>
