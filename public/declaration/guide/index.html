@@ -370,8 +370,319 @@
       .lang-tabs { padding: 1rem 1.25rem 0; }
     }
 
+    /* Educational Gallery Styles */
+
+    /* Educational divider */
+    .educational-divider {
+      margin: 3rem 0 2rem;
+      text-align: center;
+    }
+    .divider-line {
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        var(--sage-light) 20%,
+        var(--bordo) 50%,
+        var(--sage-light) 80%,
+        transparent 100%);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Educational gallery container */
+    .educational-gallery {
+      margin: 2rem 0 3rem;
+    }
+
+    /* Category sections */
+    .category-section {
+      margin-bottom: 2.5rem;
+    }
+    .category-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--bordo);
+      margin-bottom: 1rem;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Category grids - responsive layout */
+    .category-grid {
+      display: grid;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Rights category: 5 items - 3+2 layout */
+    .category-section:nth-child(1) .category-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 600px;
+    }
+    .category-section:nth-child(1) .category-grid .gallery-item:nth-child(4),
+    .category-section:nth-child(1) .category-grid .gallery-item:nth-child(5) {
+      grid-column: span 1;
+    }
+    .category-section:nth-child(1) .category-grid .gallery-item:nth-child(4) {
+      justify-self: end;
+    }
+    .category-section:nth-child(1) .category-grid .gallery-item:nth-child(5) {
+      justify-self: start;
+    }
+
+    /* Participation category: 3 items - single row */
+    .category-section:nth-child(2) .category-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 600px;
+    }
+
+    /* European values category: 3 items - single row */
+    .category-section:nth-child(3) .category-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 600px;
+    }
+
+    /* Knowledge category: 1 item - centered */
+    .category-section:nth-child(4) .category-grid {
+      grid-template-columns: 1fr;
+      max-width: 200px;
+    }
+
+    /* Gallery items */
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--light);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    /* Gallery buttons */
+    .gallery-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      display: block;
+    }
+
+    .gallery-button:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+
+    /* Gallery images */
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gallery captions */
+    .gallery-caption {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Modal system */
+    .educational-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .educational-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: var(--bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      z-index: 1001;
+    }
+
+    .modal-header {
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bordo);
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s, background 0.2s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+      background: var(--light);
+    }
+
+    .modal-close:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 2px;
+    }
+
+    .modal-body {
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+
+    .modal-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 768px) {
+      /* All category grids become 2 columns on tablet */
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 400px !important;
+        gap: 1rem;
+      }
+
+      /* Reset special layouts for mobile */
+      .category-section:nth-child(1) .category-grid .gallery-item:nth-child(4),
+      .category-section:nth-child(1) .category-grid .gallery-item:nth-child(5) {
+        grid-column: span 1;
+        justify-self: stretch;
+      }
+
+      .gallery-item img {
+        height: 150px;
+      }
+
+      .educational-modal {
+        padding: 1rem;
+      }
+
+      .modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+      }
+
+      .modal-header {
+        padding: 1rem 1rem 0.75rem;
+      }
+
+      .modal-body {
+        padding: 0.75rem 1rem 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* Single column on mobile */
+      .category-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 280px !important;
+      }
+
+      .gallery-item img {
+        height: 200px;
+      }
+
+      .category-title {
+        font-size: 1rem;
+      }
+
+      .educational-divider {
+        margin: 2rem 0 1.5rem;
+      }
+    }
+
+    /* High contrast support */
+    @media (prefers-contrast: high) {
+      .gallery-item {
+        border: 2px solid var(--text);
+      }
+      .gallery-item:hover {
+        border-color: var(--bordo);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; }
+      .gallery-item {
+        transition: none;
+      }
+      .educational-modal {
+        backdrop-filter: none;
+      }
     }
   </style>
 </head>
@@ -618,6 +929,236 @@
         <strong>VII. Строить, не разрушать.</strong> Критиковать закрытые системы — недостаточно. Нужно строить открытые альтернативы. Не ломать чужое, а делать своё — и делать его доступным.
       </div>
 
+      <!-- Educational Concepts Gallery -->
+      <div class="educational-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <h2>Изучить концепции</h2>
+      <div class="section-illustration">
+        <img class="hero-illustration"
+             src="/images/declaration/guide/hero-04-constellation-v2.webp"
+             alt="Созвездие связанных точек света над образовательным ландшафтом">
+      </div>
+      <p>Эти иллюстрации раскрывают демократические ценности и гражданские концепции, которые составляют основу обществ открытых знаний. Каждое изображение представляет образовательный контент о европейском гражданском участии, конституционных правах и демократическом участии.</p>
+
+      <div class="educational-gallery">
+        <div class="gallery-grid" role="grid" aria-label="Иллюстрации образовательных концепций">
+
+          <!-- Rights Category -->
+          <div class="category-section">
+            <h3 class="category-title">Права и свободы</h3>
+            <div class="category-grid">
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции конституционных прав"
+                        data-concept="constitutional-rights"
+                        data-title="Конституционные права"
+                        data-description="Основные права и свободы, гарантированные конституцией">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/constitutional-rights_thumb_opt.webp"
+                       alt="Акварельная иллюстрация, показывающая граждан, изучающих конституционные документы">
+                  <div class="gallery-caption">Конституционные права</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции свободы выражения"
+                        data-concept="freedom-expression"
+                        data-title="Свобода выражения"
+                        data-description="Право свободно выражать свои мысли и убеждения">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/freedom-expression_thumb_opt.webp"
+                       alt="Акварельная иллюстрация многоязычного разнообразия и свободы слова">
+                  <div class="gallery-caption">Свобода выражения</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции защиты прав человека"
+                        data-concept="human-rights-protection"
+                        data-title="Защита прав человека"
+                        data-description="Охрана и защита фундаментальных прав каждого человека">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/human-rights-protection_thumb_opt.webp"
+                       alt="Акварельная иллюстрация защиты прав человека в ЕС">
+                  <div class="gallery-caption">Защита прав человека</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции прав меньшинств"
+                        data-concept="minority-rights"
+                        data-title="Права меньшинств"
+                        data-description="Защита интересов и прав меньшинств в обществе">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/minority-rights_thumb_opt.webp"
+                       alt="Акварельная иллюстрация защиты прав меньшинств в ЕС">
+                  <div class="gallery-caption">Права меньшинств</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции социальной справедливости"
+                        data-concept="social-justice"
+                        data-title="Социальная справедливость"
+                        data-description="Равенство возможностей и справедливое распределение ресурсов">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/social-justice_thumb_opt.webp"
+                       alt="Акварельная иллюстрация социальной справедливости и равенства">
+                  <div class="gallery-caption">Социальная справедливость</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Participation Category -->
+          <div class="category-section">
+            <h3 class="category-title">Участие и демократия</h3>
+            <div class="category-grid">
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции гражданской ответственности"
+                        data-concept="civic-responsibility"
+                        data-title="Гражданская ответственность"
+                        data-description="Активное участие граждан в жизни общества и принятии решений">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/civic-responsibility_thumb_opt.webp"
+                       alt="Акварельная иллюстрация граждан, участвующих в общественных процессах принятия решений">
+                  <div class="gallery-caption">Гражданская ответственность</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции демократического участия"
+                        data-concept="democratic-participation"
+                        data-title="Демократическое участие"
+                        data-description="Право граждан участвовать в демократических процессах">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/democratic-participation_thumb_opt.webp"
+                       alt="Акварельная иллюстрация демократического участия граждан">
+                  <div class="gallery-caption">Демократическое участие</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции избирательного участия"
+                        data-concept="electoral-participation"
+                        data-title="Избирательное участие"
+                        data-description="Участие в выборах как основа демократии">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/electoral-participation_thumb_opt.webp"
+                       alt="Акварельная иллюстрация выборов в Европейский парламент">
+                  <div class="gallery-caption">Избирательное участие</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- European Values Category -->
+          <div class="category-section">
+            <h3 class="category-title">Европейские ценности</h3>
+            <div class="category-grid">
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции европейской интеграции"
+                        data-concept="european-integration"
+                        data-title="Европейская интеграция"
+                        data-description="Объединение европейских стран в единое сообщество ценностей">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/european-integration_thumb_opt.webp"
+                       alt="Акварельная иллюстрация со звездами ЕС и многообразием членов">
+                  <div class="gallery-caption">Европейская интеграция</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции европейских ценностей"
+                        data-concept="european-values"
+                        data-title="Европейские ценности"
+                        data-description="Демократия, права человека, верховенство закона">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/european-values_thumb_opt.webp"
+                       alt="Акварельная иллюстрация основополагающих ценностей ЕС">
+                  <div class="gallery-caption">Европейские ценности</div>
+                </button>
+              </div>
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции верховенства закона"
+                        data-concept="rule-of-law"
+                        data-title="Верховенство закона"
+                        data-description="Принцип равенства всех перед законом">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/rule-of-law_thumb_opt.webp"
+                       alt="Акварельная иллюстрация ссылки на ЕСЮ и правовую основу">
+                  <div class="gallery-caption">Верховенство закона</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Knowledge Category -->
+          <div class="category-section">
+            <h3 class="category-title">Знания и медиаграмотность</h3>
+            <div class="category-grid">
+
+              <div class="gallery-item" role="gridcell">
+                <button class="gallery-button"
+                        aria-label="Увеличить изображение концепции медиаграмотности"
+                        data-concept="media-literacy"
+                        data-title="Медиаграмотность"
+                        data-description="Умение критически анализировать информацию и медиаконтент">
+                  <img loading="lazy"
+                       decoding="async"
+                       src="/images/declaration/guide/educational/media-literacy_thumb_opt.webp"
+                       alt="Акварельная иллюстрация европейского медиаландшафта">
+                  <div class="gallery-caption">Медиаграмотность</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Modal for full-size viewing -->
+      <div id="educational-modal" class="educational-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal-overlay" aria-hidden="true"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modal-title" class="modal-title"></h3>
+            <button class="modal-close" aria-label="Закрыть модальное окно" type="button">×</button>
+          </div>
+          <div class="modal-body">
+            <img class="modal-image" src="" alt="" />
+            <p id="modal-description" class="modal-description"></p>
+          </div>
+        </div>
+      </div>
+
       <h2>Что ты можешь сделать</h2>
       <div class="section-illustration">
         <img class="hero-illustration"
@@ -849,6 +1390,180 @@
         switchLang(saved);
       }
     })();
+
+    // Educational Gallery JavaScript
+    function initEducationalGallery() {
+      const modal = document.getElementById('educational-modal');
+      const modalImg = modal?.querySelector('.modal-image');
+      const modalTitle = modal?.querySelector('.modal-title');
+      const modalDescription = modal?.querySelector('.modal-description');
+      const modalClose = modal?.querySelector('.modal-close');
+      const modalOverlay = modal?.querySelector('.modal-overlay');
+      const galleryButtons = document.querySelectorAll('.gallery-button');
+
+      let activeButton = null; // Track which button opened the modal
+
+      // Focus trap elements
+      const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+      // Open modal function
+      function openModal(concept, title, description, imageSrc) {
+        if (!modal || !modalImg || !modalTitle || !modalDescription) return;
+
+        // Set modal content
+        modalImg.src = imageSrc;
+        modalImg.alt = `Полноразмерная иллюстрация: ${title}`;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus management
+        modalClose.focus();
+
+        // Set up focus trap
+        setupFocusTrap();
+      }
+
+      // Close modal function
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+
+        // Return focus to the button that opened the modal
+        if (activeButton) {
+          activeButton.focus();
+          activeButton = null;
+        }
+
+        // Clean up focus trap
+        removeFocusTrap();
+      }
+
+      // Focus trap setup
+      function setupFocusTrap() {
+        const focusableContent = modal.querySelectorAll(focusableElements);
+        const firstFocusableElement = focusableContent[0];
+        const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+        // Handle Tab key for focus trap
+        function handleTabKey(e) {
+          if (e.key !== 'Tab') return;
+
+          if (e.shiftKey) {
+            // Shift + Tab
+            if (document.activeElement === firstFocusableElement) {
+              lastFocusableElement.focus();
+              e.preventDefault();
+            }
+          } else {
+            // Tab
+            if (document.activeElement === lastFocusableElement) {
+              firstFocusableElement.focus();
+              e.preventDefault();
+            }
+          }
+        }
+
+        document.addEventListener('keydown', handleTabKey);
+        modal.handleTabKey = handleTabKey; // Store for cleanup
+      }
+
+      // Remove focus trap
+      function removeFocusTrap() {
+        if (modal.handleTabKey) {
+          document.removeEventListener('keydown', modal.handleTabKey);
+          delete modal.handleTabKey;
+        }
+      }
+
+      // Gallery button click handlers
+      galleryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const concept = button.dataset.concept;
+          const title = button.dataset.title;
+          const description = button.dataset.description;
+          const imageSrc = `/images/declaration/guide/educational/${concept}_web_opt.webp`;
+
+          activeButton = button; // Remember which button opened the modal
+          openModal(concept, title, description, imageSrc);
+        });
+      });
+
+      // Modal close button
+      modalClose?.addEventListener('click', closeModal);
+
+      // Modal overlay click (close modal)
+      modalOverlay?.addEventListener('click', closeModal);
+
+      // Keyboard event handlers
+      document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) {
+          // ESC key closes modal
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        }
+      });
+
+      // Lazy loading with Intersection Observer
+      const lazyImages = document.querySelectorAll('.gallery-item img[loading="lazy"]');
+
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+
+              // Add loaded class when image loads
+              img.addEventListener('load', () => {
+                img.style.opacity = '1';
+              });
+
+              // Stop observing this image
+              observer.unobserve(img);
+            }
+          });
+        }, {
+          rootMargin: '50px 0px' // Start loading 50px before image comes into view
+        });
+
+        lazyImages.forEach(img => {
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.3s';
+          imageObserver.observe(img);
+        });
+      } else {
+        // Fallback for browsers without Intersection Observer
+        lazyImages.forEach(img => {
+          img.style.opacity = '1';
+        });
+      }
+
+      // Preload web images on hover (performance optimization)
+      const preloadedImages = new Set();
+      galleryButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+          const concept = button.dataset.concept;
+          const webImageSrc = `/images/declaration/guide/educational/${concept}_web_opt.webp`;
+
+          if (!preloadedImages.has(webImageSrc)) {
+            const img = new Image();
+            img.src = webImageSrc;
+            preloadedImages.add(webImageSrc);
+          }
+        });
+      });
+    }
+
+    // Initialize gallery when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEducationalGallery);
+    } else {
+      initEducationalGallery();
+    }
   </script>
 
 </body>
