@@ -80,7 +80,7 @@
   "lighthouse_measurements": {
     "status": "DEFERRED",
     "reason": "Lighthouse not globally installed; npx-on-demand install adds 10-20min overhead; per pre-draft check baseline value of detailed CWV metrics low pre-deploy. Sufficient parity established via build+test+bundle+structural checks.",
-    "deferred_to": "First CF Pages deploy after B2c (preview channel) — Lighthouse runs against deployed URL with realistic network conditions"
+    "deferred_to": "First VPS deploy after Phase 2 closure (production folkup.app, per Кочегар 2026-05-30 verdict — server: nginx confirmed VPS, NOT CF Pages — phantom CF references in this file are pre-correction artifacts)"
   },
   "notes": [
     "B1 fully clean — no functional regressions, no test failures, no build warnings related to font/component changes",
