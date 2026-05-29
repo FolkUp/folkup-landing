@@ -1,0 +1,97 @@
+{
+  "captured": "2026-05-29T21:43:00Z",
+  "git_commit": "9c2b493",
+  "git_branch": "master",
+  "baseline_for": "Phase 2 B2/B4 regression detection",
+  "context": "Post-B1 closure (LAND-001 gitignore + LAND-002 vite-ssg POC + LAND-003 font swap Source Sans 3 -> Cinzel + EB Garamond + LAND-004 sections-as-data schema + LAND-005 storybook removal). All commits pushed to origin/master.",
+  "build_verification": {
+    "npm_install": "PASS — 220 packages, no breaking issues (5 vulnerabilities flagged for separate review)",
+    "npm_run_lint": "PASS — vue-tsc --noEmit clean, zero errors",
+    "npm_run_test": "PASS — 17/17 tests pass (useGertruda 6 + useI18n 11)",
+    "npm_run_build": "PASS — vite-ssg build 2.11s client + 648ms server + 4 pages SSG render successful"
+  },
+  "bundle": {
+    "app_js_gzip_kb": 44.25,
+    "app_js_raw_kb": 114.66,
+    "app_css_gzip_kb": 3.96,
+    "app_css_raw_kb": 20.56,
+    "sitefooter_js_gzip_kb": 11.02,
+    "page_components_gzip_kb_each": {
+      "index": 3.38,
+      "privacy": 2.42,
+      "terms": 2.61,
+      "cookies": 2.27
+    },
+    "prerendered_html_size_kib": {
+      "index_html": 18.89,
+      "privacy_html": 6.42,
+      "terms_html": 6.53,
+      "cookies_html": 6.38
+    },
+    "total_dist_mb": 11
+  },
+  "fonts": {
+    "total_count_woff2": 25,
+    "license_files_count": 2,
+    "added_post_b1": [
+      "cinzel-regular-latin.woff2",
+      "cinzel-regular-latin-ext.woff2",
+      "ebgaramond-regular-latin.woff2",
+      "ebgaramond-regular-latin-ext.woff2",
+      "ebgaramond-regular-cyrillic.woff2",
+      "ebgaramond-italic-latin.woff2",
+      "ebgaramond-italic-latin-ext.woff2",
+      "ebgaramond-italic-cyrillic.woff2"
+    ],
+    "removed_post_b1": [
+      "source-sans-latin.woff2",
+      "source-sans-latin-ext.woff2",
+      "source-sans-cyrillic.woff2",
+      "source-sans-cyrillic-ext.woff2"
+    ],
+    "preserved_pacifico": "all 4 subsets (per Q-DSGN-6 brand mark canon)",
+    "preserved_playfair": "all 7 faces (per Cyrillic fallback canon + literary-reading stack readiness)",
+    "preserved_isolated_declaration": "instrument-serif (4 files) + inter (4 files) per Q9 isolation",
+    "preload_hints_in_index_html": [
+      "/fonts/pacifico-latin.woff2",
+      "/fonts/cinzel-regular-latin.woff2",
+      "/fonts/ebgaramond-regular-latin.woff2"
+    ]
+  },
+  "content_verification": {
+    "html_lang_attribute": "en (default SSR per current useI18n implementation, will change in B2a per-language routing)",
+    "canonical_link_present": true,
+    "meta_description_present": true,
+    "og_tags_present": true,
+    "folkup_brand_mark_occurrences_in_index": 9,
+    "cinzel_css_references": 5,
+    "ebgaramond_css_references": 10,
+    "source_sans_references": 0,
+    "font_face_blocks_total": "verified present in app CSS, exact count not measured"
+  },
+  "concept_v1_budget_compliance": {
+    "app_js_gzip_target": "< 60 KB",
+    "app_js_gzip_actual": "44.25 KB",
+    "status": "PASS — 73.75% of budget consumed, 15.75 KB headroom для B2/B4 additions"
+  },
+  "lighthouse_measurements": {
+    "status": "DEFERRED",
+    "reason": "Lighthouse not globally installed; npx-on-demand install adds 10-20min overhead; per pre-draft check baseline value of detailed CWV metrics low pre-deploy. Sufficient parity established via build+test+bundle+structural checks.",
+    "deferred_to": "First CF Pages deploy after B2c (preview channel) — Lighthouse runs against deployed URL with realistic network conditions"
+  },
+  "notes": [
+    "B1 fully clean — no functional regressions, no test failures, no build warnings related to font/component changes",
+    "Storybook removal verified — no dangling references in source",
+    "Cyrillic font fallback rule (:lang(ru) -> Playfair) preserved per LAND-003 implementation",
+    "Q9 Declaration isolation preserved — Instrument Serif + Inter untouched, separate font stack viable for /declaration/* routes (handled by separate folkup-docs project, not folkup-landing)",
+    "Bundle size headroom comfortable for B2 routing additions (~5-8 KB expected for vite-ssg includedRoutes + useI18n refactor)",
+    "Total page weight (~11MB dist incl. 17 Gertruda WebPs) within reasonable static-site bounds; per-page asset load much smaller via lazy loading"
+  ],
+  "verdict": "PASS",
+  "regression_detection_strategy": {
+    "for_b2_a_routing": "Verify app.js gzip stays < 50 KB after vite-ssg includedRoutes additions",
+    "for_b2_b_components": "Verify CSS gzip stays < 5 KB after content layer consumption migration",
+    "for_b2_c_legal": "Verify per-language prerender count = 9 routes (3 langs × 3 legal + home/method/projects/services/code/team — partial список depending on which routes ship)",
+    "for_b3_b4_seo": "Run actual Lighthouse against deploy preview, capture LCP/CLS/FCP/INP, compare against this baseline + concept v1 targets (LCP<1.5s, CLS<0.1, INP<200ms)"
+  }
+}
