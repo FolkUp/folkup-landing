@@ -1,0 +1,15 @@
+# LAND-007 B2c — legacy legal URL redirects.
+#
+# Existing external references (DPAs, partner contracts, Brevo SMTP signup,
+# search engine indexes) point at the un-prefixed paths. 301 → EN (x-default)
+# so we preserve link equity and don't break inbound links.
+#
+# Cloudflare Pages reads this file from the build output root and applies
+# rules at the edge (no Worker round-trip). Status 301 = permanent —
+# browsers/CDNs/search engines cache the redirect.
+#
+# See https://developers.cloudflare.com/pages/configuration/redirects/
+
+/privacy   /en/privacy   301
+/terms     /en/terms     301
+/cookies   /en/cookies   301

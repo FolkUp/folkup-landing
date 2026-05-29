@@ -4,9 +4,22 @@ import { projectsPage } from './projects'
 import { servicesPage } from './services'
 import { codePage } from './code'
 import { teamPage } from './team'
+import { privacyPage } from './privacy'
+import { termsPage } from './terms'
+import { cookiesPage } from './cookies'
 import type { Page } from '../types'
 
-export { homePage, methodPage, projectsPage, servicesPage, codePage, teamPage }
+export {
+  homePage,
+  methodPage,
+  projectsPage,
+  servicesPage,
+  codePage,
+  teamPage,
+  privacyPage,
+  termsPage,
+  cookiesPage,
+}
 
 /**
  * All pages in canonical order. Source of truth for router registration and
@@ -19,6 +32,9 @@ export const ALL_PAGES: readonly Page[] = [
   servicesPage,
   codePage,
   teamPage,
+  privacyPage,
+  termsPage,
+  cookiesPage,
 ] as const
 
 /**

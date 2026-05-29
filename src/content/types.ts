@@ -223,6 +223,26 @@ export interface FooterSection extends SectionBase {
   links: FooterLink[]
 }
 
+/**
+ * Legal-page section — privacy / terms / cookies.
+ *
+ * `content` is raw localised HTML (rendered via `v-html` in the legal page
+ * components). Content is internally authored — no untrusted input is ever
+ * routed through this field, so the v-html injection is safe.
+ *
+ * `schemaType: 'WebPage'` — legal pages map to Schema.org WebPage rather than
+ * Article (no author/dateModified-driven publishing model, just static policy
+ * content). Set per-page in the manifest.
+ */
+export interface LegalPageSection extends SectionBase {
+  type: 'legal'
+  title: LocalizedString
+  /** e.g. "Last updated: March 2026" — already a full localised phrase. */
+  lastUpdated: LocalizedString
+  /** Raw localised HTML (h2/p/ul/code allowed). Internally authored only. */
+  content: LocalizedString
+}
+
 export type Section =
   | HeroSection
   | MissionSection
@@ -233,6 +253,7 @@ export type Section =
   | RoadmapSection
   | SupportSection
   | FooterSection
+  | LegalPageSection
 
 // ---------------------------------------------------------------------------
 // Page envelope

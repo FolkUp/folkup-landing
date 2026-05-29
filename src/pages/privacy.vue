@@ -1,82 +1,38 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import SiteHeader from '@/components/SiteHeader.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
+import { privacyPage } from '@/content/pages/privacy'
+import { resolveLocalized } from '@/content/types'
+import type { LegalPageSection } from '@/content/types'
 
 const { locale } = useI18n()
+
+// Legal pages currently have exactly one section of type 'legal'.
+// Throw at module-eval (development) if the manifest is malformed —
+// the prerender pass will fail fast rather than ship an empty page.
+const section = privacyPage.sections.find(
+  (s): s is LegalPageSection => s.type === 'legal',
+)
+if (!section) throw new Error('privacyPage: missing legal section')
+
+const title = computed(() => resolveLocalized(section.title, locale.value) ?? '')
+const lastUpdated = computed(
+  () => resolveLocalized(section.lastUpdated, locale.value) ?? '',
+)
+const content = computed(() => resolveLocalized(section.content, locale.value) ?? '')
 </script>
 
 <template>
   <a href="#main" class="skip-to-content">Skip to content</a>
   <SiteHeader :visible="true" />
   <main id="main" class="legal-page">
-    <article v-if="locale === 'ru'">
-      <h1>Политика конфиденциальности</h1>
-      <p><strong>Последнее обновление:</strong> март 2026</p>
-
-      <h2>Кто мы</h2>
-      <p>FolkUp — исследовательская платформа, создающая инструменты знаний для живых людей. Этот сайт работает на folkup.app.</p>
-
-      <h2>Какие данные мы собираем</h2>
-      <p>Мы можем собирать анонимную статистику использования с помощью инструмента аналитики, ориентированного на конфиденциальность, без файлов cookie, размещённого на нашей собственной инфраструктуре. При активации персональные данные, файлы cookie и IP-адреса не сохраняются. По состоянию на март 2026 года аналитика на этой странице ещё не активирована.</p>
-
-      <h2>Файлы cookie</h2>
-      <p>Мы сохраняем ваши языковые предпочтения в localStorage (это не cookie-файл). Отслеживающие cookie не используются.</p>
-
-      <h2>Третьи стороны</h2>
-      <p>Мы не передаём данные третьим лицам. Шрифты размещены на нашем сервере. Сторонние отслеживающие скрипты не загружаются.</p>
-
-      <h2>Ваши права</h2>
-      <p>В соответствии с GDPR вы имеете право на доступ, исправление или удаление ваших персональных данных. Поскольку мы не собираем персональные данные, нечего запрашивать или удалять.</p>
-
-      <h2>Контакты</h2>
-      <p>По вопросам конфиденциальности: <a href="mailto:privacy@folkup.app">privacy@folkup.app</a></p>
-    </article>
-
-    <article v-else-if="locale === 'pt'">
-      <h1>Política de Privacidade</h1>
-      <p><strong>Última atualização:</strong> março de 2026</p>
-
-      <h2>Quem somos</h2>
-      <p>O FolkUp é uma plataforma de investigação que cria ferramentas de conhecimento para pessoas reais. Este site opera em folkup.app.</p>
-
-      <h2>Que dados recolhemos</h2>
-      <p>Podemos recolher estatísticas de utilização anónimas através de uma ferramenta de análise focada na privacidade, sem cookies, alojada na nossa própria infraestrutura. Quando ativa, não são armazenados dados pessoais, cookies ou endereços IP. Em março de 2026, a análise ainda não está ativa nesta página.</p>
-
-      <h2>Cookies</h2>
-      <p>Armazenamos a sua preferência de idioma no localStorage (não é um cookie). Não são utilizados cookies de rastreio.</p>
-
-      <h2>Terceiros</h2>
-      <p>Não partilhamos dados com terceiros. As fontes tipográficas são auto-alojadas. Não são carregados scripts de rastreio externos.</p>
-
-      <h2>Os seus direitos</h2>
-      <p>Ao abrigo do RGPD, tem o direito de aceder, retificar ou apagar os seus dados pessoais. Como não recolhemos dados pessoais, não há nada para aceder ou apagar.</p>
-
-      <h2>Contacto</h2>
-      <p>Para questões de privacidade: <a href="mailto:privacy@folkup.app">privacy@folkup.app</a></p>
-    </article>
-
-    <article v-else>
-      <h1>Privacy Policy</h1>
-      <p><strong>Last updated:</strong> March 2026</p>
-
-      <h2>Who we are</h2>
-      <p>FolkUp is a research platform that builds knowledge tools for real people. This website is operated at folkup.app.</p>
-
-      <h2>What data we collect</h2>
-      <p>We may collect anonymous usage statistics using a privacy-focused, cookie-free analytics tool hosted on our own infrastructure. When active, no personal data, cookies, or IP addresses are stored. As of March 2026, analytics are not yet enabled on this landing page.</p>
-
-      <h2>Cookies</h2>
-      <p>We store your language preference in localStorage (not a cookie). No tracking cookies are used.</p>
-
-      <h2>Third parties</h2>
-      <p>We do not share any data with third parties. Fonts are self-hosted. No external tracking scripts are loaded.</p>
-
-      <h2>Your rights</h2>
-      <p>Under GDPR, you have the right to access, rectify, or delete your personal data. Since we do not collect personal data, there is nothing to access or delete.</p>
-
-      <h2>Contact</h2>
-      <p>For privacy-related inquiries: <a href="mailto:privacy@folkup.app">privacy@folkup.app</a></p>
+    <article>
+      <h1>{{ title }}</h1>
+      <p><strong>{{ lastUpdated }}</strong></p>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="legal-content" v-html="content"></div>
     </article>
   </main>
   <SiteFooter />
@@ -96,20 +52,22 @@ const { locale } = useI18n()
   margin-bottom: 0.5rem;
 }
 
-.legal-page h2 {
+.legal-page :deep(h2) {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   color: var(--color-text);
   margin: 2rem 0 0.75rem;
 }
 
-.legal-page p {
+.legal-page p,
+.legal-page :deep(p) {
   font-size: 1rem;
   line-height: 1.75;
   color: var(--color-text);
 }
 
-.legal-page a {
+.legal-page a,
+.legal-page :deep(a) {
   color: var(--color-bordo);
 }
 </style>
