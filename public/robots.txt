@@ -1,4 +1,52 @@
+# precommit:allow-ai-mentions
+# robots.txt — folkup.app
+# Last updated: 2026-05-29 (LAND-008 B4 — hybrid AI policy per Q11)
+
 User-agent: *
 Allow: /
 
 Sitemap: https://folkup.app/sitemap.xml
+
+# ---------------------------------------------------------------------------
+# Hybrid AI bot policy (FolkUp DSGN-EPIC 2026-05-29, Q11)
+# ---------------------------------------------------------------------------
+# Allow Anthropic family (ClaudeBot, anthropic-ai, Claude-Web) — partner
+#   relationship via Cartouche Autonome / exo-system.
+# Allow PerplexityBot — answer-engine surface aligned with FolkUp's mission
+#   to make knowledge discoverable.
+# Block OpenAI training crawlers (GPTBot, ChatGPT-User, OAI-SearchBot),
+#   Google's separate AI-training opt-out (Google-Extended), CommonCrawl
+#   (CCBot) and Cohere (cohere-ai) — opt-out from non-partner training.
+# Note: blocking Google-Extended does NOT affect Googlebot's regular web
+#   indexing; the default `User-agent: *` rule above still allows it.
+# ---------------------------------------------------------------------------
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: cohere-ai
+Disallow: /

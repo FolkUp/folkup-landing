@@ -46,10 +46,15 @@ export const homePage: Page = {
         ru: 'Инструменты знаний для живых сообществ',
         pt: 'Ferramentas de conhecimento para comunidades reais',
       },
+      // Hero quantified claim (LAND-008 B4 final, Q-LANDING-DRIFT 2026-05-29):
+      // replaces the legacy poetic tagline («The light is on, the roots run deep.»)
+      // with the concrete identity statement from Concept v1 — Seven sites,
+      // three books, one person + team of AI fornits. The legacy line is
+      // preserved as `endorsement` in the footer section, so we don't lose it.
       tagline: {
-        en: 'The light is on, the roots run deep.',
-        ru: 'Свет горит, корни крепкие.',
-        pt: 'A luz está acesa, as raízes são profundas.',
+        en: 'Seven sites. Three books. One person and a team of AI fornits.',
+        ru: 'Семь сайтов. Три книги. Один человек и команда AI-форнитов.',
+        pt: 'Sete sites. Três livros. Uma pessoa e uma equipa de fornits de IA.',
       },
       ctaPrimary: {
         en: 'Explore projects',
