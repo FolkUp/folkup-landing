@@ -3,7 +3,7 @@
   "git_commit": "9c2b493",
   "git_branch": "master",
   "baseline_for": "Phase 2 B2/B4 regression detection",
-  "context": "Post-B1 closure (LAND-001 gitignore + LAND-002 vite-ssg POC + LAND-003 font swap Source Sans 3 -> Cinzel + EB Garamond + LAND-004 sections-as-data schema + LAND-005 storybook removal). All commits pushed to origin/master.",
+  "context": "Post-B1 closure (LAND-001 gitignore + LAND-002 vite-ssg POC + LAND-003 font swap Source Sans 3 -> Cinzel + EB Garamond + LAND-004 sections-as-data schema + LAND-005 storybook removal + B1.5 follow-up fix: public/folkup-family.html Source Sans 3 -> EB Garamond/Cinzel swap per Враг C1). Baseline commit + folkup-family fix committed and pushed to origin/master.",
   "build_verification": {
     "npm_install": "PASS — 220 packages, no breaking issues (5 vulnerabilities flagged for separate review)",
     "npm_run_lint": "PASS — vue-tsc --noEmit clean, zero errors",
@@ -64,9 +64,12 @@
     "meta_description_present": true,
     "og_tags_present": true,
     "folkup_brand_mark_occurrences_in_index": 9,
-    "cinzel_css_references": 5,
-    "ebgaramond_css_references": 10,
-    "source_sans_references": 0,
+    "cinzel_css_references_dist_app_minified": 5,
+    "ebgaramond_css_references_dist_app_minified": 10,
+    "ebgaramond_css_references_source_main_css": 11,
+    "source_sans_references_in_deployed_files_post_b1.5_fix": 0,
+    "source_sans_references_pre_b1.5_fix": "2 in public/folkup-family.html (Враг C1) — fixed in this batch by swap to EB Garamond/Cinzel",
+    "source_sans_references_legacy_dead_file": "8+ in public/index.html (143KB, dated March 18, NOT in dist — Vue SSG index.html overwrites it in build). Out of B1.5 scope, separate cleanup ticket if matters.",
     "font_face_blocks_total": "verified present in app CSS, exact count not measured"
   },
   "concept_v1_budget_compliance": {
