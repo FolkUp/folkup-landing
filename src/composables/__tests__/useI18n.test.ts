@@ -1,32 +1,41 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { reactive } from 'vue'
 
-// Reset module state between tests
+// Shared mock route params — tests mutate this to simulate route changes.
+// Reset in beforeEach.
+const mockRoute = reactive<{ params: { lang?: string } }>({ params: {} })
+
+vi.mock('vue-router', () => ({
+  useRoute: () => mockRoute,
+}))
+
+// Lazy-imported to allow vi.mock to take effect.
 let useI18n: typeof import('../useI18n').useI18n
 
 describe('useI18n', () => {
   beforeEach(async () => {
     localStorage.clear()
-    // Re-import to reset singleton locale ref
+    mockRoute.params = {}
     vi.resetModules()
     const mod = await import('../useI18n')
     useI18n = mod.useI18n
   })
 
-  it('returns t, tArray, setLocale, locale, locales', () => {
+  it('returns t, tArray, rememberLocale, locale, locales', () => {
     const i18n = useI18n()
     expect(i18n.t).toBeTypeOf('function')
     expect(i18n.tArray).toBeTypeOf('function')
-    expect(i18n.setLocale).toBeTypeOf('function')
+    expect(i18n.rememberLocale).toBeTypeOf('function')
     expect(i18n.locale.value).toBeTypeOf('string')
     expect(i18n.locales).toEqual(['en', 'ru', 'pt'])
   })
 
-  it('defaults to en when no localStorage and browser is en', () => {
+  it('defaults to en when route has no lang param (root `/` is x-default)', () => {
     const i18n = useI18n()
     expect(i18n.locale.value).toBe('en')
   })
 
-  it('t() returns translated string for known key', () => {
+  it('t() returns translated string for known key (default en)', () => {
     const i18n = useI18n()
     expect(i18n.t('navProjects')).toBe('Projects')
   })
@@ -36,23 +45,48 @@ describe('useI18n', () => {
     expect(i18n.t('nonExistentKey')).toBe('nonExistentKey')
   })
 
-  it('setLocale changes the active locale', () => {
+  it('locale reflects route.params.lang = ru', () => {
+    mockRoute.params = { lang: 'ru' }
     const i18n = useI18n()
-    i18n.setLocale('ru')
     expect(i18n.locale.value).toBe('ru')
     expect(i18n.t('navProjects')).toBe('Проекты')
   })
 
-  it('setLocale persists to localStorage', () => {
+  it('locale reflects route.params.lang = pt', () => {
+    mockRoute.params = { lang: 'pt' }
     const i18n = useI18n()
-    i18n.setLocale('pt')
+    expect(i18n.locale.value).toBe('pt')
+  })
+
+  it('locale reactively updates when route.params.lang changes', () => {
+    const i18n = useI18n()
+    expect(i18n.locale.value).toBe('en')
+    mockRoute.params = { lang: 'ru' }
+    expect(i18n.locale.value).toBe('ru')
+    mockRoute.params = { lang: 'pt' }
+    expect(i18n.locale.value).toBe('pt')
+    mockRoute.params = {}
+    expect(i18n.locale.value).toBe('en')
+  })
+
+  it('ignores invalid lang param (falls back to en)', () => {
+    mockRoute.params = { lang: 'xx' }
+    const i18n = useI18n()
+    expect(i18n.locale.value).toBe('en')
+  })
+
+  it('rememberLocale persists to localStorage', () => {
+    const i18n = useI18n()
+    i18n.rememberLocale('pt')
     expect(localStorage.getItem('folkup-lang')).toBe('pt')
   })
 
-  it('setLocale updates document.documentElement.lang', () => {
+  it('rememberLocale does NOT change active locale (route is source of truth)', () => {
     const i18n = useI18n()
-    i18n.setLocale('ru')
-    expect(document.documentElement.lang).toBe('ru')
+    expect(i18n.locale.value).toBe('en')
+    i18n.rememberLocale('ru')
+    // locale unchanged — only route.params.lang can change it
+    expect(i18n.locale.value).toBe('en')
   })
 
   it('tArray returns array for array values', () => {
@@ -66,14 +100,6 @@ describe('useI18n', () => {
     const i18n = useI18n()
     const result = i18n.tArray('navProjects')
     expect(result).toEqual(['Projects'])
-  })
-
-  it('reads saved locale from localStorage', async () => {
-    localStorage.setItem('folkup-lang', 'pt')
-    vi.resetModules()
-    const mod = await import('../useI18n')
-    const i18n = mod.useI18n()
-    expect(i18n.locale.value).toBe('pt')
   })
 
   it('all three locale files have the same keys', async () => {

@@ -1,9 +1,28 @@
 <script setup lang="ts">
-import { useI18n } from '@/composables/useI18n'
+import { useRoute, useRouter } from 'vue-router'
+import { useI18n, type Locale } from '@/composables/useI18n'
 
-const { locale, setLocale, locales } = useI18n()
+const { locale, locales, rememberLocale } = useI18n()
+const route = useRoute()
+const router = useRouter()
 
 const labels: Record<string, string> = { en: 'EN', ru: 'RU', pt: 'PT' }
+
+const LANG_PREFIX = /^\/(en|ru|pt)(?=\/|$)/
+
+function switchLocale(l: Locale) {
+  if (l === locale.value) return
+  rememberLocale(l)
+
+  // Strip any existing lang prefix from the current path.
+  const stripped = route.path.replace(LANG_PREFIX, '') || '/'
+
+  // EN → root (`/`) or unprefixed (`/privacy`).
+  // RU/PT → `/<lang>` or `/<lang>/<rest>`.
+  const newPath = l === 'en' ? stripped : `/${l}${stripped === '/' ? '' : stripped}`
+
+  router.push(newPath)
+}
 </script>
 
 <template>
@@ -15,7 +34,7 @@ const labels: Record<string, string> = { en: 'EN', ru: 'RU', pt: 'PT' }
       role="radio"
       class="lang-btn"
       :class="{ active: locale === l }"
-      @click="setLocale(l)"
+      @click="switchLocale(l)"
     >
       {{ labels[l] }}
     </button>
