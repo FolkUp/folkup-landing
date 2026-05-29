@@ -7,8 +7,6 @@
     "dev": "vite",
     "build": "vite-ssg build",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "vue-tsc --noEmit"

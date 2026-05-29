@@ -24,3 +24,6 @@ Thumbs.db
 # Storybook
 storybook-static/
 .claude/
+
+# Phase 2 baseline snapshots (large tarballs, not for remote)
+_meta/*.tar.gz
