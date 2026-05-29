@@ -1,25 +1,36 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { StatsSection as StatsSectionType } from '@/content/types'
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
-const stats = [
-  { valueKey: 'statsProjectsValue', labelKey: 'statsProjects' },
-  { valueKey: 'statsArticlesValue', labelKey: 'statsArticles' },
-  { valueKey: 'statsPagesValue', labelKey: 'statsPages' },
-  { valueKey: 'statsLanguagesValue', labelKey: 'statsLanguages' },
-  { valueKey: 'statsAdsValue', labelKey: 'statsAds' },
-]
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'stats') as StatsSectionType | undefined
+if (!section) throw new Error('Stats section missing from homePage manifest')
+const statsSection = section
+
+const label = computed(() => resolveLocalized(statsSection.label, locale.value) ?? '')
+
+const stats = computed(() =>
+  statsSection.items.map((item) => ({
+    id: item.id,
+    value: resolveLocalized(item.value, locale.value) ?? '',
+    label: resolveLocalized(item.label, locale.value) ?? '',
+  })),
+)
 </script>
 
 <template>
   <section id="stats" class="stats-band fade-in" aria-label="Statistics">
     <div class="stats-inner">
-      <span class="section-label">{{ t('statsLabel') }}</span>
+      <span class="section-label">{{ label }}</span>
       <div class="stats-grid">
-        <div v-for="s in stats" :key="s.valueKey" class="stat">
-          <span class="stat-value">{{ t(s.valueKey) }}</span>
-          <span class="stat-label">{{ t(s.labelKey) }}</span>
+        <div v-for="s in stats" :key="s.id" class="stat">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
         </div>
       </div>
     </div>

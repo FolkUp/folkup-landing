@@ -1,22 +1,51 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { FooterSection as FooterSectionType, SupportSection as SupportSectionType } from '@/content/types'
 import LangToggle from './LangToggle.vue'
 
-const { t } = useI18n()
+const { locale } = useI18n()
+
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+// Footer pulls from two manifest sections:
+//   - `footer` (endorsement, legal links)
+//   - `support` (dedication line, currently rendered in the footer)
+const footerSection = homePage.sections.find((s) => s.type === 'footer') as FooterSectionType | undefined
+if (!footerSection) throw new Error('Footer section missing from homePage manifest')
+const footer = footerSection
+
+const supportSection = homePage.sections.find((s) => s.type === 'support') as SupportSectionType | undefined
+if (!supportSection) throw new Error('Support section missing from homePage manifest (needed for dedication)')
+const support = supportSection
+
+const dedication = computed(() => resolveLocalized(support.dedication, locale.value) ?? '')
+const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.value) ?? '')
+
+const links = computed(() =>
+  footer.links.map((link) => ({
+    id: link.id,
+    label: resolveLocalized(link.label, locale.value) ?? '',
+    href: link.href,
+  })),
+)
 </script>
 
 <template>
   <footer class="site-footer" role="contentinfo">
-    <p class="dedication">{{ t('dedication') }}</p>
+    <p class="dedication">{{ dedication }}</p>
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="footer-logo">FolkUp</span>
-        <p class="footer-endorsement">{{ t('footerEndorsement') }}</p>
+        <p class="footer-endorsement">{{ endorsement }}</p>
       </div>
       <nav class="footer-nav" aria-label="Legal">
-        <router-link to="/privacy">{{ t('footerPrivacy') }}</router-link>
-        <router-link to="/terms">{{ t('footerTerms') }}</router-link>
-        <router-link to="/cookies">{{ t('footerCookies') }}</router-link>
+        <router-link
+          v-for="link in links"
+          :key="link.id"
+          :to="link.href"
+        >{{ link.label }}</router-link>
       </nav>
       <div class="footer-social">
         <a href="https://t.me/+FKSLu1k3U5IyODZi" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>

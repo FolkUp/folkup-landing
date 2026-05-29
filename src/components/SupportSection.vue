@@ -1,13 +1,29 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { SupportSection as SupportSectionType } from '@/content/types'
 
-const { t, tArray } = useI18n()
+const { locale } = useI18n()
+
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'support') as SupportSectionType | undefined
+if (!section) throw new Error('Support section missing from homePage manifest')
+const support = section
+
+const label = computed(() => resolveLocalized(support.label, locale.value) ?? '')
+const title = computed(() => resolveLocalized(support.title, locale.value) ?? '')
+const text = computed(() => resolveLocalized(support.text, locale.value) ?? '')
+const how = computed(() => resolveLocalized(support.how, locale.value) ?? '')
+const stats = computed(() => resolveLocalized(support.stats, locale.value) ?? '')
+const cta = computed(() => resolveLocalized(support.cta, locale.value) ?? '')
 
 const formula = computed(() => {
-  const formulas = tArray('supportFormulas')
+  const formulas = resolveLocalized(support.formulas, locale.value) ?? []
+  if (formulas.length === 0) return ''
   const dayOfYear = Math.floor(
-    (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000
+    (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000,
   )
   return formulas[dayOfYear % formulas.length]
 })
@@ -15,11 +31,11 @@ const formula = computed(() => {
 
 <template>
   <section id="support" class="section fade-in">
-    <span class="section-label">{{ t('supportLabel') }}</span>
-    <h2 class="section-title">{{ t('supportTitle') }}</h2>
-    <p class="support-text">{{ t('supportText') }}</p>
-    <p class="support-how">{{ t('supportHow') }}</p>
-    <p class="support-stats">{{ t('supportStats') }}</p>
+    <span class="section-label">{{ label }}</span>
+    <h2 class="section-title">{{ title }}</h2>
+    <p class="support-text">{{ text }}</p>
+    <p class="support-how">{{ how }}</p>
+    <p class="support-stats">{{ stats }}</p>
     <p class="support-formula">{{ formula }}</p>
     <a
       href="https://ko-fi.com/folkup"
@@ -27,7 +43,7 @@ const formula = computed(() => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      {{ t('supportCta') }}
+      {{ cta }}
     </a>
   </section>
 </template>

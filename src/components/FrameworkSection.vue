@@ -1,27 +1,49 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { FrameworkSection as FrameworkSectionType } from '@/content/types'
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
-const capabilities = [
-  { key: 'Verify', icon: '✓' },
-  { key: 'I18n', icon: '🌐' },
-  { key: 'Safety', icon: '⚠' },
-  { key: 'Deploy', icon: '⚡' },
-  { key: 'Compliance', icon: '🔒' },
-]
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'framework') as FrameworkSectionType | undefined
+if (!section) throw new Error('Framework section missing from homePage manifest')
+const framework = section
+
+// Icons are presentation-only; keyed by feature id from the manifest.
+const FEATURE_ICONS: Record<string, string> = {
+  verify: '✓',
+  i18n: '🌐',
+  safety: '⚠',
+  deploy: '⚡',
+  compliance: '🔒',
+}
+
+const label = computed(() => resolveLocalized(framework.label, locale.value) ?? '')
+const title = computed(() => resolveLocalized(framework.title, locale.value) ?? '')
+
+const capabilities = computed(() =>
+  framework.features.map((feature) => ({
+    id: feature.id,
+    icon: FEATURE_ICONS[feature.id] ?? '·',
+    title: resolveLocalized(feature.title, locale.value) ?? '',
+    text: resolveLocalized(feature.text, locale.value) ?? '',
+  })),
+)
 </script>
 
 <template>
   <section id="framework" class="section fade-in">
-    <span class="section-label">{{ t('frameworkLabel') }}</span>
-    <h2 class="section-title">{{ t('frameworkTitle') }}</h2>
+    <span class="section-label">{{ label }}</span>
+    <h2 class="section-title">{{ title }}</h2>
     <div class="capabilities-grid">
-      <div v-for="cap in capabilities" :key="cap.key" class="capability">
+      <div v-for="cap in capabilities" :key="cap.id" class="capability">
         <span class="capability-icon" aria-hidden="true">{{ cap.icon }}</span>
         <div class="capability-body">
-          <h3>{{ t(`framework${cap.key}Title`) }}</h3>
-          <p>{{ t(`framework${cap.key}Text`) }}</p>
+          <h3>{{ cap.title }}</h3>
+          <p>{{ cap.text }}</p>
         </div>
       </div>
     </div>

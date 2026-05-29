@@ -1,9 +1,23 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import { useGertruda } from '@/composables/useGertruda'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { HeroSection as HeroSectionType } from '@/content/types'
 
-const { t } = useI18n()
+const { locale } = useI18n()
 const { src, style } = useGertruda()
+
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'hero') as HeroSectionType | undefined
+if (!section) throw new Error('Hero section missing from homePage manifest')
+const hero = section
+
+const subtitle = computed(() => resolveLocalized(hero.subtitle, locale.value) ?? '')
+const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '')
+const ctaPrimary = computed(() => resolveLocalized(hero.ctaPrimary, locale.value) ?? '')
+const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.value) ?? '')
 </script>
 
 <template>
@@ -18,12 +32,12 @@ const { src, style } = useGertruda()
         :data-style="style"
       />
     </div>
-    <h1 class="hero-title">FolkUp</h1>
-    <p class="hero-subtitle">{{ t('heroSubtitle') }}</p>
-    <p class="hero-tagline">{{ t('heroTagline') }}</p>
+    <h1 class="hero-title">{{ hero.title }}</h1>
+    <p class="hero-subtitle">{{ subtitle }}</p>
+    <p class="hero-tagline">{{ tagline }}</p>
     <div class="hero-actions">
-      <a href="#projects" class="hero-cta">{{ t('heroCta') }}</a>
-      <a href="#framework" class="hero-cta hero-cta--secondary">{{ t('heroCtaSecondary') }}</a>
+      <a href="#projects" class="hero-cta">{{ ctaPrimary }}</a>
+      <a href="#framework" class="hero-cta hero-cta--secondary">{{ ctaSecondary }}</a>
     </div>
   </section>
 </template>

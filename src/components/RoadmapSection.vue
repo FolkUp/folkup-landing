@@ -1,31 +1,57 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { RoadmapSection as RoadmapSectionType } from '@/content/types'
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
-const steps = [
-  { key: 'Done', icon: '✓', status: 'done' as const },
-  { key: 'Now', icon: '→', status: 'now' as const },
-  { key: 'Next', icon: '○', status: 'next' as const },
-  { key: 'Future', icon: '◇', status: 'future' as const },
-]
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'roadmap') as RoadmapSectionType | undefined
+if (!section) throw new Error('Roadmap section missing from homePage manifest')
+const roadmap = section
+
+// Icon and status visuals are presentation-only; keyed by phase id.
+const PHASE_VISUALS: Record<string, { icon: string; status: string }> = {
+  done: { icon: '✓', status: 'done' },
+  now: { icon: '→', status: 'now' },
+  next: { icon: '○', status: 'next' },
+  future: { icon: '◇', status: 'future' },
+}
+
+const label = computed(() => resolveLocalized(roadmap.label, locale.value) ?? '')
+const title = computed(() => resolveLocalized(roadmap.title, locale.value) ?? '')
+
+const steps = computed(() =>
+  roadmap.phases.map((phase) => {
+    const visual = PHASE_VISUALS[phase.id] ?? { icon: '·', status: phase.id }
+    return {
+      id: phase.id,
+      icon: visual.icon,
+      status: visual.status,
+      title: resolveLocalized(phase.title, locale.value) ?? '',
+      text: resolveLocalized(phase.text, locale.value) ?? '',
+    }
+  }),
+)
 </script>
 
 <template>
   <section id="roadmap" class="section fade-in">
-    <span class="section-label">{{ t('roadmapLabel') }}</span>
-    <h2 class="section-title">{{ t('roadmapTitle') }}</h2>
+    <span class="section-label">{{ label }}</span>
+    <h2 class="section-title">{{ title }}</h2>
     <div class="timeline">
       <div
         v-for="step in steps"
-        :key="step.key"
+        :key="step.id"
         class="timeline-step"
         :class="step.status"
       >
         <span class="timeline-icon" aria-hidden="true">{{ step.icon }}</span>
         <div class="timeline-content">
-          <h3>{{ t(`roadmap${step.key}Title`) }}</h3>
-          <p>{{ t(`roadmap${step.key}Text`) }}</p>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
         </div>
       </div>
     </div>

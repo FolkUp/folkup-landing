@@ -1,26 +1,44 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { homePage } from '@/content/pages'
+import { resolveLocalized } from '@/content/types'
+import type { MissionSection as MissionSectionType } from '@/content/types'
 
-const { t } = useI18n()
+const { locale } = useI18n()
+
+// LAND-007 (B2b): read from typed content layer instead of locale JSONs.
+const section = homePage.sections.find((s) => s.type === 'mission') as MissionSectionType | undefined
+if (!section) throw new Error('Mission section missing from homePage manifest')
+const mission = section
+
+const label = computed(() => resolveLocalized(mission.label, locale.value) ?? '')
+const title = computed(() => resolveLocalized(mission.title, locale.value) ?? '')
+const text = computed(() => resolveLocalized(mission.text, locale.value) ?? '')
+
+const principles = computed(() =>
+  mission.principles.map((p) => ({
+    id: p.id,
+    title: resolveLocalized(p.title, locale.value) ?? '',
+    text: resolveLocalized(p.text, locale.value) ?? '',
+  })),
+)
 </script>
 
 <template>
   <section id="mission" class="section fade-in">
-    <span class="section-label">{{ t('missionLabel') }}</span>
-    <h2 class="section-title">{{ t('missionTitle') }}</h2>
-    <p class="mission-text">{{ t('missionText') }}</p>
+    <span class="section-label">{{ label }}</span>
+    <h2 class="section-title">{{ title }}</h2>
+    <p class="mission-text">{{ text }}</p>
     <div class="principles">
-      <div class="principle principle--wide">
-        <h3>{{ t('missionPrinciple1Title') }}</h3>
-        <p>{{ t('missionPrinciple1Text') }}</p>
-      </div>
-      <div class="principle">
-        <h3>{{ t('missionPrinciple2Title') }}</h3>
-        <p>{{ t('missionPrinciple2Text') }}</p>
-      </div>
-      <div class="principle">
-        <h3>{{ t('missionPrinciple3Title') }}</h3>
-        <p>{{ t('missionPrinciple3Text') }}</p>
+      <div
+        v-for="(p, idx) in principles"
+        :key="p.id"
+        class="principle"
+        :class="{ 'principle--wide': idx === 0 }"
+      >
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.text }}</p>
       </div>
     </div>
   </section>
