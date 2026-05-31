@@ -5,12 +5,13 @@ import SiteFooter from '@/components/SiteFooter.vue'
 /**
  * 404 page — locale-neutral.
  *
- * CF Pages serves `dist/404.html` for any unmatched URL. Because the request
- * URL can be in any language, we render English with explicit links to each
- * localised home rather than trying to detect locale from a non-existent
- * route param. Keeps the page useful regardless of where the user landed.
+ * VPS nginx serves `dist/404.html` for any unmatched URL via try_files
+ * fallback. Because the request URL can be in any language, we render
+ * English with explicit links to each localised home rather than trying
+ * to detect locale from a non-existent route param. Keeps the page useful
+ * regardless of where the user landed.
  *
- * Generated at /404 by vite-ssg → dist/404.html (CF Pages convention).
+ * Generated at /404 by vite-ssg → dist/404.html (Vite/SSG convention).
  */
 </script>
 

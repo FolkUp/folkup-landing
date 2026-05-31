@@ -11,8 +11,8 @@ const routes: RouteRecordRaw[] = [
   { path: '/:lang(en|ru|pt)?/terms', component: () => import('./pages/terms.vue') },
   { path: '/:lang(en|ru|pt)?/cookies', component: () => import('./pages/cookies.vue') },
   { path: '/:lang(en|ru|pt)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
-  // 404 — locale-neutral. Nginx error_page maps unmatched к /404.html
-  // (prerendered from this route).
+  // 404 — locale-neutral. VPS nginx try_files fallback к /404.html
+  // (prerendered from this route, served на any unmatched URL).
   { path: '/404', component: () => import('./pages/404.vue') },
   // SPA-side catch-all so a hydration mismatch on an unknown route still
   // renders the 404 page instead of a blank screen.
