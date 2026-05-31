@@ -10,8 +10,9 @@ const routes: RouteRecordRaw[] = [
   { path: '/:lang(en|ru|pt)?/privacy', component: () => import('./pages/privacy.vue') },
   { path: '/:lang(en|ru|pt)?/terms', component: () => import('./pages/terms.vue') },
   { path: '/:lang(en|ru|pt)?/cookies', component: () => import('./pages/cookies.vue') },
-  // 404 — locale-neutral, served by CF Pages for any unmatched URL via
-  // dist/404.html convention. Prerendered from /404 route below.
+  { path: '/:lang(en|ru|pt)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
+  // 404 — locale-neutral. Nginx error_page maps unmatched к /404.html
+  // (prerendered from this route).
   { path: '/404', component: () => import('./pages/404.vue') },
   // SPA-side catch-all so a hydration mismatch on an unknown route still
   // renders the 404 page instead of a blank screen.
@@ -48,7 +49,7 @@ export const includedRoutes = async (
   _routes: Readonly<RouteRecordRaw[]>,
 ): Promise<string[]> => {
   const homePaths = LANGS.map((l) => (l === 'en' ? '/' : `/${l}`))
-  const legalBasePaths = ['/privacy', '/terms', '/cookies']
+  const legalBasePaths = ['/privacy', '/terms', '/cookies', '/about/ai-use']
   const legalPaths = legalBasePaths.flatMap((p) => LANGS.map((l) => `/${l}${p}`))
   return [...homePaths, ...legalPaths, '/404']
 }

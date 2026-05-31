@@ -76,12 +76,15 @@ ssh ${SSH_OPTS} "${VPS_USER}@${VPS_HOST}" "
   mkdir -p /home/deploy/logs/${SITE_NAME}
 "
 
-# Upload new version to staging area
-log "📦 Uploading site files via rsync..."
-rsync -avz --delete \
-  -e "ssh ${SSH_OPTS}" \
-  "${BUILD_DIR}/" \
-  "${VPS_USER}@${VPS_HOST}:${VPS_PATH}/releases/${TIMESTAMP}/"
+# Upload new version to staging area (tar+ssh — cross-platform parity, per
+# Кочегар DEPLOY-001 verdict 2026-05-31). Windows Git Bash + WSL lack rsync;
+# tar+ssh works on every dev/CI environment. `--delete` semantic was no-op
+# anyway (target is fresh empty release/${TIMESTAMP}/ dir). Atomicity
+# unchanged — comes from symlink swap below (AGIL-106), not from rsync.
+log "📦 Uploading site files via tar+ssh..."
+tar -czf - -C "${BUILD_DIR}" . | \
+  ssh ${SSH_OPTS} "${VPS_USER}@${VPS_HOST}" \
+    "tar -xzf - -C ${VPS_PATH}/releases/${TIMESTAMP}/"
 
 if [ $? -ne 0 ]; then
   error "File upload failed"

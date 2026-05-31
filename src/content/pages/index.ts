@@ -52,9 +52,9 @@ export const homePage: Page = {
       // three books, one person + team of AI fornits. The legacy line is
       // preserved as `endorsement` in the footer section, so we don't lose it.
       tagline: {
-        en: 'Seven sites. Three books. One person and a team of AI fornits.',
-        ru: 'Семь сайтов. Три книги. Один человек и команда AI-форнитов.',
-        pt: 'Sete sites. Três livros. Uma pessoa e uma equipa de fornits de IA.',
+        en: 'Seven encyclopedias. Three books. One person and a team of AI fornits.',
+        ru: 'Семь энциклопедий. Три книги. Один человек и команда AI-форнитов.',
+        pt: 'Sete enciclopédias. Três livros. Uma pessoa e uma equipa de fornits de IA.',
       },
       ctaPrimary: {
         en: 'Explore projects',
@@ -141,9 +141,9 @@ export const homePage: Page = {
         pt: 'Ecossistema',
       },
       title: {
-        en: 'Seven encyclopedias, one approach',
-        ru: 'Семь энциклопедий, один подход',
-        pt: 'Sete enciclopédias, uma abordagem',
+        en: 'Seven encyclopedias — four already open',
+        ru: 'Семь энциклопедий — четыре уже открыты',
+        pt: 'Sete enciclopédias — quatro já abertas',
       },
       items: [
         {
@@ -303,9 +303,9 @@ export const homePage: Page = {
         pt: 'Sob a luz do farol',
       },
       subtitle: {
-        en: 'The fornits who keep the light on',
-        ru: 'Форниты, которые держат свет',
-        pt: 'Os fornits que mantêm a luz acesa',
+        en: 'The fornits who keep the light on — Stephen King’s name for spirit-helpers living in writers’ typewriters; we borrowed it for our AI workers',
+        ru: 'Форниты, которые держат свет — так Стивен Кинг называл духов-помощников в пишущих машинках писателей; мы позаимствовали имя для наших AI-работников',
+        pt: 'Os fornits que mantêm a luz acesa — assim Stephen King chamava os espíritos-ajudantes nas máquinas de escrever dos escritores; emprestámos o nome aos nossos trabalhadores de IA',
       },
       members: [
         {
@@ -549,6 +549,11 @@ export const homePage: Page = {
           id: 'cookies',
           label: { en: 'Cookies', ru: 'Cookie', pt: 'Cookies' },
           href: '/cookies',
+        },
+        {
+          id: 'ai-use',
+          label: { en: 'AI use', ru: 'Использование AI', pt: 'Uso de IA' },
+          href: '/about/ai-use',
         },
       ],
     },

@@ -20,7 +20,7 @@ const HOST = 'https://folkup.app'
 const LANGS = ['en', 'ru', 'pt'] as const
 
 /** Stable URL-safe page identifier derived from the route path. */
-type RouteKind = 'home' | 'privacy' | 'terms' | 'cookies' | 'unknown'
+type RouteKind = 'home' | 'privacy' | 'terms' | 'cookies' | 'ai-use' | 'unknown'
 
 /**
  * Strip the `/en|ru|pt` prefix (if any) from `route.path` and classify the
@@ -34,6 +34,7 @@ const routeKind = computed<RouteKind>(() => {
   if (stripped === '/privacy') return 'privacy'
   if (stripped === '/terms') return 'terms'
   if (stripped === '/cookies') return 'cookies'
+  if (stripped === '/about/ai-use') return 'ai-use'
   return 'unknown'
 })
 
@@ -115,6 +116,11 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     ru: 'Cookie — FolkUp',
     pt: 'Cookies — FolkUp',
   },
+  'ai-use': {
+    en: 'AI use — FolkUp',
+    ru: 'Использование AI — FolkUp',
+    pt: 'Uso de IA — FolkUp',
+  },
   unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp' },
 }
 
@@ -134,6 +140,11 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     en: 'FolkUp cookie policy: no cookies set by us. Third-party fonts and analytics opt-in only.',
     ru: 'Cookie-политика FolkUp: мы не устанавливаем cookies. Сторонние шрифты и аналитика только по согласию.',
     pt: 'Política de cookies da FolkUp: não definimos cookies. Fontes de terceiros e analytics apenas com consentimento.',
+  },
+  'ai-use': {
+    en: 'How FolkUp uses AI: AI-assisted production by a single human, all content human-reviewed before publication. No AI system interacts with you on these pages.',
+    ru: 'Как FolkUp использует AI: производство с помощью AI одним человеком, весь контент проверяется человеком перед публикацией. Ни одна AI-система не общается с вами на этих страницах.',
+    pt: 'Como a FolkUp usa IA: produção assistida por IA por uma única pessoa, todo o conteúdo é revisto por humano antes da publicação. Nenhum sistema de IA interage consigo nestas páginas.',
   },
   unknown: {
     en: 'FolkUp — knowledge tools for real communities.',
