@@ -93,6 +93,64 @@ const hreflangLinks = computed(() => {
  * Organization + WebSite are emitted exactly once per page with no chunk
  * ordering races.
  */
+/**
+ * Per-route localized title + description. Pulled from homePage manifest for
+ * home; inlined for legal pages to avoid importing privacy/terms/cookies
+ * manifests (bundle bloat — same reason schemas use inline labelEn pattern).
+ */
+const titleMap: Record<RouteKind, Record<string, string>> = {
+  home: homePage.meta.title as Record<string, string>,
+  privacy: {
+    en: 'Privacy Policy — FolkUp',
+    ru: 'Политика конфиденциальности — FolkUp',
+    pt: 'Política de Privacidade — FolkUp',
+  },
+  terms: {
+    en: 'Terms — FolkUp',
+    ru: 'Условия — FolkUp',
+    pt: 'Termos — FolkUp',
+  },
+  cookies: {
+    en: 'Cookies — FolkUp',
+    ru: 'Cookie — FolkUp',
+    pt: 'Cookies — FolkUp',
+  },
+  unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp' },
+}
+
+const descMap: Record<RouteKind, Record<string, string>> = {
+  home: homePage.meta.description as Record<string, string>,
+  privacy: {
+    en: 'FolkUp privacy policy: what data we collect (none personal), cookies (none), third parties (none), and your GDPR rights.',
+    ru: 'Политика конфиденциальности FolkUp: какие данные мы собираем (никаких персональных), cookies (нет), третьи стороны (нет) и ваши права по GDPR.',
+    pt: 'Política de privacidade da FolkUp: que dados recolhemos (nenhum pessoal), cookies (nenhum), terceiros (nenhum) e os seus direitos ao abrigo do RGPD.',
+  },
+  terms: {
+    en: 'FolkUp terms of use: free encyclopedias, open content, no warranties, no liability beyond Portuguese law minima.',
+    ru: 'Условия использования FolkUp: бесплатные энциклопедии, открытый контент, без гарантий, ответственность в рамках португальского права.',
+    pt: 'Termos de utilização da FolkUp: enciclopédias gratuitas, conteúdo aberto, sem garantias, responsabilidade no mínimo legal português.',
+  },
+  cookies: {
+    en: 'FolkUp cookie policy: no cookies set by us. Third-party fonts and analytics opt-in only.',
+    ru: 'Cookie-политика FolkUp: мы не устанавливаем cookies. Сторонние шрифты и аналитика только по согласию.',
+    pt: 'Política de cookies da FolkUp: não definimos cookies. Fontes de terceiros e analytics apenas com consentimento.',
+  },
+  unknown: {
+    en: 'FolkUp — knowledge tools for real communities.',
+    ru: 'FolkUp — инструменты знаний для живых сообществ.',
+    pt: 'FolkUp — ferramentas de conhecimento para comunidades reais.',
+  },
+}
+
+const pageTitle = computed(() => titleMap[routeKind.value]?.[locale.value] ?? 'FolkUp')
+const pageDescription = computed(() => descMap[routeKind.value]?.[locale.value] ?? '')
+
+const ogLocale = computed(() => {
+  if (locale.value === 'ru') return 'ru_RU'
+  if (locale.value === 'pt') return 'pt_PT'
+  return 'en_US'
+})
+
 const schemas = computed<object[]>(() => {
   const kind = routeKind.value
   if (kind === 'home') return pageSchemas(homePage, locale.value)
@@ -156,10 +214,27 @@ const schemas = computed<object[]>(() => {
   return base
 })
 
-// Single useHead call — reactive getters keep <link>/<script> blocks in sync
-// with route changes during client-side navigation post-hydration.
+// Single useHead call — reactive getters keep <title>/<meta>/<link>/<script>
+// blocks in sync with route changes during client-side navigation post-
+// hydration. Per-route localized title + description fixes single-static-meta
+// regression caught by Наборщик + Дьюи post-Phase-2 audit 2026-05-31.
 useHead({
   htmlAttrs: () => ({ lang: locale.value }),
+  title: () => pageTitle.value,
+  meta: () => [
+    { name: 'description', content: pageDescription.value },
+    { property: 'og:title', content: pageTitle.value },
+    { property: 'og:description', content: pageDescription.value },
+    { property: 'og:url', content: canonical.value },
+    { property: 'og:locale', content: ogLocale.value },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'FolkUp' },
+    { property: 'og:image', content: `${HOST}/images/og-image.png?v=2` },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle.value },
+    { name: 'twitter:description', content: pageDescription.value },
+    { name: 'twitter:image', content: `${HOST}/images/og-image.png?v=2` },
+  ],
   link: () => [
     { rel: 'canonical', href: canonical.value },
     ...hreflangLinks.value,

@@ -23,11 +23,14 @@ const support = supportSection
 const dedication = computed(() => resolveLocalized(support.dedication, locale.value) ?? '')
 const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.value) ?? '')
 
+// Locale-aware href: footer.links manifest uses generic '/privacy' etc;
+// prefix with current locale so /ru users go to /ru/privacy (Phase 2 prerendered),
+// not /privacy (nginx 301 → docs.folkup.app/legal/* off-site, English content).
 const links = computed(() =>
   footer.links.map((link) => ({
     id: link.id,
     label: resolveLocalized(link.label, locale.value) ?? '',
-    href: link.href,
+    href: `/${locale.value}${link.href}`,
   })),
 )
 </script>
