@@ -28,6 +28,15 @@ storybook-static/
 # Phase 2 baseline snapshots (large tarballs, not for remote)
 _meta/*.tar.gz
 
+# Phase 4 hygiene (Враг final pre-push 2026-06-02): runtime/secret-named files
+# at repo root must not be at risk of accidental `git add .`.
+# - deployment-report.json: written by scripts/deploy-to-vps.sh on each deploy.
+# - _meta/secrets-*.txt: filename pattern matches Cooper's secret-scanner.
+# - _meta/security-remediation-completion-*.md: postmortem audit artifacts.
+deployment-report.json
+_meta/secrets-*.txt
+_meta/security-remediation-completion-*.md
+
 # Playwright artifacts
 test-results/
 playwright-report/

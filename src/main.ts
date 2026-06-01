@@ -29,9 +29,12 @@ export const createApp = ViteSSG(App, { routes })
  * - `/ru`, `/pt` — explicit per-language landing
  * - `/en/privacy`, `/ru/privacy`, `/pt/privacy` — legal pages get explicit lang prefix
  *   (including `/en/...` so all three locales have parity for legal content)
- * - `/404` — locale-neutral 404 page; CF Pages serves dist/404.html on any
- *   unmatched URL. Unprefixed legacy paths (/privacy etc.) 301 to /en/...
- *   via public/_redirects.
+ * - `/404` — locale-neutral 404 page; nginx try_files falls back to
+ *   /404.html on any unmatched URL (folkup-infra nginx-folkup-landing.conf).
+ *   Unprefixed legacy paths (/privacy etc.) 301 to /<lang>/... via the
+ *   nginx accept-language map block (LAND-012 closed 2026-05-31).
+ *   `public/_redirects` ships as dead-on-nginx CF Pages format; kept only
+ *   as documentation of the redirect map until LAND-021 cleanup.
  *
  * Generated routes:
  *   /  /ru  /pt

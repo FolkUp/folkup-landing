@@ -43,8 +43,11 @@ const LANGS = ['en', 'ru', 'pt']
  *   '/404'          → 404.html
  *
  * Note: 404.html is rendered by Vue Router but is LOCALE-NEUTRAL by design —
- * it deliberately omits hreflang because Cloudflare Pages serves it for any
- * unmatched URL across all languages. The validator honours that exception.
+ * it deliberately omits hreflang because nginx try_files serves dist/404.html
+ * for any unmatched URL across all languages (per folkup-infra nginx config).
+ * The validator honours that exception. (The «Cloudflare Pages» phrasing in
+ * earlier comments was a phantom — folkup.app has been VPS nginx since
+ * inception, confirmed by Кочегар DevOps verdict 2026-05-30.)
  */
 const SSG_HTML_FILES = new Set([
   'index.html',
