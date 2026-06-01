@@ -3,24 +3,19 @@ import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
-import type { FooterSection as FooterSectionType, SupportSection as SupportSectionType } from '@/content/types'
+import type { FooterSection as FooterSectionType } from '@/content/types'
 import LangToggle from './LangToggle.vue'
 
 const { locale } = useI18n()
 
 // LAND-007 (B2b): read from typed content layer instead of locale JSONs.
-// Footer pulls from two manifest sections:
-//   - `footer` (endorsement, legal links)
-//   - `support` (dedication line, currently rendered in the footer)
+// Phase-4-P1 (2026-06-01): dedication line was removed from the landing
+// per concept v1 — it now lives only on the (future) /team/people/andrey page.
+// Footer renders endorsement + legal links + social.
 const footerSection = homePage.sections.find((s) => s.type === 'footer') as FooterSectionType | undefined
 if (!footerSection) throw new Error('Footer section missing from homePage manifest')
 const footer = footerSection
 
-const supportSection = homePage.sections.find((s) => s.type === 'support') as SupportSectionType | undefined
-if (!supportSection) throw new Error('Support section missing from homePage manifest (needed for dedication)')
-const support = supportSection
-
-const dedication = computed(() => resolveLocalized(support.dedication, locale.value) ?? '')
 const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.value) ?? '')
 
 // Locale-aware href: footer.links manifest uses generic '/privacy' etc;
@@ -37,7 +32,6 @@ const links = computed(() =>
 
 <template>
   <footer class="site-footer" role="contentinfo">
-    <p class="dedication">{{ dedication }}</p>
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="footer-logo">FolkUp</span>
@@ -61,17 +55,6 @@ const links = computed(() =>
 </template>
 
 <style scoped>
-.dedication {
-  font-style: italic;
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  text-align: center;
-  padding: 3rem 1rem 1.5rem;
-  margin: 0;
-  max-width: 960px;
-  margin-inline: auto;
-}
-
 .site-footer {
   border-top: 1px solid var(--color-border);
   padding: 3rem 1.5rem;

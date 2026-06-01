@@ -101,6 +101,31 @@ export function sectionSchema(section: Section, lang: LangCode): object | null {
       }
     }
 
+    case 'trilogy': {
+      // ItemList of Books — three-book series. Live entries get a `url`,
+      // coming entries are listed without it so search engines still surface
+      // the series as a coherent set rather than presenting AGIL in isolation.
+      // `inLanguage` per resolved locale; Schema.org Book is the canonical
+      // type for our long-form publications (Agile Sapiens is a real book,
+      // not just a blog post).
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: section.items.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          item: {
+            '@type': 'Book',
+            name: resolveLocalized(b.title, lang) ?? b.key,
+            description: resolveLocalized(b.pitch, lang) ?? '',
+            inLanguage: lang,
+            ...(b.url ? { url: b.url } : {}),
+            bookFormat: 'https://schema.org/EBook',
+          },
+        })),
+      }
+    }
+
     case 'team': {
       // Each member as schema:Person under a containing ItemList — useful for
       // Knowledge Graph person-attribution against Organization.
@@ -121,10 +146,10 @@ export function sectionSchema(section: Section, lang: LangCode): object | null {
     }
 
     default:
-      // Hero, stats, roadmap, mission, framework, support, footer, legal —
-      // either explicitly `schemaType: 'none'` (handled above) or not yet
-      // mapped. WebPage schema for legal pages is emitted via pageSchemas()
-      // wrapper below.
+      // Hero, mission, framework, decl-hero, pro-lab, services, open-code,
+      // footer, legal — either explicitly `schemaType: 'none'` (handled
+      // above) or not yet mapped. WebPage schema for legal pages is emitted
+      // via pageSchemas() wrapper below.
       return null
   }
 }

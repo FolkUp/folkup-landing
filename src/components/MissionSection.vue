@@ -16,6 +16,19 @@ const label = computed(() => resolveLocalized(mission.label, locale.value) ?? ''
 const title = computed(() => resolveLocalized(mission.title, locale.value) ?? '')
 const text = computed(() => resolveLocalized(mission.text, locale.value) ?? '')
 
+const methodTitle = computed(() =>
+  mission.method ? resolveLocalized(mission.method.title, locale.value) ?? '' : '',
+)
+const methodSteps = computed(() =>
+  mission.method
+    ? mission.method.steps.map((s) => ({
+        id: s.id,
+        verb: resolveLocalized(s.verb, locale.value) ?? '',
+        qualifier: resolveLocalized(s.qualifier, locale.value) ?? '',
+      }))
+    : [],
+)
+
 const principles = computed(() =>
   mission.principles.map((p) => ({
     id: p.id,
@@ -30,6 +43,17 @@ const principles = computed(() =>
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
     <p class="mission-text">{{ text }}</p>
+
+    <div v-if="mission.method" class="method">
+      <h3 class="method-title">{{ methodTitle }}</h3>
+      <ol class="method-steps">
+        <li v-for="s in methodSteps" :key="s.id" class="method-step">
+          <span class="method-verb">{{ s.verb }}</span>
+          <span class="method-qualifier">{{ s.qualifier }}</span>
+        </li>
+      </ol>
+    </div>
+
     <div class="principles">
       <div
         v-for="(p, idx) in principles"
@@ -50,6 +74,68 @@ const principles = computed(() =>
   line-height: 1.75;
   color: var(--color-text);
   max-width: 680px;
+}
+
+.method {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.method-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-sage);
+  margin: 0 0 1rem;
+}
+
+.method-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: method-step;
+}
+
+.method-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.5rem 0;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 720px) {
+  .method-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .method-step {
+    padding: 0;
+  }
+}
+
+.method-verb {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-bordo);
+  line-height: 1.2;
+}
+
+.method-qualifier {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  font-style: italic;
 }
 
 .principles {

@@ -26,10 +26,15 @@ export const homePage: Page = {
       ru: 'FolkUp — инструменты знаний для живых сообществ',
       pt: 'FolkUp — ferramentas de conhecimento para comunidades reais',
     },
+    // Phase-4-P1 concept v1 restoration: «one approach» no longer covers
+    // the scope after Trilogy + Pro Lab were added (3 distinct product lines).
+    // Workshop framing replaces it. AI-fornits → AI-workers in snippet per
+    // Фонарщик/Андрей brand decision (snippet CTR > distinctiveness here;
+    // Hero copy still uses «fornits» where context exists).
     description: {
-      en: 'Seven encyclopedias, one approach. Free, verified, multilingual. Neighbors helping neighbors.',
-      ru: 'Семь энциклопедий, один подход. Бесплатно, проверено, многоязычно. Соседи помогают соседям.',
-      pt: 'Sete enciclopédias, uma abordagem. Gratuito, verificado, multilingue. Vizinhos a ajudar vizinhos.',
+      en: 'A workshop making encyclopedias, books, and investigations. Free, verified, multilingual. One person, a team of AI workers, twenty-five years of craft.',
+      ru: 'Мастерская, где делают энциклопедии, книги и расследования. Бесплатно, проверено, многоязычно. Один человек, команда ИИ-помощников, 25 лет ремесла.',
+      pt: 'Uma oficina que faz enciclopédias, livros e investigações. Grátis, verificado, multilingue. Uma pessoa, uma equipa de colaboradores de IA, 25 anos de ofício.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
@@ -87,6 +92,45 @@ export const homePage: Page = {
         ru: 'Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. Семь проектов спустя мы поняли: дело не в темах. Дело в том, чтобы создавать инструменты знаний, которые принадлежат тем, кто ими пользуется. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
         pt: 'Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois percebemos: não é sobre temas. É sobre construir ferramentas de conhecimento que pertencem às pessoas que as usam. Sem investidores, sem algoritmos, sem paywalls. O farol arde, as raízes seguram.',
       },
+      // Phase-4-P1 method block: three honest verbs «search → verify → publish»
+      // per Concept v1 lock. Each verb carries a one-clause qualifier — anti-AI-slop
+      // grounding ("twice, by hand"; "signed, ours") rather than abstract values.
+      method: {
+        title: {
+          en: 'How it gets made',
+          ru: 'Как это делается',
+          pt: 'Como é feito',
+        },
+        steps: [
+          {
+            id: 'search',
+            verb: { en: 'Search', ru: 'Ищем', pt: 'Procurar' },
+            qualifier: {
+              en: 'we go look',
+              ru: 'идём смотреть',
+              pt: 'vamos ver',
+            },
+          },
+          {
+            id: 'verify',
+            verb: { en: 'Verify', ru: 'Проверяем', pt: 'Verificar' },
+            qualifier: {
+              en: 'twice, by hand',
+              ru: 'дважды, руками',
+              pt: 'duas vezes, à mão',
+            },
+          },
+          {
+            id: 'publish',
+            verb: { en: 'Publish', ru: 'Публикуем', pt: 'Publicar' },
+            qualifier: {
+              en: 'free, signed, ours',
+              ru: 'бесплатно, подписано, своё',
+              pt: 'grátis, assinado, nosso',
+            },
+          },
+        ],
+      },
       principles: [
         {
           id: 'free',
@@ -128,6 +172,97 @@ export const homePage: Page = {
           },
         },
       ],
+    },
+
+    // -------------------------------------------------------------- TRILOGY
+    {
+      id: 'trilogy',
+      type: 'trilogy',
+      schemaType: 'ItemList',
+      label: { en: 'Books', ru: 'Книги', pt: 'Livros' },
+      title: {
+        en: 'Three books, one workshop',
+        ru: 'Три книги, одна мастерская',
+        pt: 'Três livros, uma oficina',
+      },
+      items: [
+        {
+          key: 'agil',
+          title: {
+            en: 'Agile Sapiens',
+            ru: 'Agile Sapiens',
+            pt: 'Agile Sapiens',
+          },
+          pitch: {
+            en: 'Twenty-five years of building software, told as a field guide rather than a manifesto. Why teams keep rediscovering the same handful of truths.',
+            ru: 'Двадцать пять лет разработки софта, рассказанные как полевой определитель, а не манифест. Почему команды снова и снова открывают одни и те же несколько истин.',
+            pt: 'Vinte e cinco anos a fazer software, contados como guia de campo e não como manifesto. Porque é que as equipas continuam a redescobrir as mesmas poucas verdades.',
+          },
+          status: 'live',
+          badge: {
+            en: 'Reading now',
+            ru: 'Уже читается',
+            pt: 'Já se pode ler',
+          },
+          url: 'https://sapiens.folkup.life',
+        },
+        {
+          key: 'cwv',
+          title: {
+            en: 'Consonants Without Vowels',
+            ru: 'Согласные без гласных',
+            pt: 'Consoantes Sem Vogais',
+          },
+          pitch: {
+            en: 'A detective story about what we leave out — in code, in language, in the things we ship.',
+            ru: 'Детектив о том, что мы опускаем — в коде, в языке, в том, что отправляем в мир.',
+            pt: 'Um policial sobre o que deixamos de fora — no código, na língua, naquilo que entregamos.',
+          },
+          status: 'coming',
+          badge: { en: 'Coming', ru: 'Готовится', pt: 'Em breve' },
+        },
+        {
+          key: 'cos',
+          title: {
+            en: 'City of the Sun',
+            ru: 'Город Солнца',
+            pt: 'A Cidade do Sol',
+          },
+          pitch: {
+            en: 'Campanella sketched a utopia in 1602. We picked up his blueprint and asked what it costs to actually build one.',
+            ru: 'Кампанелла набросал утопию в 1602-м. Мы подняли его чертёж и спросили, сколько стоит её действительно построить.',
+            pt: 'Campanella esboçou uma utopia em 1602. Pegámos no plano dele e perguntámos quanto custa, de facto, construí-la.',
+          },
+          status: 'coming',
+          badge: { en: 'Coming', ru: 'Готовится', pt: 'Em breve' },
+        },
+      ],
+    },
+
+    // ------------------------------------------------------------ DECL HERO
+    {
+      id: 'declaration',
+      type: 'decl-hero',
+      schemaType: 'none',
+      label: { en: 'Project', ru: 'Проект', pt: 'Projeto' },
+      title: {
+        en: "A teenager's guide to the AI Declaration",
+        ru: 'Декларация об ИИ — разбор для подростков',
+        pt: 'A Declaração de IA explicada para adolescentes',
+      },
+      body: {
+        en: "The EU AI Act says systems must tell you when you're talking to an AI. The law is for adults; the conversation isn't. The Declaration Guide reads the rule like a teenager actually would — without condescension, without the corporate gloss — so the people growing up inside this stuff can name what they're looking at.",
+        ru: 'EU AI Act требует, чтобы системы признавались, когда с тобой говорит ИИ. Закон написан для взрослых — разговор нет. Declaration Guide читает это правило так, как читал бы подросток: без снисхождения, без корпоративного глянца. Чтобы те, кто растёт внутри всего этого, могли назвать вещи своими именами.',
+        pt: 'O AI Act da UE obriga os sistemas a dizerem quando estás a falar com uma IA. A lei é para adultos; a conversa não é. O Declaration Guide lê a regra como um adolescente a leria — sem condescendência, sem o verniz corporativo — para que quem está a crescer dentro disto consiga nomear o que tem à frente.',
+      },
+      cta: {
+        label: {
+          en: 'Read the guide',
+          ru: 'Читать гид',
+          pt: 'Ler o guia',
+        },
+        href: 'https://declaration.folkup.app',
+      },
     },
 
     // ------------------------------------------------------------- PROJECTS
@@ -207,6 +342,41 @@ export const homePage: Page = {
           accent: 'var(--color-accent-tarot)',
         },
       ],
+    },
+
+    // -------------------------------------------------------------- PRO LAB
+    {
+      id: 'pro-lab',
+      type: 'pro-lab',
+      schemaType: 'none',
+      label: { en: 'Pro Lab', ru: 'Про-Лаб', pt: 'Pro Lab' },
+      title: {
+        en: 'Slower work, closer to the source',
+        ru: 'Работа медленнее, ближе к источнику',
+        pt: 'Trabalho mais lento, mais perto da fonte',
+      },
+      body: {
+        en: "The encyclopedias are wide and fast. Pro Lab is narrow and slow. It's where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry. Closer to CERN's preprints than to a magazine.",
+        ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья. Ближе к препринтам CERN, чем к журналу.',
+        pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki. Mais perto dos preprints do CERN do que de uma revista.',
+      },
+      highlight: {
+        name: 'Lucerna',
+        pitch: {
+          en: 'Lucerna — Latin for lamp — is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
+          ru: 'Lucerna — на латыни «лампа» — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
+          pt: 'Lucerna — latim para candeia — é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
+        },
+        url: 'https://lucerna.folkup.app',
+      },
+      cta: {
+        label: {
+          en: 'Visit Lucerna',
+          ru: 'Зайти в Lucerna',
+          pt: 'Visitar Lucerna',
+        },
+        href: 'https://lucerna.folkup.app',
+      },
     },
 
     // ------------------------------------------------------------ FRAMEWORK
@@ -381,146 +551,39 @@ export const homePage: Page = {
       ],
     },
 
-    // ---------------------------------------------------------------- STATS
+    // ------------------------------------------------------------- SERVICES
     {
-      id: 'stats',
-      type: 'stats',
+      id: 'services',
+      type: 'services',
       schemaType: 'none',
-      label: { en: 'In numbers', ru: 'В цифрах', pt: 'Em números' },
-      // Current page does not render a stats title; kept as empty LocalizedString
-      // for schema completeness (renderers should treat empty values as omitted).
-      title: { en: '', ru: '', pt: '' },
-      items: [
-        {
-          id: 'projects',
-          value: { en: '7', ru: '7', pt: '7' },
-          label: { en: 'encyclopedias', ru: 'энциклопедий', pt: 'enciclopédias' },
-        },
-        {
-          id: 'articles',
-          value: { en: '1,500+', ru: '1 500+', pt: '1.500+' },
-          label: { en: 'articles', ru: 'статей', pt: 'artigos' },
-        },
-        {
-          id: 'pages',
-          value: { en: '6,100+', ru: '6 100+', pt: '6.100+' },
-          label: { en: 'pages', ru: 'страниц', pt: 'páginas' },
-        },
-        {
-          id: 'languages',
-          value: { en: '3', ru: '3', pt: '3' },
-          label: { en: 'languages', ru: 'языка', pt: 'idiomas' },
-        },
-        {
-          id: 'ads',
-          value: { en: '0', ru: '0', pt: '0' },
-          label: { en: 'ads', ru: 'рекламы', pt: 'anúncios' },
-        },
-      ],
+      label: { en: 'Services', ru: 'Сервисы', pt: 'Serviços' },
+      title: {
+        en: 'We also do this for hire',
+        ru: 'Это мы делаем и на заказ',
+        pt: 'Também fazemos isto por encomenda',
+      },
+      body: {
+        en: 'Encyclopedias, long-form books, investigative reporting, light SaaS, AI-assisted content — the same workshop, paid work instead of our own.',
+        ru: 'Энциклопедии, книги, расследования, лёгкие SaaS-инструменты, контент с ИИ — та же мастерская, только клиентская работа вместо своей.',
+        pt: 'Enciclopédias, livros, jornalismo de investigação, SaaS leves, conteúdo assistido por IA — a mesma oficina, em trabalho pago em vez de trabalho nosso.',
+      },
     },
 
-    // -------------------------------------------------------------- ROADMAP
+    // ------------------------------------------------------------ OPEN CODE
     {
-      id: 'roadmap',
-      type: 'roadmap',
+      id: 'open-code',
+      type: 'open-code',
       schemaType: 'none',
-      label: { en: 'Roadmap', ru: 'Дорожная карта', pt: 'Roteiro' },
+      label: { en: 'Open Code', ru: 'Открытый код', pt: 'Código aberto' },
       title: {
-        en: "What's next",
-        ru: 'Что дальше',
-        pt: 'O que vem a seguir',
+        en: 'Most of the workbench is public',
+        ru: 'Большая часть верстака — на виду',
+        pt: 'A maior parte da bancada está à vista',
       },
-      phases: [
-        {
-          id: 'done',
-          title: { en: 'Built', ru: 'Сделано', pt: 'Feito' },
-          text: {
-            en: '7 encyclopedias. 1,500+ articles across 3 languages. A text-based quest. Full GDPR compliance. Safety protocols for hazardous content.',
-            ru: '7 энциклопедий. 1 500+ статей на 3 языках. Текстовый квест. Полный GDPR compliance. Протоколы безопасности для опасного контента.',
-            pt: '7 enciclopédias. 1.500+ artigos em 3 idiomas. Um quest baseado em texto. Conformidade total com RGPD. Protocolos de segurança para conteúdo perigoso.',
-          },
-        },
-        {
-          id: 'now',
-          title: { en: 'Now', ru: 'Сейчас', pt: 'Agora' },
-          text: {
-            en: 'Deepening existing encyclopedias. A comic based on the quest. New translations and cross-references between projects.',
-            ru: 'Углубляем существующие энциклопедии. Комикс по мотивам квеста. Новые переводы и перекрёстные ссылки между проектами.',
-            pt: 'A aprofundar enciclopédias existentes. Uma banda desenhada baseada no quest. Novas traduções e referências cruzadas entre projetos.',
-          },
-        },
-        {
-          id: 'next',
-          title: { en: 'Next', ru: 'Дальше', pt: 'A seguir' },
-          text: {
-            en: 'New encyclopedias built to the same standards. Expanding the ecosystem with new topics and languages.',
-            ru: 'Новые энциклопедии на те же стандарты. Расширение экосистемы — новые темы, новые языки.',
-            pt: 'Novas enciclopédias com os mesmos padrões. Expansão do ecossistema com novos temas e idiomas.',
-          },
-        },
-        {
-          id: 'future',
-          title: { en: 'Ahead', ru: 'Впереди', pt: 'No futuro' },
-          text: {
-            en: "We'll see. The lantern burns, the roots hold — the rest will come.",
-            ru: 'Посмотрим. Фонарь горит, корни крепкие — а дальше видно будет.',
-            pt: 'Veremos. O farol arde, as raízes seguram — o resto virá.',
-          },
-        },
-      ],
-    },
-
-    // -------------------------------------------------------------- SUPPORT
-    {
-      id: 'support',
-      type: 'support',
-      label: { en: 'Support', ru: 'Поддержка', pt: 'Apoio' },
-      title: {
-        en: 'Keep the light on',
-        ru: 'Держите свет включённым',
-        pt: 'Mantenha a luz acesa',
-      },
-      text: {
-        en: 'Everything here is free. Always will be. No ads, no subscriptions, no tricks. But someone keeps the light on. If you want to help — the door is open.',
-        ru: 'Всё здесь бесплатно. И будет бесплатным. Без рекламы, без подписок, без подвохов. Но кто-то держит свет включённым. Если хотите помочь — дверь открыта.',
-        pt: 'Tudo aqui é gratuito. Sempre será. Sem anúncios, sem subscrições, sem truques. Mas alguém mantém a luz acesa. Se quiser ajudar — a porta está aberta.',
-      },
-      how: {
-        en: 'Your support keeps servers running, fonts licensed, articles checked, and mushroom warnings accurate.',
-        ru: 'Ваша поддержка — это серверы, лицензии на шрифты, проверенные статьи и точные предупреждения о грибах.',
-        pt: 'O seu apoio mantém servidores a funcionar, fontes licenciadas, artigos verificados e avisos sobre cogumelos precisos.',
-      },
-      stats: {
-        en: '1,500+ articles · 3 languages · 0 ads · 0 subscriptions',
-        ru: '1 500+ статей · 3 языка · 0 рекламы · 0 подписок',
-        pt: '1.500+ artigos · 3 idiomas · 0 anúncios · 0 subscrições',
-      },
-      formulas: {
-        en: [
-          'One coffee = one article stays free.',
-          'Free knowledge costs someone. Today it can cost a coffee.',
-          'Five people, no investors, zero ads. But the light stays on.',
-        ],
-        ru: [
-          'Одна чашка кофе = одна статья остаётся бесплатной.',
-          'Бесплатные знания кому-то стоят. Сегодня — одну чашку кофе.',
-          'Пять человек, ноль инвесторов, ноль рекламы. Но свет горит.',
-        ],
-        pt: [
-          'Um café = um artigo continua gratuito.',
-          'Conhecimento gratuito custa a alguém. Hoje pode custar um café.',
-          'Cinco pessoas, zero investidores, zero anúncios. Mas a luz continua acesa.',
-        ],
-      },
-      cta: {
-        en: 'Support on Ko-fi',
-        ru: 'Поддержать на Ko-fi',
-        pt: 'Apoiar no Ko-fi',
-      },
-      dedication: {
-        en: 'To my sons, whom I taught to play, with whom I played, and who teach me to play again',
-        ru: 'Моим сыновьям, которых я учил играть, с которыми я играл, и которые учат меня играть снова',
-        pt: 'Aos meus filhos, a quem ensinei a brincar, com quem brinquei, e que me ensinam a brincar de novo',
+      body: {
+        en: 'The tools we build to run our own sites sit on GitHub under FolkUp. If you want to see how the lamp is wired, that\'s where the wiring is.',
+        ru: 'Инструменты, на которых держатся наши сайты, лежат на GitHub под именем FolkUp. Если хочется посмотреть, как лампа собрана изнутри, проводка там.',
+        pt: 'As ferramentas que construímos para correr os nossos próprios sites estão no GitHub, em FolkUp. Se quiseres ver como é que a candeia está ligada, a cablagem é aí.',
       },
     },
 

@@ -20,5 +20,9 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     globals: true,
+    // Playwright e2e tests live in `tests/` and use the @playwright/test
+    // runner — vitest must skip that folder, otherwise it tries to invoke
+    // `test.describe()` from the Playwright module and aborts.
+    exclude: ['tests/**', 'node_modules/**', 'dist/**'],
   },
 })

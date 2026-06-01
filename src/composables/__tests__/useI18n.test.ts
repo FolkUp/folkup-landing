@@ -89,17 +89,16 @@ describe('useI18n', () => {
     expect(i18n.locale.value).toBe('en')
   })
 
-  it('tArray returns array for array values', () => {
-    const i18n = useI18n()
-    const formulas = i18n.tArray('supportFormulas')
-    expect(Array.isArray(formulas)).toBe(true)
-    expect(formulas.length).toBe(3)
-  })
-
   it('tArray returns single-element array for string values', () => {
     const i18n = useI18n()
     const result = i18n.tArray('navProjects')
     expect(result).toEqual(['Projects'])
+  })
+
+  it('tArray returns single-element array of the key itself for unknown keys', () => {
+    const i18n = useI18n()
+    const result = i18n.tArray('nonExistentKey')
+    expect(result).toEqual(['nonExistentKey'])
   })
 
   it('all three locale files have the same keys', async () => {

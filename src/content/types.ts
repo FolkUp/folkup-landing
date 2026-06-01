@@ -85,6 +85,30 @@ export interface Principle {
   text: LocalizedString
 }
 
+export interface MethodStep {
+  /** Imperative verb id — search/verify/publish */
+  id: string
+  /** Localised verb, e.g. EN "Search" / RU "Ищем" / PT "Procurar" */
+  verb: LocalizedString
+  /** Localised qualifier clause, e.g. EN "we go look" / RU "идём смотреть" */
+  qualifier: LocalizedString
+}
+
+export interface TrilogyBook {
+  /** Stable key matching projects-registry codes (agil/cwv/cos). */
+  key: string
+  /** Localised title (some books keep the same Latin/Cyrillic title across langs). */
+  title: LocalizedString
+  /** 1-2 sentence pitch. */
+  pitch: LocalizedString
+  /** Lifecycle status — drives badge colour (sage for live, amber for coming). */
+  status: 'live' | 'coming'
+  /** Localised badge label, e.g. EN "Reading now" / RU "Уже читается". */
+  badge: LocalizedString
+  /** Public URL if status === 'live', undefined for 'coming'. */
+  url?: string
+}
+
 export interface ProjectCard {
   /** Stable key matching legacy locale keys (padel/setubal/cogumelos/tarot). */
   key: string
@@ -118,21 +142,6 @@ export interface TeamMember {
   oneliner: LocalizedString
 }
 
-export interface StatItem {
-  id: string
-  /** Already a string ("7", "1,500+"), kept as LocalizedString because RU/PT
-   * use different thousand separators ("1 500+" vs "1.500+"). */
-  value: LocalizedString
-  label: LocalizedString
-}
-
-export interface RoadmapPhase {
-  /** done | now | next | future */
-  id: string
-  title: LocalizedString
-  text: LocalizedString
-}
-
 export interface FooterLink {
   /** privacy | terms | cookies */
   id: string
@@ -161,7 +170,76 @@ export interface MissionSection extends SectionBase {
   label: LocalizedString
   title: LocalizedString
   text: LocalizedString
+  /**
+   * Three-verb method block — "search → verify → publish".
+   * Optional so legacy manifests without method still type-check; live
+   * homePage always includes it post-Phase-4-P1.
+   */
+  method?: {
+    /** Subsection title, e.g. EN "How it gets made". */
+    title: LocalizedString
+    steps: MethodStep[]
+  }
   principles: Principle[]
+}
+
+export interface TrilogySection extends SectionBase {
+  type: 'trilogy'
+  schemaType: 'ItemList'
+  label: LocalizedString
+  title: LocalizedString
+  items: TrilogyBook[]
+}
+
+export interface DeclHeroSection extends SectionBase {
+  type: 'decl-hero'
+  /**
+   * P1 ships 'none' — DECL hero teases the external Declaration Guide; the
+   * authoritative WebPage/Article schema lives on declaration.folkup.app
+   * itself. P2 can revisit and emit a minimal MentionedBy link if SEO
+   * measurement shows value.
+   */
+  schemaType: 'none'
+  label: LocalizedString
+  title: LocalizedString
+  body: LocalizedString
+  cta: {
+    label: LocalizedString
+    href: string
+  }
+}
+
+export interface ProLabSection extends SectionBase {
+  type: 'pro-lab'
+  /** Same rationale as DeclHeroSection — Lucerna emits its own schema. */
+  schemaType: 'none'
+  label: LocalizedString
+  title: LocalizedString
+  body: LocalizedString
+  /** Highlighted project (Lucerna — first Pro Lab project). */
+  highlight: {
+    name: string
+    pitch: LocalizedString
+    url: string
+  }
+  cta: {
+    label: LocalizedString
+    href: string
+  }
+}
+
+/**
+ * Anchor block — Services / Open Code.
+ * Intentionally no link/cta: per Phase-4-P1 Андрей decision, these are
+ * text-anchor blocks announcing capability without driving traffic to
+ * pages that don't yet exist (/services, /code Phase-3 deferred).
+ */
+export interface AnchorSection extends SectionBase {
+  type: 'services' | 'open-code'
+  schemaType: 'none'
+  label: LocalizedString
+  title: LocalizedString
+  body: LocalizedString
 }
 
 export interface ProjectsSection extends SectionBase {
@@ -185,35 +263,6 @@ export interface TeamSection extends SectionBase {
   title: LocalizedString
   subtitle: LocalizedString
   members: TeamMember[]
-}
-
-export interface StatsSection extends SectionBase {
-  type: 'stats'
-  schemaType: 'none'
-  label: LocalizedString
-  title: LocalizedString
-  items: StatItem[]
-}
-
-export interface RoadmapSection extends SectionBase {
-  type: 'roadmap'
-  schemaType: 'none'
-  label: LocalizedString
-  title: LocalizedString
-  phases: RoadmapPhase[]
-}
-
-export interface SupportSection extends SectionBase {
-  type: 'support'
-  label: LocalizedString
-  title: LocalizedString
-  text: LocalizedString
-  how: LocalizedString
-  stats: LocalizedString
-  formulas: LocalizedStringArray
-  cta: LocalizedString
-  /** Optional dedication line (currently rendered in footer). */
-  dedication?: LocalizedString
 }
 
 export interface FooterSection extends SectionBase {
@@ -246,12 +295,13 @@ export interface LegalPageSection extends SectionBase {
 export type Section =
   | HeroSection
   | MissionSection
+  | TrilogySection
+  | DeclHeroSection
   | ProjectsSection
+  | ProLabSection
+  | AnchorSection
   | FrameworkSection
   | TeamSection
-  | StatsSection
-  | RoadmapSection
-  | SupportSection
   | FooterSection
   | LegalPageSection
 

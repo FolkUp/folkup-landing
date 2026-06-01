@@ -1,10 +1,34 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import LangToggle from './LangToggle.vue'
 
 defineProps<{ visible: boolean }>()
 
 const { t } = useI18n()
+
+/**
+ * Hamburger open state for mobile viewports. Phase 4 P1 SiteHeader v3:
+ *
+ * v1 (Phase 4 P0, 2026-06-01): used native <details>/<summary> hamburger,
+ * which solved mobile overflow but introduced a desktop+tablet-768 regression
+ * — <details>'s default layout box contributed ~142px of scrollWidth even
+ * when summary was display:none. `display: contents` workaround didn't
+ * resolve it cleanly across viewports (Vue scoped CSS interaction with the
+ * :not([open]) parent selector also got stripped).
+ *
+ * v3 (Phase 4 P1, 2026-06-01): plain button + reactive ref. Simpler, no UA
+ * quirks, scoped-CSS-friendly. Hamburger is visible on mobile only (CSS
+ * media-query hides it ≥768px); the nav is always rendered at desktop and
+ * conditionally rendered on mobile via the `.nav--open` class.
+ */
+const navOpen = ref(false)
+function toggleNav() {
+  navOpen.value = !navOpen.value
+}
+function closeNav() {
+  navOpen.value = false
+}
 </script>
 
 <template>
@@ -15,14 +39,26 @@ const { t } = useI18n()
   >
     <div class="header-inner">
       <a href="#hero" class="header-logo" aria-label="FolkUp">FolkUp</a>
-      <details class="nav-wrapper">
-        <summary class="nav-toggle" aria-label="Menu">❦</summary>
-        <nav class="header-nav" aria-label="Main navigation">
-          <a href="#projects">{{ t('navProjects') }}</a>
-          <a href="#team">{{ t('navTeam') }}</a>
-          <a href="#support">{{ t('navSupport') }}</a>
-        </nav>
-      </details>
+      <button
+        type="button"
+        class="nav-toggle"
+        :aria-expanded="navOpen"
+        aria-label="Menu"
+        aria-controls="primary-nav"
+        @click="toggleNav"
+      >
+        ❦
+      </button>
+      <nav
+        id="primary-nav"
+        class="header-nav"
+        :class="{ 'header-nav--open': navOpen }"
+        aria-label="Main navigation"
+      >
+        <a href="#trilogy" @click="closeNav">{{ t('navBooks') }}</a>
+        <a href="#projects" @click="closeNav">{{ t('navProjects') }}</a>
+        <a href="#team" @click="closeNav">{{ t('navTeam') }}</a>
+      </nav>
       <LangToggle />
     </div>
   </header>
@@ -63,35 +99,24 @@ const { t } = useI18n()
   text-decoration: none;
 }
 
-.nav-wrapper {
-  position: relative;
-  margin-left: auto;
-}
-
 .nav-toggle {
-  list-style: none;
+  margin-left: auto;
   cursor: pointer;
   font-family: var(--font-heading), Georgia, serif;
   font-size: 1.35rem;
   line-height: 1;
   color: var(--color-bordo);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
   padding: 0.5rem 0.75rem;
   min-width: 44px;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
   user-select: none;
   transition: color 0.15s ease, background 0.15s ease;
-}
-
-.nav-toggle::-webkit-details-marker {
-  display: none;
-}
-
-.nav-toggle::marker {
-  content: '';
 }
 
 .nav-toggle:hover {
@@ -104,14 +129,14 @@ const { t } = useI18n()
   outline-offset: 2px;
 }
 
+/* Mobile-first nav: hidden by default, dropdown when --open. */
 .header-nav {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 0.25rem;
   position: absolute;
   top: 100%;
-  right: 0;
-  left: auto;
+  right: 1rem;
   margin-top: 0.5rem;
   padding: 0.75rem;
   background: var(--color-surface);
@@ -120,6 +145,10 @@ const { t } = useI18n()
   min-width: 200px;
   box-shadow: 0 4px 12px rgba(125, 68, 80, 0.08);
   animation: ink-reveal 220ms ease-out;
+}
+
+.header-nav--open {
+  display: flex;
 }
 
 .header-nav a {
@@ -158,10 +187,6 @@ const { t } = useI18n()
   }
 }
 
-.nav-wrapper:not([open]) .header-nav {
-  display: none;
-}
-
 @media (min-width: 768px) {
   .header-inner {
     padding: 0.75rem 1.5rem;
@@ -173,10 +198,11 @@ const { t } = useI18n()
   }
 
   .header-nav {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
     position: static;
     margin-top: 0;
+    margin-left: auto;
     padding: 0;
     background: transparent;
     border: none;

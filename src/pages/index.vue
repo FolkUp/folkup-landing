@@ -5,12 +5,13 @@ import { useFadeIn } from '@/composables/useFadeIn'
 import SiteHeader from '@/components/SiteHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import MissionSection from '@/components/MissionSection.vue'
+import TrilogySection from '@/components/TrilogySection.vue'
+import DeclHeroSection from '@/components/DeclHeroSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
+import ProLabSection from '@/components/ProLabSection.vue'
 import FrameworkSection from '@/components/FrameworkSection.vue'
 import TeamSection from '@/components/TeamSection.vue'
-import StatsSection from '@/components/StatsSection.vue'
-import RoadmapSection from '@/components/RoadmapSection.vue'
-import SupportSection from '@/components/SupportSection.vue'
+import AnchorsSection from '@/components/AnchorsSection.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 
 const heroEl = ref<HTMLElement | null>(null)
@@ -26,12 +27,13 @@ useFadeIn()
       <HeroSection />
     </div>
     <MissionSection />
+    <TrilogySection />
+    <DeclHeroSection />
     <ProjectsSection />
+    <ProLabSection />
     <FrameworkSection />
     <TeamSection />
-    <StatsSection />
-    <RoadmapSection />
-    <SupportSection />
+    <AnchorsSection />
   </main>
   <SiteFooter />
 </template>

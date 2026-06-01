@@ -196,6 +196,7 @@ const schemas = computed<object[]>(() => {
     privacy: 'Privacy',
     terms: 'Terms',
     cookies: 'Cookies',
+    'ai-use': 'AI use',
   }
   const homeLabel =
     locale.value === 'ru' ? 'Главная' : locale.value === 'pt' ? 'Início' : 'Home'
