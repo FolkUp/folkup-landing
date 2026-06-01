@@ -27,3 +27,8 @@ storybook-static/
 
 # Phase 2 baseline snapshots (large tarballs, not for remote)
 _meta/*.tar.gz
+
+# Playwright artifacts
+test-results/
+playwright-report/
+playwright/.cache/

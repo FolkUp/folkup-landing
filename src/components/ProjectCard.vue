@@ -41,6 +41,8 @@ defineProps<{
   color: var(--color-text);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 44px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .project-card:hover {
@@ -65,13 +67,17 @@ defineProps<{
 
 .card-body {
   min-width: 0;
+  flex: 1;
+  overflow-wrap: break-word;
 }
 
 .card-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.25rem 0.5rem;
   margin-bottom: 0.35rem;
+  min-width: 0;
 }
 
 .card-header h3 {
@@ -80,6 +86,8 @@ defineProps<{
   font-weight: 700;
   margin: 0;
   color: var(--color-text);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .card-count {
@@ -93,6 +101,7 @@ defineProps<{
   line-height: 1.5;
   color: var(--color-muted);
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .card-meta {

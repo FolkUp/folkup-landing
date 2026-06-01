@@ -82,13 +82,29 @@ const links = computed(() =>
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: flex-start;
 }
 
+.footer-inner > * {
+  min-width: 0;
+}
+
 .footer-brand {
-  flex: 1;
-  min-width: 200px;
+  flex: 1 1 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    flex: 1;
+    min-width: 200px;
+  }
 }
 
 .footer-logo {
@@ -101,11 +117,13 @@ const links = computed(() =>
   font-size: 0.8rem;
   color: var(--color-muted);
   margin-top: 0.5rem;
+  overflow-wrap: break-word;
 }
 
 .footer-nav {
   display: flex;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
 }
 
 .footer-nav a {
@@ -125,7 +143,8 @@ const links = computed(() =>
 
 .footer-social {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
 }
 
 .footer-social a {

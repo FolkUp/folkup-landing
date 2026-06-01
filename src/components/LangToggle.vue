@@ -44,21 +44,30 @@ function switchLocale(l: Locale) {
 <style scoped>
 .lang-btn {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  padding: 0.35rem 0.65rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   border: 1px solid var(--color-border);
   background: transparent;
   color: var(--color-muted);
   cursor: pointer;
   transition: all 0.15s ease;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 36px;
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .lang-btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.65rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 .lang-btn:hover {
