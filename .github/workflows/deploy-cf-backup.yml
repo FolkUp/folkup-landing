@@ -1,0 +1,97 @@
+# CF Pages backup deploy — first GH Actions workflow в folkup-landing repo.
+# Per Враг C1: до этого PR repo не имел CI; deploy через manual scripts/deploy-to-vps.sh.
+# Consequence: CF backup получает continuous deploys, VPS остаётся manual.
+# Acceptance documented: «folkup.app CF reflects HEAD on main; VPS reflects last manual
+# deploy. Divergence is expected; Андрей syncs VPS by running scripts/deploy-to-vps.sh.»
+#
+# Follow-up: LAND-011 / CF-BACKUP-007 — automate VPS deploy via SSH-from-ubuntu-latest.
+# Out of pilot scope.
+#
+# Pilot scope: CF-BACKUP plan zany-snuggling-garden.md Phase 1
+# Owner: Кочегар (DevOps) | Security review: Купер | Plan author: Алиса
+
+name: Deploy to CF Pages (backup)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cf-backup-${{ github.repository }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  ACTIONS_STEP_DEBUG: "false"
+
+jobs:
+  build-and-deploy-cf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (vite-ssg)
+        # Equivalent к manual deploy-to-vps.sh build step. Uses build:only
+        # (per package.json line 4) — skips sitemap regen + validate-build.mjs
+        # which are tied к manual deploy flow. CF backup builds as static.
+        run: npm run build:only
+
+      - name: Generate _redirects + _headers for CF Pages
+        run: |
+          cat > dist/_headers <<'EOF'
+          /*
+            Strict-Transport-Security: max-age=31536000; includeSubDomains
+            X-Content-Type-Options: nosniff
+            Referrer-Policy: strict-origin-when-cross-origin
+            Permissions-Policy: interest-cohort=()
+
+          /assets/*
+            Cache-Control: public, max-age=31536000, immutable
+          EOF
+
+          # Locale-aware redirects mirror nginx behavior (Accept-Language → /ru/...)
+          # Per deploy-reality.yaml line 58: prod nginx redirects /privacy → /ru/privacy
+          # для Accept-Language: ru. CF Pages _redirects supports Accept-Language matching
+          # via netlify-style _redirects syntax (300 redirects + language=).
+          # Pilot deliberately leaves _redirects empty: VPS handles локализация,
+          # CF backup serves canonical URLs without locale redirects. Documented divergence.
+          cat > dist/_redirects <<'EOF'
+          EOF
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=folkup-app-backup --branch=main
+
+      # precommit:allow-secrets — step below intentionally contains secret-format
+      # regex patterns for §4 self-verify. These are detection patterns, not values.
+      - name: Post-deploy secret scan (agent-secret-hygiene §4)
+        if: always()
+        run: |
+          if [ -n "${GITHUB_STEP_SUMMARY:-}" ] && [ -f "${GITHUB_STEP_SUMMARY}" ]; then
+            PATTERNS='(ghp_|github_pat_|xoxb-|sk_live_|r8_|AKIA[0-9A-Z]{16}|AGE-SECRET-KEY-1|-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----|[0-9]{8,10}:[A-Za-z0-9_-]{35})'
+            if grep -qE "$PATTERNS" "${GITHUB_STEP_SUMMARY}" 2>/dev/null; then
+              echo "::error::Potential secret detected в step summary — investigate"
+              exit 1
+            fi
+          fi
+          echo "::notice::Step-summary secret scan complete (full run-log scan deferred to Phase 7 — ACTIONS_STEP_DEBUG=false is primary G1 mitigation)"
