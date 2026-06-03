@@ -14,7 +14,7 @@ name: Deploy to CF Pages (backup)
 
 on:
   push:
-    branches: [main]
+    branches: [master]   # FIX 2026-06-03 batch B: repo default branch is master (was [main] — never fired)
   workflow_dispatch:
 
 concurrency:
