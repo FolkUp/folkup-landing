@@ -1,0 +1,47 @@
+# FolkUp
+
+> Independent open-content publisher producing free encyclopedias, books, and tools across language, culture, and science. Funded by Ko-fi donations, not advertising.
+
+## About
+
+FolkUp is a small editorial collective publishing free encyclopedias and books with banking-level fact verification, OSINT-anchored sources, and transparent editorial process. Content is licensed CC-BY 4.0; code is MIT/Apache 2.0.
+
+## Encyclopedias
+
+- [Setubal](https://setubal.folkup.city/): City encyclopedia — Setubal, Portugal. History, neighborhoods, culture, food, walks.
+- [Padel](https://padel.folkup.fit/): Padel sport encyclopedia — rules (FIP 2026), technique, tactics, equipment, history.
+- [Mushrooms of Portugal](https://cogumelos.folkup.fit/): Edible and toxic mushrooms of Portugal — identification, ecology, foraging ethics.
+- [Tarot Hub](https://tarot.folkup.life/): Tarot encyclopedia (Rider-Waite system) — symbolism, deck structure, spreads, personal practice.
+- [Aquarium](https://aquarium.folkup.city/): Freshwater aquarium encyclopedia — fish, plants, water chemistry, equipment.
+- [Lucerna](https://lucerna.folkup.app/): Underwater photography reference — gear, light, marine life, dive sites.
+- [Retro-Tech (Runet 90s-2000s)](https://dialup.folkup.city/): Russian internet encyclopedia of the dial-up era — software, hardware, culture, sites.
+
+## Books
+
+- [Agile Sapiens](https://sapiens.folkup.life/): Book on humanity, agility, and complex systems. Long-form essays in EN/RU/PT.
+- [FolkUp Quest](https://quest.folkup.app/): Interactive story-driven learning game project.
+
+## Research
+
+- [Underground Academia](https://underground.folkup.life/): Cultural seismography research platform. Long-form pieces tracking pre-surface cultural shifts.
+- [Declaration Guide](https://declaration.folkup.app/): Tax declaration helper for Portuguese residents (Modelo 3).
+
+## Documentation
+
+- [Docs](https://docs.folkup.app/): Public technical documentation for FolkUp tools and APIs.
+- [Ecosystem Monitor](https://monitor.folkup.app/): Live status of FolkUp services.
+
+## Legal
+
+- [Privacy Policy](https://folkup.app/legal/privacy-policy/)
+- [Cookie Policy](https://folkup.app/legal/cookie-policy/)
+- [Terms of Use](https://folkup.app/legal/terms/)
+- [AI Transparency](https://folkup.app/legal/ai-transparency/): EU AI Act Article 50 disclosure.
+
+## Contact
+
+- Email: hello@folkup.app
+- Donations: https://ko-fi.com/folkup
+
+---
+Site: https://folkup.app
