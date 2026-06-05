@@ -28,8 +28,8 @@ const HOST = 'https://folkup.app'
 
 /**
  * Organization — primary entity for Knowledge Graph attribution.
- * `sameAs` will be populated once the public socials are confirmed; left as
- * an empty array (rather than omitted) to make the shape obvious.
+ * `sameAs` lists confirmed public profiles (footer-canonical) for entity
+ * disambiguation; keep alphabetical-by-domain for diff stability.
  */
 export const organizationSchema = {
   '@context': 'https://schema.org',
@@ -37,7 +37,12 @@ export const organizationSchema = {
   name: 'FolkUp',
   url: HOST,
   logo: `${HOST}/icon.png`,
-  sameAs: [] as string[],
+  sameAs: [
+    'https://github.com/FolkUp',
+    'https://habr.com/ru/users/anklem/',
+    'https://ko-fi.com/folkup',
+    'https://t.me/+FKSLu1k3U5IyODZi',
+  ] as string[],
 }
 
 /**

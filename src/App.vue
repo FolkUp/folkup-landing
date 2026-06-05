@@ -175,7 +175,12 @@ const schemas = computed<object[]>(() => {
       name: 'FolkUp',
       url: HOST,
       logo: `${HOST}/icon.png`,
-      sameAs: [] as string[],
+      sameAs: [
+        'https://github.com/FolkUp',
+        'https://habr.com/ru/users/anklem/',
+        'https://ko-fi.com/folkup',
+        'https://t.me/+FKSLu1k3U5IyODZi',
+      ] as string[],
     },
     {
       '@context': 'https://schema.org',

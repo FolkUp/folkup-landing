@@ -33,10 +33,10 @@ FolkUp is a small editorial collective publishing free encyclopedias and books w
 
 ## Legal
 
-- [Privacy Policy](https://folkup.app/legal/privacy-policy/)
-- [Cookie Policy](https://folkup.app/legal/cookie-policy/)
-- [Terms of Use](https://folkup.app/legal/terms/)
-- [AI Transparency](https://folkup.app/legal/ai-transparency/): EU AI Act Article 50 disclosure.
+- [Privacy Policy](https://folkup.app/en/privacy)
+- [Cookie Policy](https://folkup.app/en/cookies)
+- [Terms of Use](https://folkup.app/en/terms)
+- [AI Transparency](https://folkup.app/en/about/ai-use): EU AI Act Article 50 disclosure.
 
 ## Contact
 

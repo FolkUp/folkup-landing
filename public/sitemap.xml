@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://folkup.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://folkup.app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://folkup.app/ru"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://folkup.app/pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://folkup.app/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://folkup.app/privacy</loc>
+    <loc>https://folkup.app/ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://folkup.app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://folkup.app/ru"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://folkup.app/pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://folkup.app/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://folkup.app/pt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://folkup.app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://folkup.app/ru"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://folkup.app/pt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://folkup.app/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://folkup.app/en/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://folkup.app/terms</loc>
+    <loc>https://folkup.app/en/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://folkup.app/cookies</loc>
+    <loc>https://folkup.app/en/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://folkup.app/en/about/ai-use</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
