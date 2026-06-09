@@ -38,7 +38,17 @@ function closeNav() {
     role="banner"
   >
     <div class="header-inner">
-      <a href="#hero" class="header-logo" aria-label="FolkUp">FolkUp</a>
+      <a href="#hero" class="header-logo" aria-label="FolkUp">
+        <img
+          src="/images/brand/folkup-mascot-wordmark-watercolor.webp"
+          srcset="/images/brand/folkup-mascot-wordmark-watercolor.webp 1x, /images/brand/folkup-mascot-wordmark-watercolor@2x.webp 2x"
+          alt="FolkUp"
+          width="800"
+          height="530"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </a>
       <button
         type="button"
         class="nav-toggle"
@@ -93,10 +103,22 @@ function closeNav() {
 }
 
 .header-logo {
-  font-family: var(--font-brand);
-  font-size: 1.3rem;
-  color: var(--color-bordo);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+  min-height: 44px;
+  border-radius: 4px;
+}
+
+.header-logo img {
+  height: clamp(40px, 6vh, 56px);
+  width: auto;
+  display: block;
+}
+
+.header-logo:focus-visible {
+  outline: 2px solid var(--color-bordo);
+  outline-offset: 2px;
 }
 
 .nav-toggle {
