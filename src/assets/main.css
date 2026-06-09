@@ -32,6 +32,11 @@
   --font-heading: 'Cinzel', Georgia, serif;
   --font-heading-cyrillic: 'Playfair Display', Georgia, serif;
   --font-body: 'EB Garamond', Georgia, serif;
+  /* Wordmark fallback (BRAND-WM-001 Phase 1) — Old Standard TT per panel verdict
+     2026-06-09: used когда mascot не показывается (footer, email, OG cards).
+     TODO Phase 1b: download woff2 + @font-face declarations (currently Georgia fallback).
+     Per Brand Guide v2.6 amendment (BRAND-WM-002) — finalize after bespoke generation. */
+  --font-wordmark-fallback: 'Old Standard TT', Georgia, serif;
 }
 
 /* ============================================
