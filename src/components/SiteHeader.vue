@@ -40,11 +40,10 @@ function closeNav() {
     <div class="header-inner">
       <a href="#hero" class="header-logo" aria-label="FolkUp">
         <img
-          src="/images/brand/folkup-mascot-wordmark-watercolor.webp"
-          srcset="/images/brand/folkup-mascot-wordmark-watercolor.webp 1x, /images/brand/folkup-mascot-wordmark-watercolor@2x.webp 2x"
-          alt="FolkUp"
-          width="800"
-          height="530"
+          src="/images/brand/folkup-mark.svg"
+          alt=""
+          width="48"
+          height="48"
           decoding="async"
           fetchpriority="high"
         />
@@ -75,6 +74,8 @@ function closeNav() {
 </template>
 
 <style scoped>
+/* Per Андрей mandate 2026-06-10: шапка с логотипом + переключателями
+   доступна сразу, не только после прокрутки. Always-visible header. */
 .site-header {
   position: fixed;
   top: 0;
@@ -85,12 +86,6 @@ function closeNav() {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
-  transform: translateY(-100%);
-  transition: transform 0.3s ease;
-}
-
-.site-header.visible {
-  transform: translateY(0);
 }
 
 .header-inner {
@@ -105,13 +100,15 @@ function closeNav() {
 .header-logo {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
+  min-width: 44px;
   min-height: 44px;
   border-radius: 4px;
 }
 
 .header-logo img {
-  height: clamp(40px, 6vh, 56px);
+  height: clamp(36px, 5vh, 48px);
   width: auto;
   display: block;
 }
