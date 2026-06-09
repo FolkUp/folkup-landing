@@ -32,8 +32,7 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
         :data-style="style"
       />
     </div>
-    <h1 class="hero-title">{{ hero.title }}</h1>
-    <p class="hero-subtitle">{{ subtitle }}</p>
+    <h1 class="hero-subtitle">{{ subtitle }}</h1>
     <p class="hero-tagline">{{ tagline }}</p>
     <div class="hero-actions">
       <a href="#projects" class="hero-cta">{{ ctaPrimary }}</a>
@@ -66,20 +65,17 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   transition: opacity 0.5s ease;
 }
 
-.hero-title {
-  font-family: var(--font-brand);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--color-bordo);
-  margin: 0 0 0.75rem;
-  line-height: 1.1;
-}
-
+/* Phase 2c-γ: hero-title removed per Q2=A verdict («убрать большой текст
+   FolkUp, h1 → subtitle, Гертруда сама»). SiteHeader wordmark + Гертруда
+   carry brand identity. Subtitle promoted к h1 для SEO/a11y heading. */
 .hero-subtitle {
   font-family: var(--font-heading);
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: var(--color-text);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  color: var(--color-bordo);
   margin: 0 0 0.5rem;
-  max-width: 520px;
+  max-width: 620px;
+  line-height: 1.2;
 }
 
 .hero-tagline {
