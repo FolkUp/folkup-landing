@@ -30,8 +30,9 @@
     head plugin ran. Single source of truth = App.vue.
   -->
 
-  <!-- Preload critical fonts (Cinzel headings, EB Garamond body, Pacifico brand mark) -->
-  <link rel="preload" href="/fonts/pacifico-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Preload critical above-the-fold fonts (Cinzel headings, EB Garamond body).
+       Pacifico preload removed (Phase 2c-α+γ wordmark swap к canonical mascot).
+       Pacifico still loads on-demand via @font-face when footer brand mark renders. -->
   <link rel="preload" href="/fonts/cinzel-regular-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/ebgaramond-regular-latin.woff2" as="font" type="font/woff2" crossorigin />
 
