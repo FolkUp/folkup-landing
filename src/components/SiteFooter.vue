@@ -4,7 +4,6 @@ import { useI18n } from '@/composables/useI18n'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { FooterSection as FooterSectionType } from '@/content/types'
-import LangToggle from './LangToggle.vue'
 
 const { locale } = useI18n()
 
@@ -49,7 +48,6 @@ const links = computed(() =>
         <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
         <a href="https://habr.com/ru/users/anklem/" target="_blank" rel="noopener noreferrer" aria-label="Habr">Habr</a>
       </div>
-      <LangToggle />
     </div>
   </footer>
 </template>
