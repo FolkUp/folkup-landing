@@ -92,6 +92,20 @@ const STYLES = {
     index: 17,
     prompt: `Cyberpunk digital art, ${BASE}, holographic projection of lantern, glitch art effects, circuit board patterns in the roots, data stream particles floating upward instead of light, wireframe overlay, teal and amber digital palette with bordeaux accents, dark tech background, futuristic UI elements`,
   },
+  // --- 2026-06-10 Wave 2: Q6=A extension styles per Андрей verdict ---
+  // Same lantern silhouette per BASE, distinct period/cultural treatments.
+  artnouveau: {
+    index: 18,
+    prompt: `Art Nouveau illustration in Alphonse Mucha 1896 poster aesthetic, ${BASE}, ornamental whiplash curves shaping the lantern frame, decorative botanical tendrils intertwined with the roots, organic asymmetric composition, Mucha-inspired flowing line work, muted bordeaux and sage green palette with golden amber accents, clean ivory background, hand-drawn poster illustration, no modern simplification, no psychedelic 1970s revival`,
+  },
+  rodchenko: {
+    index: 19,
+    prompt: `Russian Constructivist illustration, 1923 Alexander Rodchenko avant-garde aesthetic, ${BASE} but rendered with geometric reduction and diagonal dynamism, photomontage edge feel, hand-cut composition, bold bordeaux ink dominant, sage green accent blocks, amber geometric highlights, ivory paper background, Soviet avant-garde gravitas like LEF magazine cover or Mayakovsky 1923 book design, no Soviet propaganda cliche, no red star, no hammer-and-sickle, no Lenin portrait`,
+  },
+  ukiyoe: {
+    index: 20,
+    prompt: `Japanese ukiyo-e woodblock print in Hokusai 1830 aesthetic, ${BASE}, traditional flat color planes, bold confident outlines, subtle linear shading via fine parallel strokes, indigo and amber washi paper palette with bordeaux accents, white margin border, Edo period woodblock print quality, soft kozo paper texture, no manga style, no anime, no modern digital flat illustration`,
+  },
 };
 
 const DELAY_MS = 12000; // 12s between requests (rate limit: 6 req/min)
@@ -217,6 +231,8 @@ async function main() {
     stylesToGenerate = Object.entries(STYLES);
   } else if (arg === 'new') {
     stylesToGenerate = Object.entries(STYLES).filter(([, s]) => s.index >= 6);
+  } else if (arg === 'wave2') {
+    stylesToGenerate = Object.entries(STYLES).filter(([, s]) => s.index >= 18);
   } else if (STYLES[arg]) {
     stylesToGenerate = [[arg, STYLES[arg]]];
   } else {

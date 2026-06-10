@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import { useGertruda } from '@/composables/useGertruda'
+import { useGertrudaTriptych } from '@/composables/useGertruda'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { HeroSection as HeroSectionType } from '@/content/types'
 
 const { locale } = useI18n()
-const { src, style } = useGertruda()
+const { left, center, right } = useGertrudaTriptych()
 
 // LAND-007 (B2b): read from typed content layer instead of locale JSONs.
 const section = homePage.sections.find((s) => s.type === 'hero') as HeroSectionType | undefined
@@ -22,14 +22,36 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
 
 <template>
   <section id="hero" class="hero">
-    <div class="hero-gertruda" aria-hidden="true">
+    <div class="hero-gertruda-triptych" aria-hidden="true">
       <img
-        :src="src"
+        class="gertruda-side gertruda-left"
+        :src="left.src"
         alt=""
-        width="280"
-        height="280"
+        width="200"
+        height="200"
+        loading="lazy"
+        decoding="async"
+        :data-style="left.style"
+      />
+      <img
+        class="gertruda-center"
+        :src="center.src"
+        alt=""
+        width="320"
+        height="320"
         loading="eager"
-        :data-style="style"
+        fetchpriority="high"
+        :data-style="center.style"
+      />
+      <img
+        class="gertruda-side gertruda-right"
+        :src="right.src"
+        alt=""
+        width="200"
+        height="200"
+        loading="lazy"
+        decoding="async"
+        :data-style="right.style"
       />
     </div>
     <h1 class="hero-subtitle">{{ subtitle }}</h1>
@@ -53,16 +75,77 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   position: relative;
 }
 
-.hero-gertruda {
+/* Гертруда триптих — three illustrations simultaneously.
+   D verdict 2026-06-10: «очень одинок этот квадратик» → 3 Гертруд layered.
+   Mobile ≤640px: vertical stack (center на top large, 2 sides below row).
+   Tablet+Desktop ≥641px: horizontal triptych (sides flank center). */
+.hero-gertruda-triptych {
+  display: grid;
+  align-items: center;
+  justify-items: center;
   margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  /* Mobile-first: vertical stack with center on top */
+  grid-template-areas:
+    'center'
+    'sides';
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.hero-gertruda img {
-  width: clamp(160px, 30vw, 280px);
+.gertruda-center {
+  grid-area: center;
+  width: clamp(180px, 60vw, 320px);
   height: auto;
-  opacity: 0.92;
-  filter: drop-shadow(0 4px 12px var(--color-shadow));
+  opacity: 0.95;
+  filter: drop-shadow(0 6px 16px var(--color-shadow));
   transition: opacity 0.5s ease;
+}
+
+.gertruda-side {
+  width: clamp(96px, 28vw, 200px);
+  height: auto;
+  opacity: 0.75;
+  filter: drop-shadow(0 3px 10px var(--color-shadow));
+  transition: opacity 0.5s ease;
+}
+
+/* Mobile: side images live в row below center */
+.gertruda-left,
+.gertruda-right {
+  grid-area: sides;
+}
+.gertruda-left {
+  justify-self: end;
+  margin-right: 0.5rem;
+}
+.gertruda-right {
+  justify-self: start;
+  margin-left: 0.5rem;
+}
+
+/* Tablet + Desktop: horizontal triptych с center middle */
+@media (min-width: 641px) {
+  .hero-gertruda-triptych {
+    grid-template-areas: 'left center right';
+    grid-template-columns: auto auto auto;
+    gap: 1.25rem;
+  }
+  .gertruda-left {
+    grid-area: left;
+    justify-self: end;
+    margin-right: 0;
+  }
+  .gertruda-right {
+    grid-area: right;
+    justify-self: start;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-gertruda-triptych {
+    gap: 2rem;
+  }
 }
 
 /* Phase 2c-γ: hero-title removed per Q2=A verdict («убрать большой текст
