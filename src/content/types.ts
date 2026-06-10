@@ -183,12 +183,25 @@ export interface MissionSection extends SectionBase {
   principles: Principle[]
 }
 
+export interface TrilogyPlate {
+  /** Path to chapter illustration under /public/images/agil-chapters/. */
+  src: string
+  /** Localised caption ("Act I" / "Глава 1" / etc) — purely informational, alt text. */
+  caption: LocalizedString
+}
+
 export interface TrilogySection extends SectionBase {
   type: 'trilogy'
   schemaType: 'ItemList'
   label: LocalizedString
   title: LocalizedString
   items: TrilogyBook[]
+  /**
+   * Optional decorative plate carousel — chapter illustrations from AGIL.
+   * Added 2026-06-10 per Андрей mandate: replace tarot tile с book plates,
+   * показывает Гутенберг book program live (sapiens.folkup.life).
+   */
+  plates?: TrilogyPlate[]
 }
 
 export interface DeclHeroSection extends SectionBase {

@@ -237,6 +237,30 @@ export const homePage: Page = {
           badge: { en: 'Coming', ru: 'Готовится', pt: 'Em breve' },
         },
       ],
+      // Decorative chapter plate carousel — AGIL book illustrations,
+      // added 2026-06-10 per Андрей mandate (tarot project replaced).
+      plates: [
+        {
+          src: '/images/agil-chapters/agil-act-opener-I.webp',
+          caption: { en: 'Act I', ru: 'Акт I', pt: 'Acto I' },
+        },
+        {
+          src: '/images/agil-chapters/agil-chapter-1-plate.webp',
+          caption: { en: 'Chapter 1', ru: 'Глава 1', pt: 'Capítulo 1' },
+        },
+        {
+          src: '/images/agil-chapters/agil-chapter-4-plate.webp',
+          caption: { en: 'Chapter 4', ru: 'Глава 4', pt: 'Capítulo 4' },
+        },
+        {
+          src: '/images/agil-chapters/agil-intermezzo-2-plate.webp',
+          caption: { en: 'Intermezzo II', ru: 'Интермеццо II', pt: 'Intermezzo II' },
+        },
+        {
+          src: '/images/agil-chapters/agil-act-opener-III.webp',
+          caption: { en: 'Act III', ru: 'Акт III', pt: 'Acto III' },
+        },
+      ],
     },
 
     // ------------------------------------------------------------ DECL HERO
@@ -276,9 +300,9 @@ export const homePage: Page = {
         pt: 'Ecossistema',
       },
       title: {
-        en: 'Seven encyclopedias — four already open',
-        ru: 'Семь энциклопедий — четыре уже открыты',
-        pt: 'Sete enciclopédias — quatro já abertas',
+        en: 'Seven encyclopedias — three already open',
+        ru: 'Семь энциклопедий — три уже открыты',
+        pt: 'Sete enciclopédias — três já abertas',
       },
       items: [
         {
@@ -326,21 +350,11 @@ export const homePage: Page = {
           icon: '/images/project-icons/cogumelos.webp',
           accent: 'var(--color-accent-cogumelos)',
         },
-        {
-          key: 'tarot',
-          name: { en: 'Tarot', ru: 'Таро', pt: 'Tarot' },
-          count: { en: '190 articles', ru: '190 статей', pt: '190 artigos' },
-          description: {
-            en: 'Tarot as history, art, and cultural artifact. Decks, symbolism, schools of thought. Not fortune-telling — understanding.',
-            ru: 'Таро как история, искусство и культурный артефакт. Колоды, символизм, школы. Не гадание — понимание.',
-            pt: 'Tarot como história, arte e artefacto cultural. Baralhos, simbolismo, escolas de pensamento. Não adivinhação — compreensão.',
-          },
-          langs: { en: 'EN · RU · PT', ru: 'EN · RU · PT', pt: 'EN · RU · PT' },
-          category: { en: 'Culture', ru: 'Культура', pt: 'Cultura' },
-          url: PROJECT_URLS.tarot,
-          icon: '/images/project-icons/tarot.webp',
-          accent: 'var(--color-accent-tarot)',
-        },
+        // Tarot project tile removed 2026-06-10 per Андрей mandate.
+        // Encyclopedia не готова — не пушим, картинка preserved в
+        // public/images/tarot/ + project-icons/tarot.webp для будущего
+        // restoration когда контент будет готов. Replacement: AGIL chapter
+        // plate carousel в trilogy section (plates array выше).
       ],
     },
 

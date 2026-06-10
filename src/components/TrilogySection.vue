@@ -24,6 +24,13 @@ const books = computed(() =>
     url: b.url,
   })),
 )
+
+const plates = computed(() =>
+  (trilogy.plates ?? []).map((p) => ({
+    src: p.src,
+    caption: resolveLocalized(p.caption, locale.value) ?? '',
+  })),
+)
 </script>
 
 <template>
@@ -46,6 +53,29 @@ const books = computed(() =>
         <span class="book-badge" :class="`book-badge--${b.status}`">{{ b.badge }}</span>
       </component>
     </div>
+
+    <a
+      v-if="plates.length > 0"
+      href="https://sapiens.folkup.life"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="plates-strip"
+      aria-label="Agile Sapiens — illustrated chapters"
+    >
+      <figure
+        v-for="p in plates"
+        :key="p.src"
+        class="plate"
+      >
+        <img
+          :src="p.src"
+          :alt="p.caption"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>{{ p.caption }}</figcaption>
+      </figure>
+    </a>
   </section>
 </template>
 
@@ -133,5 +163,55 @@ a.book-card:hover {
 .book-badge--coming {
   background: var(--color-amber);
   color: #2d2a26;
+}
+
+/* Decorative chapter-plate strip — clickable к sapiens.folkup.life.
+   Added 2026-06-10: replaces tarot project tile с book program preview. */
+.plates-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plates-strip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(42, 39, 37, 0.08);
+}
+
+.plates-strip:focus-visible {
+  outline: 2px solid var(--color-bordo);
+  outline-offset: 4px;
+}
+
+.plate {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.plate img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--color-bg);
+}
+
+.plate figcaption {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-align: center;
 }
 </style>
