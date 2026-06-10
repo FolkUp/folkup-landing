@@ -41,7 +41,7 @@ export function useI18n() {
   }
 
   /**
-   * Persist user's last explicit language choice. Called by LangToggle
+   * Persist user's last explicit language choice. Called by SettingsPanel
    * after `router.push` so we remember preference without auto-redirecting.
    */
   function rememberLocale(l: Locale) {
