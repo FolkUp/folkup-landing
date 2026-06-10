@@ -46,10 +46,13 @@ export const homePage: Page = {
       type: 'hero',
       schemaType: 'none',
       title: 'FolkUp',
+      // BRAND-WM-001 verdict 2026-06-11 (Андрей via Иви МАЯК-35 §3, variant A #6 GOLD):
+      // mission-formula echo «свет туда, где знание под замком» — panel-approved
+      // (Огилви creative + Наборщик editorial + Фонарщик brand voice) pre-verdict.
       subtitle: {
-        en: 'Knowledge tools for real communities',
-        ru: 'Инструменты знаний для живых сообществ',
-        pt: 'Ferramentas de conhecimento para comunidades reais',
+        en: 'Light for the knowledge fenced in.',
+        ru: 'Свет туда, где знание под замком',
+        pt: 'Luz para o saber que está cercado.',
       },
       // Hero quantified claim (LAND-008 B4 final, Q-LANDING-DRIFT 2026-05-29):
       // replaces the legacy poetic tagline («The light is on, the roots run deep.»)
