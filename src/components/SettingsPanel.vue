@@ -60,6 +60,47 @@ function pickTheme(th: Theme) {
   // Keep panel open — user can switch language после темы без reopen
 }
 
+// WAI-ARIA radiogroup keyboard pattern (ArrowRight/Down → next, ArrowLeft/Up → prev,
+// Home → first, End → last; wraps at boundaries). Roving tabindex per radio handles
+// focus delivery; we just shift current value + focus moves automatically через
+// reactive tabindex on next render.
+function onRadioKeydown<T extends readonly string[]>(
+  e: KeyboardEvent,
+  values: T,
+  current: T[number],
+  pick: (v: T[number]) => void,
+) {
+  const idx = values.indexOf(current as T[number])
+  if (idx === -1) return
+  let nextIdx = idx
+  switch (e.key) {
+    case 'ArrowRight':
+    case 'ArrowDown':
+      nextIdx = (idx + 1) % values.length
+      break
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      nextIdx = (idx - 1 + values.length) % values.length
+      break
+    case 'Home':
+      nextIdx = 0
+      break
+    case 'End':
+      nextIdx = values.length - 1
+      break
+    default:
+      return
+  }
+  e.preventDefault()
+  pick(values[nextIdx] as T[number])
+  // Focus the newly-active radio button on next tick (after tabindex shifts)
+  requestAnimationFrame(() => {
+    const groupRoot = (e.currentTarget as HTMLElement | null)?.closest('[role="radiogroup"]')
+    const target = groupRoot?.querySelector<HTMLElement>('[tabindex="0"]')
+    target?.focus()
+  })
+}
+
 function onKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape' && open.value) {
     e.preventDefault()
@@ -136,6 +177,7 @@ onUnmounted(() => {
             class="lang-btn"
             :class="{ active: locale === l }"
             @click="switchLocale(l)"
+            @keydown="onRadioKeydown($event, locales, locale, switchLocale)"
           >
             {{ langLabels[l] }}
           </button>
@@ -157,6 +199,7 @@ onUnmounted(() => {
             class="theme-btn"
             :class="{ active: theme === th }"
             @click="pickTheme(th)"
+            @keydown="onRadioKeydown($event, themes, theme, pickTheme)"
           >
             <span class="theme-swatch" :data-theme-swatch="th" aria-hidden="true"></span>
             <span class="theme-label">{{ themeLabels[th] }}</span>

@@ -541,7 +541,7 @@ body {
 
 /* Print */
 @media print {
-  header, .lang-toggle, .support-cta { display: none; }
+  header, .settings-wrap, .support-cta { display: none; }
   .hero { min-height: auto; padding: 2rem 0; }
 }
 
@@ -561,7 +561,9 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-sage);
+  /* WCAG AA: sage #839e75 на cream = 2.87:1 (fail). Bordeaux passes all 4 themes.
+     Discovered via axe-core audit (BRAND-WM-THEME-A11Y-001). */
+  color: var(--color-bordo);
 }
 
 .section-title {

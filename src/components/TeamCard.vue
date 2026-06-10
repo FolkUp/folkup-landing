@@ -79,7 +79,8 @@ defineProps<{
 .team-role {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-sage);
+  /* WCAG AA: sage text fails 4.5:1 на cream (BRAND-WM-THEME-A11Y-001). */
+  color: var(--color-bordo);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;

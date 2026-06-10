@@ -122,7 +122,7 @@ const plates = computed(() =>
 
 a.book-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(42, 39, 37, 0.08);
+  box-shadow: 0 4px 16px var(--color-shadow);
 }
 
 .book-title {
@@ -162,7 +162,7 @@ a.book-card:hover {
 
 .book-badge--coming {
   background: var(--color-amber);
-  color: #2d2a26;
+  color: var(--color-on-amber);
 }
 
 /* Decorative chapter-plate strip — clickable к sapiens.folkup.life.
@@ -182,7 +182,7 @@ a.book-card:hover {
 
 .plates-strip:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(42, 39, 37, 0.08);
+  box-shadow: 0 4px 16px var(--color-shadow);
 }
 
 .plates-strip:focus-visible {

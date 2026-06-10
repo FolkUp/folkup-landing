@@ -47,7 +47,7 @@ defineProps<{
 
 .project-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(42, 39, 37, 0.08);
+  box-shadow: 0 4px 16px var(--color-shadow);
 }
 
 .card-icon {
@@ -116,7 +116,9 @@ defineProps<{
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-sage);
+  /* WCAG AA: sage text fails 4.5:1 на cream (BRAND-WM-THEME-A11Y-001).
+     Bordeaux passes all 4 themes; sage retained для subtle bg tint. */
+  color: var(--color-bordo);
   background: color-mix(in srgb, var(--color-sage) 12%, transparent);
   padding: 0.15rem 0.5rem;
   border-radius: 4px;

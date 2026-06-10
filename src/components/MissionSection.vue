@@ -89,7 +89,9 @@ const principles = computed(() =>
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-sage);
+  /* WCAG AA: sage #839e75 на cream = 2.87:1 (fail). Bordeaux = 7.6:1 PASS.
+     Discovered via axe-core audit tablet-768 home-en (BRAND-WM-THEME-A11Y-001). */
+  color: var(--color-bordo);
   margin: 0 0 1rem;
 }
 
