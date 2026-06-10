@@ -38,6 +38,82 @@
      Per panel verdict #1 Hybrid: bespoke Fрида wordmark primary + Old Standard TT
      standalone fallback (footer, email, OG cards). Brand Guide v2.6 finalize pending. */
   --font-wordmark-fallback: 'Old Standard TT', Georgia, serif;
+
+  /* Themed surface tokens — extracted from hardcoded #fff and rgba(bordo)
+     per Враг verdict 2026-06-10 (settings panel build prep).
+     Overridden per-theme below via :root[data-theme="..."] blocks. */
+  --color-on-primary: #ffffff;   /* text on bordeaux/dark accent (CTA buttons, badges) */
+  --color-on-amber: #2d2a26;     /* text on amber accent */
+  --color-shadow: rgba(125, 68, 80, 0.08);  /* decorative shadow tint */
+}
+
+/* ============================================
+   Theme overrides — settings panel switcher (BRAND-WM-THEME-001).
+   Per steampunk-palette-d-variant memo §2 + WCAG §3 verification.
+   Andrei mandate 2026-06-10 Q5=A: 4 themes selectable from header.
+   ============================================ */
+
+:root[data-theme="folkup-steampunk"] {
+  --color-bordo: #5C3F2C;          /* mahogany */
+  --color-bordo-hover: #3F2A1C;
+  --color-sage: #3E6B5A;           /* verdigris */
+  --color-sage-hover: #2D5044;
+  --color-amber: #B89A4E;          /* antique brass */
+  --color-amber-dark: #8E7836;
+  --color-bg: #F0E6CC;             /* parchment */
+  --color-surface: #E5D9BC;
+  --color-text: #1F1A15;           /* ink-black */
+  --color-muted: #5A4F40;          /* sepia-muted */
+  --color-border: #CFC0A0;
+  --color-accent-padel: #3E6B5A;
+  --color-accent-setubal: #B89A4E;
+  --color-accent-cogumelos: #3D5A3A;
+  --color-accent-tarot: #6B3848;
+  --color-on-primary: #F0E6CC;     /* parchment text on mahogany */
+  --color-on-amber: #1F1A15;
+  --color-shadow: rgba(92, 63, 44, 0.18);  /* mahogany-tinted */
+}
+
+:root[data-theme="bw-light"] {
+  --color-bordo: #000000;
+  --color-bordo-hover: #333333;
+  --color-sage: #1A1A1A;
+  --color-sage-hover: #444444;
+  --color-amber: #000000;
+  --color-amber-dark: #000000;
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F5F5;
+  --color-text: #000000;
+  --color-muted: #333333;
+  --color-border: #CCCCCC;
+  --color-accent-padel: #000000;
+  --color-accent-setubal: #000000;
+  --color-accent-cogumelos: #000000;
+  --color-accent-tarot: #000000;
+  --color-on-primary: #FFFFFF;     /* white text on black primary */
+  --color-on-amber: #FFFFFF;       /* white on black-as-amber */
+  --color-shadow: rgba(0, 0, 0, 0.10);
+}
+
+:root[data-theme="bw-dark"] {
+  --color-bordo: #FFFFFF;
+  --color-bordo-hover: #CCCCCC;
+  --color-sage: #E5E5E5;
+  --color-sage-hover: #BBBBBB;
+  --color-amber: #FFFFFF;
+  --color-amber-dark: #FFFFFF;
+  --color-bg: #000000;
+  --color-surface: #0A0A0A;
+  --color-text: #FFFFFF;
+  --color-muted: #BBBBBB;
+  --color-border: #333333;
+  --color-accent-padel: #FFFFFF;
+  --color-accent-setubal: #FFFFFF;
+  --color-accent-cogumelos: #FFFFFF;
+  --color-accent-tarot: #FFFFFF;
+  --color-on-primary: #000000;     /* black text on white primary */
+  --color-on-amber: #000000;
+  --color-shadow: rgba(255, 255, 255, 0.10);
 }
 
 /* ============================================
@@ -434,7 +510,7 @@ body {
   z-index: 9999;
   padding: 0.75rem 1.5rem;
   background: var(--color-bordo);
-  color: #fff;
+  color: var(--color-on-primary);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;

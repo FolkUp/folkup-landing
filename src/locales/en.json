@@ -1,5 +1,12 @@
 {
   "navBooks": "Books",
   "navProjects": "Projects",
-  "navTeam": "Team"
+  "navTeam": "Team",
+  "settingsTitle": "Language and appearance",
+  "settingsLang": "Language",
+  "settingsTheme": "Theme",
+  "themeDefault": "Classic",
+  "themeSteampunk": "Steampunk",
+  "themeBwLight": "Black and white — light",
+  "themeBwDark": "Black and white — dark"
 }

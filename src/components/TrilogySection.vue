@@ -157,7 +157,7 @@ a.book-card:hover {
 
 .book-badge--live {
   background: var(--color-sage);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .book-badge--coming {

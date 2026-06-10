@@ -61,7 +61,7 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   width: clamp(160px, 30vw, 280px);
   height: auto;
   opacity: 0.92;
-  filter: drop-shadow(0 4px 12px rgba(125, 68, 80, 0.15));
+  filter: drop-shadow(0 4px 12px var(--color-shadow));
   transition: opacity 0.5s ease;
 }
 
@@ -100,7 +100,7 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   font-family: var(--font-heading);
   font-style: italic;
   font-size: clamp(0.9rem, 2vw, 1.05rem);
-  color: #fff;
+  color: var(--color-on-primary);
   background: var(--color-bordo);
   padding: 0.75rem 2rem;
   border-radius: 6px;
@@ -121,6 +121,6 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
 
 .hero-cta--secondary:hover {
   background: var(--color-bordo);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 </style>

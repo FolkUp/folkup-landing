@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import LangToggle from './LangToggle.vue'
+import SettingsPanel from './SettingsPanel.vue'
 
 defineProps<{ visible: boolean }>()
 
@@ -68,7 +68,7 @@ function closeNav() {
         <a href="#projects" @click="closeNav">{{ t('navProjects') }}</a>
         <a href="#team" @click="closeNav">{{ t('navTeam') }}</a>
       </nav>
-      <LangToggle />
+      <SettingsPanel />
     </div>
   </header>
 </template>
@@ -162,7 +162,7 @@ function closeNav() {
   border: 1px solid var(--color-border);
   border-radius: 6px;
   min-width: 200px;
-  box-shadow: 0 4px 12px rgba(125, 68, 80, 0.08);
+  box-shadow: 0 4px 12px var(--color-shadow);
   animation: ink-reveal 220ms ease-out;
 }
 

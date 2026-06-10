@@ -1,5 +1,12 @@
 {
   "navBooks": "Книги",
   "navProjects": "Проекты",
-  "navTeam": "Команда"
+  "navTeam": "Команда",
+  "settingsTitle": "Язык и оформление",
+  "settingsLang": "Язык",
+  "settingsTheme": "Тема",
+  "themeDefault": "Классика",
+  "themeSteampunk": "Стимпанк",
+  "themeBwLight": "Чёрно-белая светлая",
+  "themeBwDark": "Чёрно-белая тёмная"
 }
