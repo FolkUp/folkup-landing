@@ -63,8 +63,19 @@ const canonical = computed(() => {
 /**
  * hreflang link set: one alternate per supported language + `x-default`
  * pointing at the EN variant (per Q6 — EN is the default audience).
+ *
+ * 404 + catch-all are intentionally suppressed: there's no per-locale 404 route
+ * prerendered (`/en/404`, `/ru/404`, `/pt/404` do not exist as separate pages),
+ * so injecting alternates pointing at them creates phantom hreflang per Враг
+ * final A1 audit. nginx/CF Pages try_files serves the single `/404` HTML for
+ * any unmatched URL across all locales — locale-neutral by design.
  */
+const isNotFoundRoute = computed(() =>
+  route.path === '/404' || route.matched.some((m) => m.path === '/:pathMatch(.*)*'),
+)
+
 const hreflangLinks = computed(() => {
+  if (isNotFoundRoute.value) return []
   const base = basePath.value
   const links: { rel: 'alternate'; hreflang: string; href: string }[] = LANGS.map(
     (lang) => ({

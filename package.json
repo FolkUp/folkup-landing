@@ -9,6 +9,8 @@
     "build:only": "vite-ssg build",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "validate": "node scripts/validate-build.mjs",
+    "indexnow:ping": "node scripts/indexnow-ping.mjs",
+    "indexnow:ping:dry": "node scripts/indexnow-ping.mjs --dry-run",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
