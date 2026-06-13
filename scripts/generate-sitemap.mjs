@@ -60,17 +60,30 @@ const PAGE_GROUPS = [
 const todayIso = new Date().toISOString().split('T')[0]
 
 /**
- * Try to get the most recent commit date for the file backing the EN
- * variant. Falls back to today's date. Date format = YYYY-MM-DD (Google
- * accepts both full ISO 8601 and date-only).
+ * Git-driven lastmod: timestamp of last commit affecting src/ (which is the
+ * source of all prerendered pages). Falls back to today's date if git is
+ * unavailable or src/ is untracked (fresh clone scenario).
  *
- * NOTE: the dist/ HTML file itself is gitignored, so we walk back to the
- * source content. For now use today's date — proper git-driven lastmod is
- * deferred (see TODO in commit message). This keeps the sitemap valid and
- * avoids leaking phantom freshness.
+ * Repo-level granularity (not per-route) because vite-ssg derives all routes
+ * from the same src/ tree — any source change can affect any prerendered
+ * page. Per-route granularity would require mapping each route к specific
+ * source files; deferred until proven necessary (Google accepts repo-level).
+ *
+ * Date format = YYYY-MM-DD per Google spec.
  */
+const repoLastmodIso = (() => {
+  try {
+    const cmd = 'git log -1 --format=%cI -- src/'
+    const isoFull = execSync(cmd, { encoding: 'utf8' }).trim()
+    if (!isoFull) return todayIso
+    return isoFull.split('T')[0]
+  } catch {
+    return todayIso
+  }
+})()
+
 function lastmodFor(_relPath) {
-  return todayIso
+  return repoLastmodIso
 }
 
 const entries = []
@@ -103,9 +116,8 @@ ${entries.join('\n')}
 `
 
 writeFileSync(join(DIST, 'sitemap.xml'), sitemap, 'utf8')
-console.log(`✓ sitemap.xml: ${entries.length} URL groups (${entries.length * LANGS.length} alternates) → dist/sitemap.xml`)
+console.log(`✓ sitemap.xml: ${entries.length} URL groups (${entries.length * LANGS.length} alternates) → dist/sitemap.xml (lastmod=${repoLastmodIso})`)
 
-// Silence unused-import warnings — these stay imported so they're available
-// for the next-step lastmod-from-git enhancement without re-touching the file.
+// Silence unused-import warning — readFileSync stays imported for potential
+// per-route source-content hashing if granular lastmod is ever needed.
 void readFileSync
-void execSync

@@ -21,12 +21,14 @@
  * hreflang gate if validated here.
  */
 
-import { readFileSync, readdirSync, statSync } from 'node:fs'
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { gzipSync } from 'node:zlib'
 
 const DIST = 'dist'
 const LANGS = ['en', 'ru', 'pt']
+const BUNDLE_GZIP_MAX_KB = 60
 
 /**
  * The exact set of relative paths (POSIX-style) produced by vite-ssg
@@ -150,6 +152,37 @@ for (const file of ssgFiles) {
   }
 }
 
+// Gate 6: app.js bundle size gate (hard cap per CLAUDE.md = 60 KB gzip).
+// Defense-in-depth — fail loudly если bundle регрессирует, не silently bloating.
+const assetsDir = join(DIST, 'assets')
+if (existsSync(assetsDir)) {
+  const jsFiles = readdirSync(assetsDir).filter((f) => /^app-.*\.js$/.test(f))
+  if (jsFiles.length === 0) {
+    warnings.push(`no app-*.js found in ${assetsDir}/ — bundle size gate skipped`)
+  } else if (jsFiles.length > 1) {
+    warnings.push(`multiple app-*.js found (${jsFiles.join(', ')}) — checking largest only`)
+  }
+  if (jsFiles.length >= 1) {
+    const sizes = jsFiles.map((f) => ({ f, size: statSync(join(assetsDir, f)).size }))
+    sizes.sort((a, b) => b.size - a.size)
+    const bundlePath = join(assetsDir, sizes[0].f)
+    const content = readFileSync(bundlePath)
+    const gzipped = gzipSync(content)
+    const gzipKB = (gzipped.length / 1024).toFixed(2)
+    if (gzipped.length > BUNDLE_GZIP_MAX_KB * 1024) {
+      errors.push(
+        `bundle size regression: ${sizes[0].f} ${gzipKB} KB gzip > ${BUNDLE_GZIP_MAX_KB} KB hard cap (CLAUDE.md performance budget)`,
+      )
+    } else {
+      console.log(
+        `✓ bundle size: ${sizes[0].f} ${gzipKB} KB gzip (cap ${BUNDLE_GZIP_MAX_KB} KB, headroom ${(BUNDLE_GZIP_MAX_KB - parseFloat(gzipKB)).toFixed(2)} KB)`,
+      )
+    }
+  }
+} else {
+  warnings.push(`${assetsDir}/ not found — bundle size gate skipped`)
+}
+
 if (warnings.length > 0) {
   console.warn(`\n${warnings.length} warnings:`)
   for (const w of warnings) console.warn(`  ! ${w}`)
@@ -161,6 +194,6 @@ if (errors.length > 0) {
   process.exit(1)
 }
 
-console.log(`\n✓ All ${ssgFiles.length} prerendered HTML files pass validation gates`)
+console.log(`\n✓ All ${ssgFiles.length} prerendered HTML files pass validation gates + bundle size gate`)
 // Intentional: avoid `process.exit(0)` so the script integrates with build
 // pipelines that interpret a hung handle as success.
