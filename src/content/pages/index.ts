@@ -303,9 +303,14 @@ export const homePage: Page = {
         pt: 'Ecossistema',
       },
       title: {
-        en: 'Seven encyclopedias — three already open',
-        ru: 'Семь энциклопедий — три уже открыты',
-        pt: 'Sete enciclopédias — três já abertas',
+        en: 'Three encyclopedias open today — the list keeps growing',
+        ru: 'Три энциклопедии открыты сейчас — список растёт',
+        pt: 'Três enciclopédias abertas hoje — a lista continua a crescer',
+      },
+      subtitle: {
+        en: "A few more are being built, and the queue ahead is long. Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. Have a project of your own? Reach us at the contacts below.",
+        ru: 'Несколько готовятся прямо сейчас, впереди — длинная очередь. Энциклопедии, каталоги библиотек, техническая документация — такие тексты мы делаем и на заказ. Есть свой проект? Напиши — контакты внизу страницы.',
+        pt: 'Algumas mais estão em construção e a fila à frente é longa. Enciclopédias, catálogos de biblioteca, documentação técnica — fazemos textos como estes também por encomenda. Tens um projeto teu? Fala connosco — contactos no rodapé.',
       },
       items: [
         {

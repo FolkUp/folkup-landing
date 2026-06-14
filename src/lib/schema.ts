@@ -90,9 +90,15 @@ export function sectionSchema(section: Section, lang: LangCode): object | null {
     case 'projects': {
       // ItemList of CreativeWork/WebSite per project — each project has its
       // own canonical URL, so we emit an ItemListElement -> WebSite chain.
+      // Subtitle (if present) emits as ItemList description — feeds Google
+      // «About this result» panel + Perplexity attribution snippet (per Дьюи
+      // verdict cont +35 ext-9 panel review 2026-06-14).
+      const rawSubtitle = section.subtitle ? resolveLocalized(section.subtitle, lang) ?? '' : ''
+      const description = rawSubtitle.length > 160 ? rawSubtitle.slice(0, 157) + '...' : rawSubtitle
       return {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
+        ...(description ? { description } : {}),
         itemListElement: section.items.map((p, i) => ({
           '@type': 'ListItem',
           position: i + 1,

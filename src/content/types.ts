@@ -260,6 +260,7 @@ export interface ProjectsSection extends SectionBase {
   schemaType: 'ItemList'
   label: LocalizedString
   title: LocalizedString
+  subtitle?: LocalizedString
   items: ProjectCard[]
 }
 

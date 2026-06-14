@@ -15,6 +15,9 @@ const projectsSection = section
 
 const label = computed(() => resolveLocalized(projectsSection.label, locale.value) ?? '')
 const title = computed(() => resolveLocalized(projectsSection.title, locale.value) ?? '')
+const subtitle = computed(() =>
+  projectsSection.subtitle ? resolveLocalized(projectsSection.subtitle, locale.value) ?? '' : '',
+)
 
 const projects = computed(() =>
   projectsSection.items.map((item) => ({
@@ -35,6 +38,7 @@ const projects = computed(() =>
   <section id="projects" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
+    <p v-if="subtitle" class="section-subtitle">{{ subtitle }}</p>
     <div class="projects-grid">
       <ProjectCard
         v-for="p in projects"
@@ -53,6 +57,19 @@ const projects = computed(() =>
 </template>
 
 <style scoped>
+.section-subtitle {
+  font-family: var(--font-body, 'EB Garamond', Georgia, serif);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--color-text-muted, #6b6259);
+  max-width: 60ch;
+  margin: 0.5rem 0 1.5rem;
+}
+
+@media (min-width: 800px) {
+  .section-subtitle { font-size: 1.125rem; }
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
