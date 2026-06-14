@@ -476,9 +476,9 @@ export const homePage: Page = {
             pt: 'Privacidade e conformidade',
           },
           text: {
-            en: 'GDPR, security headers, WCAG accessibility, cookie consent. Not because we have to — because the library should be safe for everyone who walks in.',
-            ru: 'GDPR, заголовки безопасности, WCAG-доступность, согласие на cookies. Не потому что обязаны — потому что в библиотеке должно быть безопасно каждому, кто заходит.',
-            pt: 'RGPD, cabeçalhos de segurança, acessibilidade WCAG, consentimento de cookies. Não porque temos de o fazer — porque a biblioteca deve ser segura para todos os que entram.',
+            en: 'GDPR, security headers, WCAG accessibility, cookie consent. The same care as the articles themselves.',
+            ru: 'GDPR, заголовки безопасности, WCAG-доступность, согласие на cookies. Та же забота, что и о самих статьях.',
+            pt: 'RGPD, cabeçalhos de segurança, acessibilidade WCAG, consentimento de cookies. O mesmo cuidado dos artigos.',
           },
         },
       ],
