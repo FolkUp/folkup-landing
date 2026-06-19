@@ -22,6 +22,9 @@ const publicRoutes = [
   { name: 'terms-en', path: '/en/terms' },
   { name: 'cookies-en', path: '/en/cookies' },
   { name: 'ai-use-en', path: '/en/about/ai-use' },
+  { name: 'projects-en', path: '/en/projects' },
+  { name: 'projects-ru', path: '/ru/projects' },
+  { name: 'projects-pt', path: '/pt/projects' },
 ]
 
 for (const { name, path } of publicRoutes) {

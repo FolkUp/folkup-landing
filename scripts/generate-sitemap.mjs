@@ -55,6 +55,16 @@ const PAGE_GROUPS = [
     urlFor: (lang) => `${HOST}/${lang}/cookies`,
     sourceFor: (lang) => `${lang}/cookies.html`,
   },
+  {
+    name: 'ai-use',
+    urlFor: (lang) => `${HOST}/${lang}/about/ai-use`,
+    sourceFor: (lang) => `${lang}/about/ai-use.html`,
+  },
+  {
+    name: 'projects',
+    urlFor: (lang) => `${HOST}/${lang}/projects`,
+    sourceFor: (lang) => `${lang}/projects.html`,
+  },
 ]
 
 const todayIso = new Date().toISOString().split('T')[0]

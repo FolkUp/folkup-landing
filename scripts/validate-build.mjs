@@ -64,6 +64,12 @@ const SSG_HTML_FILES = new Set([
   'pt/privacy.html',
   'pt/terms.html',
   'pt/cookies.html',
+  'en/about/ai-use.html',
+  'ru/about/ai-use.html',
+  'pt/about/ai-use.html',
+  'en/projects.html',
+  'ru/projects.html',
+  'pt/projects.html',
   '404.html',
 ])
 

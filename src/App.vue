@@ -20,13 +20,20 @@ const HOST = 'https://folkup.app'
 const LANGS = ['en', 'ru', 'pt'] as const
 
 /** Stable URL-safe page identifier derived from the route path. */
-type RouteKind = 'home' | 'privacy' | 'terms' | 'cookies' | 'ai-use' | 'unknown'
+type RouteKind =
+  | 'home'
+  | 'privacy'
+  | 'terms'
+  | 'cookies'
+  | 'ai-use'
+  | 'projects'
+  | 'unknown'
 
 /**
  * Strip the `/en|ru|pt` prefix (if any) from `route.path` and classify the
- * remainder into one of the four known page kinds. Anything else (404,
- * catch-all, Phase-3 skeletons not yet routed) is `unknown` — head injection
- * still emits Organization + WebSite + canonical + hreflang for those.
+ * remainder into one of the known page kinds. Anything else (404, catch-all,
+ * Phase-3 skeletons not yet routed) is `unknown` — head injection still emits
+ * Organization + WebSite + canonical + hreflang for those.
  */
 const routeKind = computed<RouteKind>(() => {
   const stripped = route.path.replace(/^\/(en|ru|pt)(?=\/|$)/, '') || '/'
@@ -35,6 +42,7 @@ const routeKind = computed<RouteKind>(() => {
   if (stripped === '/terms') return 'terms'
   if (stripped === '/cookies') return 'cookies'
   if (stripped === '/about/ai-use') return 'ai-use'
+  if (stripped === '/projects') return 'projects'
   return 'unknown'
 })
 
@@ -132,6 +140,11 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     ru: 'Использование AI — FolkUp',
     pt: 'Uso de IA — FolkUp',
   },
+  projects: {
+    en: 'Encyclopedias and one workshop — FolkUp',
+    ru: 'Энциклопедии и одна мастерская — FolkUp',
+    pt: 'Enciclopédias e uma oficina — FolkUp',
+  },
   unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp' },
 }
 
@@ -156,6 +169,11 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     en: 'How FolkUp uses AI: AI-assisted production by a single human, all content human-reviewed before publication. No AI system interacts with you on these pages.',
     ru: 'Как FolkUp использует AI: производство с помощью AI одним человеком, весь контент проверяется человеком перед публикацией. Ни одна AI-система не общается с вами на этих страницах.',
     pt: 'Como a FolkUp usa IA: produção assistida por IA por uma única pessoa, todo o conteúdo é revisto por humano antes da publicação. Nenhum sistema de IA interage consigo nestas páginas.',
+  },
+  projects: {
+    en: 'Three encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
+    ru: 'Три энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
+    pt: 'Três enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
   },
   unknown: {
     en: 'FolkUp — knowledge tools for real communities.',
@@ -213,6 +231,7 @@ const schemas = computed<object[]>(() => {
     terms: 'Terms',
     cookies: 'Cookies',
     'ai-use': 'AI use',
+    projects: 'Encyclopedias',
   }
   const homeLabel =
     locale.value === 'ru' ? 'Главная' : locale.value === 'pt' ? 'Início' : 'Home'

@@ -11,6 +11,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/:lang(en|ru|pt)?/terms', component: () => import('./pages/terms.vue') },
   { path: '/:lang(en|ru|pt)?/cookies', component: () => import('./pages/cookies.vue') },
   { path: '/:lang(en|ru|pt)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
+  { path: '/:lang(en|ru|pt)?/projects', component: () => import('./pages/projects.vue') },
   // 404 — locale-neutral. VPS nginx try_files fallback к /404.html
   // (prerendered from this route, served на any unmatched URL).
   { path: '/404', component: () => import('./pages/404.vue') },
@@ -41,6 +42,8 @@ export const createApp = ViteSSG(App, { routes })
  *   /en/privacy  /ru/privacy  /pt/privacy
  *   /en/terms    /ru/terms    /pt/terms
  *   /en/cookies  /ru/cookies  /pt/cookies
+ *   /en/about/ai-use  /ru/about/ai-use  /pt/about/ai-use
+ *   /en/projects  /ru/projects  /pt/projects
  *   /404
  *
  * Note: `/privacy`, `/terms`, `/cookies` (no lang prefix) remain reachable at runtime
@@ -54,5 +57,6 @@ export const includedRoutes = async (
   const homePaths = LANGS.map((l) => (l === 'en' ? '/' : `/${l}`))
   const legalBasePaths = ['/privacy', '/terms', '/cookies', '/about/ai-use']
   const legalPaths = legalBasePaths.flatMap((p) => LANGS.map((l) => `/${l}${p}`))
-  return [...homePaths, ...legalPaths, '/404']
+  const subRoutePaths = ['/projects'].flatMap((p) => LANGS.map((l) => `/${l}${p}`))
+  return [...homePaths, ...legalPaths, ...subRoutePaths, '/404']
 }
