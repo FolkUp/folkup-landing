@@ -32,9 +32,9 @@ export const homePage: Page = {
     // Фонарщик/Андрей brand decision (snippet CTR > distinctiveness here;
     // Hero copy still uses «fornits» where context exists).
     description: {
-      en: 'A workshop making encyclopedias, books, and investigations. Free, verified, multilingual. One person, a team of AI workers, twenty-five years of craft.',
-      ru: 'Мастерская, где делают энциклопедии, книги и расследования. Бесплатно, проверено, многоязычно. Один человек, команда ИИ-помощников, 25 лет ремесла.',
-      pt: 'Uma oficina que faz enciclopédias, livros e investigações. Grátis, verificado, multilingue. Uma pessoa, uma equipa de colaboradores de IA, 25 anos de ofício.',
+      en: 'A workshop making encyclopedias and investigations. Free, verified, multilingual. One person, a team of AI workers, twenty-five years of craft.',
+      ru: 'Мастерская, где делают энциклопедии и расследования. Бесплатно, проверено, многоязычно. Один человек, команда ИИ-помощников, 25 лет ремесла.',
+      pt: 'Uma oficina que faz enciclopédias e investigações. Grátis, verificado, multilingue. Uma pessoa, uma equipa de colaboradores de IA, 25 anos de ofício.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
@@ -60,9 +60,9 @@ export const homePage: Page = {
       // three books, one person + team of AI fornits. The legacy line is
       // preserved as `endorsement` in the footer section, so we don't lose it.
       tagline: {
-        en: 'Seven encyclopedias. Three books. One person and a team of AI fornits.',
-        ru: 'Семь энциклопедий. Три книги. Один человек и команда AI-форнитов.',
-        pt: 'Sete enciclopédias. Três livros. Uma pessoa e uma equipa de fornits de IA.',
+        en: 'Seven encyclopedias. One person and a team of AI fornits.',
+        ru: 'Семь энциклопедий. Один человек и команда AI-форнитов.',
+        pt: 'Sete enciclopédias. Uma pessoa e uma equipa de fornits de IA.',
       },
       ctaPrimary: {
         en: 'Explore projects',
@@ -91,9 +91,9 @@ export const homePage: Page = {
         pt: 'Vizinhos a ajudar vizinhos',
       },
       text: {
-        en: "We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. Seven projects later, the workshop kept getting better at the same thing: specific subjects, careful sources, no shortcuts. The books grew out of the same desk — Agile Sapiens is reading-ready, two more on the way. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
-        ru: 'Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. Семь проектов спустя мастерская научилась одному и тому же лучше: конкретные темы, проверенные источники, без срезаний углов. Книги выросли за тем же столом — Agile Sapiens уже можно читать, две впереди. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
-        pt: 'Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois, a oficina ficou melhor na mesma coisa: temas específicos, fontes verificadas, sem atalhos. Os livros nasceram da mesma secretária — Agile Sapiens já se pode ler, mais dois a caminho. Sem investidores, sem algoritmos, sem paywalls. O farol arde, as raízes seguram.',
+        en: "We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. Seven projects later, the workshop kept getting better at the same thing: specific subjects, careful sources, no shortcuts. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
+        ru: 'Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. Семь проектов спустя мастерская научилась одному и тому же лучше: конкретные темы, проверенные источники, без срезаний углов. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
+        pt: 'Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois, a oficina ficou melhor na mesma coisa: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. O farol arde, as raízes seguram.',
       },
       // Phase-4-P1 method block: three honest verbs «search → verify → publish»
       // per Concept v1 lock. Each verb carries a one-clause qualifier — anti-AI-slop
@@ -177,94 +177,12 @@ export const homePage: Page = {
       ],
     },
 
-    // -------------------------------------------------------------- TRILOGY
-    {
-      id: 'trilogy',
-      type: 'trilogy',
-      schemaType: 'ItemList',
-      label: { en: 'Books', ru: 'Книги', pt: 'Livros' },
-      title: {
-        en: 'Three books, one workshop',
-        ru: 'Три книги, одна мастерская',
-        pt: 'Três livros, uma oficina',
-      },
-      items: [
-        {
-          key: 'agil',
-          title: {
-            en: 'Agile Sapiens',
-            ru: 'Agile Sapiens',
-            pt: 'Agile Sapiens',
-          },
-          pitch: {
-            en: 'Twenty-five years of building software, told as a field guide rather than a manifesto. Why teams keep rediscovering the same handful of truths.',
-            ru: 'Двадцать пять лет разработки софта, рассказанные как полевой определитель, а не манифест. Почему команды снова и снова открывают одни и те же несколько истин.',
-            pt: 'Vinte e cinco anos a fazer software, contados como guia de campo e não como manifesto. Porque é que as equipas continuam a redescobrir as mesmas poucas verdades.',
-          },
-          status: 'live',
-          badge: {
-            en: 'Reading now',
-            ru: 'Уже читается',
-            pt: 'Já se pode ler',
-          },
-          url: 'https://sapiens.folkup.life',
-        },
-        {
-          key: 'cwv',
-          title: {
-            en: 'Consonants Without Vowels',
-            ru: 'Согласные без гласных',
-            pt: 'Consoantes Sem Vogais',
-          },
-          pitch: {
-            en: 'A detective story about what we leave out — in code, in language, in the things we ship.',
-            ru: 'Детектив о том, что мы опускаем — в коде, в языке, в том, что отправляем в мир.',
-            pt: 'Um policial sobre o que deixamos de fora — no código, na língua, naquilo que entregamos.',
-          },
-          status: 'coming',
-          badge: { en: 'Coming', ru: 'Готовится', pt: 'Em breve' },
-        },
-        {
-          key: 'cos',
-          title: {
-            en: 'City of the Sun',
-            ru: 'Город Солнца',
-            pt: 'A Cidade do Sol',
-          },
-          pitch: {
-            en: 'Campanella sketched a utopia in 1602. We picked up his blueprint and asked what it costs to actually build one.',
-            ru: 'Кампанелла набросал утопию в 1602-м. Мы подняли его чертёж и спросили, сколько стоит её действительно построить.',
-            pt: 'Campanella esboçou uma utopia em 1602. Pegámos no plano dele e perguntámos quanto custa, de facto, construí-la.',
-          },
-          status: 'coming',
-          badge: { en: 'Coming', ru: 'Готовится', pt: 'Em breve' },
-        },
-      ],
-      // Decorative chapter plate carousel — AGIL book illustrations,
-      // added 2026-06-10 per Андрей mandate (tarot project replaced).
-      plates: [
-        {
-          src: '/images/agil-chapters/agil-act-opener-I.webp',
-          caption: { en: 'Act I', ru: 'Акт I', pt: 'Acto I' },
-        },
-        {
-          src: '/images/agil-chapters/agil-chapter-1-plate.webp',
-          caption: { en: 'Chapter 1', ru: 'Глава 1', pt: 'Capítulo 1' },
-        },
-        {
-          src: '/images/agil-chapters/agil-chapter-4-plate.webp',
-          caption: { en: 'Chapter 4', ru: 'Глава 4', pt: 'Capítulo 4' },
-        },
-        {
-          src: '/images/agil-chapters/agil-intermezzo-2-plate.webp',
-          caption: { en: 'Intermezzo II', ru: 'Интермеццо II', pt: 'Intermezzo II' },
-        },
-        {
-          src: '/images/agil-chapters/agil-act-opener-III.webp',
-          caption: { en: 'Act III', ru: 'Акт III', pt: 'Acto III' },
-        },
-      ],
-    },
+    // Trilogy section removed 2026-06-22 per Андрей mandate cont +36 batch B-2:
+    // «Ссылки на книги пока тоже убираем». Books return when redesign comes after
+    // publication. Section data preserved in git history (commit before this one)
+    // for restoration. TrilogySection.vue component file kept on disk — no longer
+    // imported, but не deleting in case future redesign restores. plates carousel
+    // (5 AGIL illustrations) goes away with section.
 
     // ------------------------------------------------------------ DECL HERO
     {
@@ -585,9 +503,9 @@ export const homePage: Page = {
         pt: 'Também fazemos isto por encomenda',
       },
       body: {
-        en: 'Encyclopedias, long-form books, investigative reporting, light SaaS, AI-assisted content — the same workshop, paid work instead of our own.',
-        ru: 'Энциклопедии, книги, расследования, лёгкие SaaS-инструменты, контент с ИИ — та же мастерская, только клиентская работа вместо своей.',
-        pt: 'Enciclopédias, livros, jornalismo de investigação, SaaS leves, conteúdo assistido por IA — a mesma oficina, em trabalho pago em vez de trabalho nosso.',
+        en: 'Encyclopedias, investigative reporting, light SaaS, AI-assisted content — the same workshop, paid work instead of our own.',
+        ru: 'Энциклопедии, расследования, лёгкие SaaS-инструменты, контент с ИИ — та же мастерская, только клиентская работа вместо своей.',
+        pt: 'Enciclopédias, jornalismo de investigação, SaaS leves, conteúdo assistido por IA — a mesma oficina, em trabalho pago em vez de trabalho nosso.',
       },
     },
 
@@ -639,6 +557,11 @@ export const homePage: Page = {
           id: 'ai-use',
           label: { en: 'AI use', ru: 'Использование AI', pt: 'Uso de IA' },
           href: '/about/ai-use',
+        },
+        {
+          id: 'contact',
+          label: { en: 'Write to us', ru: 'Написать нам', pt: 'Escreve-nos' },
+          href: 'mailto:anklem@folkup.app',
         },
       ],
     },

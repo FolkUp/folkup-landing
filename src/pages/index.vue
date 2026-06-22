@@ -5,7 +5,6 @@ import { useFadeIn } from '@/composables/useFadeIn'
 import SiteHeader from '@/components/SiteHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import MissionSection from '@/components/MissionSection.vue'
-import TrilogySection from '@/components/TrilogySection.vue'
 import DeclHeroSection from '@/components/DeclHeroSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
 import ProLabSection from '@/components/ProLabSection.vue'
@@ -27,7 +26,6 @@ useFadeIn()
       <HeroSection />
     </div>
     <MissionSection />
-    <TrilogySection />
     <DeclHeroSection />
     <ProjectsSection />
     <ProLabSection />

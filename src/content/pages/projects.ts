@@ -86,7 +86,6 @@ export const projectsPage: Page = {
 <ul class="encyclopedia-coming">
 <li><strong><a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a></strong> — a culture encyclopedia. Soft-launch shape today.</li>
 <li><strong><a href="https://dialup.folkup.city" rel="noopener">Retro Tech</a></strong> — dial-up era and early-internet tools. Online, content growing.</li>
-<li><strong><a href="https://tarot.folkup.life" rel="noopener">Tarot</a></strong> — Rider-Waite system encyclopedia. Design and illustration prep underway.</li>
 </ul>
 
 <h2>Adjacent projects, same workshop</h2>
@@ -99,11 +98,6 @@ export const projectsPage: Page = {
 <div class="encyclopedia-card">
 <h3><a href="https://declaration.folkup.app" rel="noopener">Declaration Guide — declaration.folkup.app</a></h3>
 <p>A reading-room version of the EU AI Act, written for teenagers. The law is for adults; the conversation isn't.</p>
-</div>
-
-<div class="encyclopedia-card">
-<h3><a href="https://sapiens.folkup.life" rel="noopener">Agile Sapiens — sapiens.folkup.life</a></h3>
-<p>Book one of a three-book series. Long-form rather than encyclopedic, but built at the same desk.</p>
 </div>
 
 <h2>Got a project?</h2>
@@ -144,7 +138,6 @@ export const projectsPage: Page = {
 <ul class="encyclopedia-coming">
 <li><strong><a href="https://aquarium.folkup.city" rel="noopener">Аквариум</a></strong> — энциклопедия культурного слоя. Сейчас в форме soft-launch.</li>
 <li><strong><a href="https://dialup.folkup.city" rel="noopener">Ретро-техника</a></strong> — эпоха диалапа и ранний интернет. Сайт онлайн, контент пополняется.</li>
-<li><strong><a href="https://tarot.folkup.life" rel="noopener">Таро</a></strong> — энциклопедия системы Райдера-Уэйта. Дизайн и иллюстрации в подготовке.</li>
 </ul>
 
 <h2>Соседние проекты, та же мастерская</h2>
@@ -157,11 +150,6 @@ export const projectsPage: Page = {
 <div class="encyclopedia-card">
 <h3><a href="https://declaration.folkup.app" rel="noopener">Declaration Guide — declaration.folkup.app</a></h3>
 <p>EU AI Act, прочитанный как читал бы подросток. Закон написан для взрослых — разговор нет.</p>
-</div>
-
-<div class="encyclopedia-card">
-<h3><a href="https://sapiens.folkup.life" rel="noopener">Agile Sapiens — sapiens.folkup.life</a></h3>
-<p>Первая книга из трилогии. Длинная форма, не энциклопедическая, но собрана за тем же столом.</p>
 </div>
 
 <h2>Есть свой проект?</h2>
@@ -202,7 +190,6 @@ export const projectsPage: Page = {
 <ul class="encyclopedia-coming">
 <li><strong><a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a></strong> — enciclopédia da camada cultural. Em soft-launch atualmente.</li>
 <li><strong><a href="https://dialup.folkup.city" rel="noopener">Tecnologia retro</a></strong> — a era do dial-up e ferramentas dos primeiros tempos da internet. Site online, conteúdo a crescer.</li>
-<li><strong><a href="https://tarot.folkup.life" rel="noopener">Tarot</a></strong> — enciclopédia do sistema Rider-Waite. Design e ilustração em preparação.</li>
 </ul>
 
 <h2>Projetos adjacentes, a mesma oficina</h2>
@@ -215,11 +202,6 @@ export const projectsPage: Page = {
 <div class="encyclopedia-card">
 <h3><a href="https://declaration.folkup.app" rel="noopener">Declaration Guide — declaration.folkup.app</a></h3>
 <p>A versão de leitura do AI Act da UE, escrita como um adolescente o leria. A lei é para adultos; a conversa não é.</p>
-</div>
-
-<div class="encyclopedia-card">
-<h3><a href="https://sapiens.folkup.life" rel="noopener">Agile Sapiens — sapiens.folkup.life</a></h3>
-<p>Livro um de uma trilogia. Forma longa, não enciclopédica, mas construído na mesma secretária.</p>
 </div>
 
 <h2>Tens um projeto?</h2>
