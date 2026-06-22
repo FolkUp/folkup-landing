@@ -10,10 +10,12 @@ const { locale } = useI18n()
 const services = homePage.sections.find((s) => s.type === 'services') as AnchorSectionType | undefined
 const openCode = homePage.sections.find((s) => s.type === 'open-code') as AnchorSectionType | undefined
 if (!services) throw new Error('Services section missing from homePage manifest')
-if (!openCode) throw new Error('Open Code section missing from homePage manifest')
 
+// open-code is optional — removed 2026-06-22 per Андрей mandate cont +36 batch B-2
+// «всё что не готово — на главной не светим» (Q5 Б). Component now renders only
+// services anchor when open-code missing. Returns when ≥3 repos publicly open.
 const anchors = computed(() =>
-  [services, openCode].map((a) => ({
+  [services, openCode].filter((a): a is AnchorSectionType => a !== undefined).map((a) => ({
     id: a.id,
     label: resolveLocalized(a.label, locale.value) ?? '',
     title: resolveLocalized(a.title, locale.value) ?? '',

@@ -162,16 +162,16 @@ export const homePage: Page = {
           },
         },
         {
-          id: 'by-people',
+          id: 'independent',
           title: {
-            en: 'Built by people who care.',
-            ru: 'Сделано людьми, которым не всё равно.',
-            pt: 'Feito por quem se importa.',
+            en: 'No strings attached.',
+            ru: 'Никому не должны.',
+            pt: 'Sem amarras.',
           },
           text: {
-            en: "Five people, zero investors. We write because the subject matters to us — not because someone's paying for clicks.",
-            ru: 'Пять человек, ноль инвесторов. Мы пишем, потому что тема нам важна — не потому что кто-то платит за клики.',
-            pt: 'Cinco pessoas, zero investidores. Escrevemos porque o tema nos importa — não porque alguém paga por cliques.',
+            en: "No investors, no algorithms, no subscriptions. We write because the subject matters to us — not because someone's paying for clicks.",
+            ru: 'Без инвесторов, без алгоритмов, без подписок. Пишем потому что тема нам важна, а не потому что кто-то платит за клики.',
+            pt: 'Sem investidores, sem algoritmos, sem subscrições. Escrevemos porque o tema nos importa — não porque alguém paga por cliques.',
           },
         },
       ],
@@ -509,23 +509,11 @@ export const homePage: Page = {
       },
     },
 
-    // ------------------------------------------------------------ OPEN CODE
-    {
-      id: 'open-code',
-      type: 'open-code',
-      schemaType: 'none',
-      label: { en: 'Open Code', ru: 'Открытый код', pt: 'Código aberto' },
-      title: {
-        en: 'Most of the workbench is public',
-        ru: 'Большая часть верстака — на виду',
-        pt: 'A maior parte da bancada está à vista',
-      },
-      body: {
-        en: 'The tools we build to run our own sites sit on GitHub under FolkUp. If you want to see how the lamp is wired, that\'s where the wiring is.',
-        ru: 'Инструменты, на которых держатся наши сайты, лежат на GitHub под именем FolkUp. Если хочется посмотреть, как лампа собрана изнутри, проводка там.',
-        pt: 'As ferramentas que construímos para correr os nossos próprios sites estão no GitHub, em FolkUp. Se quiseres ver como é que a candeia está ligada, a cablagem é aí.',
-      },
-    },
+    // Open Code section removed 2026-06-22 per Андрей mandate cont +36 batch B-2:
+    // «Всё что не готово — на главной не светим». Public code surface = 1 repo
+    // (declaration-guide) vs 30 private → «most workbench public» was overpromise
+    // (Lesson #42 catch primary-source verify gh CLI). Section returns when ≥3
+    // repos publicly open + redesign comes. Купер flips audit pending Андрей.
 
     // --------------------------------------------------------------- FOOTER
     {
