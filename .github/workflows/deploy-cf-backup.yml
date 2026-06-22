@@ -47,11 +47,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build (vite-ssg)
-        # Equivalent к manual deploy-to-vps.sh build step. Uses build:only
-        # (per package.json line 4) — skips sitemap regen + validate-build.mjs
-        # which are tied к manual deploy flow. CF backup builds as static.
-        run: npm run build:only
+      - name: Build (vite-ssg + sitemap + validate)
+        # Full build chain: vite-ssg build → generate-sitemap.mjs → validate-build.mjs.
+        # FIX 2026-06-22 (Кочегар): was `npm run build:only` which skipped sitemap regen,
+        # causing production sitemap.xml stale after each route addition (e.g. /en/projects
+        # added 2026-06-19 не индексировался). `npm run build` chains all gates;
+        # `build:only` retained в package.json для manual quick builds.
+        run: npm run build
 
       - name: Generate _redirects + _headers for CF Pages
         run: |
