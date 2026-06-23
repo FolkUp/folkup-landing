@@ -54,15 +54,16 @@ export const homePage: Page = {
         ru: 'Свет туда, где знание под замком',
         pt: 'Luz para o saber que está cercado.',
       },
-      // Hero quantified claim (LAND-008 B4 final, Q-LANDING-DRIFT 2026-05-29):
-      // replaces the legacy poetic tagline («The light is on, the roots run deep.»)
-      // with the concrete identity statement from Concept v1 — Seven sites,
-      // three books, one person + team of AI fornits. The legacy line is
-      // preserved as `endorsement` in the footer section, so we don't lose it.
+      // Direction Б positioning pivot 2026-06-22 cont +36 batch B-3:
+      // «Stratechery + Robin Sloan» model — personal brand + AI collaborators.
+      // Lead с category («long-form text») + identity («one human + fornits»).
+      // Per КиберГонзо R1: predicate-driven hero, sub-7 words ideal but allows
+      // 2-sentence для category + identity. Андрей verdict «принимаю Б, не
+      // боюсь деанонимизации» — author attribution becomes core positioning.
       tagline: {
-        en: 'Seven encyclopedias. One person and a team of AI fornits.',
-        ru: 'Семь энциклопедий. Один человек и команда AI-форнитов.',
-        pt: 'Sete enciclopédias. Uma pessoa e uma equipa de fornits de IA.',
+        en: 'Long-form writing. One person, a team of AI fornits.',
+        ru: 'Длинные тексты. Один человек, команда AI-форнитов.',
+        pt: 'Textos longos. Uma pessoa, uma equipa de fornits de IA.',
       },
       ctaPrimary: {
         en: 'Explore projects',
@@ -91,9 +92,9 @@ export const homePage: Page = {
         pt: 'Vizinhos a ajudar vizinhos',
       },
       text: {
-        en: "We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. Seven projects later, the workshop kept getting better at the same thing: specific subjects, careful sources, no shortcuts. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
-        ru: 'Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. Семь проектов спустя мастерская научилась одному и тому же лучше: конкретные темы, проверенные источники, без срезаний углов. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
-        pt: 'Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois, a oficina ficou melhor na mesma coisa: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. O farol arde, as raízes seguram.',
+        en: "Andrei. Twenty-five years of software engineering, now long-form writing. With me, a team of AI fornits — each with a name, a character, a role: research, voice, security, law, brand. Every publication is signed: who wrote, who verified, who edited. We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. Seven projects in, the workshop got better at the same thing: specific subjects, careful sources, no shortcuts taken. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
+        ru: 'Андрей. Двадцать пять лет разрабатывал софт, теперь — длинные тексты. Со мной команда AI-форнитов с именами и характерами, каждый отвечает за своё: исследование, голос, безопасность, право, бренд. Каждая публикация подписана: кто писал, кто проверял, кто редактировал. Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. За семь проектов мастерская оттачивала одно и то же: конкретные темы, проверенные источники, без халтуры. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
+        pt: 'Andrei. Vinte e cinco anos de engenharia de software, agora — escrita longa. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
       // Phase-4-P1 method block: three honest verbs «search → verify → publish»
       // per Concept v1 lock. Each verb carries a one-clause qualifier — anti-AI-slop
@@ -496,16 +497,16 @@ export const homePage: Page = {
       id: 'services',
       type: 'services',
       schemaType: 'none',
-      label: { en: 'Services', ru: 'Сервисы', pt: 'Serviços' },
+      label: { en: 'Commissions', ru: 'Заказы', pt: 'Encomendas' },
       title: {
-        en: 'We also do this for hire',
-        ru: 'Это мы делаем и на заказ',
-        pt: 'Também fazemos isto por encomenda',
+        en: 'Open for commissions',
+        ru: 'Принимаю заказы',
+        pt: 'Aberto a encomendas',
       },
       body: {
-        en: 'Encyclopedias, investigative reporting, light SaaS, AI-assisted content — the same workshop, paid work instead of our own.',
-        ru: 'Энциклопедии, расследования, лёгкие SaaS-инструменты, контент с ИИ — та же мастерская, только клиентская работа вместо своей.',
-        pt: 'Enciclopédias, jornalismo de investigação, SaaS leves, conteúdo assistido por IA — a mesma oficina, em trabalho pago em vez de trabalho nosso.',
+        en: "Encyclopedias on your subject, long-form books, longread series, OSINT investigations. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else's algorithm. Write: anklem@folkup.app",
+        ru: 'Энциклопедии по вашей теме, книги длинной формы, серии очерков, OSINT-расследования. Один автор плюс команда AI-форнитов. Типичный цикл — от трёх месяцев. Не для срочных проектов и не для текстов под чужой алгоритм. Пишите: anklem@folkup.app',
+        pt: 'Enciclopédias sobre o seu tema, livros longos, séries de ensaios, investigações OSINT. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. Escreva: anklem@folkup.app',
       },
     },
 
