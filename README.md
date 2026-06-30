@@ -21,10 +21,11 @@ AI fornits. Every publication is signed: who wrote, who verified, who edited.
 
 ## Routes
 
-15 prerendered static HTML routes:
+22 prerendered static HTML routes:
 
 - `/`, `/ru`, `/pt` — home (per-language)
 - `/{en,ru,pt}/projects` — encyclopedia portfolio
+- `/{en,ru,pt}/services` — seven directions for commissions (RU full, EN/PT placeholder pending Translator)
 - `/{en,ru,pt}/about/ai-use` — UCPD AI-use transparency disclosure
 - `/{en,ru,pt}/privacy`, `/terms`, `/cookies` — legal pages (Lev compliance)
 - `/404` — localized fallback

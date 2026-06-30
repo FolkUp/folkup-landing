@@ -12,8 +12,8 @@ FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a te
 - [Padel](https://padel.folkup.fit/): Padel sport encyclopedia — rules (FIP 2026), technique, tactics, equipment, history.
 - [Mushrooms of Portugal](https://cogumelos.folkup.fit/): Edible and toxic mushrooms of Portugal — identification, ecology, foraging ethics.
 - [Tarot Hub](https://tarot.folkup.life/): Tarot encyclopedia (Rider-Waite system) — symbolism, deck structure, spreads, personal practice.
-- [Aquarium](https://aquarium.folkup.city/): Freshwater aquarium encyclopedia — fish, plants, water chemistry, equipment.
-- [Lucerna](https://lucerna.folkup.app/): Underwater photography reference — gear, light, marine life, dive sites.
+- [Aquarium](https://aquarium.folkup.city/): "Aquarium" (Аквариум) band encyclopedia — Boris Grebenshchikov, 50 years of Russian rock, discography, members, cultural context.
+- [Lucerna](https://lucerna.folkup.app/): OSINT research lab — investigations, methodology notes, transparency-first verification discipline.
 - [Retro-Tech (Runet 90s-2000s)](https://dialup.folkup.city/): Russian internet encyclopedia of the dial-up era — software, hardware, culture, sites.
 
 ## Books
@@ -25,6 +25,10 @@ FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a te
 
 - [Underground Academia](https://underground.folkup.life/): Cultural seismography research platform. Long-form pieces tracking pre-surface cultural shifts.
 - [The Unenclosed Knowledge Declaration](https://declaration.folkup.app/): Public manifesto — seven principles against the enclosure of the mind. Initiated by FolkUp, open for signature. Mirror at https://folkup.app/declaration/.
+
+## Services
+
+- [Services](https://folkup.app/ru/services): Seven directions for commissions — translation (DE/EU PT), OSINT fact-checking, long investigation (Lucerna model), long-form essay, encyclopedia, illustration (Flux pipeline), long-living website. No prices, by prior conversation. Russian version is the source of truth; EN/PT translation in progress.
 
 ## Documentation
 
