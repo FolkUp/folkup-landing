@@ -70,6 +70,9 @@ const SSG_HTML_FILES = new Set([
   'en/projects.html',
   'ru/projects.html',
   'pt/projects.html',
+  'en/services.html',
+  'ru/services.html',
+  'pt/services.html',
   '404.html',
 ])
 
