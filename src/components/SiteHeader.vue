@@ -1,11 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 import SettingsPanel from './SettingsPanel.vue'
 
 defineProps<{ visible: boolean }>()
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+/**
+ * Locale-aware home URL + nav anchors.
+ *
+ * Cont +42 fix 2026-06-30: previously logo + nav used `#hero` / `#trilogy`
+ * fragment anchors only. На главной (/ru, /pt, /) работало через смooth scroll;
+ * на subroutes (/ru/services, /ru/projects) клики уходили в никуда — нет
+ * таких section IDs. Логотип не возвращал на главную.
+ *
+ * Fix: nav links теперь absolute paths с anchor. На главной → smooth scroll
+ * (browser native behavior). На subroute → full navigation к home + scroll.
+ */
+const homeUrl = computed(() => (locale.value === 'en' ? '/' : `/${locale.value}`))
+function navAnchor(anchor: string) {
+  return homeUrl.value + anchor
+}
 
 /**
  * Hamburger open state for mobile viewports. Phase 4 P1 SiteHeader v3:
@@ -38,7 +54,7 @@ function closeNav() {
     role="banner"
   >
     <div class="header-inner">
-      <a href="#hero" class="header-logo" aria-label="FolkUp">
+      <a :href="homeUrl" class="header-logo" aria-label="FolkUp">
         <img
           src="/images/brand/folkup-mark.svg"
           alt=""
@@ -64,9 +80,9 @@ function closeNav() {
         :class="{ 'header-nav--open': navOpen }"
         aria-label="Main navigation"
       >
-        <a href="#trilogy" @click="closeNav">{{ t('navBooks') }}</a>
-        <a href="#projects" @click="closeNav">{{ t('navProjects') }}</a>
-        <a href="#team" @click="closeNav">{{ t('navTeam') }}</a>
+        <a :href="navAnchor('#trilogy')" @click="closeNav">{{ t('navBooks') }}</a>
+        <a :href="navAnchor('#projects')" @click="closeNav">{{ t('navProjects') }}</a>
+        <a :href="navAnchor('#team')" @click="closeNav">{{ t('navTeam') }}</a>
       </nav>
       <SettingsPanel />
     </div>

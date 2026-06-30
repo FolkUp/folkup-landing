@@ -20,12 +20,21 @@ const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.v
 // Locale-aware href: footer.links manifest uses generic '/privacy' etc;
 // prefix with current locale so /ru users go to /ru/privacy (Phase 2 prerendered),
 // not /privacy (nginx 301 → docs.folkup.app/legal/* off-site, English content).
+//
+// Cont +42 fix 2026-06-30: only prefix locale если link starts с '/'.
+// Раньше mailto:anklem@folkup.app превращался в /rumailto:anklem@folkup.app
+// — broken link для «Написать нам». Now: external/mailto/tel skip prefix,
+// rendered as plain <a> instead of router-link.
 const links = computed(() =>
-  footer.links.map((link) => ({
-    id: link.id,
-    label: resolveLocalized(link.label, locale.value) ?? '',
-    href: `/${locale.value}${link.href}`,
-  })),
+  footer.links.map((link) => {
+    const isInternal = link.href.startsWith('/')
+    return {
+      id: link.id,
+      label: resolveLocalized(link.label, locale.value) ?? '',
+      href: isInternal ? `/${locale.value}${link.href}` : link.href,
+      isInternal,
+    }
+  }),
 )
 </script>
 
@@ -37,11 +46,16 @@ const links = computed(() =>
         <p class="footer-endorsement">{{ endorsement }}</p>
       </div>
       <nav class="footer-nav" aria-label="Legal">
-        <router-link
-          v-for="link in links"
-          :key="link.id"
-          :to="link.href"
-        >{{ link.label }}</router-link>
+        <template v-for="link in links" :key="link.id">
+          <router-link
+            v-if="link.isInternal"
+            :to="link.href"
+          >{{ link.label }}</router-link>
+          <a
+            v-else
+            :href="link.href"
+          >{{ link.label }}</a>
+        </template>
       </nav>
       <div class="footer-social">
         <a href="https://t.me/+FKSLu1k3U5IyODZi" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
