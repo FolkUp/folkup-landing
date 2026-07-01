@@ -57,18 +57,36 @@ const content = computed(() => resolveLocalized(section.content, locale.value) ?
   font-style: italic;
 }
 
+.services-page :deep(.services-hero) {
+  margin: 3rem 0 1rem;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.services-page :deep(.services-hero img) {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .services-page :deep(h2) {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   color: var(--color-text);
-  margin: 3rem 0 0.5rem;
-  border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.08));
-  padding-top: 2rem;
+  margin: 1rem 0 0.5rem;
+  padding-top: 0;
+}
+
+.services-page :deep(.services-hero + h2) {
+  margin-top: 0.5rem;
 }
 
 .services-page :deep(h2:first-of-type) {
-  border-top: none;
-  padding-top: 0;
+  margin-top: 2rem;
 }
 
 .services-page :deep(h3) {
