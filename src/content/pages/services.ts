@@ -56,9 +56,129 @@ export const servicesPage: Page = {
         pt: 'Atualizado em junho de 2026',
       },
       content: {
-        en: `<p>This page is being translated. The Russian version is the source of truth: <a href="/ru/services">/ru/services</a>.</p>
+        en: `<p>We take on work with a shelf life longer than a quarter.</p>
 
-<p>For commissions in English, write to <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>`,
+<p>Seven directions. Each with a concrete outcome and boundaries put in writing.</p>
+
+<p>Not for everyone. The details are below.</p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-translation.webp" alt="Two book spreads with a quill pen and an amber lamp in the corner" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Translating a book or a long document into German or European Portuguese</h2>
+
+<h3>Translation that does not flatter the translator.</h3>
+
+<p>Machine translation today is good enough that the client no longer sees why one should pay a human. He sees it when a German hands the page back and says: 'This has been translated.'</p>
+
+<p>We translate long-form texts into German (Berlin diction — Heine, Brecht, Tucholsky) and into European Portuguese (the Lisbon standard — Saramago, Sophia de Mello, Eça de Queirós). First a draft through a machine engine, then our translator revises it, until a local reader would not stumble. Then the four-eyes stage: a second native reader goes over it again.</p>
+
+<p>We take texts no shorter than one author's sheet. We do not do technical manuals; we do not do advertising slogans. We do the kind of text one reads through, not scans.</p>
+
+<p><em>Suits you if the translation is to be released under CC BY-SA. Not for you if you need an anonymous translation under someone else's name.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-osint.webp" alt="Three vertical columns crossed by a horizontal bordeaux line, with a magnifying glass and an amber dot on the right" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Fact-checking and open-source research</h2>
+
+<h3>A fact is cheap. A retraction is dear.</h3>
+
+<p>When a journalist publishes a fact that is refuted a week later, he does not lose one article. He loses the reserve of trust he has been earning for years.</p>
+
+<p>We verify claims, cross-check biographies, and rebuild chronologies from open sources — state registers, press archives, academic databases, corporate filings. Every claim in our report is footed to a primary source. Not a secondary retelling. A primary one.</p>
+
+<p>We work as an auditor in a bank does: until a fact is confirmed by two independent sources, it is marked yellow.</p>
+
+<p><em>We do not help build a case against a particular person. We do not help fabricate a dossier. We help you understand what is actually in the open record.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-lucerna.webp" alt="A layered shaft of documents and a single amber dot on a hanging line, like a lantern" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Long-form investigation into a single subject (Lucerna)</h2>
+
+<h3>Six months on a single subject.</h3>
+
+<p>When a question will not close with one report, what is needed is not another fact-check but a half-year immersion. We have a separate project for this — <a href="https://lucerna.folkup.app" rel="noopener">Lucerna</a>.</p>
+
+<p>It is a laboratory. Investigation, methodological notes, open sources assembled into a system. The kind of work that will not fit inside an encyclopedia entry but calls for the same discipline of verification.</p>
+
+<p>We take it on if the subject is worth six months of work. And if the result can be published — slowly, perhaps, but in the open.</p>
+
+<p><em>We do not compile dossiers on private individuals. We do not sell paid 'inside briefings for investors'. We do the kind of thing the client reads and forwards to a narrow circle.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-longread.webp" alt="An abstract planar composition of amber and sepia rectangles" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>A long essay or a signed piece of writing</h2>
+
+<h3>If you have something to say, better not hurry.</h3>
+
+<p>When half the articles now are written in thirty minutes under the banner of the content machine, writing one good article over two weeks is already an act.</p>
+
+<p>We write long essays of ten to forty thousand characters, on a subject the author knows more deeply than he can lay out in one sitting. We take the interview, unfold the argument, check the facts, build the story. The result: a text that could run in The Atlantic without blushing. The starting point: your voice, your expertise, your name.</p>
+
+<p>Every publication carries the client's name. There should be no trace of us in the text. That is the whole point of the work.</p>
+
+<p><em>Suits you if you want the text to sound like you. Not for you if you need it to sound 'like everyone else' for the algorithms.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-encyclopedia.webp" alt="A grid of article cards with one amber card set forward from the rest" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>An encyclopedia section or a book project</h2>
+
+<h3>Work with a long memory.</h3>
+
+<p>Three encyclopedias are already open — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a> (501 entries), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a> (164). Two are in preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>. A sixth, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, is on pause — our hands do not reach it for now.</p>
+
+<p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Licensed under CC BY-SA, so the text outlives us.</p>
+
+<p>We take it on if the subject is narrow and worthy. Narrow, because otherwise it thins out. Worthy, because in the FolkUp catalogue every encyclopedia stands under an author's own name.</p>
+
+<p><em>We do not do startup encyclopedias or SEO farms. We do the kind of thing one reader will want to read to the end.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-illustrations.webp" alt="A palette with three dots — bordeaux, amber, sage — and a brush laid diagonally" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Illustrations for a book, a long essay or a site</h2>
+
+<h3>A picture that is not trying to please everyone.</h3>
+
+<p>Illustration for the internet today is mostly made with a view to offending no one. It is neutral, symmetrical, harmless. A week later the author no longer remembers which picture ran with his last article.</p>
+
+<p>We make illustrations in an editorial spirit, with the expectation that one of them will stay in memory. We work through Flux and a pipeline of our own edits. Every picture is seen by an illustrator before it is generated, not 'we ran twenty variants and picked the prettiest'.</p>
+
+<p>Suits book covers, magazine spreads, a picture that carries a long article.</p>
+
+<p><em>If you need a stock picture from Shutterstock for twenty euros, that is where you should go. If you need one picture of your own that will last ten years, we can talk.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-website.webp" alt="A layered vertical column with a compass and lantern at its base" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>A long-lived site for publishing</h2>
+
+<h3>A site that will not need rebuilding two years on.</h3>
+
+<p>Most sites die not from technical faults but because the copy dates, the design ages inside half a year, and the tool wants updating every quarter.</p>
+
+<p>Static generation. Content in a typed structure. Fonts served from our own machine. No hidden tracking.</p>
+
+<p>Accessible to WCAG 2.1 AA, GDPR observed. The result: a site that three years on opens in a second and a half.</p>
+
+<p>Twelve sites are already running.</p>
+
+<p><em>We do not do commercial shops; we do not do landing pages that push the visitor to buy. We do publishing sites for a thoughtful readership.</em></p>
+
+<h2>Get in touch</h2>
+
+<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>`,
         ru: `<p>Мы берёмся за работу, у которой есть срок жизни длиннее квартала.</p>
 
 <p>Семь направлений. Каждое — с конкретным результатом и письменными границами.</p>
@@ -182,9 +302,129 @@ export const servicesPage: Page = {
 <h2>Связаться</h2>
 
 <p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Андрей читает.</p>`,
-        pt: `<p>Esta página está a ser traduzida. A versão russa é a fonte de verdade: <a href="/ru/services">/ru/services</a>.</p>
+        pt: `<p>Aceitamos trabalhos cuja vida útil seja mais longa do que um trimestre.</p>
 
-<p>Para encomendas em português, escreva para <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>`,
+<p>Sete direções. Cada uma com um resultado concreto e limites escritos.</p>
+
+<p>Não é para todos. Os pormenores estão em baixo.</p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-translation.webp" alt="Dois desdobramentos de um livro com uma pena de ganso e um candeeiro âmbar ao canto" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Tradução de livro ou de documento extenso para alemão ou português europeu</h2>
+
+<h3>Uma tradução que não lisonjeia o tradutor.</h3>
+
+<p>A tradução automática está hoje suficientemente boa para que o cliente não perceba porque há de pagar a uma pessoa. Percebe quando o alemão devolve a página com um comentário: «Isto foi traduzido.»</p>
+
+<p>Traduzimos textos longos para alemão (fala de Berlim — Heine, Brecht, Tucholsky) e para português europeu (norma de Lisboa — Saramago, Sophia de Mello, Eça de Queirós). Primeiro um rascunho passado por motor automático — depois o nosso tradutor corrige até o leitor local deixar de tropeçar. A seguir, «quatro olhos» — um segundo falante nativo verifica outra vez.</p>
+
+<p>Aceitamos textos não inferiores a uma folha de autor. Não fazemos manuais técnicos nem slogans publicitários. Fazemos aquilo que se lê seguido e não se percorre em diagonal.</p>
+
+<p><em>Serve se a tradução for para sair com licença CC BY-SA. Não serve se precisar de uma tradução anónima assinada por outro nome.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-osint.webp" alt="Três colunas verticais cortadas por uma linha horizontal cor de bordô, com uma lupa e um ponto âmbar à direita" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Verificação de factos e pesquisa em fontes abertas</h2>
+
+<h3>Um facto sai barato. O desmentido sai caro.</h3>
+
+<p>Quando um jornalista publica um facto que uma semana depois é desmentido, não perde apenas um artigo. Perde a reserva de confiança que levou anos a construir.</p>
+
+<p>Verificamos afirmações, cruzamos biografias, reconstruímos cronologias a partir de fontes abertas — registos públicos, arquivos de imprensa, bases académicas, relatórios corporativos. Cada afirmação do nosso relatório vem com hiperligação para a fonte primária. Não para uma paráfrase secundária. Para a primária.</p>
+
+<p>Trabalhamos como um revisor de contas num banco: enquanto o facto não estiver confirmado por duas fontes independentes, fica marcado a amarelo.</p>
+
+<p><em>Não ajudamos a montar ataques a pessoas concretas. Não ajudamos a fabricar dossiês difamatórios. Ajudamos a perceber o que existe efetivamente em fontes abertas.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-lucerna.webp" alt="Um poço multi-camada de documentos e um único ponto-lanterna âmbar suspenso numa linha" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Investigação longa sobre um único tema (Lucerna)</h2>
+
+<h3>Seis meses num só assunto.</h3>
+
+<p>Quando a pergunta não se resolve com um relatório, não é de mais uma verificação de factos que precisa, mas de um mergulho de meio ano. Para isso temos um projeto próprio — <a href="https://lucerna.folkup.app" rel="noopener">Lucerna</a>.</p>
+
+<p>É um laboratório. Uma investigação, notas metodológicas, fontes abertas organizadas num sistema. Aquilo que não cabe no formato de enciclopédia mas exige a mesma disciplina de verificação.</p>
+
+<p>Aceitamos se o tema justificar seis meses de trabalho. E se o resultado puder ser publicado — devagar, mas em aberto.</p>
+
+<p><em>Não fazemos dossiês sobre pessoas privadas. Não fazemos «insights pagos para investidores». Fazemos aquilo que o cliente lê e reencaminha para um círculo restrito.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-longread.webp" alt="Composição planar abstrata em retângulos âmbar e sépia" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Artigo longo ou ensaio de autor</h2>
+
+<h3>Se tem alguma coisa para dizer, mais vale não ter pressa.</h3>
+
+<p>Quando metade dos artigos de hoje se escreve em trinta minutos, sob a divisa da «máquina de conteúdos», escrever um bom artigo em duas semanas já é um gesto.</p>
+
+<p>Escrevemos ensaios longos, entre dez e quarenta mil caracteres — sobre um tema em que o autor tem mais fundo do que aquilo que consegue expor de uma assentada. Recolhemos entrevistas, desenvolvemos as teses, verificamos os factos, construímos a narrativa. À saída, um texto que se podia publicar no The Atlantic sem corar. À entrada, a sua voz, a sua experiência, o seu nome.</p>
+
+<p>Cada publicação é assinada pelo nome do cliente. Do nosso rasto, nada deve ficar no texto. É esse o sentido do trabalho.</p>
+
+<p><em>Serve se quiser que o texto soe como o próprio. Não serve se precisar de algo «igual aos outros» a pensar em algoritmos.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-encyclopedia.webp" alt="Grelha de fichas-artigo com uma ficha âmbar destacada em primeiro plano" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Secção enciclopédica ou projeto de livro</h2>
+
+<h3>Trabalho para longa memória.</h3>
+
+<p>Três enciclopédias estão abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a> (501 artigos), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a> (164). Duas em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>. Uma sexta, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, está em pausa — falta tempo, por agora.</p>
+
+<p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Licença CC BY-SA — para que o texto sobreviva a quem o fez.</p>
+
+<p>Aceitamos se o tema for restrito e à altura. Restrito, porque de outro modo se dilui. À altura, porque no catálogo FolkUp o autor de cada enciclopédia assina com o seu nome.</p>
+
+<p><em>Não fazemos «enciclopédias de startups» nem quintas de SEO. Fazemos aquilo que uma pessoa quer ler até ao fim.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-illustrations.webp" alt="Paleta com três pontos — bordô, âmbar e salva — e um pincel na diagonal" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Ilustração para livro, ensaio longo ou site</h2>
+
+<h3>Uma imagem que não tenta agradar a todos.</h3>
+
+<p>A ilustração contemporânea para a internet é, quase sempre, feita a pensar em «não incomodar ninguém». É neutra, simétrica, inofensiva. Uma semana depois, o autor já não se lembra de qual era a imagem do artigo anterior.</p>
+
+<p>Fazemos ilustração em registo editorial — a pensar em que uma fique na memória. Trabalhamos com o Flux e uma cadeia de revisões própria. Cada imagem passa pelos olhos do ilustrador antes do lançamento — nada de «gerámos vinte variantes, ficámos com a mais bonita».</p>
+
+<p>Serve para capa de livro, para desdobramento de revista, para ilustrar um artigo longo.</p>
+
+<p><em>Se precisa de uma imagem da Shutterstock por vinte euros, é para lá que deve ir. Se precisa de uma imagem própria para dez anos, falamos.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-website.webp" alt="Coluna vertical multi-camada com uma bússola-lanterna na base" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Site duradouro para publicação</h2>
+
+<h3>Um site que não é preciso refazer dois anos depois.</h3>
+
+<p>A maioria dos sites não morre por problemas técnicos — morre porque o texto envelhece, o desenho envelhece em meio ano e a ferramenta pede atualizações a cada trimestre.</p>
+
+<p>Geração estática. Conteúdo numa estrutura tipada. Tipos de letra no nosso servidor. Nada de rastreio dissimulado.</p>
+
+<p>Acessibilidade segundo a norma WCAG 2.1 AA, RGPD cumprido. À saída, um site que, três anos depois, abre em segundo e meio.</p>
+
+<p>Doze sites já estão a funcionar.</p>
+
+<p><em>Não fazemos lojas de comércio eletrónico, nem páginas de aterragem para forçar a compra. Fazemos sites editoriais para um público intelectual.</em></p>
+
+<h2>Contactar</h2>
+
+<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>`,
       },
     } as LegalPageSection,
   ],

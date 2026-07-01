@@ -504,13 +504,13 @@ export const homePage: Page = {
         pt: 'Aberto a encomendas',
       },
       body: {
-        en: "Encyclopedias on your subject, long-form books, longread series, OSINT investigations. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else's algorithm. Write: anklem@folkup.app",
+        en: 'Encyclopedias on your subject, long-form books, longread series, OSINT investigations. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else\'s algorithm. <a href="/en/services">More →</a> Write: anklem@folkup.app',
         // ru body refresh cont +42 2026-06-30: ЩИТ v4 + Огилви spirit applied.
         // Семь направлений матч /services page (Перевод DE+PT_EU / OSINT / Lucerna
         // long invest / Длинная статья / Энциклопедия / Иллюстрации / Сайт).
         // EN/PT остаются текущие — Translator pipeline dispatch отдельным батчем.
         ru: 'Семь направлений: переводы, расследования, долгие очерки, энциклопедии, иллюстрации, сайты. Один автор плюс команда AI-форнитов. Типичный цикл — от трёх месяцев. Не для срочных проектов и не для текстов под чужой алгоритм. <a href="/ru/services">Подробнее →</a> Пишите: anklem@folkup.app',
-        pt: 'Enciclopédias sobre o seu tema, livros longos, séries de ensaios, investigações OSINT. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. Escreva: anklem@folkup.app',
+        pt: 'Enciclopédias sobre o seu tema, livros longos, séries de ensaios, investigações OSINT. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. <a href="/pt/services">Mais →</a> Escreva: anklem@folkup.app',
       },
     },
 
