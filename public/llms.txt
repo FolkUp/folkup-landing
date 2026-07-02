@@ -11,7 +11,7 @@ FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a te
 - [Setubal](https://setubal.folkup.city/): City encyclopedia — Setubal, Portugal. History, neighborhoods, culture, food, walks.
 - [Padel](https://padel.folkup.fit/): Padel sport encyclopedia — rules (FIP 2026), technique, tactics, equipment, history.
 - [Mushrooms of Portugal](https://cogumelos.folkup.fit/): Edible and toxic mushrooms of Portugal — identification, ecology, foraging ethics.
-- [Tarot Hub](https://tarot.folkup.life/): Tarot encyclopedia (Rider-Waite system) — symbolism, deck structure, spreads, personal practice.
+- [Tarot Hub](https://tarot.folkup.life/): Tarot encyclopedia (Rider-Waite system) — symbolism, deck structure, spreads, personal practice. Work paused, no ETA.
 - [Aquarium](https://aquarium.folkup.city/): "Aquarium" (Аквариум) band encyclopedia — Boris Grebenshchikov, 50 years of Russian rock, discography, members, cultural context.
 - [Lucerna](https://lucerna.folkup.app/): OSINT research lab — investigations, methodology notes, transparency-first verification discipline.
 - [Retro-Tech (Runet 90s-2000s)](https://dialup.folkup.city/): Russian internet encyclopedia of the dial-up era — software, hardware, culture, sites.
