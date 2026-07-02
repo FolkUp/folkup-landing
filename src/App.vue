@@ -11,7 +11,7 @@ import { useI18n } from '@/composables/useI18n'
 // vite-ssg's per-route code split — we synthesize the per-route schema/
 // canonical here without re-importing them.
 import { homePage } from '@/content/pages'
-import { pageSchemas } from '@/lib/schema'
+import { pageSchemas, servicesSchema } from '@/lib/schema'
 
 const route = useRoute()
 const { locale } = useI18n()
@@ -27,6 +27,7 @@ type RouteKind =
   | 'cookies'
   | 'ai-use'
   | 'projects'
+  | 'services'
   | 'unknown'
 
 /**
@@ -43,6 +44,7 @@ const routeKind = computed<RouteKind>(() => {
   if (stripped === '/cookies') return 'cookies'
   if (stripped === '/about/ai-use') return 'ai-use'
   if (stripped === '/projects') return 'projects'
+  if (stripped === '/services') return 'services'
   return 'unknown'
 })
 
@@ -145,6 +147,11 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     ru: 'Энциклопедии и одна мастерская — FolkUp',
     pt: 'Enciclopédias e uma oficina — FolkUp',
   },
+  services: {
+    en: 'Services — FolkUp',
+    ru: 'Услуги — FolkUp',
+    pt: 'Serviços — FolkUp',
+  },
   unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp' },
 }
 
@@ -174,6 +181,11 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     en: 'Three encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
     ru: 'Три энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
     pt: 'Três enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
+  },
+  services: {
+    en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. Russian version ready, English translation in progress.',
+    ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
+    pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Versão em russo disponível, tradução em português em curso.',
   },
   unknown: {
     en: 'FolkUp — knowledge tools for real communities.',
@@ -232,6 +244,7 @@ const schemas = computed<object[]>(() => {
     cookies: 'Cookies',
     'ai-use': 'AI use',
     projects: 'Encyclopedias',
+    services: 'Services',
   }
   const homeLabel =
     locale.value === 'ru' ? 'Главная' : locale.value === 'pt' ? 'Início' : 'Home'
@@ -258,6 +271,12 @@ const schemas = computed<object[]>(() => {
       inLanguage: locale.value,
     },
   )
+
+  // /services adds ItemList of 7 Service offerings (Дьюи SEO 2026-07-02).
+  if (kind === 'services') {
+    base.push(servicesSchema(locale.value))
+  }
+
   return base
 })
 

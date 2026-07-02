@@ -152,7 +152,7 @@ export const servicesPage: Page = {
 
 <p>Illustration for the internet today is mostly made with a view to offending no one. It is neutral, symmetrical, harmless. A week later the author no longer remembers which picture ran with his last article.</p>
 
-<p>We make illustrations in an editorial spirit, with the expectation that one of them will stay in memory. We work through Flux and a pipeline of our own edits. Every picture is seen by an illustrator before it is generated, not 'we ran twenty variants and picked the prettiest'.</p>
+<p>We make illustrations in an editorial spirit, with the expectation that one of them will stay in memory. We work through Flux and a pipeline of our own edits (<a href="/en/about/ai-use">more on our AI practice</a>). Every picture is seen by an illustrator before it is generated, not 'we ran twenty variants and picked the prettiest'.</p>
 
 <p>Suits book covers, magazine spreads, a picture that carries a long article.</p>
 
@@ -178,7 +178,9 @@ export const servicesPage: Page = {
 
 <h2>Get in touch</h2>
 
-<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>`,
+<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>
+
+<p class="services-legal-footer"><small>See also: <a href="/en/privacy">Privacy Policy</a> · <a href="/en/about/ai-use">How we work with AI</a></small></p>`,
         ru: `<p>Мы берёмся за работу, у которой есть срок жизни длиннее квартала.</p>
 
 <p>Семь направлений. Каждое — с конкретным результатом и письменными границами.</p>
@@ -275,7 +277,7 @@ export const servicesPage: Page = {
 
 <p>Современная иллюстрация для интернета чаще всего сделана из соображения «не задеть никого». Она нейтральная, симметричная, безобидная. Через неделю автор не помнит, какая иллюстрация была у его прошлой статьи.</p>
 
-<p>Мы делаем иллюстрации в редакционном духе — с расчётом на то, что одна остаётся в памяти. Работаем через Flux и собственную цепочку правок. Каждую картинку художник смотрит перед запуском — не «сгенерировал двадцать вариантов, выбрал самый красивый».</p>
+<p>Мы делаем иллюстрации в редакционном духе — с расчётом на то, что одна остаётся в памяти. Работаем через Flux и собственную цепочку правок (<a href="/ru/about/ai-use">подробнее о работе с AI</a>). Каждую картинку художник смотрит перед запуском — не «сгенерировал двадцать вариантов, выбрал самый красивый».</p>
 
 <p>Подходит для книжной обложки, для журнального разворота, для иллюстрирования большой статьи.</p>
 
@@ -301,7 +303,9 @@ export const servicesPage: Page = {
 
 <h2>Связаться</h2>
 
-<p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Андрей читает.</p>`,
+<p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Андрей читает.</p>
+
+<p class="services-legal-footer"><small>См. также: <a href="/ru/privacy">Политика конфиденциальности</a> · <a href="/ru/about/ai-use">Как мы работаем с AI</a></small></p>`,
         pt: `<p>Aceitamos trabalhos cuja vida útil seja mais longa do que um trimestre.</p>
 
 <p>Sete direções. Cada uma com um resultado concreto e limites escritos.</p>
@@ -398,7 +402,7 @@ export const servicesPage: Page = {
 
 <p>A ilustração contemporânea para a internet é, quase sempre, feita a pensar em «não incomodar ninguém». É neutra, simétrica, inofensiva. Uma semana depois, o autor já não se lembra de qual era a imagem do artigo anterior.</p>
 
-<p>Fazemos ilustração em registo editorial — a pensar em que uma fique na memória. Trabalhamos com o Flux e uma cadeia de revisões própria. Cada imagem passa pelos olhos do ilustrador antes do lançamento — nada de «gerámos vinte variantes, ficámos com a mais bonita».</p>
+<p>Fazemos ilustração em registo editorial — a pensar em que uma fique na memória. Trabalhamos com o Flux e uma cadeia de revisões própria (<a href="/pt/about/ai-use">mais sobre o nosso trabalho com IA</a>). Cada imagem passa pelos olhos do ilustrador antes do lançamento — nada de «gerámos vinte variantes, ficámos com a mais bonita».</p>
 
 <p>Serve para capa de livro, para desdobramento de revista, para ilustrar um artigo longo.</p>
 
@@ -424,7 +428,9 @@ export const servicesPage: Page = {
 
 <h2>Contactar</h2>
 
-<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>`,
+<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>
+
+<p class="services-legal-footer"><small>Ver também: <a href="/pt/privacy">Política de Privacidade</a> · <a href="/pt/about/ai-use">Como trabalhamos com IA</a></small></p>`,
       },
     } as LegalPageSection,
   ],

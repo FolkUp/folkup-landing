@@ -165,6 +165,115 @@ export function sectionSchema(section: Section, lang: LangCode): object | null {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Services page — 7 Service ItemList (Дьюи SEO 2026-07-02)
+// ---------------------------------------------------------------------------
+
+const SERVICES_KEYS = [
+  { key: 'translation', serviceType: 'Translation Service', category: 'Language' },
+  { key: 'fact-check', serviceType: 'Research Service', category: 'ProfessionalService' },
+  { key: 'lucerna', serviceType: 'Investigation', category: 'ProfessionalService' },
+  { key: 'longread', serviceType: 'Writing Service', category: 'CreativeWork' },
+  { key: 'encyclopedia', serviceType: 'Editorial Service', category: 'CreativeWork' },
+  { key: 'illustration', serviceType: 'Illustration Service', category: 'CreativeWork' },
+  { key: 'website', serviceType: 'Web Development', category: 'ProfessionalService' },
+] as const
+
+type ServiceKey = (typeof SERVICES_KEYS)[number]['key']
+
+const SERVICES_LABELS: Record<ServiceKey, Record<LangCode, string>> = {
+  translation: {
+    en: 'Book or long-document translation to German or European Portuguese',
+    ru: 'Перевод книги или большого документа на немецкий или европейский португальский',
+    pt: 'Tradução de livro ou documento extenso para alemão ou português europeu',
+  },
+  'fact-check': {
+    en: 'Fact-checking and open-source research',
+    ru: 'Проверка фактов и поиск по открытым источникам',
+    pt: 'Verificação de factos e pesquisa em fontes abertas',
+  },
+  lucerna: {
+    en: 'Long-form investigation into a single subject (Lucerna)',
+    ru: 'Долгое расследование одной темы (Lucerna)',
+    pt: 'Investigação longa sobre um único tema (Lucerna)',
+  },
+  longread: {
+    en: 'Long essay or a signed piece of writing',
+    ru: 'Длинная статья или авторский очерк',
+    pt: 'Artigo longo ou ensaio de autor',
+  },
+  encyclopedia: {
+    en: 'Encyclopedia section or a book project',
+    ru: 'Энциклопедический раздел или книжный проект',
+    pt: 'Secção enciclopédica ou projeto de livro',
+  },
+  illustration: {
+    en: 'Illustrations for a book, long essay, or site',
+    ru: 'Иллюстрации к книге, лонгриду или сайту',
+    pt: 'Ilustração para livro, ensaio longo ou site',
+  },
+  website: {
+    en: 'A long-lived site for publishing',
+    ru: 'Долгоживущий сайт для публикации',
+    pt: 'Site duradouro para publicação',
+  },
+}
+
+/**
+ * Services ItemList — 7 Service items for /services page.
+ * Injected on top of base Organization + WebSite + Breadcrumb + WebPage.
+ * Per Дьюи SEO 2026-07-02: canonical Schema.org Service type per direction,
+ * `provider` → Organization, `areaServed` → global (Andrei PT-based),
+ * `offers` → Offer without priceSpecification per Андрей mandate «без цен».
+ */
+export function servicesSchema(lang: LangCode): object {
+  const consultationText =
+    lang === 'ru'
+      ? 'По предварительному общению. anklem@folkup.app'
+      : lang === 'pt'
+        ? 'Mediante contacto prévio. anklem@folkup.app'
+        : 'Consultation required. anklem@folkup.app'
+
+  const listName =
+    lang === 'ru' ? 'Услуги FolkUp' : lang === 'pt' ? 'Serviços FolkUp' : 'FolkUp Services'
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: listName,
+    itemListElement: SERVICES_KEYS.map((svc, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: SERVICES_LABELS[svc.key][lang],
+        serviceType: svc.serviceType,
+        category: svc.category,
+        provider: {
+          '@type': 'Organization',
+          name: 'FolkUp',
+          url: HOST,
+        },
+        areaServed: {
+          '@type': 'Place',
+          name: 'Global',
+        },
+        offers: {
+          '@type': 'Offer',
+          availability: 'https://schema.org/InStock',
+          description: consultationText,
+          url: `${HOST}/${lang}/services`,
+          seller: {
+            '@type': 'Person',
+            name: 'Andrei Klemenchenok',
+            worksFor: { '@type': 'Organization', name: 'FolkUp' },
+          },
+        },
+      },
+    })),
+  }
+}
+
 /**
  * Combine all schemas for a given page in a given language. Returns an array
  * of plain objects ready to be JSON.stringified into <script type="application/ld+json">
