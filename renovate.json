@@ -1,0 +1,94 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":gitSignOff",
+    "helpers:pinGitHubActionDigests",
+    "schedule:earlyMondays"
+  ],
+  "timezone": "Europe/Berlin",
+  "labels": ["renovate", "dependencies"],
+  "assignees": ["anklemPT"],
+  "prHourlyLimit": 3,
+  "prConcurrentLimit": 5,
+  "rangeStrategy": "bump",
+  "rebaseWhen": "conflicted",
+  "commitMessagePrefix": "chore(deps):",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on monday"],
+    "automerge": true
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security", "renovate", "priority-high"],
+    "schedule": ["at any time"],
+    "prPriority": 10,
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "description": "Auto-merge patch updates if CI green",
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
+      "description": "Auto-merge minor after 3-day quarantine",
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "platformAutomerge": true,
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Major updates — manual review",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["renovate", "major-update", "review-required"]
+    },
+    {
+      "description": "0.x versions treated as major (vite-ssg 0.x!)",
+      "matchCurrentVersion": "/^0/",
+      "automerge": false,
+      "labels": ["renovate", "prerelease", "review-required"]
+    },
+    {
+      "description": "Vue ecosystem — grouped",
+      "matchPackagePatterns": ["^vue", "^@vue/", "^@vitejs/plugin-vue"],
+      "groupName": "Vue ecosystem"
+    },
+    {
+      "description": "Vite + Tailwind — grouped (they release together)",
+      "matchPackagePatterns": ["^vite$", "^vite-", "^@vitejs/", "^tailwindcss$", "^@tailwindcss/"],
+      "excludePackagePatterns": ["^@vitejs/plugin-vue"],
+      "groupName": "Vite + Tailwind"
+    },
+    {
+      "description": "Testing stack — grouped",
+      "matchPackagePatterns": ["^vitest", "^@vitest/", "^happy-dom"],
+      "groupName": "Testing stack"
+    },
+    {
+      "description": "E2E + a11y — grouped",
+      "matchPackagePatterns": ["^@playwright/", "^playwright", "^@axe-core/"],
+      "groupName": "E2E + a11y"
+    },
+    {
+      "description": "TypeScript — grouped",
+      "matchPackagePatterns": ["^typescript$", "^vue-tsc", "^@types/"],
+      "groupName": "TypeScript tooling"
+    },
+    {
+      "description": "GitHub Actions — grouped + auto-merge с задержкой",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "automerge": true,
+      "minimumReleaseAge": "3 days"
+    }
+  ],
+  "ignoreDeps": []
+}
