@@ -1,4 +1,5 @@
-# LAND-007 B2c — legacy legal URL redirects.
+# LAND-007 B2c — legacy legal URL redirects (Andrey approval).
+# LAND-CARRY-01 (cont +47) — no-locale main routes fix post-INC-006 CX33 decomm.
 #
 # Existing external references (DPAs, partner contracts, Brevo SMTP signup,
 # search engine indexes) point at the un-prefixed paths. 301 → EN (x-default)
@@ -8,8 +9,18 @@
 # rules at the edge (no Worker round-trip). Status 301 = permanent —
 # browsers/CDNs/search engines cache the redirect.
 #
+# NB: pre-INC-006 workflow deploy-cf-backup.yml overwrote this file с empty EOF
+# (assumption: VPS handled локализация, CF backup canonical URLs only).
+# Post-CX33 decomm 2026-06-07 (INC-006 E1 abandon) CF Pages IS canonical →
+# overwrite removed cont +47 batch 4; public/_redirects is now the source of truth.
+#
 # See https://developers.cloudflare.com/pages/configuration/redirects/
 
+# Legal legacy paths (LAND-007 B2c)
 /privacy   /en/privacy   301
 /terms     /en/terms     301
 /cookies   /en/cookies   301
+
+# No-locale main routes (LAND-CARRY-01 cont +47) — SEO fix per Дьюи flag
+/services  /en/services  301
+/projects  /en/projects  301

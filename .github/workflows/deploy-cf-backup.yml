@@ -55,7 +55,12 @@ jobs:
         # `build:only` retained в package.json для manual quick builds.
         run: npm run build
 
-      - name: Generate _redirects + _headers for CF Pages
+      - name: Generate _headers for CF Pages
+        # NB: _redirects is now sourced from public/_redirects (Vite copies public/* to dist/*
+        # during build). Post-INC-006 CX33 decomm 2026-06-07, CF Pages IS canonical → no more
+        # VPS divergence assumption. See public/_redirects header for full context (LAND-CARRY-01
+        # cont +47 batch 4). Previously this step overwrote dist/_redirects с empty EOF.
+        # Accept-Language locale-aware redirect enhancement = separate future ticket.
         run: |
           cat > dist/_headers <<'EOF'
           /*
@@ -66,15 +71,6 @@ jobs:
 
           /assets/*
             Cache-Control: public, max-age=31536000, immutable
-          EOF
-
-          # Locale-aware redirects mirror nginx behavior (Accept-Language → /ru/...)
-          # Per deploy-reality.yaml line 58: prod nginx redirects /privacy → /ru/privacy
-          # для Accept-Language: ru. CF Pages _redirects supports Accept-Language matching
-          # via netlify-style _redirects syntax (300 redirects + language=).
-          # Pilot deliberately leaves _redirects empty: VPS handles локализация,
-          # CF backup serves canonical URLs without locale redirects. Documented divergence.
-          cat > dist/_redirects <<'EOF'
           EOF
 
       - name: Deploy to Cloudflare Pages
