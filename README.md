@@ -25,7 +25,7 @@ AI fornits. Every publication is signed: who wrote, who verified, who edited.
 
 - `/`, `/ru`, `/pt` — home (per-language)
 - `/{en,ru,pt}/projects` — encyclopedia portfolio
-- `/{en,ru,pt}/services` — seven directions for commissions (RU full, EN/PT placeholder pending Translator)
+- `/{en,ru,pt}/services` — seven directions for commissions (RU + EN + PT EU LIVE per commit `d1b36eb`; DE draft persist, awaits `LAND-DE-EPIC-001`)
 - `/{en,ru,pt}/about/ai-use` — UCPD AI-use transparency disclosure
 - `/{en,ru,pt}/privacy`, `/terms`, `/cookies` — legal pages (Lev compliance)
 - `/404` — localized fallback
