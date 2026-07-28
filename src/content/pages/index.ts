@@ -32,9 +32,9 @@ export const homePage: Page = {
     // Фонарщик/Андрей brand decision (snippet CTR > distinctiveness here;
     // Hero copy still uses «fornits» where context exists).
     description: {
-      en: 'A workshop making encyclopedias and investigations. Free, verified, multilingual. One person, a team of AI workers, twenty-five years of craft.',
-      ru: 'Мастерская, где делают энциклопедии и расследования. Бесплатно, проверено, многоязычно. Один человек, команда ИИ-помощников, 25 лет ремесла.',
-      pt: 'Uma oficina que faz enciclopédias e investigações. Grátis, verificado, multilingue. Uma pessoa, uma equipa de colaboradores de IA, 25 anos de ofício.',
+      en: 'A workshop making encyclopedias and investigations. Free, verified, multilingual. One person and a team of AI workers.',
+      ru: 'Мастерская, где делают энциклопедии и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
+      pt: 'Uma oficina que faz enciclopédias e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
@@ -92,9 +92,9 @@ export const homePage: Page = {
         pt: 'Vizinhos a ajudar vizinhos',
       },
       text: {
-        en: "Andrei. Twenty-five years of software engineering, now long-form writing. With me, a team of AI fornits — each with a name, a character, a role: research, voice, security, law, brand. Every publication is signed: who wrote, who verified, who edited. We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. Seven projects in, the workshop got better at the same thing: specific subjects, careful sources, no shortcuts taken. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
-        ru: 'Андрей. Двадцать пять лет разрабатывал софт, теперь — длинные тексты. Со мной команда AI-форнитов с именами и характерами, каждый отвечает за своё: исследование, голос, безопасность, право, бренд. Каждая публикация подписана: кто писал, кто проверял, кто редактировал. Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. За семь проектов мастерская оттачивала одно и то же: конкретные темы, проверенные источники, без халтуры. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
-        pt: 'Andrei. Vinte e cinco anos de engenharia de software, agora — escrita longa. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Sete projetos depois, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
+        en: "FolkUp is a small workshop. With me, a team of AI fornits — each with a name, a character, a role: research, voice, security, law, brand. Every publication is signed: who wrote, who verified, who edited. We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. With each new project, the workshop got better at the same thing: specific subjects, careful sources, no shortcuts taken. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
+        ru: 'FolkUp — небольшая мастерская. Со мной команда AI-форнитов с именами и характерами, каждый отвечает за своё: исследование, голос, безопасность, право, бренд. Каждая публикация подписана: кто писал, кто проверял, кто редактировал. Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. С каждым новым проектом мастерская оттачивает одно и то же: конкретные темы, проверенные источники, без халтуры. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
+        pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
       // Phase-4-P1 method block: three honest verbs «search → verify → publish»
       // per Concept v1 lock. Each verb carries a one-clause qualifier — anti-AI-slop

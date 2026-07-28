@@ -5,9 +5,9 @@ Hub landing page for the FolkUp ecosystem — [folkup.app](https://folkup.app).
 > **Long-form writing. One person, a team of AI fornits.**
 
 This is the front door for FolkUp: a small workshop that publishes long-form
-texts, open encyclopedias, and methodology notes. Run by one person (Andrei,
-[anklem@folkup.app](mailto:anklem@folkup.app)) together with a named team of
-AI fornits. Every publication is signed: who wrote, who verified, who edited.
+texts, open encyclopedias, and methodology notes. Run by Команданте FolkUp
+([editorial@folkup.app](mailto:editorial@folkup.app)) together with a named
+team of AI fornits. Every publication is signed: who wrote, who verified, who edited.
 
 ## Stack
 
@@ -92,8 +92,8 @@ _meta/               Historical baselines, archived configs, courier protocol
 ## Contact
 
 - Site: [folkup.app](https://folkup.app)
-- Author: Andrei — [anklem@folkup.app](mailto:anklem@folkup.app)
-- Repo issues: <https://github.com/anklemPT/folkup-landing/issues>
+- Author: Команданте FolkUp — [editorial@folkup.app](mailto:editorial@folkup.app)
+- Repo issues: <https://github.com/FolkUp/folkup-landing/issues>
 
 ## License
 
