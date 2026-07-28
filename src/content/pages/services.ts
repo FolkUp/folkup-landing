@@ -33,9 +33,9 @@ export const servicesPage: Page = {
       pt: 'Serviços — FolkUp',
     },
     description: {
-      en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by Andrei plus a team of AI fornits.',
+      en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI fornits.',
       ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
-      pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito pelo Andrei e uma equipa de fornits de IA.',
+      pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de fornits de IA.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/services',
@@ -178,7 +178,7 @@ export const servicesPage: Page = {
 
 <h2>Get in touch</h2>
 
-<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>
+<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Read by hand.</p>
 
 <p class="services-legal-footer"><small>See also: <a href="/en/privacy">Privacy Policy</a> · <a href="/en/about/ai-use">How we work with AI</a></small></p>`,
         ru: `<p>Мы берёмся за работу, у которой есть срок жизни длиннее квартала.</p>
@@ -428,7 +428,7 @@ export const servicesPage: Page = {
 
 <h2>Contactar</h2>
 
-<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>
+<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Lemos com atenção.</p>
 
 <p class="services-legal-footer"><small>Ver também: <a href="/pt/privacy">Política de Privacidade</a> · <a href="/pt/about/ai-use">Como trabalhamos com IA</a></small></p>`,
       },
