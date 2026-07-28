@@ -156,7 +156,7 @@ export const projectsPage: Page = {
 
 <p>Энциклопедии, каталоги библиотек, техническая документация — такие тексты мы делаем и на заказ. Мастерская работает по той же схеме: конкретные темы, проверенные источники, без срезаний углов.</p>
 
-<p>Если у тебя есть проект и хочется увидеть, как он пройдёт через эту мастерскую — напиши на <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Андрей читает.</p>`,
+<p>Если у тебя есть проект и хочется увидеть, как он пройдёт через эту мастерскую — напиши на <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Читаем вручную.</p>`,
         pt: `<p>Três enciclopédias estão abertas hoje. Uma cidade portuguesa, um desporto de raquete em rápido crescimento, e os cogumelos que crescem nas florestas portuguesas. A lista cresce — outras estão em construção, e a fila à frente é longa.</p>
 
 <p>Cada projeto sai da mesma oficina. Escolhemos um tema específico. Vamos ver. Verificamos duas vezes, à mão. Publicamos — grátis, assinado, nosso.</p>

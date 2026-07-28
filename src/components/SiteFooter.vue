@@ -60,7 +60,6 @@ const links = computed(() =>
       <div class="footer-social">
         <a href="https://t.me/+FKSLu1k3U5IyODZi" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
         <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-        <a href="https://habr.com/ru/users/anklem/" target="_blank" rel="noopener noreferrer" aria-label="Habr">Habr</a>
       </div>
     </div>
   </footer>

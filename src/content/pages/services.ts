@@ -303,7 +303,7 @@ export const servicesPage: Page = {
 
 <h2>Связаться</h2>
 
-<p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Андрей читает.</p>
+<p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Читаем вручную.</p>
 
 <p class="services-legal-footer"><small>См. также: <a href="/ru/privacy">Политика конфиденциальности</a> · <a href="/ru/about/ai-use">Как мы работаем с AI</a></small></p>`,
         pt: `<p>Aceitamos trabalhos cuja vida útil seja mais longa do que um trimestre.</p>

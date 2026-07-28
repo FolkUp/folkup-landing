@@ -218,7 +218,6 @@ const schemas = computed<object[]>(() => {
       logo: `${HOST}/icon.png`,
       sameAs: [
         'https://github.com/FolkUp',
-        'https://habr.com/ru/users/anklem/',
         'https://ko-fi.com/folkup',
         'https://t.me/+FKSLu1k3U5IyODZi',
       ] as string[],
