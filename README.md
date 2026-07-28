@@ -95,6 +95,22 @@ _meta/               Historical baselines, archived configs, courier protocol
 - Author: Команданте FolkUp — [editorial@folkup.app](mailto:editorial@folkup.app)
 - Repo issues: <https://github.com/FolkUp/folkup-landing/issues>
 
-## License
+## Licensing
 
-See [LICENSE](./LICENSE).
+Dual-licensed following the FolkUp ecosystem canon:
+
+- **Code (Vue 3 components, composables, scripts, config, workflows)** — MIT.
+  See [`LICENSE`](./LICENSE).
+- **Content (home page section text, legal pages, essays under `src/content/`,
+  Declaration Guide entry-point text, translations, Gertruda illustrations)** —
+  Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+  See [`LICENSE-CONTENT`](./LICENSE-CONTENT).
+
+Attribution format for CC BY-SA content:
+
+> "Section/Page Title" by Команданте FolkUp, licensed under CC BY-SA 4.0.
+> Source: https://github.com/FolkUp/folkup-landing/blob/main/src/content/<path>
+> Modifications: [describe if any].
+
+Copyright infringement notices → [`DMCA.md`](./DMCA.md) (GitHub referral +
+direct contact `info@folkup.app`).
