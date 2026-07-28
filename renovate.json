@@ -10,7 +10,6 @@
   ],
   "timezone": "Europe/Berlin",
   "labels": ["renovate", "dependencies"],
-  "assignees": ["anklemPT"],
   "prHourlyLimit": 3,
   "prConcurrentLimit": 5,
   "rangeStrategy": "bump",

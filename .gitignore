@@ -41,3 +41,9 @@ _meta/security-remediation-completion-*.md
 test-results/
 playwright-report/
 playwright/.cache/
+
+# ===== cont+25 pre-open-repo sanitize =====
+# Internal кухня — not exposed on public flip per Iskra §3.7
+.claude/
+_meta/
+deployment-report.json
