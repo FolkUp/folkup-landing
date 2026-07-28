@@ -50,7 +50,7 @@
 /* ============================================
    Theme overrides — settings panel switcher (BRAND-WM-THEME-001).
    Per steampunk-palette-d-variant memo §2 + WCAG §3 verification.
-   Andrei mandate 2026-06-10 Q5=A: 4 themes selectable from header.
+   Owner mandate 2026-06-10 Q5=A: 4 themes selectable from header.
    ============================================ */
 
 :root[data-theme="folkup-steampunk"] {

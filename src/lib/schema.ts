@@ -223,7 +223,7 @@ const SERVICES_LABELS: Record<ServiceKey, Record<LangCode, string>> = {
  * Services ItemList — 7 Service items for /services page.
  * Injected on top of base Organization + WebSite + Breadcrumb + WebPage.
  * Per Дьюи SEO 2026-07-02: canonical Schema.org Service type per direction,
- * `provider` → Organization, `areaServed` → global (Andrei PT-based),
+ * `provider` → Organization, `areaServed` → global (FolkUp PT-based),
  * `offers` → Offer without priceSpecification per Андрей mandate «без цен».
  */
 export function servicesSchema(lang: LangCode): object {
@@ -264,9 +264,9 @@ export function servicesSchema(lang: LangCode): object {
           description: consultationText,
           url: `${HOST}/${lang}/services`,
           seller: {
-            '@type': 'Person',
-            name: 'Andrei Klemenchenok',
-            worksFor: { '@type': 'Organization', name: 'FolkUp' },
+            '@type': 'Organization',
+            name: 'FolkUp',
+            url: HOST,
           },
         },
       },

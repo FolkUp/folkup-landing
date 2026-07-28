@@ -104,7 +104,7 @@ export const projectsPage: Page = {
 
 <p>Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. The workshop pattern is the same: specific subjects, careful sources, no shortcuts.</p>
 
-<p>If you have a project and want to see what it would look like coming through this workshop, write to <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Andrei reads it.</p>`,
+<p>If you have a project and want to see what it would look like coming through this workshop, write to <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Read by hand.</p>`,
         ru: `<p>Три энциклопедии открыты сейчас. Португальский город, быстрорастущий ракеточный спорт и грибы, которые растут в португальских лесах. Список растёт — несколько ещё готовятся, впереди — длинная очередь.</p>
 
 <p>Каждый проект собирается одной и той же мастерской. Выбираем конкретную тему. Идём смотреть. Проверяем дважды, руками. Публикуем — бесплатно, подписано, своё.</p>
@@ -208,7 +208,7 @@ export const projectsPage: Page = {
 
 <p>Enciclopédias, catálogos de biblioteca, documentação técnica — fazemos textos como estes também por encomenda. A oficina trabalha pela mesma receita: temas específicos, fontes verificadas, sem atalhos.</p>
 
-<p>Se tens um projeto e queres ver como ficaria a passar por esta oficina — escreve para <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. O Andrei lê.</p>`,
+<p>Se tens um projeto e queres ver como ficaria a passar por esta oficina — escreve para <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Lemos com atenção.</p>`,
       },
     } as LegalPageSection,
   ],
