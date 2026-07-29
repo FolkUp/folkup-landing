@@ -76,7 +76,7 @@ export const servicesPage: Page = {
 
 <p>We take texts no shorter than one author's sheet. We do not do technical manuals; we do not do advertising slogans. We do the kind of text one reads through, not scans.</p>
 
-<p><em>Suits you if the translation is to be released under CC BY-SA. Not for you if you need an anonymous translation under someone else's name.</em></p>
+<p><em>Suits you if the translation goes out openly — free to read, copy, and adapt. Not for you if you need an anonymous translation under someone else's name.</em></p>
 
 <figure class="services-hero">
   <img src="/images/services/hero-osint.webp" alt="Three vertical columns crossed by a horizontal bordeaux line, with a magnifying glass and an amber dot on the right" loading="lazy" width="1200" height="675">
@@ -136,7 +136,7 @@ export const servicesPage: Page = {
 
 <p>Three encyclopedias are already open — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a> (501 entries), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a> (164). Two are in preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>. A sixth, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, is on pause — our hands do not reach it for now.</p>
 
-<p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Licensed under CC BY-SA, so the text outlives us.</p>
+<p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Openly published — read, copy, continue — so the text outlives us.</p>
 
 <p>We take it on if the subject is narrow and worthy. Narrow, because otherwise it thins out. Worthy, because in the FolkUp catalogue every encyclopedia stands under an author's own name.</p>
 
@@ -201,7 +201,7 @@ export const servicesPage: Page = {
 
 <p>Берёмся за тексты не короче авторского листа. Не делаем технические инструкции, не делаем рекламные слоганы. Делаем то, что читают подряд, а не сканируют.</p>
 
-<p><em>Подойдёт, если перевод нужен с лицензией CC BY-SA. Не подойдёт, если нужен анонимный перевод под чужим именем.</em></p>
+<p><em>Подойдёт, если перевод выйдет открытым — читайте, копируйте, передавайте дальше. Не подойдёт, если нужен анонимный перевод под чужим именем.</em></p>
 
 <figure class="services-hero">
   <img src="/images/services/hero-osint.webp" alt="Три вертикальных столбца пересечены горизонтальной бордо-чертой, справа лупа с амбер-точкой" loading="lazy" width="1200" height="675">
@@ -261,7 +261,7 @@ export const servicesPage: Page = {
 
 <p>Три энциклопедии открыты — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a> (501 статья), <a href="https://padel.folkup.fit" rel="noopener">падел</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a> (164). Две готовятся — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>. Шестая, <a href="https://tarot.folkup.life" rel="noopener">таро</a>, на паузе — руки временно не доходят.</p>
 
-<p>Строим энциклопедию — от глоссария до полноценной справочной структуры с поиском, перекрёстными ссылками и структурированными метаданными. Полгода-год работы. Лицензия CC BY-SA — чтобы текст пережил нас.</p>
+<p>Строим энциклопедию — от глоссария до полноценной справочной структуры с поиском, перекрёстными ссылками и структурированными метаданными. Полгода-год работы. Текст остаётся открытым — читайте, копируйте, продолжайте — чтобы пережил нас.</p>
 
 <p>Берёмся, если тема узкая и достойная. Узкая — потому что иначе размывается. Достойная — потому что в каталоге FolkUp под каждой энциклопедией автор подписывается под своим именем.</p>
 
@@ -326,7 +326,7 @@ export const servicesPage: Page = {
 
 <p>Aceitamos textos não inferiores a uma folha de autor. Não fazemos manuais técnicos nem slogans publicitários. Fazemos aquilo que se lê seguido e não se percorre em diagonal.</p>
 
-<p><em>Serve se a tradução for para sair com licença CC BY-SA. Não serve se precisar de uma tradução anónima assinada por outro nome.</em></p>
+<p><em>Serve se a tradução for para sair aberta — livre para ler, copiar e adaptar. Não serve se precisar de uma tradução anónima assinada por outro nome.</em></p>
 
 <figure class="services-hero">
   <img src="/images/services/hero-osint.webp" alt="Três colunas verticais cortadas por uma linha horizontal cor de bordô, com uma lupa e um ponto âmbar à direita" loading="lazy" width="1200" height="675">
@@ -386,7 +386,7 @@ export const servicesPage: Page = {
 
 <p>Três enciclopédias estão abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a> (501 artigos), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a> (164). Duas em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>. Uma sexta, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, está em pausa — falta tempo, por agora.</p>
 
-<p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Licença CC BY-SA — para que o texto sobreviva a quem o fez.</p>
+<p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Texto aberto — ler, copiar, continuar — para que sobreviva a quem o fez.</p>
 
 <p>Aceitamos se o tema for restrito e à altura. Restrito, porque de outro modo se dilui. À altura, porque no catálogo FolkUp o autor de cada enciclopédia assina com o seu nome.</p>
 
