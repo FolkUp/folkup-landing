@@ -74,7 +74,9 @@ jobs:
           EOF
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3.14.1
+        # v3.14.1 → v4.0.0 upgrade cont+25 aligned с portal canonical (SHA-pin per Learning #7).
+        # Portal upgraded cont+27 (соседкa) via same SHA `ebbaa15849...`, deploy verified LIVE.
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
