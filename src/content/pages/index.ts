@@ -46,33 +46,35 @@ export const homePage: Page = {
       type: 'hero',
       schemaType: 'none',
       title: 'FolkUp',
-      // BRAND-WM-001 verdict 2026-06-11 (Андрей via Иви МАЯК-35 §3, variant A #6 GOLD):
-      // mission-formula echo «свет туда, где знание под замком» — panel-approved
-      // (Огилви creative + Наборщик editorial + Фонарщик brand voice) pre-verdict.
+      // GLAVNAYA v1.1 FINAL-VIZA Iskra S238 + Andrey 2026-07-30 (canonical
+      // Drive 17SWemLsFM6HngoNljGDwVps-GT5Gzf-5, ЩИТ v5.0 PASS). Supersedes
+      // BRAND-WM-001 2026-06-11 «свет туда, где знание под замком» + Direction Б
+      // pivot 2026-06-22. New positioning: workshop framing + open-invitation CTA.
+      // PT fields preserved (previous positioning) — awaiting translator L1
+      // PT-EU sub-session (cont+36 B-PT-dispatch), Iskra deploy blocker enforces
+      // 3-locale sync ship. subtitle=canonical bold headline, tagline=body
+      // paragraph (semantic shift; HeroSection.vue CSS adjusted for body render).
       subtitle: {
-        en: 'Light for the knowledge fenced in.',
-        ru: 'Свет туда, где знание под замком',
+        en: 'They fenced the knowledge in. We build without fences.',
+        ru: 'Знание огородили. Мы строим без забора.',
         pt: 'Luz para o saber que está cercado.',
       },
-      // Direction Б positioning pivot 2026-06-22 cont +36 batch B-3:
-      // «Stratechery + Robin Sloan» model — personal brand + AI collaborators.
-      // Lead с category («long-form text») + identity («one human + fornits»).
-      // Per КиберГонзо R1: predicate-driven hero, sub-7 words ideal but allows
-      // 2-sentence для category + identity. Андрей verdict «принимаю Б, не
-      // боюсь деанонимизации» — author attribution becomes core positioning.
       tagline: {
-        en: 'Long-form writing. One person, a team of AI fornits.',
-        ru: 'Длинные тексты. Один человек, команда AI-форнитов.',
+        en: 'FolkUp is a small workshop. One person, a team of AI helpers — each with a name, a character, a job: research, verification, law, security, light. We write what we believe in ourselves: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
+        ru: 'FolkUp — маленькая мастерская. Один человек, команда ИИ-помощников — у каждого имя, характер и своя работа: поиск, проверка, право, охрана, свет. Мы пишем то, во что верим сами: книги, энциклопедии, расследования. Каждый факт сверяем с источниками, каждый текст подписываем — видно, кто писал, кто проверял, кто редактировал. А потом отдаём. Целиком, бесплатно, без «зарегистрируйтесь, чтобы дочитать». Дверь открыта — заходите.',
         pt: 'Textos longos. Uma pessoa, uma equipa de fornits de IA.',
       },
+      // Single-CTA canonical v1.1: «Читать» / «Start reading» → scroll to Books
+      // section (B3 pending). ctaSecondary vacated for EN/RU (Vue component hides
+      // when empty); PT unchanged для coherent pre-translation UX.
       ctaPrimary: {
-        en: 'Explore projects',
-        ru: 'Смотреть проекты',
+        en: 'Start reading',
+        ru: 'Читать',
         pt: 'Explorar projetos',
       },
       ctaSecondary: {
-        en: 'How it works',
-        ru: 'Как это работает',
+        en: '',
+        ru: '',
         pt: 'Como funciona',
       },
     },

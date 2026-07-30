@@ -57,8 +57,8 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
     <h1 class="hero-subtitle">{{ subtitle }}</h1>
     <p class="hero-tagline">{{ tagline }}</p>
     <div class="hero-actions">
-      <a href="#projects" class="hero-cta">{{ ctaPrimary }}</a>
-      <a href="#framework" class="hero-cta hero-cta--secondary">{{ ctaSecondary }}</a>
+      <a href="#books" class="hero-cta">{{ ctaPrimary }}</a>
+      <a v-if="ctaSecondary" href="#framework" class="hero-cta hero-cta--secondary">{{ ctaSecondary }}</a>
     </div>
   </section>
 </template>
@@ -161,12 +161,18 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   line-height: 1.2;
 }
 
+/* GLAVNAYA v1.1 FINAL-VIZA Iskra S238 2026-07-30: tagline semantics shifted к
+   body-paragraph (5-sentence workshop introduction). Removed italic + smaller
+   font, widened max-width + left-align для reading pattern. Anti-busy-work:
+   preserve field name «tagline» rather than schema rename (single consumer). */
 .hero-tagline {
   font-family: var(--font-heading);
-  font-style: italic;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.6;
   color: var(--color-muted);
-  margin: 0 0 2rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: left;
 }
 
 .hero-actions {
