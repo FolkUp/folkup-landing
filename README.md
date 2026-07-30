@@ -16,8 +16,8 @@ FolkUp — publishing ecosystem for unenclosed knowledge / экосистема 
 
 Ecosystem includes:
 
-- **Библиотека книг** ([books.folkup.life](https://books.folkup.life)) — семикнижная серия «A Mind of One's Own (Своим умом)». kn.1 «Agile Sapiens» LIVE; kn.2–5 publishing pipeline; kn.6–7 in preparation.
-- **Городские и предметные энциклопедии** — открыты: Setúbal · Padel · Cogumelos; готовятся: Aquarium · Dial-up; на паузе: Tarot; Lucerna — Pro Lab (не энциклопедия).
+- **Библиотека книг** ([books.folkup.life](https://books.folkup.life)) — семикнижная нон-фикшн серия. kn.1 «Agile Sapiens» LIVE; kn.2–5 publishing pipeline; kn.6–7 in preparation. (Series has no public name per Iskra S238/S239 canon — «серия отдельного публичного имени НЕ имеет».)
+- **Городские и предметные энциклопедии** — открыты: Setúbal · Padel · Cogumelos; готовятся: Aquarium · Dial-up; Lucerna — Pro Lab (не энциклопедия).
 - **Underground Academia** ([underground.folkup.life](https://underground.folkup.life)) — независимые longform-исследования, essays, циклы «за переплётом»
 - **The Unenclosed Knowledge Declaration** ([declaration.folkup.app](https://declaration.folkup.app)) — guide для студентов + civic autonomy toolkit
 

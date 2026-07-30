@@ -134,7 +134,7 @@ export const servicesPage: Page = {
 
 <h3>Work with a long memory.</h3>
 
-<p>Three encyclopedias are already open — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a> (501 entries), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a> (164). Two are in preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>. A sixth, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, is on pause — our hands do not reach it for now.</p>
+<p>Three encyclopedias are already open — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a>. Two are in preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>.</p>
 
 <p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Openly published — read, copy, continue — so the text outlives us.</p>
 
@@ -259,7 +259,7 @@ export const servicesPage: Page = {
 
 <h3>Долгопамятная работа.</h3>
 
-<p>Три энциклопедии открыты — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a> (501 статья), <a href="https://padel.folkup.fit" rel="noopener">падел</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a> (164). Две готовятся — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>. Шестая, <a href="https://tarot.folkup.life" rel="noopener">таро</a>, на паузе — руки временно не доходят.</p>
+<p>Три энциклопедии открыты — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a>, <a href="https://padel.folkup.fit" rel="noopener">падел</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a>. Две готовятся — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>.</p>
 
 <p>Строим энциклопедию — от глоссария до полноценной справочной структуры с поиском, перекрёстными ссылками и структурированными метаданными. Полгода-год работы. Текст остаётся открытым — читайте, копируйте, продолжайте — чтобы пережил нас.</p>
 
@@ -384,7 +384,7 @@ export const servicesPage: Page = {
 
 <h3>Trabalho para longa memória.</h3>
 
-<p>Três enciclopédias estão abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a> (501 artigos), <a href="https://padel.folkup.fit" rel="noopener">padel</a> (243), <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a> (164). Duas em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>. Uma sexta, <a href="https://tarot.folkup.life" rel="noopener">tarot</a>, está em pausa — falta tempo, por agora.</p>
+<p>Três enciclopédias estão abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a>. Duas em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>.</p>
 
 <p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Texto aberto — ler, copiar, continuar — para que sobreviva a quem o fez.</p>
 
