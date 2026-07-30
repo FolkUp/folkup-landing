@@ -80,104 +80,34 @@ export const homePage: Page = {
     },
 
     // -------------------------------------------------------------- MISSION
+    // GLAVNAYA v1.1 FINAL-VIZA S238 §4 «Mission → «Как это делается» (заменяет
+    // Mission)». Auto-clears 3 canon flags: Barnes/London/Fonar references
+    // (were в prior mission text). ЩИТ v5.0 PASS. Iskra explicit «Карточки
+    // Free / Written for readers / No strings убираются — смысл поглощён hero
+    // и этой секцией» → principles=[] (Vue conditionally hides via v-if).
+    // Prior method block (Phase-4-P1 3-verb) removed — canonical body implicitly
+    // contains «черновик → проверка фактов → редактура → подпись». Full replace
+    // per canonical, method absent (interface field optional). PT text/title
+    // preserved pending Quatro Olhos verdict (translator L1 draft к bridge).
     {
       id: 'mission',
       type: 'mission',
       label: {
-        en: 'Mission',
-        ru: 'Миссия',
+        en: 'Method',
+        ru: 'Метод',
         pt: 'Missão',
       },
       title: {
-        en: 'Neighbors helping neighbors',
-        ru: 'Соседи помогают соседям',
+        en: 'How it gets made',
+        ru: 'Как это делается',
         pt: 'Vizinhos a ajudar vizinhos',
       },
       text: {
-        en: "FolkUp is a small workshop. With me, a team of AI fornits — each with a name, a character, a role: research, voice, security, law, brand. Every publication is signed: who wrote, who verified, who edited. We started with one encyclopedia about a small London neighborhood. Then padel. Then mushrooms in Portugal. Then a whole city. With each new project, the workshop got better at the same thing: specific subjects, careful sources, no shortcuts taken. No investors, no algorithms, no paywalls. The lantern burns, the roots hold.",
-        ru: 'FolkUp — небольшая мастерская. Со мной команда AI-форнитов с именами и характерами, каждый отвечает за своё: исследование, голос, безопасность, право, бренд. Каждая публикация подписана: кто писал, кто проверял, кто редактировал. Мы начали с одной энциклопедии про небольшой лондонский район. Потом падел. Потом грибы в Португалии. Потом целый город. С каждым новым проектом мастерская оттачивает одно и то же: конкретные темы, проверенные источники, без халтуры. Без инвесторов, без алгоритмов, без подписок. Фонарь горит, корни держат.',
+        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before pretty words.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If something here proved useful, you can buy us a coffee. It is the only cash register in the house.',
+        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят раньше красивых слов.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно поддержать нас чашкой кофе. Это единственная касса в доме.',
         pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
-      // Phase-4-P1 method block: three honest verbs «search → verify → publish»
-      // per Concept v1 lock. Each verb carries a one-clause qualifier — anti-AI-slop
-      // grounding ("twice, by hand"; "signed, ours") rather than abstract values.
-      method: {
-        title: {
-          en: 'How it gets made',
-          ru: 'Как это делается',
-          pt: 'Como é feito',
-        },
-        steps: [
-          {
-            id: 'search',
-            verb: { en: 'Search', ru: 'Ищем', pt: 'Procurar' },
-            qualifier: {
-              en: 'we go look',
-              ru: 'идём смотреть',
-              pt: 'vamos ver',
-            },
-          },
-          {
-            id: 'verify',
-            verb: { en: 'Verify', ru: 'Проверяем', pt: 'Verificar' },
-            qualifier: {
-              en: 'twice, by hand',
-              ru: 'дважды, руками',
-              pt: 'duas vezes, à mão',
-            },
-          },
-          {
-            id: 'publish',
-            verb: { en: 'Publish', ru: 'Публикуем', pt: 'Publicar' },
-            qualifier: {
-              en: 'free, signed, ours',
-              ru: 'бесплатно, подписано, своё',
-              pt: 'grátis, assinado, nosso',
-            },
-          },
-        ],
-      },
-      principles: [
-        {
-          id: 'free',
-          title: {
-            en: 'Free. As in actually free.',
-            ru: 'Бесплатно. По-настоящему.',
-            pt: 'Gratuito. De verdade.',
-          },
-          text: {
-            en: "Every article, every translation, every update. No subscriptions, no premium tiers, no 'sign up to continue reading'. The whole library, front door open.",
-            ru: 'Каждая статья, каждый перевод, каждое обновление. Без подписок, без премиум-доступа, без «зарегистрируйтесь, чтобы продолжить». Вся библиотека, входная дверь открыта.',
-            pt: "Cada artigo, cada tradução, cada atualização. Sem subscrições, sem acesso premium, sem 'registe-se para continuar a ler'. Toda a biblioteca, porta da frente aberta.",
-          },
-        },
-        {
-          id: 'for-readers',
-          title: {
-            en: 'Written for readers.',
-            ru: 'Написано для читателей.',
-            pt: 'Escrito para leitores.',
-          },
-          text: {
-            en: "We'd rather have 50 solid articles than 500 thin ones. Each piece gets checked, sourced, and written in a way that respects your time.",
-            ru: 'Лучше 50 крепких статей, чем 500 пустых. Каждый материал проверяется, снабжается источниками и написан так, чтобы уважать ваше время.',
-            pt: 'Preferimos 50 artigos sólidos a 500 fracos. Cada peça é verificada, com fontes, e escrita de forma que respeite o seu tempo.',
-          },
-        },
-        {
-          id: 'independent',
-          title: {
-            en: 'No strings attached.',
-            ru: 'Никому не должны.',
-            pt: 'Sem amarras.',
-          },
-          text: {
-            en: "No investors, no algorithms, no subscriptions. We write because the subject matters to us — not because someone's paying for clicks.",
-            ru: 'Без инвесторов, без алгоритмов, без подписок. Пишем потому что тема нам важна, а не потому что кто-то платит за клики.',
-            pt: 'Sem investidores, sem algoritmos, sem subscrições. Escrevemos porque o tema nos importa — não porque alguém paga por cliques.',
-          },
-        },
-      ],
+      principles: [],
     },
 
     // Trilogy section removed 2026-06-22 per Андрей mandate cont +36 batch B-2:

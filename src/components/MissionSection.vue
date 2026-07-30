@@ -54,7 +54,7 @@ const principles = computed(() =>
       </ol>
     </div>
 
-    <div class="principles">
+    <div v-if="principles.length" class="principles">
       <div
         v-for="(p, idx) in principles"
         :key="p.id"
