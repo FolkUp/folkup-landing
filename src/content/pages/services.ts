@@ -16,7 +16,8 @@ import type { Page, LegalPageSection } from '../types'
  *
  * Per Андрей cont +42 verdicts: услуги без нумерации; tarot с оговоркой
  * «работа приостановлена»; Lucerna добавлена как самостоятельная услуга;
- * цифры из projects.ts (501+243+164=908 articles); CTA email anklem@folkup.app.
+ * counts removed per Iskra §3 «живое слово без чисел» (cont+38 B2 2026-08-02);
+ * CTA email anklem@folkup.app.
  *
  * EN/PT translation pending — Translator pipeline dispatch отдельным батчем
  * (LAND-SERVICES-DEEP-001 next_steps). Placeholder копи указывает RU как

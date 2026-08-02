@@ -63,19 +63,19 @@ export const projectsPage: Page = {
 
 <div class="encyclopedia-card">
 <h3><a href="https://padel.folkup.fit" rel="noopener">Padel — padel.folkup.fit</a></h3>
-<p class="encyclopedia-meta">243 articles · three languages</p>
+<p class="encyclopedia-meta">a growing encyclopedia · three languages</p>
 <p>The fastest-growing racket sport in the world. Rules, technique, courts, gear, tournaments — all in one place, written by people who play. New articles ship as the sport grows in Europe and the Middle East.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://setubal.folkup.city" rel="noopener">Setúbal — setubal.folkup.city</a></h3>
-<p class="encyclopedia-meta">501 articles · three languages</p>
+<p class="encyclopedia-meta">a growing encyclopedia · three languages</p>
 <p>A Portuguese city where the mountains meet the sea. Markets, routes, restaurants, history — written by people who walk these streets. Deepest of our encyclopedias by article count, and the one that taught the workshop how to work.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://cogumelos.folkup.fit" rel="noopener">Cogumelos — cogumelos.folkup.fit</a></h3>
-<p class="encyclopedia-meta">164 articles · three languages</p>
+<p class="encyclopedia-meta">a growing encyclopedia · three languages</p>
 <p>Portuguese mushrooms. Which ones to eat, which ones to photograph from a safe distance. Every species verified, every warning real. Built for foragers, photographers, and anyone curious about what grows under Portuguese trees.</p>
 </div>
 
@@ -115,19 +115,19 @@ export const projectsPage: Page = {
 
 <div class="encyclopedia-card">
 <h3><a href="https://padel.folkup.fit" rel="noopener">Падел — padel.folkup.fit</a></h3>
-<p class="encyclopedia-meta">243 статьи · три языка</p>
+<p class="encyclopedia-meta">энциклопедия растёт · три языка</p>
 <p>Самый быстрорастущий ракеточный спорт в мире. Правила, техника, корты, экипировка, турниры — всё в одном месте, написанное теми, кто играет. Новые статьи появляются вместе с ростом спорта в Европе и на Ближнем Востоке.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://setubal.folkup.city" rel="noopener">Сетубал — setubal.folkup.city</a></h3>
-<p class="encyclopedia-meta">501 статья · три языка</p>
+<p class="encyclopedia-meta">энциклопедия растёт · три языка</p>
 <p>Португальский город, где горы встречаются с морем. Рынки, маршруты, рестораны, история — написано людьми, которые ходят по этим улицам. Самая глубокая из наших энциклопедий по объёму и та, на которой мастерская научилась работать.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://cogumelos.folkup.fit" rel="noopener">Грибы — cogumelos.folkup.fit</a></h3>
-<p class="encyclopedia-meta">164 статьи · три языка</p>
+<p class="encyclopedia-meta">энциклопедия растёт · три языка</p>
 <p>Португальские грибы. Какие есть, а какие лучше фотографировать на расстоянии. Каждый вид проверен, каждое предупреждение — настоящее. Сделано для собирателей, фотографов и всех, кому интересно, что растёт под португальскими деревьями.</p>
 </div>
 
@@ -167,19 +167,19 @@ export const projectsPage: Page = {
 
 <div class="encyclopedia-card">
 <h3><a href="https://padel.folkup.fit" rel="noopener">Padel — padel.folkup.fit</a></h3>
-<p class="encyclopedia-meta">243 artigos · três línguas</p>
+<p class="encyclopedia-meta">enciclopédia em crescimento · três línguas</p>
 <p>O desporto de raquete que mais cresce no mundo. Regras, técnica, courts, equipamento, torneios — tudo num só lugar, escrito por quem joga. Novos artigos aparecem à medida que o desporto cresce na Europa e no Médio Oriente.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://setubal.folkup.city" rel="noopener">Setúbal — setubal.folkup.city</a></h3>
-<p class="encyclopedia-meta">501 artigos · três línguas</p>
+<p class="encyclopedia-meta">enciclopédia em crescimento · três línguas</p>
 <p>Uma cidade portuguesa onde a serra encontra o mar. Mercados, rotas, restaurantes, história — escrita por quem anda nestas ruas. A mais profunda das nossas enciclopédias pelo número de artigos, e a que ensinou a oficina a trabalhar.</p>
 </div>
 
 <div class="encyclopedia-card">
 <h3><a href="https://cogumelos.folkup.fit" rel="noopener">Cogumelos — cogumelos.folkup.fit</a></h3>
-<p class="encyclopedia-meta">164 artigos · três línguas</p>
+<p class="encyclopedia-meta">enciclopédia em crescimento · três línguas</p>
 <p>Cogumelos portugueses. Quais comer, quais fotografar a uma distância segura. Cada espécie verificada, cada aviso real. Feito para apanhadores, fotógrafos e qualquer pessoa curiosa sobre o que cresce debaixo das árvores portuguesas.</p>
 </div>
 

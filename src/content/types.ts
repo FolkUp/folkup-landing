@@ -113,7 +113,8 @@ export interface ProjectCard {
   /** Stable key matching legacy locale keys (padel/setubal/cogumelos/tarot). */
   key: string
   name: LocalizedString
-  /** "243 articles" — already localised string. */
+  /** "a growing encyclopedia" — already localised living-word string per Iskra §3
+      (numbers removed cont+38 to avoid drift as encyclopedias grow). */
   count: LocalizedString
   description: LocalizedString
   /** "EN · RU · PT" — string list rendered as-is. */
