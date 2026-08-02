@@ -30,7 +30,11 @@ const anchors = computed(() =>
       <article v-for="a in anchors" :key="a.id" :id="a.id" class="anchor-block">
         <span class="section-label">{{ a.label }}</span>
         <h3 class="anchor-title">{{ a.title }}</h3>
-        <p class="anchor-body">{{ a.body }}</p>
+        <!-- v-html: body strings в manifest contain sanctioned inline <a> к
+             /{lang}/services + plaintext "Write: email". Content author-trusted
+             (typed manifest, not user input). Fix per Iskra S238 §7 «литерал
+             HTML в тексте виден» — cont+38 B1 2026-08-02. -->
+        <p class="anchor-body" v-html="a.body"></p>
       </article>
     </div>
   </section>
