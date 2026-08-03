@@ -123,19 +123,25 @@ export const homePage: Page = {
       type: 'decl-hero',
       schemaType: 'none',
       label: { en: 'Project', ru: 'Проект', pt: 'Projeto' },
+      // Reoriented 2026-08-03 per Iskra S244 draft «lending Project blok chestnyy tekst EN».
+      // Previous block described a teenager's guide that doesn't exist yet and pointed
+      // to declaration.folkup.app which has the signing form (not the guide) — mismatch.
+      // Now the block honours the Declaration itself (7 principles + sign form, LIVE).
+      // EN CANONICAL Iskra-ratified. TODO: RU/PT cascade pending Iskra RU authoring
+      // + translator/PT-EU dispatch (retained old drift copy until then).
       title: {
-        en: "A teenager's guide to the AI Declaration",
+        en: 'The Unenclosed Knowledge Declaration',
         ru: 'Декларация об ИИ — разбор для подростков',
         pt: 'A Declaração de IA explicada para adolescentes',
       },
       body: {
-        en: "The EU AI Act says systems must tell you when you're talking to an AI. The law is for adults; the conversation isn't. The Declaration Guide reads the rule like a teenager actually would — without condescension, without the corporate gloss — so the people growing up inside this stuff can name what they're looking at.",
+        en: 'Knowledge keeps getting fenced off: paywalled, gated, sold back to the people who paid for it. The Declaration is our answer — seven principles against the enclosure of the mind, open for any person or organization to sign. A teenage edition is in the workshop: same principles, plain words, no condescension.',
         ru: 'EU AI Act требует, чтобы системы признавались, когда с тобой говорит ИИ. Закон написан для взрослых — разговор нет. Declaration Guide читает это правило так, как читал бы подросток: без снисхождения, без корпоративного глянца. Чтобы те, кто растёт внутри всего этого, могли назвать вещи своими именами.',
         pt: 'O AI Act da UE obriga os sistemas a dizerem quando estás a falar com uma IA. A lei é para adultos; a conversa não é. O Declaration Guide lê a regra como um adolescente a leria — sem condescendência, sem o verniz corporativo — para que quem está a crescer dentro disto consiga nomear o que tem à frente.',
       },
       cta: {
         label: {
-          en: 'Read the guide',
+          en: 'Read and sign',
           ru: 'Читать гид',
           pt: 'Ler o guia',
         },
