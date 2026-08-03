@@ -129,21 +129,26 @@ export const homePage: Page = {
       // Now the block honours the Declaration itself (7 principles + sign form, LIVE).
       // EN CANONICAL Iskra-ratified. TODO: RU/PT cascade pending Iskra RU authoring
       // + translator/PT-EU dispatch (retained old drift copy until then).
+      // DE added 2026-08-03 by Bolik S12BOLIK cont+0 (mirror EN canonical, awaits Iskra
+      // light-review; pre-populated for LAND-DE-EPIC-001 DE routing activation).
       title: {
         en: 'The Unenclosed Knowledge Declaration',
         ru: 'Декларация об ИИ — разбор для подростков',
         pt: 'A Declaração de IA explicada para adolescentes',
+        de: 'Die Deklaration gegen die Einhegung des Wissens',
       },
       body: {
         en: 'Knowledge keeps getting fenced off: paywalled, gated, sold back to the people who paid for it. The Declaration is our answer — seven principles against the enclosure of the mind, open for any person or organization to sign. A teenage edition is in the workshop: same principles, plain words, no condescension.',
         ru: 'EU AI Act требует, чтобы системы признавались, когда с тобой говорит ИИ. Закон написан для взрослых — разговор нет. Declaration Guide читает это правило так, как читал бы подросток: без снисхождения, без корпоративного глянца. Чтобы те, кто растёт внутри всего этого, могли назвать вещи своими именами.',
         pt: 'O AI Act da UE obriga os sistemas a dizerem quando estás a falar com uma IA. A lei é para adultos; a conversa não é. O Declaration Guide lê a regra como um adolescente a leria — sem condescendência, sem o verniz corporativo — para que quem está a crescer dentro disto consiga nomear o que tem à frente.',
+        de: 'Wissen wird ständig eingezäunt: hinter Bezahlschranken gesperrt, mit Zugangsbeschränkungen versehen, an jene zurückverkauft, die es bereits bezahlt haben. Die Deklaration ist unsere Antwort — sieben Prinzipien gegen die Einhegung des Geistes, offen für jede Person und jede Organisation zur Unterzeichnung. Eine Ausgabe für Jugendliche entsteht in der Werkstatt: dieselben Prinzipien, klare Worte, ohne Herablassung.',
       },
       cta: {
         label: {
           en: 'Read and sign',
           ru: 'Читать гид',
           pt: 'Ler o guia',
+          de: 'Lesen und unterzeichnen',
         },
         href: 'https://declaration.folkup.app',
       },
