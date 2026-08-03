@@ -178,7 +178,7 @@ export const homePage: Page = {
         {
           key: 'padel',
           name: { en: 'Padel', ru: 'Падел', pt: 'Padel' },
-          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento' },
+          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento', de: 'eine wachsende Enzyklopädie' },
           description: {
             en: 'The fastest-growing racket sport in the world. Rules, technique, courts, gear, tournaments — all in one place, in three languages.',
             ru: 'Самый быстрорастущий ракеточный спорт в мире. Правила, техника, корты, экипировка, турниры — всё в одном месте, на трёх языках.',
@@ -193,7 +193,7 @@ export const homePage: Page = {
         {
           key: 'setubal',
           name: { en: 'Setúbal', ru: 'Сетубал', pt: 'Setúbal' },
-          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento' },
+          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento', de: 'eine wachsende Enzyklopädie' },
           description: {
             en: 'A Portuguese city where the mountains meet the sea. Markets, routes, restaurants, history — written by people who actually walk the streets.',
             ru: 'Португальский город, где горы встречаются с морем. Рынки, маршруты, рестораны, история — написано людьми, которые ходят по этим улицам.',
@@ -208,7 +208,7 @@ export const homePage: Page = {
         {
           key: 'cogumelos',
           name: { en: 'Cogumelos', ru: 'Когумелуш', pt: 'Cogumelos' },
-          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento' },
+          count: { en: 'a growing encyclopedia', ru: 'энциклопедия растёт', pt: 'enciclopédia em crescimento', de: 'eine wachsende Enzyklopädie' },
           description: {
             en: 'Portuguese mushrooms. Which ones to eat, which ones to photograph from a safe distance. Every species verified, every warning real.',
             ru: 'Португальские грибы. Какие есть, а какие лучше фотографировать на расстоянии. Каждый вид проверен, каждое предупреждение — настоящее.',
