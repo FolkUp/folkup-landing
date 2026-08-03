@@ -80,7 +80,7 @@ function closeNav() {
         :class="{ 'header-nav--open': navOpen }"
         aria-label="Main navigation"
       >
-        <a :href="navAnchor('#trilogy')" @click="closeNav">{{ t('navBooks') }}</a>
+        <a href="https://books.folkup.life" @click="closeNav">{{ t('navBooks') }}</a>
         <a :href="navAnchor('#projects')" @click="closeNav">{{ t('navProjects') }}</a>
         <a :href="navAnchor('#team')" @click="closeNav">{{ t('navTeam') }}</a>
       </nav>
