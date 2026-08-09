@@ -36,6 +36,13 @@ const links = computed(() =>
     }
   }),
 )
+
+const licenseLabel = computed(() => {
+  const l = locale.value
+  if (l === 'ru') return 'Контент'
+  if (l === 'pt') return 'Conteúdo'
+  return 'Content'
+})
 </script>
 
 <template>
@@ -62,6 +69,10 @@ const links = computed(() =>
         <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
       </div>
     </div>
+    <p class="footer-license">
+      &copy; 2026 FolkUp contributors &middot; {{ licenseLabel }}:
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>
+    </p>
   </footer>
 </template>
 
@@ -153,6 +164,25 @@ const links = computed(() =>
 }
 
 .footer-social a:hover {
+  color: var(--color-bordo);
+}
+
+.footer-license {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.footer-license a {
+  color: var(--color-muted);
+  text-decoration: underline;
+}
+
+.footer-license a:hover {
   color: var(--color-bordo);
 }
 </style>
