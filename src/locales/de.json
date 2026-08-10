@@ -1,0 +1,12 @@
+{
+  "navBooks": "Bücher",
+  "navProjects": "Projekte",
+  "navTeam": "Team",
+  "settingsTitle": "Sprache und Erscheinungsbild",
+  "settingsLang": "Sprache",
+  "settingsTheme": "Design",
+  "themeDefault": "Klassik",
+  "themeSteampunk": "Steampunk",
+  "themeBwLight": "Schwarz-weiß — hell",
+  "themeBwDark": "Schwarz-weiß — dunkel"
+}
