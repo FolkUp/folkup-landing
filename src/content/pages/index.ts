@@ -57,7 +57,7 @@ export const homePage: Page = {
       subtitle: {
         en: 'They fenced the knowledge in. We build without fences.',
         ru: 'Знание огородили. Мы строим без забора.',
-        pt: 'Luz para o saber que está cercado.',
+        pt: 'Cercaram o saber. Nós construímos sem cercas.',
       },
       tagline: {
         en: 'FolkUp is a small workshop. One person, a team of AI helpers — each with a name, a character, a job: research, verification, law, security, light. We write what we ourselves believe in: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
@@ -77,6 +77,79 @@ export const homePage: Page = {
         ru: '',
         pt: 'Como funciona',
       },
+    },
+
+    // ---------------------------------------------------------------- BOOKS
+    // GLAVNAYA S243→S274 apply-ready block (Iskra PRODUCT-AUDIT §4, PRIKAZ
+    // 2026-08-11 виза Андрея). Reuses type:'projects' render (0 нового кода),
+    // id:'books' fixes битый hero CTA #books якорь. Три книги трилогии
+    // (Своими силами / Из первых рук / Общий язык), обложки Wave 2 живые URL
+    // portal HTTP 200 ✓. PT-названия рабочие Iskra, Zeka canon при next окне.
+    // v1.0.24 деплой окно КОММИТ-1 landing.
+    {
+      id: 'books',
+      type: 'projects',
+      schemaType: 'ItemList',
+      label: {
+        en: 'Books', ru: 'Книги', pt: 'Livros',
+      },
+      title: {
+        en: 'An open book series — read, copy, pass it on',
+        ru: 'Открытая книжная серия — читайте, копируйте, передавайте дальше',
+        pt: 'Uma série de livros aberta — lê, copia, passa adiante',
+      },
+      subtitle: {
+        en: 'Books about thinking with your own head: method, access to knowledge, the city, intermediaries, testimony, dialogue. Free online, EPUB and PDF. Translations are in the workshop.',
+        ru: 'Книги о том, как жить своим умом: метод, доступ к знанию, город, посредники, свидетельства, диалог. Бесплатно онлайн, EPUB и PDF. Переводы — в мастерской.',
+        pt: 'Livros sobre pensar pela própria cabeça: método, acesso ao conhecimento, a cidade, os intermediários, o testemunho, o diálogo. Grátis online, EPUB e PDF. As traduções estão na oficina.',
+      },
+      items: [
+        {
+          key: 'trilogy-own-means',
+          name: { en: 'By Our Own Means', ru: 'Своими силами', pt: 'Pelos Nossos Meios' },
+          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          description: {
+            en: 'How a team does its work: learns to see itself, designs something better, and brings into being what was not there before. Verne, Shelley, Holmes and Borges diagnose management long before the consultants.',
+            ru: 'Как команда делает своё дело: учится видеть себя, придумывает лучшее устройство и рождает то, чего раньше не было. Верн, Шелли, Холмс и Борхес ставят управленческие диагнозы задолго до консультантов.',
+            pt: 'Como uma equipa faz o seu trabalho: aprende a ver-se, desenha algo melhor e faz nascer o que antes não existia. Verne, Shelley, Holmes e Borges diagnosticam a gestão muito antes dos consultores.',
+          },
+          langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
+          category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
+          url: 'https://books.folkup.life/kn1',
+          icon: 'https://books.folkup.life/covers/cover_kn1.svg',
+          accent: 'var(--color-accent-padel)',
+        },
+        {
+          key: 'trilogy-firsthand',
+          name: { en: 'Firsthand', ru: 'Из первых рук', pt: 'Em Primeira Mão' },
+          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          description: {
+            en: 'How knowledge reaches us: past those who locked it up, through those who stand in the middle — and how to check that what arrived is what was sent.',
+            ru: 'Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто стоит посредине, — и как проверить, что донесли именно то.',
+            pt: 'Como o conhecimento chega até nós: através de quem o trancou, por meio de quem está no meio — e como verificar que chegou o que foi enviado.',
+          },
+          langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
+          category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
+          url: 'https://books.folkup.life/kn2',
+          icon: 'https://books.folkup.life/covers/cover_kn2.svg',
+          accent: 'var(--color-accent-setubal)',
+        },
+        {
+          key: 'trilogy-common-ground',
+          name: { en: 'Common Ground', ru: 'Общий язык', pt: 'Linguagem Comum' },
+          count: { en: 'in the workshop', ru: 'готовится', pt: 'na oficina' },
+          description: {
+            en: 'Why agreeing is harder than it looks — an orchestra plays inside the head, but what comes out is a knock. On the barriers to understanding and how to break through them.',
+            ru: 'Почему договориться труднее, чем кажется: в голове играет оркестр — наружу выходит стук. О барьерах понимания и о том, как через них пробиваться.',
+            pt: 'Porque é mais difícil chegar a acordo do que parece — dentro da cabeça toca uma orquestra, mas o que sai é um bater. Sobre as barreiras da compreensão e como atravessá-las.',
+          },
+          langs: { en: 'RU · in the workshop', ru: 'RU · в мастерской', pt: 'RU · na oficina' },
+          category: { en: 'Book', ru: 'Книга', pt: 'Livro' },
+          url: 'https://books.folkup.life',
+          icon: 'https://books.folkup.life/covers/cover_kn7.svg',
+          accent: 'var(--color-accent-cogumelos)',
+        },
+      ],
     },
 
     // -------------------------------------------------------------- MISSION
@@ -133,21 +206,21 @@ export const homePage: Page = {
       // light-review; pre-populated for LAND-DE-EPIC-001 DE routing activation).
       title: {
         en: 'The Unenclosed Knowledge Declaration',
-        ru: 'Декларация об ИИ — разбор для подростков',
-        pt: 'A Declaração de IA explicada para adolescentes',
+        ru: 'Декларация неогороженного знания',
+        pt: 'A Declaração do Conhecimento Não Cercado',
         de: 'Die Deklaration gegen die Einhegung des Wissens',
       },
       body: {
         en: 'Knowledge keeps getting fenced off: paywalled, gated, sold back to the people who paid for it. The Declaration is our answer — seven principles against the enclosure of the mind, open for any person or organization to sign. A teenage edition is in the workshop: same principles, plain words, no condescension.',
-        ru: 'EU AI Act требует, чтобы системы признавались, когда с тобой говорит ИИ. Закон написан для взрослых — разговор нет. Declaration Guide читает это правило так, как читал бы подросток: без снисхождения, без корпоративного глянца. Чтобы те, кто растёт внутри всего этого, могли назвать вещи своими именами.',
-        pt: 'O AI Act da UE obriga os sistemas a dizerem quando estás a falar com uma IA. A lei é para adultos; a conversa não é. O Declaration Guide lê a regra como um adolescente a leria — sem condescendência, sem o verniz corporativo — para que quem está a crescer dentro disto consiga nomear o que tem à frente.',
+        ru: 'Знание всё чаще огораживают: прячут за пейволлы, фильтруют алгоритмами, продают обратно тем, кто за него уже заплатил. Декларация — наш ответ: семь принципов против огораживания разума, открытых для подписи любым человеком или организацией. Подростковое издание — в мастерской: те же принципы, простые слова, без снисхождения.',
+        pt: 'O conhecimento é cada vez mais cercado: fechado atrás de paywalls, filtrado por algoritmos, vendido de volta a quem já pagou por ele. A Declaração é a nossa resposta — sete princípios contra o cercamento da mente, abertos à assinatura de qualquer pessoa ou organização. Uma edição para adolescentes está na oficina: os mesmos princípios, palavras simples, sem condescendência.',
         de: 'Wissen wird ständig eingezäunt: hinter Bezahlschranken gesperrt, mit Zugangsbeschränkungen versehen, an jene zurückverkauft, die es bereits bezahlt haben. Die Deklaration ist unsere Antwort — sieben Prinzipien gegen die Einhegung des Geistes, offen für jede Person und jede Organisation zur Unterzeichnung. Eine Ausgabe für Jugendliche entsteht in der Werkstatt: dieselben Prinzipien, klare Worte, ohne Herablassung.',
       },
       cta: {
         label: {
           en: 'Read and sign',
-          ru: 'Читать гид',
-          pt: 'Ler o guia',
+          ru: 'Читать и подписать',
+          pt: 'Ler e assinar',
           de: 'Lesen und unterzeichnen',
         },
         href: 'https://declaration.folkup.app',

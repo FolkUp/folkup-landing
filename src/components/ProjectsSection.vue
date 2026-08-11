@@ -6,11 +6,21 @@ import { resolveLocalized } from '@/content/types'
 import type { ProjectsSection as ProjectsSectionType } from '@/content/types'
 import ProjectCard from './ProjectCard.vue'
 
+const props = withDefaults(defineProps<{
+  sectionId?: string
+}>(), {
+  sectionId: 'projects',
+})
+
 const { locale } = useI18n()
 
 // LAND-007 (B2b): read from typed content layer instead of locale JSONs.
-const section = homePage.sections.find((s) => s.type === 'projects') as ProjectsSectionType | undefined
-if (!section) throw new Error('Projects section missing from homePage manifest')
+// LAND cont+8 КОММИТ-1 2026-08-11: refactored к section-id-based lookup
+// (было .type === 'projects' — returned first match; now supports multiple
+// type:'projects' instances differentiated по id). Enables BOOKS + ECOSYSTEM
+// dual-rendering per Iskra PRIKAZ-ISPOLNIT §4 apply-ready.
+const section = homePage.sections.find((s) => s.id === props.sectionId) as ProjectsSectionType | undefined
+if (!section) throw new Error(`Projects section missing from homePage manifest: id="${props.sectionId}"`)
 const projectsSection = section
 
 const label = computed(() => resolveLocalized(projectsSection.label, locale.value) ?? '')
@@ -35,7 +45,7 @@ const projects = computed(() =>
 </script>
 
 <template>
-  <section id="projects" class="section fade-in">
+  <section :id="sectionId" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
     <p v-if="subtitle" class="section-subtitle">{{ subtitle }}</p>
