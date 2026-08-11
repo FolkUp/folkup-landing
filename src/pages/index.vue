@@ -25,9 +25,10 @@ useFadeIn()
     <div ref="heroEl">
       <HeroSection />
     </div>
+    <ProjectsSection section-id="books" />
     <MissionSection />
     <DeclHeroSection />
-    <ProjectsSection />
+    <ProjectsSection section-id="projects" />
     <ProLabSection />
     <FrameworkSection />
     <TeamSection />

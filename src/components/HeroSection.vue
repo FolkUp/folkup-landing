@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import { useGertrudaTriptych } from '@/composables/useGertruda'
+import { useGertruda } from '@/composables/useGertruda'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { HeroSection as HeroSectionType } from '@/content/types'
 
 const { locale } = useI18n()
-const { left, center, right } = useGertrudaTriptych()
+// Гертруда one-not-three per Iskra PRIKAZ-ISPOLNIT-КОММИТ-1 2026-08-11:
+// BRAND-HERO-REDESIGN-001 (июнь S57) — «одна Гертруда во всю ширину» вернуть.
+// Первый экран = заголовок+CTA, не галерея. Triptych function preserved
+// в useGertruda.ts для потенциального future restoration, но hero использует
+// single center per Andrey визы volunteers volumes S243+S274 apply-волна ratified.
+const { src, style } = useGertruda()
 
 // LAND-007 (B2b): read from typed content layer instead of locale JSONs.
 const section = homePage.sections.find((s) => s.type === 'hero') as HeroSectionType | undefined
@@ -22,36 +27,16 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
 
 <template>
   <section id="hero" class="hero">
-    <div class="hero-gertruda-triptych" aria-hidden="true">
-      <img
-        class="gertruda-side gertruda-left"
-        :src="left.src"
-        alt=""
-        width="200"
-        height="200"
-        loading="lazy"
-        decoding="async"
-        :data-style="left.style"
-      />
+    <div class="hero-gertruda-single" aria-hidden="true">
       <img
         class="gertruda-center"
-        :src="center.src"
+        :src="src"
         alt=""
         width="320"
         height="320"
         loading="eager"
         fetchpriority="high"
-        :data-style="center.style"
-      />
-      <img
-        class="gertruda-side gertruda-right"
-        :src="right.src"
-        alt=""
-        width="200"
-        height="200"
-        loading="lazy"
-        decoding="async"
-        :data-style="right.style"
+        :data-style="style"
       />
     </div>
     <h1 class="hero-subtitle">{{ subtitle }}</h1>
@@ -75,77 +60,24 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   position: relative;
 }
 
-/* Гертруда триптих — three illustrations simultaneously.
-   D verdict 2026-06-10: «очень одинок этот квадратик» → 3 Гертруд layered.
-   Mobile ≤640px: vertical stack (center на top large, 2 sides below row).
-   Tablet+Desktop ≥641px: horizontal triptych (sides flank center). */
-.hero-gertruda-triptych {
-  display: grid;
+/* Гертруда single-center per Iskra PRIKAZ-ISPOLNIT-КОММИТ-1 2026-08-11:
+   restored BRAND-HERO-REDESIGN-001 (июнь S57) — одна Гертруда во всю ширину.
+   Первый экран = заголовок+CTA, не галерея. Triptych CSS removed 2026-08-11
+   cont+8 batch B1; useGertrudaTriptych() function preserved в useGertruda.ts
+   для потенциального future restoration. */
+.hero-gertruda-single {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   margin-bottom: 1.5rem;
-  gap: 0.75rem;
-  /* Mobile-first: vertical stack with center on top */
-  grid-template-areas:
-    'center'
-    'sides';
-  grid-template-columns: minmax(0, 1fr);
 }
 
 .gertruda-center {
-  grid-area: center;
-  width: clamp(180px, 60vw, 320px);
+  width: clamp(200px, 65vw, 360px);
   height: auto;
   opacity: 0.95;
   filter: drop-shadow(0 6px 16px var(--color-shadow));
   transition: opacity 0.5s ease;
-}
-
-.gertruda-side {
-  width: clamp(96px, 28vw, 200px);
-  height: auto;
-  opacity: 0.75;
-  filter: drop-shadow(0 3px 10px var(--color-shadow));
-  transition: opacity 0.5s ease;
-}
-
-/* Mobile: side images live в row below center */
-.gertruda-left,
-.gertruda-right {
-  grid-area: sides;
-}
-.gertruda-left {
-  justify-self: end;
-  margin-right: 0.5rem;
-}
-.gertruda-right {
-  justify-self: start;
-  margin-left: 0.5rem;
-}
-
-/* Tablet + Desktop: horizontal triptych с center middle */
-@media (min-width: 641px) {
-  .hero-gertruda-triptych {
-    grid-template-areas: 'left center right';
-    grid-template-columns: auto auto auto;
-    gap: 1.25rem;
-  }
-  .gertruda-left {
-    grid-area: left;
-    justify-self: end;
-    margin-right: 0;
-  }
-  .gertruda-right {
-    grid-area: right;
-    justify-self: start;
-    margin-left: 0;
-  }
-}
-
-@media (min-width: 1025px) {
-  .hero-gertruda-triptych {
-    gap: 2rem;
-  }
 }
 
 /* Phase 2c-γ: hero-title removed per Q2=A verdict («убрать большой текст
