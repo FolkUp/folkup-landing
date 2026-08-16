@@ -56,7 +56,7 @@ const plates = computed(() =>
 
     <a
       v-if="plates.length > 0"
-      href="https://sapiens.folkup.life"
+      href="https://books.folkup.life/kn1"
       target="_blank"
       rel="noopener noreferrer"
       class="plates-strip"
