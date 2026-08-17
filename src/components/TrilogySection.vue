@@ -165,8 +165,9 @@ a.book-card:hover {
   color: var(--color-on-amber);
 }
 
-/* Decorative chapter-plate strip — clickable к sapiens.folkup.life.
-   Added 2026-06-10: replaces tarot project tile с book program preview. */
+/* Decorative chapter-plate strip — clickable к books.folkup.life/kn1.
+   Added 2026-06-10: replaces tarot project tile с book program preview.
+   SAPIENS-SUNSET-1 hygiene: sapiens.folkup.life → books.folkup.life/kn1 (301 canonical). */
 .plates-strip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
