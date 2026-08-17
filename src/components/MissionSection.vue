@@ -16,6 +16,11 @@ const label = computed(() => resolveLocalized(mission.label, locale.value) ?? ''
 const title = computed(() => resolveLocalized(mission.title, locale.value) ?? '')
 const text = computed(() => resolveLocalized(mission.text, locale.value) ?? '')
 
+// GLAV-6 KOFI-LINK-ON-MAIN (Iskra PAKET-GLAVNAYA S290-07 §3): split \n\n paragraphs + v-html
+// для sanctioned inline <a href="https://ko-fi.com/folkup"> в тексте mission (EN/RU).
+// Precedent: AnchorsSection.vue v-html pattern для sanctioned inline links в manifest.
+const paragraphs = computed(() => text.value.split('\n\n'))
+
 const methodTitle = computed(() =>
   mission.method ? resolveLocalized(mission.method.title, locale.value) ?? '' : '',
 )
@@ -42,7 +47,8 @@ const principles = computed(() =>
   <section id="mission" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
-    <p class="mission-text">{{ text }}</p>
+    <!-- GLAV-6: split \n\n paragraphs + v-html per sanctioned inline <a> pattern (AnchorsSection precedent). -->
+    <p v-for="(para, i) in paragraphs" :key="i" class="mission-text" v-html="para" />
 
     <div v-if="mission.method" class="method">
       <h3 class="method-title">{{ methodTitle }}</h3>

@@ -21,8 +21,8 @@ const hero = section
 
 const subtitle = computed(() => resolveLocalized(hero.subtitle, locale.value) ?? '')
 const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '')
-const ctaPrimary = computed(() => resolveLocalized(hero.ctaPrimary, locale.value) ?? '')
-const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.value) ?? '')
+// GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3): ctaPrimary/ctaSecondary computed vars removed
+// вместе с hero-actions template block (schema fields preserved в manifest per анти-ломкость canon).
 </script>
 
 <template>
@@ -41,10 +41,9 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
     </div>
     <h1 class="hero-subtitle">{{ subtitle }}</h1>
     <p class="hero-tagline">{{ tagline }}</p>
-    <div class="hero-actions">
-      <a href="#books" class="hero-cta">{{ ctaPrimary }}</a>
-      <a v-if="ctaSecondary" href="#framework" class="hero-cta hero-cta--secondary">{{ ctaSecondary }}</a>
-    </div>
+    <!-- GLAV-1: hero-actions block removed per Iskra PAKET-GLAVNAYA S290-07 §3.
+         #books якорь дублировал первый скролл; текстовый финал tagline «Дверь открыта — заходите»
+         — настоящий CTA. Schema fields preserved в manifest (ctaPrimary/ctaSecondary empty). -->
   </section>
 </template>
 
@@ -107,41 +106,6 @@ const ctaSecondary = computed(() => resolveLocalized(hero.ctaSecondary, locale.v
   text-align: left;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  color: var(--color-on-primary);
-  background: var(--color-bordo);
-  padding: 0.75rem 2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  min-height: 44px;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.hero-cta:hover {
-  background: var(--color-bordo-hover);
-}
-
-.hero-cta--secondary {
-  background: transparent;
-  color: var(--color-bordo);
-  border: 1.5px solid var(--color-bordo);
-}
-
-.hero-cta--secondary:hover {
-  background: var(--color-bordo);
-  color: var(--color-on-primary);
-}
+/* GLAV-1: .hero-actions + .hero-cta + .hero-cta--secondary CSS removed per Iskra PAKET-GLAVNAYA S290-07 §3
+   (hero-actions Vue block removed above — CSS unused). */
 </style>
