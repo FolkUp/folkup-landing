@@ -14,14 +14,23 @@ if (!section) throw new Error('Team section missing from homePage manifest')
 const team = section
 
 // Avatars are presentation-only; keyed by team member key from the manifest.
+// Cont+8 A8 upgraded scope: added 6 pre-rendered avatars (Mar 2026 Frida-canon
+// watercolor) — cartographer/stoker/johnny/iskra/typesetter/oracle/pechkin.
+// All pass Fонарщик /brand-visual mental verdict (same session pipeline).
 const MEMBER_AVATARS: Record<string, string> = {
   alice: '/images/team/alice.webp',
+  cartographer: '/images/team/cartographer.webp',
   gonzo: '/images/team/gonzo.webp',
   cooper: '/images/team/cooper.webp',
-  lantern: '/images/team/lantern.webp',
   lev: '/images/team/lev.webp',
+  stoker: '/images/team/stoker.webp',
+  johnny: '/images/team/johnny.webp',
   iskra: '/images/team/iskra.webp',
+  typesetter: '/images/team/typesetter.webp',
+  lantern: '/images/team/lantern.webp',
   frida: '/images/team/frida.webp',
+  oracle: '/images/team/oracle.webp',
+  pechkin: '/images/team/pechkin.webp',
   lyolik: '/images/team/lyolik.webp',
   bolik: '/images/team/bolik.webp',
   zeka: '/images/team/zeka.webp',

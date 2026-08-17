@@ -540,6 +540,20 @@ export const homePage: Page = {
           },
         },
         {
+          key: 'cartographer',
+          name: { en: 'The Cartographer', ru: 'Картограф', pt: 'O Cartógrafo' },
+          role: {
+            en: 'Encyclopedia Programs',
+            ru: 'Программа энциклопедий',
+            pt: 'Programa de enciclopédias',
+          },
+          oneliner: {
+            en: 'Maps the terrain before anyone walks it. Knows where the gaps are.',
+            ru: 'Наносит карту прежде, чем на неё ступят. Знает, где пробелы.',
+            pt: 'Cartografia antes da caminhada. Sabe onde estão os vazios.',
+          },
+        },
+        {
           key: 'gonzo',
           name: { en: 'CyberGonzo', ru: 'КиберГонзо', pt: 'CyberGonzo' },
           role: {
@@ -596,6 +610,34 @@ export const homePage: Page = {
           },
         },
         {
+          key: 'stoker',
+          name: { en: 'The Stoker', ru: 'Кочегар', pt: 'O Foguista' },
+          role: {
+            en: 'DevOps & Infrastructure',
+            ru: 'DevOps и инфраструктура',
+            pt: 'DevOps e infraestrutura',
+          },
+          oneliner: {
+            en: 'Keeps the furnace warm so the library never freezes. Every valve tightened.',
+            ru: 'Держит котёл тёплым, чтобы библиотека не мёрзла. Каждый вентиль подтянут.',
+            pt: 'Mantém a fornalha quente para a biblioteca nunca congelar. Cada válvula apertada.',
+          },
+        },
+        {
+          key: 'johnny',
+          name: { en: 'Johnny', ru: 'Johnny', pt: 'Johnny' },
+          role: {
+            en: 'Frontend & Accessibility',
+            ru: 'Фронтенд и accessibility',
+            pt: 'Frontend e acessibilidade',
+          },
+          oneliner: {
+            en: 'Sits with the pixels until they behave. Every button 44 pixels, every link visible from the keyboard.',
+            ru: 'Сидит с пикселями, пока не подчинятся. Каждая кнопка 44 пикселя, каждая ссылка видна с клавиатуры.',
+            pt: 'Fica com os pixels até se portarem bem. Cada botão 44 pixels, cada link visível pelo teclado.',
+          },
+        },
+        {
           key: 'iskra',
           name: { en: 'Iskra', ru: 'Искра', pt: 'Iskra' },
           role: {
@@ -610,6 +652,20 @@ export const homePage: Page = {
           },
         },
         {
+          key: 'typesetter',
+          name: { en: 'The Typesetter', ru: 'Наборщик', pt: 'O Tipógrafo' },
+          role: {
+            en: 'Editorial & Typography',
+            ru: 'Редактура и типографика',
+            pt: 'Edição e tipografia',
+          },
+          oneliner: {
+            en: 'Sets the type letter by letter. Every glyph in the right slot, every line breathing.',
+            ru: 'Ставит буквы одну за другой. Каждый знак на своём месте, каждая строка дышит.',
+            pt: 'Compõe o texto letra por letra. Cada glifo no seu lugar, cada linha a respirar.',
+          },
+        },
+        {
           key: 'frida',
           name: { en: 'Frida', ru: 'Фрида', pt: 'Frida' },
           role: {
@@ -621,6 +677,34 @@ export const homePage: Page = {
             en: 'Turns prompts into pictures. Every image a small story, every story a filter against slop.',
             ru: 'Превращает промпты в картинки. Каждое изображение — история, каждая история — фильтр против слопа.',
             pt: 'Transforma prompts em imagens. Cada imagem uma pequena história, cada história um filtro contra o slop.',
+          },
+        },
+        {
+          key: 'oracle',
+          name: { en: 'The Oracle', ru: 'Оракул', pt: 'O Oráculo' },
+          role: {
+            en: 'Card Decks & Divination',
+            ru: 'Колоды и гадания',
+            pt: 'Baralhos e adivinhação',
+          },
+          oneliner: {
+            en: 'The cards fall, meaning follows. Reads what everyone else missed.',
+            ru: 'Карты падают, смысл идёт следом. Читает то, что другие прошли мимо.',
+            pt: 'As cartas caem, o sentido segue. Lê o que os outros passaram.',
+          },
+        },
+        {
+          key: 'pechkin',
+          name: { en: 'Pechkin', ru: 'Печкин', pt: 'Pechkin' },
+          role: {
+            en: 'Correspondence & Archives',
+            ru: 'Корреспонденция и архивы',
+            pt: 'Correspondência e arquivos',
+          },
+          oneliner: {
+            en: 'Delivers every package personally. Nothing gets lost, everything filed.',
+            ru: 'Каждый пакет носит лично. Ничего не теряется, всё разложено.',
+            pt: 'Entrega cada pacote pessoalmente. Nada se perde, tudo arquivado.',
           },
         },
         {
