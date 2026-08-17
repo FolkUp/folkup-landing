@@ -152,7 +152,7 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     ru: 'Услуги — FolkUp',
     pt: 'Serviços — FolkUp',
   },
-  unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp' },
+  unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp', de: 'FolkUp' },
 }
 
 const descMap: Record<RouteKind, Record<string, string>> = {
@@ -200,6 +200,7 @@ const pageDescription = computed(() => descMap[routeKind.value]?.[locale.value] 
 const ogLocale = computed(() => {
   if (locale.value === 'ru') return 'ru_RU'
   if (locale.value === 'pt') return 'pt_PT'
+  if (locale.value === 'de') return 'de_DE'
   return 'en_US'
 })
 
@@ -246,7 +247,10 @@ const schemas = computed<object[]>(() => {
     services: 'Services',
   }
   const homeLabel =
-    locale.value === 'ru' ? 'Главная' : locale.value === 'pt' ? 'Início' : 'Home'
+    locale.value === 'ru' ? 'Главная'
+      : locale.value === 'pt' ? 'Início'
+      : locale.value === 'de' ? 'Startseite'
+      : 'Home'
 
   base.push(
     {

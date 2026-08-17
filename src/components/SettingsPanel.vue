@@ -26,7 +26,7 @@ const open = ref(false)
 const triggerRef = ref<HTMLButtonElement>()
 const panelRef = ref<HTMLDivElement>()
 
-const langLabels: Record<Locale, string> = { en: 'EN', ru: 'RU', pt: 'PT' }
+const langLabels: Record<Locale, string> = { en: 'EN', ru: 'RU', pt: 'PT', de: 'DE' }
 const themeLabels = computed<Record<Theme, string>>(() => ({
   'folkup-default': t('themeDefault'),
   'folkup-steampunk': t('themeSteampunk'),
@@ -34,7 +34,7 @@ const themeLabels = computed<Record<Theme, string>>(() => ({
   'bw-dark': t('themeBwDark'),
 }))
 
-const LANG_PREFIX = /^\/(en|ru|pt)(?=\/|$)/
+const LANG_PREFIX = /^\/(en|ru|pt|de)(?=\/|$)/
 
 function toggle() {
   open.value = !open.value
