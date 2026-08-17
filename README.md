@@ -27,7 +27,7 @@ Ecosystem includes:
 - **Tailwind CSS v4** (@tailwindcss/vite, `@theme` tokens) + scoped CSS
 - **TypeScript strict** с `vue-tsc --noEmit` как lint gate
 - **Playwright** — responsive end-to-end (mobile / tablet / desktop)
-- **Three languages** — English, Russian, European Portuguese (AO1990)
+- **Four languages** — English, Russian, European Portuguese (AO1990), German (Berlin-adjusted, Bolik translator per translator SKILL.md TIER 1 canon)
 - **Self-hosted fonts** (Pacifico, Playfair Display, Cinzel, EB Garamond, Inter) — никаких Google Fonts запросов, никаких third-party трекеров
 
 ## Routes
