@@ -19,7 +19,6 @@ FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a te
 ## Books
 
 - [Agile Sapiens](https://books.folkup.life/kn1): Book on humanity, agility, and complex systems. Long-form essays in EN/RU/PT.
-- [FolkUp Quest](https://quest.folkup.app/): Interactive story-driven learning game project.
 
 ## Research
 
