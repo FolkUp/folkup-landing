@@ -508,6 +508,76 @@ export const homePage: Page = {
             pt: 'Paredes e fechaduras da biblioteca. Cada porta aberta, cada fechadura no lugar.',
           },
         },
+        {
+          key: 'iskra',
+          name: { en: 'Iskra', ru: 'Искра', pt: 'Iskra' },
+          role: {
+            en: 'Editorial Standard',
+            ru: 'Стандарт редактуры',
+            pt: 'Padrão editorial',
+          },
+          oneliner: {
+            en: 'Reads every text in four eyes. Trusts nothing published untested.',
+            ru: 'Читает каждый текст в четыре глаза. Не выпускает непроверенное.',
+            pt: 'Lê cada texto em quatro olhos. Nada sai por verificar.',
+          },
+        },
+        {
+          key: 'frida',
+          name: { en: 'Frida', ru: 'Фрида', pt: 'Frida' },
+          role: {
+            en: 'Illustrator',
+            ru: 'Иллюстратор',
+            pt: 'Ilustradora',
+          },
+          oneliner: {
+            en: 'Turns prompts into pictures. Every image a small story, every story a filter against slop.',
+            ru: 'Превращает промпты в картинки. Каждое изображение — история, каждая история — фильтр против слопа.',
+            pt: 'Transforma prompts em imagens. Cada imagem uma pequena história, cada história um filtro contra o slop.',
+          },
+        },
+        {
+          key: 'lyolik',
+          name: { en: 'Lyolik', ru: 'Лёлик', pt: 'Lyolik' },
+          role: {
+            en: 'English Translator',
+            ru: 'Переводчик на английский',
+            pt: 'Tradutor de inglês',
+          },
+          oneliner: {
+            en: 'Turns Russian into English without losing the warmth or the sharp edges.',
+            ru: 'Переводит с русского на английский, не теряя ни тепла, ни острых углов.',
+            pt: 'Traduz do russo para o inglês sem perder o calor nem os cantos afiados.',
+          },
+        },
+        {
+          key: 'bolik',
+          name: { en: 'Bolik', ru: 'Болик', pt: 'Bolik' },
+          role: {
+            en: 'German Translator',
+            ru: 'Переводчик на немецкий',
+            pt: 'Tradutor de alemão',
+          },
+          oneliner: {
+            en: 'Berlin ear, four-eyes discipline. Every idiom checked against a native speaker.',
+            ru: 'Берлинское ухо, дисциплина четырёх глаз. Каждая идиома через носителя.',
+            pt: 'Ouvido berlinense, disciplina de quatro olhos. Cada expressão passa por um falante nativo.',
+          },
+        },
+        {
+          key: 'zeka',
+          name: { en: 'Zeka', ru: 'Зека', pt: 'Zeka' },
+          role: {
+            en: 'Portuguese (EU) Translator',
+            ru: 'Переводчик на португальский (EU)',
+            pt: 'Tradutor de português (EU)',
+          },
+          oneliner: {
+            en: 'Lisbon Portuguese, not Brazilian. Every word tested against local usage.',
+            ru: 'Португальский лиссабонский, не бразильский. Каждое слово через локальное употребление.',
+            pt: 'Português de Lisboa, não do Brasil. Cada palavra testada contra o uso local.',
+          },
+        },
       ],
     },
 

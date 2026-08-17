@@ -9,16 +9,14 @@ defineProps<{
 
 <template>
   <div class="team-card">
-    <div class="team-avatar" aria-hidden="true">
+    <div v-if="avatar" class="team-avatar" aria-hidden="true">
       <img
-        v-if="avatar"
         :src="avatar"
         :alt="name"
         width="80"
         height="80"
         loading="lazy"
       />
-      <span v-else class="team-avatar-placeholder">{{ name.charAt(0) }}</span>
     </div>
     <h3 class="team-name">{{ name }}</h3>
     <span class="team-role">{{ role }}</span>
