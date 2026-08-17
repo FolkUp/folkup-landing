@@ -3,10 +3,11 @@ import { useRoute } from 'vue-router'
 import en from '@/locales/en.json'
 import ru from '@/locales/ru.json'
 import pt from '@/locales/pt.json'
+import de from '@/locales/de.json'
 
-export type Locale = 'en' | 'ru' | 'pt'
+export type Locale = 'en' | 'ru' | 'pt' | 'de'
 
-const messages: Record<Locale, Record<string, string | string[]>> = { en, ru, pt }
+const messages: Record<Locale, Record<string, string | string[]>> = { en, ru, pt, de }
 const STORAGE_KEY = 'folkup-lang'
 
 /**
@@ -55,6 +56,6 @@ export function useI18n() {
     t,
     tArray,
     rememberLocale,
-    locales: ['en', 'ru', 'pt'] as const,
+    locales: ['en', 'ru', 'pt', 'de'] as const,
   }
 }

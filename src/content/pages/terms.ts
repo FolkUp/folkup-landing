@@ -10,7 +10,7 @@ import type { Page } from '../types'
 export const termsPage: Page = {
   id: 'terms',
   path: '/terms',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Terms of Use — FolkUp',

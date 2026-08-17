@@ -13,13 +13,16 @@ import type { Page } from '../types'
  * Existing Vue components keep reading from the JSON locales via
  * `useI18n().t(key)`. Consumer migration to this manifest is LAND-007 (B2).
  *
- * DE column is intentionally absent: pages declare `availableLangs` and
- * `resolveLocalized()` handles the fallback chain.
+ * DE column added to `availableLangs` cont+9 2026-08-17: UI shell (nav / settings /
+ * theme) served from `de.json` (10 keys, Bolik Vier-Augen cont+10 PR #22). Content
+ * strings within items still use `{ en, ru, pt }` — DE reader sees native DE nav +
+ * EN content fallback via `resolveLocalized()`. Bolik LAND-DE-EPIC-001 continues
+ * incrementally adding DE content strings без ломания.
  */
 export const homePage: Page = {
   id: 'home',
   path: '/',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'FolkUp — knowledge tools for real communities',

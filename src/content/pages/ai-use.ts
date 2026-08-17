@@ -16,7 +16,7 @@ import type { Page } from '../types'
 export const aiUsePage: Page = {
   id: 'ai-use',
   path: '/about/ai-use',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'AI use — FolkUp',

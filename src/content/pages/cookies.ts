@@ -14,7 +14,7 @@ import type { Page } from '../types'
 export const cookiesPage: Page = {
   id: 'cookies',
   path: '/cookies',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Cookie Policy — FolkUp',

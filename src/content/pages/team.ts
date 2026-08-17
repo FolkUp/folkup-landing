@@ -6,7 +6,7 @@ import type { Page } from '../types'
 export const teamPage: Page = {
   id: 'team',
   path: '/team',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Team',

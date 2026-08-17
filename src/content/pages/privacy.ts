@@ -13,7 +13,7 @@ import type { Page } from '../types'
 export const privacyPage: Page = {
   id: 'privacy',
   path: '/privacy',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Privacy Policy — FolkUp',

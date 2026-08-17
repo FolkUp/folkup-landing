@@ -17,7 +17,7 @@ const route = useRoute()
 const { locale } = useI18n()
 
 const HOST = 'https://folkup.app'
-const LANGS = ['en', 'ru', 'pt'] as const
+const LANGS = ['en', 'ru', 'pt', 'de'] as const
 
 /** Stable URL-safe page identifier derived from the route path. */
 type RouteKind =
@@ -37,7 +37,7 @@ type RouteKind =
  * Organization + WebSite + canonical + hreflang for those.
  */
 const routeKind = computed<RouteKind>(() => {
-  const stripped = route.path.replace(/^\/(en|ru|pt)(?=\/|$)/, '') || '/'
+  const stripped = route.path.replace(/^\/(en|ru|pt|de)(?=\/|$)/, '') || '/'
   if (stripped === '/') return 'home'
   if (stripped === '/privacy') return 'privacy'
   if (stripped === '/terms') return 'terms'
@@ -50,7 +50,7 @@ const routeKind = computed<RouteKind>(() => {
 
 /** Base path (lang-stripped) — same shape PAGES_BY_PATH would use. */
 const basePath = computed(() =>
-  route.path.replace(/^\/(en|ru|pt)(?=\/|$)/, '') || '/',
+  route.path.replace(/^\/(en|ru|pt|de)(?=\/|$)/, '') || '/',
 )
 
 /**
@@ -227,7 +227,7 @@ const schemas = computed<object[]>(() => {
       '@type': 'WebSite',
       name: 'FolkUp',
       url: HOST,
-      inLanguage: ['en', 'ru', 'pt'],
+      inLanguage: ['en', 'ru', 'pt', 'de'],
     },
   ]
 

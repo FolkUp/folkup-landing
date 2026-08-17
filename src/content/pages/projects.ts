@@ -22,7 +22,7 @@ import type { Page, LegalPageSection } from '../types'
 export const projectsPage: Page = {
   id: 'projects',
   path: '/projects',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Encyclopedias and one workshop — FolkUp',

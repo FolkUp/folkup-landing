@@ -6,7 +6,7 @@
  * by Phase 2 closure:
  *   1. <html lang="…"> present
  *   2. <link rel="canonical"> present
- *   3. hreflang completeness (en + ru + pt + x-default) on prerendered pages
+ *   3. hreflang completeness (en + ru + pt + de + x-default) on prerendered pages
  *   4. All JSON-LD blocks are parseable
  *   5. No rogue inline <script> outside of vite-ssg hydration markers and JSON-LD
  *
@@ -27,7 +27,7 @@ import { fileURLToPath } from 'node:url'
 import { gzipSync } from 'node:zlib'
 
 const DIST = 'dist'
-const LANGS = ['en', 'ru', 'pt']
+const LANGS = ['en', 'ru', 'pt', 'de']
 const BUNDLE_GZIP_MAX_KB = 60
 
 /**
@@ -39,9 +39,11 @@ const BUNDLE_GZIP_MAX_KB = 60
  *   '/'             → index.html
  *   '/ru'           → ru.html
  *   '/pt'           → pt.html
+ *   '/de'           → de.html
  *   '/en/privacy'   → en/privacy.html      (en/terms.html, en/cookies.html)
  *   '/ru/privacy'   → ru/privacy.html      ...
  *   '/pt/privacy'   → pt/privacy.html      ...
+ *   '/de/privacy'   → de/privacy.html      ...
  *   '/404'          → 404.html
  *
  * Note: 404.html is rendered by Vue Router but is LOCALE-NEUTRAL by design —
@@ -55,6 +57,7 @@ const SSG_HTML_FILES = new Set([
   'index.html',
   'ru.html',
   'pt.html',
+  'de.html',
   'en/privacy.html',
   'en/terms.html',
   'en/cookies.html',
@@ -64,15 +67,21 @@ const SSG_HTML_FILES = new Set([
   'pt/privacy.html',
   'pt/terms.html',
   'pt/cookies.html',
+  'de/privacy.html',
+  'de/terms.html',
+  'de/cookies.html',
   'en/about/ai-use.html',
   'ru/about/ai-use.html',
   'pt/about/ai-use.html',
+  'de/about/ai-use.html',
   'en/projects.html',
   'ru/projects.html',
   'pt/projects.html',
+  'de/projects.html',
   'en/services.html',
   'ru/services.html',
   'pt/services.html',
+  'de/services.html',
   '404.html',
 ])
 
