@@ -62,23 +62,26 @@ export const homePage: Page = {
         ru: 'Знание огородили. Мы строим без забора.',
         pt: 'Cercaram o saber. Nós construímos sem cercas.',
       },
+      // GLAV-8 (Iskra PAKET-GLAVNAYA S290-07 §3): «AI helpers/ИИ-помощников» → «AI fornits/AI-форнитов»
+      // (терминология-унификация; team-секция даёт пояснение). PT already «fornits de IA».
       tagline: {
-        en: 'FolkUp is a small workshop. One person, a team of AI helpers — each with a name, a character, a job: research, verification, law, security, light. We write what we ourselves believe in: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
-        ru: 'FolkUp — маленькая мастерская. Один человек, команда ИИ-помощников — у каждого имя, характер и своя работа: поиск, проверка, право, охрана, свет. Мы пишем то, во что верим сами: книги, энциклопедии, расследования. Каждый факт сверяем с источниками, каждый текст подписываем — видно, кто писал, кто проверял, кто редактировал. А потом отдаём. Целиком, бесплатно, без «зарегистрируйтесь, чтобы дочитать». Дверь открыта — заходите.',
+        en: 'FolkUp is a small workshop. One person, a team of AI fornits — each with a name, a character, a job: research, verification, law, security, light. We write what we ourselves believe in: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
+        ru: 'FolkUp — маленькая мастерская. Один человек, команда AI-форнитов — у каждого имя, характер и своя работа: поиск, проверка, право, охрана, свет. Мы пишем то, во что верим сами: книги, энциклопедии, расследования. Каждый факт сверяем с источниками, каждый текст подписываем — видно, кто писал, кто проверял, кто редактировал. А потом отдаём. Целиком, бесплатно, без «зарегистрируйтесь, чтобы дочитать». Дверь открыта — заходите.',
         pt: 'Textos longos. Uma pessoa, uma equipa de fornits de IA.',
       },
-      // Single-CTA canonical v1.1: «Читать» / «Start reading» → scroll to Books
-      // section (B3 pending). ctaSecondary vacated for EN/RU (Vue component hides
-      // when empty); PT unchanged для coherent pre-translation UX.
+      // GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
+      // hero-actions block снят целиком (#books якорь дублирует первый скролл, текстовый финал hero
+      // «Дверь открыта — заходите» — настоящий CTA). Поля в manifest опустошены, схема preserved
+      // (анти-ломкость). Vue: убран рендер hero-actions в HeroSection.vue.
       ctaPrimary: {
-        en: 'Start reading',
-        ru: 'Читать',
-        pt: 'Explorar projetos',
+        en: '',
+        ru: '',
+        pt: '',
       },
       ctaSecondary: {
         en: '',
         ru: '',
-        pt: 'Como funciona',
+        pt: '',
       },
     },
 
@@ -178,9 +181,13 @@ export const homePage: Page = {
         ru: 'Как это делается',
         pt: 'Vizinhos a ajudar vizinhos',
       },
+      // GLAV-6 KOFI-LINK-ON-MAIN (Iskra PAKET-GLAVNAYA S290-07 §3):
+      // «buy us a coffee» / «поддержать нас чашкой кофе» → hyperlink к https://ko-fi.com/folkup
+      // (target _blank rel noopener). Схема sameAs первоисточник (schema.ts + App.vue).
+      // PT text preserved pending Quatro Olhos (не мой scope, второй PR каскад).
       text: {
-        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before pretty words.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can buy us a coffee. It is the only cash register in the house.',
-        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят раньше красивых слов.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно поддержать нас чашкой кофе. Это единственная касса в доме.',
+        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before pretty words.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
+        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят раньше красивых слов.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
         pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
       principles: [],
@@ -374,9 +381,14 @@ export const homePage: Page = {
             ru: 'Многоязычность по дизайну',
             pt: 'Multilingue por design',
           },
+          // GLAV-5 AI-HONESTY-i18n (Iskra PAKET-GLAVNAYA S290-07 §3):
+          // Canon replace RU+EN — «Not machine translation» противоречит духу AI-прозрачности
+          // (переводчики — AI-форниты, мы это подписываем, а не открещиваемся).
+          // «Two to three languages per encyclopedia» removed (число устаревает, DE идёт).
+          // PT — Зека вместе с GLAV-3 (второй PR каскад).
           text: {
-            en: 'Two to three languages per encyclopedia. Not machine translation — real editorial work in each language.',
-            ru: 'Два-три языка в каждой энциклопедии. Не машинный перевод — настоящая редакторская работа на каждом языке.',
+            en: "Translation is workshop work: an AI translator's draft, editing, native-speaker checks, a signature. You can see who translated and who verified.",
+            ru: 'Перевод — часть мастерской: черновик от AI-переводчика, редактура, сверка с носителем, подпись. Видно, кто переводил и кто проверял.',
             pt: 'Dois a três idiomas por enciclopédia. Não tradução automática — trabalho editorial real em cada idioma.',
           },
         },
@@ -400,10 +412,15 @@ export const homePage: Page = {
             ru: 'Автоматическая инфраструктура',
             pt: 'Infraestrutura automatizada',
           },
+          // GLAV-7a EMAILS-CLAIM-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
+          // «Branded emails on new releases» / «Фирменные рассылки о новых релизах» /
+          // «Emails com a marca nos novos lançamentos» — убрано из всех 3 языков.
+          // Рассылка задумана, но состояние реализации неизвестно (слово Андрея S290);
+          // главная не обещает несуществующее. GLAV-7b (Кочегар newsletter audit) в P2.
           text: {
-            en: 'Push to publish. Branded emails on new releases. Status monitoring. The boring stuff that keeps a library running.',
-            ru: 'Push для публикации. Фирменные рассылки о новых релизах. Мониторинг статуса. Скучные вещи, без которых библиотека не работает.',
-            pt: 'Push para publicar. Emails com a marca nos novos lançamentos. Monitorização de estado. As coisas chatas que mantêm uma biblioteca a funcionar.',
+            en: 'Push to publish. Status monitoring. The boring stuff that keeps a library running.',
+            ru: 'Push для публикации. Мониторинг статуса. Скучные вещи, без которых библиотека не работает.',
+            pt: 'Push para publicar. Monitorização de estado. As coisas chatas que mantêm uma biblioteca a funcionar.',
           },
         },
         {

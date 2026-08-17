@@ -12,14 +12,8 @@ const section = homePage.sections.find((s) => s.type === 'framework') as Framewo
 if (!section) throw new Error('Framework section missing from homePage manifest')
 const framework = section
 
-// Icons are presentation-only; keyed by feature id from the manifest.
-const FEATURE_ICONS: Record<string, string> = {
-  verify: '✓',
-  i18n: '🌐',
-  safety: '⚠',
-  deploy: '⚡',
-  compliance: '🔒',
-}
+// GLAV-2 ICONS-EMOJI-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3): FEATURE_ICONS dict removed
+// (emoji ✓ 🌐 ⚠ ⚡ 🔒 сняты, чистая типографика, Фриде НЕ заказывать замену per анти-оверхед).
 
 const label = computed(() => resolveLocalized(framework.label, locale.value) ?? '')
 const title = computed(() => resolveLocalized(framework.title, locale.value) ?? '')
@@ -27,7 +21,6 @@ const title = computed(() => resolveLocalized(framework.title, locale.value) ?? 
 const capabilities = computed(() =>
   framework.features.map((feature) => ({
     id: feature.id,
-    icon: FEATURE_ICONS[feature.id] ?? '·',
     title: resolveLocalized(feature.title, locale.value) ?? '',
     text: resolveLocalized(feature.text, locale.value) ?? '',
   })),
@@ -40,7 +33,7 @@ const capabilities = computed(() =>
     <h2 class="section-title">{{ title }}</h2>
     <div class="capabilities-grid">
       <div v-for="cap in capabilities" :key="cap.id" class="capability">
-        <span class="capability-icon" aria-hidden="true">{{ cap.icon }}</span>
+        <!-- GLAV-2: capability-icon span removed per Iskra PAKET-GLAVNAYA S290-07 §3 -->
         <div class="capability-body">
           <h3>{{ cap.title }}</h3>
           <p>{{ cap.text }}</p>
@@ -64,25 +57,13 @@ const capabilities = computed(() =>
 }
 
 .capability {
-  display: flex;
-  gap: 1rem;
   padding: 1.25rem;
   background: var(--color-surface);
   border-radius: 10px;
 }
 
-.capability-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  background: var(--color-bg);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-}
+/* GLAV-2: .capability-icon CSS removed per Iskra PAKET-GLAVNAYA S290-07 §3 (emoji icons сняты).
+   .capability display:flex+gap removed (single-child layout не нужен flex). */
 
 .capability-body {
   min-width: 0;
