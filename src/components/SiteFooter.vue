@@ -43,6 +43,16 @@ const licenseLabel = computed(() => {
   if (l === 'pt') return 'Conteúdo'
   return 'Content'
 })
+
+// Ecosystem dropdown label (Batch D · ECOSYSTEM-NAV-1 · Iskra TIKET-06 §3).
+// Native <details> с open-upward CSS (Andrey requirement — не уходит за viewport bottom).
+const ecosystemLabel = computed(() => {
+  const l = locale.value
+  if (l === 'ru') return 'Наши проекты'
+  if (l === 'pt') return 'Nossos projetos'
+  if (l === 'de') return 'Unsere Projekte'
+  return 'Our projects'
+})
 </script>
 
 <template>
@@ -64,6 +74,21 @@ const licenseLabel = computed(() => {
           >{{ link.label }}</a>
         </template>
       </nav>
+      <details class="footer-ecosystem">
+        <summary class="footer-ecosystem-toggle">{{ ecosystemLabel }}</summary>
+        <ul class="footer-ecosystem-list">
+          <li><a href="https://books.folkup.life" target="_blank" rel="noopener noreferrer">Books</a></li>
+          <li><a href="https://declaration.folkup.app" target="_blank" rel="noopener noreferrer">Declaration</a></li>
+          <li><a href="https://padel.folkup.fit" target="_blank" rel="noopener noreferrer">Padel</a></li>
+          <li><a href="https://setubal.folkup.city" target="_blank" rel="noopener noreferrer">Setúbal</a></li>
+          <li><a href="https://cogumelos.folkup.fit" target="_blank" rel="noopener noreferrer">Cogumelos</a></li>
+          <li><a href="https://aquarium.folkup.city" target="_blank" rel="noopener noreferrer">Aquarium</a></li>
+          <li><a href="https://dialup.folkup.city" target="_blank" rel="noopener noreferrer">Dialup</a></li>
+          <li><a href="https://tarot.folkup.life" target="_blank" rel="noopener noreferrer">Tarot</a></li>
+          <li><a href="https://lucerna.folkup.app" target="_blank" rel="noopener noreferrer">Lucerna</a></li>
+          <li><a href="https://underground.folkup.life" target="_blank" rel="noopener noreferrer">Underground</a></li>
+        </ul>
+      </details>
       <div class="footer-social">
         <a href="https://t.me/+FKSLu1k3U5IyODZi" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
         <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
@@ -165,6 +190,84 @@ const licenseLabel = computed(() => {
 
 .footer-social a:hover {
   color: var(--color-bordo);
+}
+
+/* Ecosystem dropdown (Batch D · Iskra TIKET-06 §3).
+ * Native <details> с open-upward positioning per Andrey requirement — content
+ * поднимается вверх при клике, не уходит за viewport bottom. z-index >= 10
+ * поверх main content. max-height + overflow-y fallback для tall lists. */
+.footer-ecosystem {
+  position: relative;
+}
+
+.footer-ecosystem-toggle {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+  transition: color 0.15s ease;
+}
+
+.footer-ecosystem-toggle::-webkit-details-marker { display: none; }
+
+.footer-ecosystem-toggle::before {
+  content: '▴';
+  margin-right: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-bordo);
+  transition: transform 0.15s ease;
+}
+
+.footer-ecosystem[open] .footer-ecosystem-toggle::before {
+  content: '▾';
+}
+
+.footer-ecosystem-toggle:hover {
+  color: var(--color-bordo);
+}
+
+.footer-ecosystem-list {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0;
+  list-style: none;
+  min-width: 180px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+}
+
+.footer-ecosystem-list li {
+  margin: 0;
+}
+
+.footer-ecosystem-list a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.footer-ecosystem-list a:hover,
+.footer-ecosystem-list a:focus-visible {
+  background: var(--color-surface);
+  color: var(--color-bordo);
+  outline: none;
 }
 
 .footer-license {
