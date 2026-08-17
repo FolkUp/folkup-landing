@@ -200,7 +200,8 @@ export interface TrilogySection extends SectionBase {
   /**
    * Optional decorative plate carousel — chapter illustrations from AGIL.
    * Added 2026-06-10 per Андрей mandate: replace tarot tile с book plates,
-   * показывает Гутенберг book program live (sapiens.folkup.life).
+   * показывает Гутенберг book program live (books.folkup.life/kn1, canonical
+   * post-SAPIENS-SUNSET-1; sapiens.folkup.life → 301 redirect).
    */
   plates?: TrilogyPlate[]
 }
