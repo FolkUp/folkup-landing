@@ -26,7 +26,7 @@ import type { Page, LegalPageSection } from '../types'
 export const servicesPage: Page = {
   id: 'services',
   path: '/services',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Services — FolkUp',

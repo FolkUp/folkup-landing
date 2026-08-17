@@ -6,7 +6,7 @@ import type { Page } from '../types'
 export const methodPage: Page = {
   id: 'method',
   path: '/method',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Method',

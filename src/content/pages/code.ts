@@ -6,7 +6,7 @@ import type { Page } from '../types'
 export const codePage: Page = {
   id: 'code',
   path: '/code',
-  availableLangs: ['en', 'ru', 'pt'],
+  availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
       en: 'Open Code',

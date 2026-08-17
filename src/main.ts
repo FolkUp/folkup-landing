@@ -3,16 +3,16 @@ import type { RouteRecordRaw } from 'vue-router'
 import App from './App.vue'
 import './assets/main.css'
 
-const LANGS = ['en', 'ru', 'pt'] as const
+const LANGS = ['en', 'ru', 'pt', 'de'] as const
 
 const routes: RouteRecordRaw[] = [
-  { path: '/:lang(en|ru|pt)?', component: () => import('./pages/index.vue') },
-  { path: '/:lang(en|ru|pt)?/privacy', component: () => import('./pages/privacy.vue') },
-  { path: '/:lang(en|ru|pt)?/terms', component: () => import('./pages/terms.vue') },
-  { path: '/:lang(en|ru|pt)?/cookies', component: () => import('./pages/cookies.vue') },
-  { path: '/:lang(en|ru|pt)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
-  { path: '/:lang(en|ru|pt)?/projects', component: () => import('./pages/projects.vue') },
-  { path: '/:lang(en|ru|pt)?/services', component: () => import('./pages/services.vue') },
+  { path: '/:lang(en|ru|pt|de)?', component: () => import('./pages/index.vue') },
+  { path: '/:lang(en|ru|pt|de)?/privacy', component: () => import('./pages/privacy.vue') },
+  { path: '/:lang(en|ru|pt|de)?/terms', component: () => import('./pages/terms.vue') },
+  { path: '/:lang(en|ru|pt|de)?/cookies', component: () => import('./pages/cookies.vue') },
+  { path: '/:lang(en|ru|pt|de)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
+  { path: '/:lang(en|ru|pt|de)?/projects', component: () => import('./pages/projects.vue') },
+  { path: '/:lang(en|ru|pt|de)?/services', component: () => import('./pages/services.vue') },
   // 404 — locale-neutral. VPS nginx try_files fallback к /404.html
   // (prerendered from this route, served на any unmatched URL).
   { path: '/404', component: () => import('./pages/404.vue') },
@@ -28,9 +28,9 @@ export const createApp = ViteSSG(App, { routes })
  *
  * URL strategy (Q6 Honor URL — no auto-redirect):
  * - `/` serves EN as x-default
- * - `/ru`, `/pt` — explicit per-language landing
- * - `/en/privacy`, `/ru/privacy`, `/pt/privacy` — legal pages get explicit lang prefix
- *   (including `/en/...` so all three locales have parity for legal content)
+ * - `/ru`, `/pt`, `/de` — explicit per-language landing
+ * - `/en/privacy`, `/ru/privacy`, `/pt/privacy`, `/de/privacy` — legal pages get explicit lang prefix
+ *   (including `/en/...` so all four locales have parity for legal content)
  * - `/404` — locale-neutral 404 page; nginx try_files falls back to
  *   /404.html on any unmatched URL (folkup-infra nginx-folkup-landing.conf).
  *   Unprefixed legacy paths (/privacy etc.) 301 to /<lang>/... via the
@@ -39,13 +39,22 @@ export const createApp = ViteSSG(App, { routes })
  *   as documentation of the redirect map until LAND-021 cleanup.
  *
  * Generated routes:
- *   /  /ru  /pt
- *   /en/privacy  /ru/privacy  /pt/privacy
- *   /en/terms    /ru/terms    /pt/terms
- *   /en/cookies  /ru/cookies  /pt/cookies
- *   /en/about/ai-use  /ru/about/ai-use  /pt/about/ai-use
- *   /en/projects  /ru/projects  /pt/projects
+ *   /  /ru  /pt  /de
+ *   /en/privacy  /ru/privacy  /pt/privacy  /de/privacy
+ *   /en/terms    /ru/terms    /pt/terms    /de/terms
+ *   /en/cookies  /ru/cookies  /pt/cookies  /de/cookies
+ *   /en/about/ai-use  /ru/about/ai-use  /pt/about/ai-use  /de/about/ai-use
+ *   /en/projects  /ru/projects  /pt/projects  /de/projects
+ *   /en/services  /ru/services  /pt/services  /de/services
  *   /404
+ *
+ * DE activation notes (cont+9 2026-08-17):
+ * - UI shell strings from `de.json` (10 keys — Bolik Vier-Augen cont+10 PR #22) are live.
+ * - Content strings в `src/content/pages/*.ts` items (name/description/count/langs/category)
+ *   still use `{ en, ru, pt }` shape — DE reader sees native DE nav + EN content fallback
+ *   via `resolveLocalized(..., 'de')` → 'Hello' fallback pattern (types.ts JSDoc).
+ * - Bolik LAND-DE-EPIC-001 will incrementally add DE content strings без ломания.
+ * - Per Iskra Addendum-1 (S278-12): «UI на EN+DE+PT прежде книг». DE «живой» (de.json ready).
  *
  * Note: `/privacy`, `/terms`, `/cookies` (no lang prefix) remain reachable at runtime
  * via the optional `:lang?` param but are NOT prerendered — public/_redirects

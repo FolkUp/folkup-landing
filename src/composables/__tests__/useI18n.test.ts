@@ -27,7 +27,7 @@ describe('useI18n', () => {
     expect(i18n.tArray).toBeTypeOf('function')
     expect(i18n.rememberLocale).toBeTypeOf('function')
     expect(i18n.locale.value).toBeTypeOf('string')
-    expect(i18n.locales).toEqual(['en', 'ru', 'pt'])
+    expect(i18n.locales).toEqual(['en', 'ru', 'pt', 'de'])
   })
 
   it('defaults to en when route has no lang param (root `/` is x-default)', () => {
@@ -101,16 +101,26 @@ describe('useI18n', () => {
     expect(result).toEqual(['nonExistentKey'])
   })
 
-  it('all three locale files have the same keys', async () => {
+  it('locale reflects route.params.lang = de', () => {
+    mockRoute.params = { lang: 'de' }
+    const i18n = useI18n()
+    expect(i18n.locale.value).toBe('de')
+    expect(i18n.t('navProjects')).toBe('Projekte')
+  })
+
+  it('all four locale files have the same keys', async () => {
     const en = (await import('../../locales/en.json')).default
     const ru = (await import('../../locales/ru.json')).default
     const pt = (await import('../../locales/pt.json')).default
+    const de = (await import('../../locales/de.json')).default
 
     const enKeys = Object.keys(en).sort()
     const ruKeys = Object.keys(ru).sort()
     const ptKeys = Object.keys(pt).sort()
+    const deKeys = Object.keys(de).sort()
 
     expect(ruKeys).toEqual(enKeys)
     expect(ptKeys).toEqual(enKeys)
+    expect(deKeys).toEqual(enKeys)
   })
 })

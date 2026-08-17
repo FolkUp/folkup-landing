@@ -23,7 +23,7 @@ import { execSync } from 'node:child_process'
 
 const DIST = 'dist'
 const HOST = 'https://folkup.app'
-const LANGS = ['en', 'ru', 'pt']
+const LANGS = ['en', 'ru', 'pt', 'de']
 
 /**
  * URL spec for each prerendered page in the sitemap. Mirrors the route table
