@@ -16,11 +16,13 @@ export const termsPage: Page = {
       en: 'Terms of Use — FolkUp',
       ru: 'Условия использования — FolkUp',
       pt: 'Termos de Utilização — FolkUp',
+      de: 'Nutzungsbedingungen — FolkUp',
     },
     description: {
       en: 'FolkUp terms of use: acceptance, content disclaimer, intellectual property, user conduct, and contact.',
       ru: 'Условия использования FolkUp: принятие, отказ от ответственности за контент, интеллектуальная собственность, правила поведения и контакты.',
       pt: 'Termos de utilização da FolkUp: aceitação, isenção de responsabilidade do conteúdo, propriedade intelectual, conduta do utilizador e contacto.',
+      de: 'Nutzungsbedingungen von FolkUp: Annahme, Inhaltshaftungsausschluss, geistiges Eigentum, Nutzerverhalten und Kontakt.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/en/terms',

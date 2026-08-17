@@ -126,31 +126,37 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     en: 'Privacy Policy — FolkUp',
     ru: 'Политика конфиденциальности — FolkUp',
     pt: 'Política de Privacidade — FolkUp',
+    de: 'Datenschutzerklärung — FolkUp',
   },
   terms: {
     en: 'Terms — FolkUp',
     ru: 'Условия — FolkUp',
     pt: 'Termos — FolkUp',
+    de: 'Bedingungen — FolkUp',
   },
   cookies: {
     en: 'Cookies — FolkUp',
     ru: 'Cookie — FolkUp',
     pt: 'Cookies — FolkUp',
+    de: 'Cookies — FolkUp',
   },
   'ai-use': {
     en: 'AI use — FolkUp',
     ru: 'Использование AI — FolkUp',
     pt: 'Uso de IA — FolkUp',
+    de: 'KI-Nutzung — FolkUp',
   },
   projects: {
     en: 'Encyclopedias and one workshop — FolkUp',
     ru: 'Энциклопедии и одна мастерская — FolkUp',
     pt: 'Enciclopédias e uma oficina — FolkUp',
+    de: 'Enzyklopädien und eine Werkstatt — FolkUp',
   },
   services: {
     en: 'Services — FolkUp',
     ru: 'Услуги — FolkUp',
     pt: 'Serviços — FolkUp',
+    de: 'Leistungen — FolkUp',
   },
   unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp', de: 'FolkUp' },
 }
@@ -161,36 +167,43 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     en: 'FolkUp privacy policy: what data we collect (none personal), cookies (none), third parties (none), and your GDPR rights.',
     ru: 'Политика конфиденциальности FolkUp: какие данные мы собираем (никаких персональных), cookies (нет), третьи стороны (нет) и ваши права по GDPR.',
     pt: 'Política de privacidade da FolkUp: que dados recolhemos (nenhum pessoal), cookies (nenhum), terceiros (nenhum) e os seus direitos ao abrigo do RGPD.',
+    de: 'Datenschutzerklärung von FolkUp: Welche Daten wir erheben (keine personenbezogenen), Cookies (keine), Drittanbieter (keine) und Ihre DSGVO-Rechte.',
   },
   terms: {
     en: 'FolkUp terms of use: free encyclopedias, open content, no warranties, no liability beyond Portuguese law minima.',
     ru: 'Условия использования FolkUp: бесплатные энциклопедии, открытый контент, без гарантий, ответственность в рамках португальского права.',
     pt: 'Termos de utilização da FolkUp: enciclopédias gratuitas, conteúdo aberto, sem garantias, responsabilidade no mínimo legal português.',
+    de: 'FolkUp-Nutzungsbedingungen: kostenlose Enzyklopädien, offene Inhalte, keine Garantien, Haftung nur im Rahmen portugiesischen Rechts.',
   },
   cookies: {
     en: 'FolkUp cookie policy: no cookies set by us. Third-party fonts and analytics opt-in only.',
     ru: 'Cookie-политика FolkUp: мы не устанавливаем cookies. Сторонние шрифты и аналитика только по согласию.',
     pt: 'Política de cookies da FolkUp: não definimos cookies. Fontes de terceiros e analytics apenas com consentimento.',
+    de: 'Cookie-Richtlinie von FolkUp: Wir setzen keine Cookies. Drittanbieter-Schriften und Analytics nur mit Einwilligung.',
   },
   'ai-use': {
     en: 'How FolkUp uses AI: AI-assisted production by a single human, all content human-reviewed before publication. No AI system interacts with you on these pages.',
     ru: 'Как FolkUp использует AI: производство с помощью AI одним человеком, весь контент проверяется человеком перед публикацией. Ни одна AI-система не общается с вами на этих страницах.',
     pt: 'Como a FolkUp usa IA: produção assistida por IA por uma única pessoa, todo o conteúdo é revisto por humano antes da publicação. Nenhum sistema de IA interage consigo nestas páginas.',
+    de: 'Wie FolkUp KI einsetzt: KI-unterstützte Produktion durch einen einzelnen Menschen, jeder Inhalt vor der Veröffentlichung menschlich geprüft. Kein KI-System interagiert mit Ihnen auf diesen Seiten.',
   },
   projects: {
     en: 'Three encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
     ru: 'Три энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
     pt: 'Três enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
+    de: 'Drei Enzyklopädien sind heute offen — Setúbal, Padel, Cogumelos. Weitere kommen. Eine Werkstatt, kostenlos, signiert, unsere.',
   },
   services: {
     en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. Russian version ready, English translation in progress.',
     ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
     pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Versão em russo disponível, tradução em português em curso.',
+    de: 'Sieben Richtungen, alle auf langen Fristen. Übersetzungen, OSINT, lange Essays, Enzyklopädien, Illustration, Websites. Russische Version fertig, englische Übersetzung in Arbeit.',
   },
   unknown: {
     en: 'FolkUp — knowledge tools for real communities.',
     ru: 'FolkUp — инструменты знаний для живых сообществ.',
     pt: 'FolkUp — ferramentas de conhecimento para comunidades reais.',
+    de: 'FolkUp — Werkzeuge des Wissens für lebendige Gemeinschaften.',
   },
 }
 
