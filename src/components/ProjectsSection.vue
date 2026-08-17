@@ -34,6 +34,7 @@ const projects = computed(() =>
     key: item.key,
     name: resolveLocalized(item.name, locale.value) ?? '',
     icon: item.icon,
+    hero: item.hero,
     count: resolveLocalized(item.count, locale.value) ?? '',
     description: resolveLocalized(item.description, locale.value) ?? '',
     url: item.url,
@@ -55,6 +56,7 @@ const projects = computed(() =>
         :key="p.key"
         :name="p.name"
         :icon="p.icon"
+        :hero="p.hero"
         :count="p.count"
         :description="p.description"
         :url="p.url"
