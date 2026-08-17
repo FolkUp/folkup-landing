@@ -127,6 +127,13 @@ export interface ProjectCard {
   icon: string
   /** CSS custom property accent for the card. */
   accent: string
+  /**
+   * Optional hero-plate under /public/images/encyclopedia-heroes/.
+   * When present, card renders in richer top-image variant (icon hidden).
+   * Absence = legacy icon-left layout preserved (books section keeps 72px cover icons).
+   * Added cont+8 S1IMG (A6 Frida hero-plates integration).
+   */
+  hero?: string
 }
 
 export interface Feature {
@@ -189,6 +196,37 @@ export interface TrilogyPlate {
   src: string
   /** Localised caption ("Act I" / "Глава 1" / etc) — purely informational, alt text. */
   caption: LocalizedString
+}
+
+/**
+ * Frida-fornit trilogy visual identity glyph.
+ * Distinct from TrilogyPlate (chapter illustrations) and TrilogyBook (books data).
+ * Represents one of three FolkUp methodology archetypes: AGIL / CWV / COS.
+ * Added cont+8 S1IMG (A5 Batch C Frida glyphs integration).
+ */
+export interface TrilogyVisualItem {
+  /** Stable key matching projects-registry codes (agil/cwv/cos). */
+  key: string
+  /** Path to glyph webp under /public/images/trilogy/. */
+  glyph: string
+  /** Localised short label displayed under glyph (e.g. "By Our Own Means" / "Своими силами"). */
+  label: LocalizedString
+  /** Localised methodology descriptor (2-4 words) — brand identity subtitle. */
+  caption: LocalizedString
+}
+
+/**
+ * Trilogy visual identity block — 3 Frida glyphs (AGIL / CWV / COS) as brand marks.
+ * Non-clickable, no CTA (per Андрей cont +36 mandate 2026-06-22 «книжные ссылки убираем»).
+ * Purely visual identity anchor — books текст remains in `type: 'projects'` id='books' section.
+ * Added cont+8 S1IMG (Q5 wire-strategy a3 — new dedicated section per Andrey verdict).
+ */
+export interface TrilogyVisualSection extends SectionBase {
+  type: 'trilogy-visual'
+  schemaType: 'none'
+  label: LocalizedString
+  title: LocalizedString
+  items: TrilogyVisualItem[]
 }
 
 export interface TrilogySection extends SectionBase {
@@ -312,6 +350,7 @@ export type Section =
   | HeroSection
   | MissionSection
   | TrilogySection
+  | TrilogyVisualSection
   | DeclHeroSection
   | ProjectsSection
   | ProLabSection

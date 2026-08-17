@@ -7,6 +7,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import MissionSection from '@/components/MissionSection.vue'
 import DeclHeroSection from '@/components/DeclHeroSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
+import TrilogyVisualSection from '@/components/TrilogyVisualSection.vue'
 import ProLabSection from '@/components/ProLabSection.vue'
 import FrameworkSection from '@/components/FrameworkSection.vue'
 import TeamSection from '@/components/TeamSection.vue'
@@ -26,6 +27,7 @@ useFadeIn()
       <HeroSection />
     </div>
     <ProjectsSection section-id="books" />
+    <TrilogyVisualSection />
     <MissionSection />
     <DeclHeroSection />
     <ProjectsSection section-id="projects" />

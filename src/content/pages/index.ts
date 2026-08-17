@@ -158,6 +158,73 @@ export const homePage: Page = {
       ],
     },
 
+    // ---------------------------------------------------- TRILOGY VISUAL BLOCK
+    // Cont+8 S1IMG (Q5 wire-strategy a3 per Andrey verdict 2026-08-17): Frida
+    // trilogy glyphs (AGIL / CWV / COS) как visual identity block. Distinct
+    // от prior TrilogySection.vue (orphan since 2026-06-22 «книжные ссылки
+    // убираем» mandate) — this section has NO CTA, no book links, purely
+    // brand visual anchor. Books text remains в 'books' section выше.
+    // Assets shipped cont+7 A5 5df0198 к /public/images/trilogy/glyph-*.webp.
+    {
+      id: 'trilogy-visual',
+      type: 'trilogy-visual',
+      schemaType: 'none',
+      label: {
+        en: 'Trilogy',
+        ru: 'Трилогия',
+        pt: 'Trilogia',
+      },
+      title: {
+        en: 'Three ways of working, one workshop',
+        ru: 'Три способа работы, одна мастерская',
+        pt: 'Três formas de trabalhar, uma oficina',
+      },
+      items: [
+        {
+          key: 'agil',
+          glyph: '/images/trilogy/glyph-agil.webp',
+          label: {
+            en: 'By Our Own Means',
+            ru: 'Своими силами',
+            pt: 'Pelos Nossos Meios',
+          },
+          caption: {
+            en: 'Seeing the work, designing better, giving birth to what was not there',
+            ru: 'Видеть работу, проектировать лучше, рождать то, чего не было',
+            pt: 'Ver o trabalho, desenhar melhor, dar à luz o que não existia',
+          },
+        },
+        {
+          key: 'cwv',
+          glyph: '/images/trilogy/glyph-cwv.webp',
+          label: {
+            en: 'Firsthand',
+            ru: 'Из первых рук',
+            pt: 'Em Primeira Mão',
+          },
+          caption: {
+            en: 'Past the gatekeepers, through the intermediaries — verify what arrived',
+            ru: 'Сквозь стражей, через посредников — проверять, что дошло',
+            pt: 'Passar os guardiões, atravessar os intermediários — verificar o que chegou',
+          },
+        },
+        {
+          key: 'cos',
+          glyph: '/images/trilogy/glyph-cos.webp',
+          label: {
+            en: 'Common Ground',
+            ru: 'Общий язык',
+            pt: 'Linguagem Comum',
+          },
+          caption: {
+            en: 'Break through the noise — the orchestra plays, but only a knock comes out',
+            ru: 'Пробиваться через шум — в голове оркестр, наружу — стук',
+            pt: 'Atravessar o ruído — dentro toca a orquestra, mas só sai uma batida',
+          },
+        },
+      ],
+    },
+
     // -------------------------------------------------------------- MISSION
     // GLAVNAYA v1.1 FINAL-VIZA S238 §4 «Mission → «Как это делается» (заменяет
     // Mission)». Auto-clears 3 canon flags: Barnes/London/Fonar references
@@ -271,6 +338,7 @@ export const homePage: Page = {
           category: { en: 'Sport', ru: 'Спорт', pt: 'Desporto' },
           url: PROJECT_URLS.padel,
           icon: '/images/project-icons/padel.webp',
+          hero: '/images/encyclopedia-heroes/hero-padel.webp',
           accent: 'var(--color-accent-padel)',
         },
         {
@@ -286,6 +354,7 @@ export const homePage: Page = {
           category: { en: 'City', ru: 'Город', pt: 'Cidade' },
           url: PROJECT_URLS.setubal,
           icon: '/images/project-icons/setubal.webp',
+          hero: '/images/encyclopedia-heroes/hero-setubal.webp',
           accent: 'var(--color-accent-setubal)',
         },
         {
@@ -301,6 +370,7 @@ export const homePage: Page = {
           category: { en: 'Nature', ru: 'Природа', pt: 'Natureza' },
           url: PROJECT_URLS.cogumelos,
           icon: '/images/project-icons/cogumelos.webp',
+          hero: '/images/encyclopedia-heroes/hero-cogumelos.webp',
           accent: 'var(--color-accent-cogumelos)',
         },
         // Tarot project tile removed 2026-06-10 per Андрей mandate.

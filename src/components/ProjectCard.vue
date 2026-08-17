@@ -8,12 +8,21 @@ defineProps<{
   accent: string
   langs?: string
   category?: string
+  /**
+   * Optional hero-plate path. When present, card renders в richer top-image variant
+   * (icon hidden; hero fills full card width above text). Absence = legacy icon-left
+   * layout preserved (books section keeps 72px cover icons). Added cont+8 S1IMG.
+   */
+  hero?: string
 }>()
 </script>
 
 <template>
-  <a :href="url" class="project-card" target="_blank" rel="noopener noreferrer">
-    <div class="card-icon">
+  <a :href="url" class="project-card" :class="{ 'project-card--hero': !!hero }" target="_blank" rel="noopener noreferrer">
+    <div v-if="hero" class="card-hero">
+      <img :src="hero" :alt="name" loading="lazy" decoding="async">
+    </div>
+    <div v-if="!hero" class="card-icon">
       <img :src="icon" :alt="name" width="72" height="72" loading="lazy">
     </div>
     <div class="card-body">
@@ -45,6 +54,17 @@ defineProps<{
   overflow: hidden;
 }
 
+/* Hero variant — top-image full-width, text below. */
+.project-card--hero {
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+}
+
+.project-card--hero .card-body {
+  padding: 1.25rem;
+}
+
 .project-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px var(--color-shadow);
@@ -59,6 +79,22 @@ defineProps<{
 }
 
 .card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-hero {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-bg);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-hero img {
   display: block;
   width: 100%;
   height: 100%;
