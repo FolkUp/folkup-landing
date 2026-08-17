@@ -20,6 +20,11 @@ const MEMBER_AVATARS: Record<string, string> = {
   cooper: '/images/team/cooper.webp',
   lantern: '/images/team/lantern.webp',
   lev: '/images/team/lev.webp',
+  iskra: '/images/team/iskra.webp',
+  frida: '/images/team/frida.webp',
+  lyolik: '/images/team/lyolik.webp',
+  bolik: '/images/team/bolik.webp',
+  zeka: '/images/team/zeka.webp',
 }
 
 const label = computed(() => resolveLocalized(team.label, locale.value) ?? '')
