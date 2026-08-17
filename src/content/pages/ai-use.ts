@@ -22,11 +22,13 @@ export const aiUsePage: Page = {
       en: 'AI use — FolkUp',
       ru: 'Использование AI — FolkUp',
       pt: 'Uso de IA — FolkUp',
+      de: 'KI-Nutzung — FolkUp',
     },
     description: {
       en: 'How FolkUp uses AI: AI-assisted production by a single human, all content human-reviewed before publication. No AI system interacts with you on these pages.',
       ru: 'Как FolkUp использует AI: производство с помощью AI одним человеком, весь контент проверяется человеком перед публикацией. Ни одна AI-система не общается с вами на этих страницах.',
       pt: 'Como a FolkUp usa IA: produção assistida por IA por uma única pessoa, todo o conteúdo é revisto por humano antes da publicação. Nenhum sistema de IA interage consigo nestas páginas.',
+      de: 'Wie FolkUp KI einsetzt: KI-unterstützte Produktion durch einen einzelnen Menschen, jeder Inhalt vor der Veröffentlichung menschlich geprüft. Kein KI-System interagiert mit Ihnen auf diesen Seiten.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/en/about/ai-use',

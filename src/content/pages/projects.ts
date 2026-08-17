@@ -28,11 +28,13 @@ export const projectsPage: Page = {
       en: 'Encyclopedias and one workshop — FolkUp',
       ru: 'Энциклопедии и одна мастерская — FolkUp',
       pt: 'Enciclopédias e uma oficina — FolkUp',
+      de: 'Enzyklopädien und eine Werkstatt — FolkUp',
     },
     description: {
       en: 'Three encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
       ru: 'Три энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
       pt: 'Três enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
+      de: 'Drei Enzyklopädien sind heute offen — Setúbal, Padel, Cogumelos. Weitere kommen. Eine Werkstatt, kostenlos, signiert, unsere.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/projects',

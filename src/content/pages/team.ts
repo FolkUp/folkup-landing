@@ -12,11 +12,13 @@ export const teamPage: Page = {
       en: 'Team',
       ru: 'Команда',
       pt: 'Equipa',
+      de: 'Team',
     },
     description: {
       en: 'The fornits who keep the FolkUp light on — researchers, verifiers, security, brand, legal.',
       ru: 'Форниты, которые держат свет FolkUp — ресёрчеры, верификаторы, безопасность, бренд, legal.',
       pt: 'Os fornits que mantêm a luz FolkUp acesa — investigadores, verificadores, segurança, marca, legal.',
+      de: 'Die Forniten, die das FolkUp-Licht am Brennen halten — Rechercheure, Verifikatoren, Sicherheit, Marke, Recht.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/team',

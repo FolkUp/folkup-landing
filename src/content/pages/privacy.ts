@@ -19,11 +19,13 @@ export const privacyPage: Page = {
       en: 'Privacy Policy — FolkUp',
       ru: 'Политика конфиденциальности — FolkUp',
       pt: 'Política de Privacidade — FolkUp',
+      de: 'Datenschutzerklärung — FolkUp',
     },
     description: {
       en: 'FolkUp privacy policy: what data we collect (none personal), cookies (none), third parties (none), and your GDPR rights.',
       ru: 'Политика конфиденциальности FolkUp: какие данные мы собираем (никаких персональных), cookies (нет), третьи стороны (нет) и ваши права по GDPR.',
       pt: 'Política de privacidade da FolkUp: que dados recolhemos (nenhum pessoal), cookies (nenhum), terceiros (nenhum) e os seus direitos ao abrigo do RGPD.',
+      de: 'Datenschutzerklärung von FolkUp: Welche Daten wir erheben (keine personenbezogenen), Cookies (keine), Drittanbieter (keine) und Ihre DSGVO-Rechte.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/en/privacy',

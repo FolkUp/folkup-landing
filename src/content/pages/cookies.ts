@@ -20,11 +20,13 @@ export const cookiesPage: Page = {
       en: 'Cookie Policy — FolkUp',
       ru: 'Политика в отношении cookie — FolkUp',
       pt: 'Política de Cookies — FolkUp',
+      de: 'Cookie-Richtlinie — FolkUp',
     },
     description: {
       en: 'FolkUp cookie policy: we use zero cookies — no tracking, no advertising, no analytics cookies. Only one localStorage entry for language preference.',
       ru: 'Политика FolkUp в отношении cookie: мы не используем cookie — ни для отслеживания, ни для рекламы, ни для аналитики. Только одна запись в localStorage для языковых настроек.',
       pt: 'Política de cookies da FolkUp: não utilizamos cookies — nem para rastreio, nem para publicidade, nem para análise. Apenas uma entrada em localStorage para a preferência de idioma.',
+      de: 'Cookie-Richtlinie von FolkUp: Wir verwenden keine Cookies — kein Tracking, keine Werbung, keine Analyse-Cookies. Nur ein einziger localStorage-Eintrag für die Spracheinstellung.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/en/cookies',
