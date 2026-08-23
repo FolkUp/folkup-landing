@@ -129,7 +129,9 @@ export const homePage: Page = {
         {
           key: 'trilogy-own-means',
           name: { en: 'By Our Own Means', ru: 'Своими силами', pt: 'Pelos Nossos Meios' },
-          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          // Cont+2 badge cleanup (Andrey verdict item #5 2026-08-23):
+          // kn1 = LIVE (Iskra S284 v1.0.22 shipped, chapters readable). Badge «Читать →» signals CTA.
+          count: { en: 'Read →', ru: 'Читать →', pt: 'Ler →', de: 'Lesen →' },
           description: {
             en: 'How a team does its work: learns to see itself, designs something better, and brings into being what was not there before. Verne, Shelley, Holmes and Borges diagnose management long before the consultants.',
             ru: 'Как команда делает своё дело: учится видеть себя, придумывает лучшее устройство и рождает то, чего раньше не было. Верн, Шелли, Холмс и Борхес ставят управленческие диагнозы задолго до консультантов.',
@@ -137,14 +139,22 @@ export const homePage: Page = {
           },
           langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
-          url: 'https://books.folkup.life/#trilogy-svoimi_silami-heading',
+          // Cont+2 URL upgrade (Andrey verdict item #5 2026-08-23):
+          // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
+          // Prior anchor `#trilogy-svoimi_silami-heading` scrolled to portal heading;
+          // «Читать →» badge implies CTA — direct chapter reader matches user intent.
+          url: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
           icon: 'https://books.folkup.life/covers/cover_kn1.svg',
           accent: 'var(--color-accent-padel)',
         },
         {
           key: 'trilogy-firsthand',
           name: { en: 'Firsthand', ru: 'Из первых рук', pt: 'Em Primeira Mão' },
-          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          // Cont+2 badge fix (Andrey verdict item #5 2026-08-23):
+          // kn2 = NOT open (drafting phase, concept links to portal general page).
+          // Prior «trilogy, open now»/«трилогия, открыта» was factually incorrect
+          // (kn1 open, kn2/kn3 в работе).
+          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
           description: {
             en: 'How knowledge reaches us: past those who locked it up, through those who stand in the middle — and how to check that what arrived is what was sent.',
             ru: 'Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто стоит посредине, — и как проверить, что донесли именно то.',
@@ -159,7 +169,10 @@ export const homePage: Page = {
         {
           key: 'trilogy-common-ground',
           name: { en: 'Common Ground', ru: 'Общий язык', pt: 'Linguagem Comum' },
-          count: { en: 'in the workshop', ru: 'готовится', pt: 'na oficina' },
+          // Cont+2 badge unified (Andrey verdict item #5 2026-08-23):
+          // kn3 = NOT open. Unified label с kn2 для consistency («В работе» singular).
+          // Prior «готовится» → «В работе» (aligned с kn2 pattern).
+          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
           description: {
             en: 'Why agreeing is harder than it looks — an orchestra plays inside the head, but what comes out is a knock. On the barriers to understanding and how to break through them.',
             ru: 'Почему договориться труднее, чем кажется: в голове играет оркестр — наружу выходит стук. О барьерах понимания и о том, как через них пробиваться.',
@@ -209,9 +222,14 @@ export const homePage: Page = {
       // «buy us a coffee» / «поддержать нас чашкой кофе» → hyperlink к https://ko-fi.com/folkup
       // (target _blank rel noopener). Схема sameAs первоисточник (schema.ts + App.vue).
       // PT text preserved pending Quatro Olhos (не мой scope, второй PR каскад).
+      // Cont+2 «раньше красивых слов» → «перед оформлением» (Andrey verdict item #6):
+      // Removes metaphor-возвышенность («красивые слова» — vague) в favor of nachlaß
+      // technical phrasing «перед оформлением» (warnings come before pretty formatting).
+      // Matches broader landing-refresh mandate: less метafor, more по делу.
+      // EN/PT/DE cascaded (Lyolik/Zeka/Bolik Vier-Augen retro-review pending).
       text: {
-        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before pretty words.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
-        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят раньше красивых слов.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
+        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before formatting.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
+        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят перед оформлением.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
         pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
       principles: [],
