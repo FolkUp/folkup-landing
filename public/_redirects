@@ -24,3 +24,4 @@
 # No-locale main routes (LAND-CARRY-01 cont +47) — SEO fix per Дьюи flag
 /services  /en/services  301
 /projects  /en/projects  301
+/team      /en/team      301
