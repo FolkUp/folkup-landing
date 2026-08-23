@@ -28,6 +28,7 @@ export const homePage: Page = {
       en: 'FolkUp — knowledge tools for real communities',
       ru: 'FolkUp — инструменты знаний для живых сообществ',
       pt: 'FolkUp — ferramentas de conhecimento para comunidades reais',
+      de: 'FolkUp — Werkzeuge des Wissens für lebendige Gemeinschaften',
     },
     // Phase-4-P1 concept v1 restoration: «one approach» no longer covers
     // the scope after Trilogy + Pro Lab were added (3 distinct product lines).
@@ -38,6 +39,7 @@ export const homePage: Page = {
       en: 'A workshop making encyclopedias and investigations. Free, verified, multilingual. One person and a team of AI workers.',
       ru: 'Мастерская, где делают энциклопедии и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
       pt: 'Uma oficina que faz enciclopédias e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
+      de: 'Eine Werkstatt, die Enzyklopädien und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',

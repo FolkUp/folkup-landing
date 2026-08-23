@@ -32,11 +32,13 @@ export const servicesPage: Page = {
       en: 'Services — FolkUp',
       ru: 'Услуги — FolkUp',
       pt: 'Serviços — FolkUp',
+      de: 'Leistungen — FolkUp',
     },
     description: {
       en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI fornits.',
       ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
       pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de fornits de IA.',
+      de: 'Sieben Richtungen, alle auf langen Fristen. Übersetzungen, OSINT, lange Essays, Enzyklopädien, Illustration, Websites. Ohne Preise, nach vorherigem Gespräch. Geschrieben von einem Autor und einem Team von KI-Forniten.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/services',
