@@ -7,7 +7,9 @@ import HeroSection from '@/components/HeroSection.vue'
 import MissionSection from '@/components/MissionSection.vue'
 import DeclHeroSection from '@/components/DeclHeroSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
-import TrilogyVisualSection from '@/components/TrilogyVisualSection.vue'
+// TrilogyVisualSection removed cont+2 per Andrey verdict item #4 «Три способа работы» section
+// deletion (dublicate content с books section выше). Component file kept on disk
+// (per canonical anti-fragility pattern) — no longer imported или rendered.
 import ProLabSection from '@/components/ProLabSection.vue'
 import FrameworkSection from '@/components/FrameworkSection.vue'
 import TeamSection from '@/components/TeamSection.vue'
@@ -27,7 +29,6 @@ useFadeIn()
       <HeroSection />
     </div>
     <ProjectsSection section-id="books" />
-    <TrilogyVisualSection />
     <MissionSection />
     <DeclHeroSection />
     <ProjectsSection section-id="projects" />

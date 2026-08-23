@@ -174,72 +174,13 @@ export const homePage: Page = {
       ],
     },
 
-    // ---------------------------------------------------- TRILOGY VISUAL BLOCK
-    // Cont+8 S1IMG (Q5 wire-strategy a3 per Andrey verdict 2026-08-17): Frida
-    // trilogy glyphs (AGIL / CWV / COS) как visual identity block. Distinct
-    // от prior TrilogySection.vue (orphan since 2026-06-22 «книжные ссылки
-    // убираем» mandate) — this section has NO CTA, no book links, purely
-    // brand visual anchor. Books text remains в 'books' section выше.
-    // Assets shipped cont+7 A5 5df0198 к /public/images/trilogy/glyph-*.webp.
-    {
-      id: 'trilogy-visual',
-      type: 'trilogy-visual',
-      schemaType: 'none',
-      label: {
-        en: 'Trilogy',
-        ru: 'Трилогия',
-        pt: 'Trilogia',
-      },
-      title: {
-        en: 'Three ways of working, one workshop',
-        ru: 'Три способа работы, одна мастерская',
-        pt: 'Três formas de trabalhar, uma oficina',
-      },
-      items: [
-        {
-          key: 'agil',
-          glyph: '/images/trilogy/glyph-agil.webp',
-          label: {
-            en: 'By Our Own Means',
-            ru: 'Своими силами',
-            pt: 'Pelos Nossos Meios',
-          },
-          caption: {
-            en: 'Seeing the work, designing better, giving birth to what was not there',
-            ru: 'Видеть работу, проектировать лучше, рождать то, чего не было',
-            pt: 'Ver o trabalho, desenhar melhor, dar à luz o que não existia',
-          },
-        },
-        {
-          key: 'cwv',
-          glyph: '/images/trilogy/glyph-cwv.webp',
-          label: {
-            en: 'Firsthand',
-            ru: 'Из первых рук',
-            pt: 'Em Primeira Mão',
-          },
-          caption: {
-            en: 'Past the gatekeepers, through the intermediaries — verify what arrived',
-            ru: 'Сквозь стражей, через посредников — проверять, что дошло',
-            pt: 'Passar os guardiões, atravessar os intermediários — verificar o que chegou',
-          },
-        },
-        {
-          key: 'cos',
-          glyph: '/images/trilogy/glyph-cos.webp',
-          label: {
-            en: 'Common Ground',
-            ru: 'Общий язык',
-            pt: 'Linguagem Comum',
-          },
-          caption: {
-            en: 'Break through the noise — the orchestra plays, but only a knock comes out',
-            ru: 'Пробиваться через шум — в голове оркестр, наружу — стук',
-            pt: 'Atravessar o ruído — dentro toca a orquestra, mas só sai uma batida',
-          },
-        },
-      ],
-    },
+    // trilogy-visual section removed cont+2 per Andrey verdict item #4 (2026-08-23):
+    // «УДАЛИТЬ секцию целиком — она дублирует основную трилогию блок выше»
+    // (books section already carries trilogy titles + descriptions).
+    // Section data preserved в git history (commit `21cc1cc` or earlier) for
+    // potential restoration. TrilogyVisualSection interface/type kept in types.ts,
+    // component file kept on disk (canonical anti-fragility pattern).
+    // Trilogy glyphs assets (/public/images/trilogy/glyph-*.webp) preserved.
 
     // -------------------------------------------------------------- MISSION
     // GLAVNAYA v1.1 FINAL-VIZA S238 §4 «Mission → «Как это делается» (заменяет
@@ -330,10 +271,17 @@ export const homePage: Page = {
         ru: 'Экосистема',
         pt: 'Ecossistema',
       },
+      // Cont+2 Andrey verdict item #3 (2026-08-23 landing refresh):
+      // Rename to no-numbers title per «мы нигде не указываем точного количества».
+      // Prior title «Три энциклопедии открыты сейчас — список растёт» hard-coded «3»
+      // — actually 6 encyclopedias LIVE (Setúbal + Padel + Cogumelos promoted; Tarot +
+      // Aquarium + Dial-up in background per Andrey «эти три активные, остальные не
+      // рекламируем»). No-numbers title = zero drift when promotion set changes.
       title: {
-        en: 'Three encyclopedias open today — the list keeps growing',
-        ru: 'Три энциклопедии открыты сейчас — список растёт',
-        pt: 'Três enciclopédias abertas hoje — a lista continua a crescer',
+        en: 'Our open encyclopedias',
+        ru: 'Наши открытые энциклопедии',
+        pt: 'As nossas enciclopédias abertas',
+        de: 'Unsere offenen Enzyklopädien',
       },
       subtitle: {
         en: "A few more are being built, and the queue ahead is long. Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. Have a project of your own? Reach us at the contacts below.",
