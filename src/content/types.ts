@@ -168,6 +168,13 @@ export interface HeroSection extends SectionBase {
   /** Brand mark — intentionally not localised. */
   title: string
   subtitle: LocalizedString
+  /**
+   * Short italic sub-line rendered between subtitle and tagline.
+   * Added cont+2 S8SCOOP (Hero F variant «short philosophy»): 3 punchy adjectives
+   * («Open. Verified. Multilingual.») anchor factual value under philosophy subtitle.
+   * Optional — legacy Hero без subline still type-checks (Vue conditional render).
+   */
+  subline?: LocalizedString
   tagline: LocalizedString
   ctaPrimary: LocalizedString
   ctaSecondary: LocalizedString

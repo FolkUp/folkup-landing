@@ -57,17 +57,33 @@ export const homePage: Page = {
       // PT-EU sub-session (cont+36 B-PT-dispatch), Iskra deploy blocker enforces
       // 3-locale sync ship. subtitle=canonical bold headline, tagline=body
       // paragraph (semantic shift; HeroSection.vue CSS adjusted for body render).
+      // Hero F variant (Andrey cont+2 verdict 2026-08-23 via zerkalce v2):
+      // Short philosophy + factual subline + concise body paragraph.
+      // Supersedes prior «Знание огородили» hero (S238 FINAL-VIZA) per Andrey
+      // carte-blanche landing refresh + no-numbers rule («мы нигде не указываем
+      // точного количества наших продуктов»). Preserves мастерская/форниты identity,
+      // removes «Дверь открыта — заходите» clichet (V4=б), replaces «на трёх языках»
+      // с «многоязычно» (А2=б), сохраняет «один человек» как personal identity (А1=а).
+      // NO CTA (respects Iskra PAKET-GLAVNAYA S290-07 §3 — CTA removal preserved).
+      // POMETKA к Iskra post-ship for editorial Vier-Augen retro-review (RU canonical
+      // = Andrey approval; EN/PT/DE best-effort awaiting Lyolik/Zeka/Bolik cascade).
       subtitle: {
-        en: 'They fenced the knowledge in. We build without fences.',
-        ru: 'Знание огородили. Мы строим без забора.',
-        pt: 'Cercaram o saber. Nós construímos sem cercas.',
+        en: 'Knowledge you can actually read.',
+        ru: 'Знание, которое можно читать.',
+        pt: 'Conhecimento que se pode ler.',
+        de: 'Wissen, das man wirklich lesen kann.',
       },
-      // GLAV-8 (Iskra PAKET-GLAVNAYA S290-07 §3): «AI helpers/ИИ-помощников» → «AI fornits/AI-форнитов»
-      // (терминология-унификация; team-секция даёт пояснение). PT already «fornits de IA».
+      subline: {
+        en: 'Open. Verified. Multilingual.',
+        ru: 'Открытое. Проверенное. Многоязычное.',
+        pt: 'Aberto. Verificado. Multilingue.',
+        de: 'Offen. Geprüft. Mehrsprachig.',
+      },
       tagline: {
-        en: 'FolkUp is a small workshop. One person, a team of AI fornits — each with a name, a character, a job: research, verification, law, security, light. We write what we ourselves believe in: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
-        ru: 'FolkUp — маленькая мастерская. Один человек, команда AI-форнитов — у каждого имя, характер и своя работа: поиск, проверка, право, охрана, свет. Мы пишем то, во что верим сами: книги, энциклопедии, расследования. Каждый факт сверяем с источниками, каждый текст подписываем — видно, кто писал, кто проверял, кто редактировал. А потом отдаём. Целиком, бесплатно, без «зарегистрируйтесь, чтобы дочитать». Дверь открыта — заходите.',
-        pt: 'Textos longos. Uma pessoa, uma equipa de fornits de IA.',
+        en: 'FolkUp is a small workshop — one person and a team of AI fornits. We make encyclopedias, a book series, and slow investigations. Every fact by source, every text signed. Freely, without registration, without ads.',
+        ru: 'FolkUp — маленькая мастерская: один человек и команда AI-форнитов. Мы делаем энциклопедии, книжную серию и медленные расследования. Каждый факт — по источникам, каждый текст — с подписью. Свободно, без регистрации, без рекламы.',
+        pt: 'FolkUp é uma pequena oficina — uma pessoa e uma equipa de fornits de IA. Fazemos enciclopédias, uma série de livros e investigações lentas. Cada facto por fontes, cada texto assinado. Livre, sem registo, sem publicidade.',
+        de: 'FolkUp ist eine kleine Werkstatt — eine Person und ein Team von KI-Fornits. Wir machen Enzyklopädien, eine Buchreihe und langsame Recherchen. Jeder Fakt durch Quellen, jeder Text signiert. Frei, ohne Registrierung, ohne Werbung.',
       },
       // GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
       // hero-actions block снят целиком (#books якорь дублирует первый скролл, текстовый финал hero
