@@ -87,6 +87,7 @@ function closeNav() {
       >
         <a href="https://books.folkup.life" @click="closeNav">{{ t('navBooks') }}</a>
         <a :href="navAnchor('#projects')" @click="closeNav">{{ t('navProjects') }}</a>
+        <a href="https://declaration.folkup.app" @click="closeNav">{{ t('navDeclaration') }}</a>
         <a :href="teamUrl" @click="closeNav">{{ t('navTeam') }}</a>
       </nav>
       <SettingsPanel />

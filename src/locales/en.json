@@ -1,6 +1,7 @@
 {
   "navBooks": "Books",
   "navProjects": "Projects",
+  "navDeclaration": "Declaration",
   "navTeam": "Team",
   "settingsTitle": "Language and appearance",
   "settingsLang": "Language",
@@ -9,7 +10,7 @@
   "themeSteampunk": "Steampunk",
   "themeBwLight": "Black and white — light",
   "themeBwDark": "Black and white — dark",
-  "teamViewAll": "View all 10 →",
+  "teamViewAll": "View all →",
   "teamPageTitle": "Under the lantern",
   "teamPageIntro": "FolkUp is one person and a team of AI fornits — Stephen King's name for spirit-helpers who live in writers' typewriters. Every text is human-reviewed before publication; no AI system talks to you on these pages.",
   "teamPageAiLinkLabel": "Read the full AI use policy →"
