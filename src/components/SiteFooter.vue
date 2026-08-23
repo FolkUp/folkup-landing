@@ -18,8 +18,11 @@ const footer = footerSection
 const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.value) ?? '')
 
 // Locale-aware href: footer.links manifest uses generic '/privacy' etc;
-// prefix with current locale so /ru users go to /ru/privacy (Phase 2 prerendered),
-// not /privacy (nginx 301 → docs.folkup.app/legal/* off-site, English content).
+// prefix with current locale so /ru users go to /ru/privacy (Phase 2 prerendered).
+//
+// T6 INC-DOCS-EXPOSURE cleanup (Iskra S295-06 #7, Alisa S295KONSOL 2026-08-23):
+// removed stale reference to nginx 301 → docs.folkup.app/legal/* off-site,
+// internal docs no longer surfaced на публичных поверхностях.
 //
 // Cont +42 fix 2026-06-30: only prefix locale если link starts с '/'.
 // Раньше mailto:anklem@folkup.app превращался в /rumailto:anklem@folkup.app
