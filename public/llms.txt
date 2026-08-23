@@ -29,11 +29,6 @@ FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a te
 
 - [Services](https://folkup.app/ru/services): Seven directions for commissions — translation (DE/EU PT), OSINT fact-checking, long investigation (Lucerna model), long-form essay, encyclopedia, illustration (Flux pipeline), long-living website. No prices, by prior conversation. Russian version is the source of truth; EN/PT translation in progress.
 
-## Documentation
-
-- [Docs](https://docs.folkup.app/): Public technical documentation for FolkUp tools and APIs.
-- [Ecosystem Monitor](https://monitor.folkup.app/): Live status of FolkUp services.
-
 ## Legal
 
 - [Privacy Policy](https://folkup.app/en/privacy)
