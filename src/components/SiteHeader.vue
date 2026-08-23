@@ -23,6 +23,11 @@ function navAnchor(anchor: string) {
   return homeUrl.value + anchor
 }
 
+// T4 FIX-2 SITE-TEAM-001 (Andrey ratified Q5=B via Iskra S295-12 2026-08-23):
+// navTeam → /team on all routes (locale-aware) instead of fragment anchor #team.
+// Anchor pattern reserved для navProjects (still page-level scroll target).
+const teamUrl = computed(() => (locale.value === 'en' ? '/team' : `/${locale.value}/team`))
+
 /**
  * Hamburger open state for mobile viewports. Phase 4 P1 SiteHeader v3:
  *
@@ -82,7 +87,8 @@ function closeNav() {
       >
         <a href="https://books.folkup.life" @click="closeNav">{{ t('navBooks') }}</a>
         <a :href="navAnchor('#projects')" @click="closeNav">{{ t('navProjects') }}</a>
-        <a :href="navAnchor('#team')" @click="closeNav">{{ t('navTeam') }}</a>
+        <a href="https://declaration.folkup.app" @click="closeNav">{{ t('navDeclaration') }}</a>
+        <a :href="teamUrl" @click="closeNav">{{ t('navTeam') }}</a>
       </nav>
       <SettingsPanel />
     </div>

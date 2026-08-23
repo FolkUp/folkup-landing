@@ -46,14 +46,17 @@ export const organizationSchema = {
 
 /**
  * WebSite — declares the publication and its supported locales.
- * `inLanguage` matches the prerendered language set (EN/RU/PT).
+ * `inLanguage` matches the prerendered language set (EN/RU/PT/DE).
+ * DE added cont+2 S8SCOOP 2026-08-23 (Vraga catch: DE landing IS deployed via
+ * `homePage.availableLangs: [..., 'de']` per cont+9 2026-08-17 но schema signal
+ * was stale, contradicted reality; Google now sees accurate multilingual manifest).
  */
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'FolkUp',
   url: HOST,
-  inLanguage: ['en', 'ru', 'pt'],
+  inLanguage: ['en', 'ru', 'pt', 'de'],
 }
 
 // ---------------------------------------------------------------------------

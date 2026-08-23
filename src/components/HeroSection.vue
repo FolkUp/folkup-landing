@@ -20,6 +20,10 @@ if (!section) throw new Error('Hero section missing from homePage manifest')
 const hero = section
 
 const subtitle = computed(() => resolveLocalized(hero.subtitle, locale.value) ?? '')
+// Hero F variant cont+2 (Andrey verdict via zerkalce v2 2026-08-23):
+// subline = 3 punchy adjectives под subtitle («Open. Verified. Multilingual.»).
+// Optional field — legacy Hero без subline still renders (v-if guard в template).
+const subline = computed(() => resolveLocalized(hero.subline, locale.value) ?? '')
 const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '')
 // GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3): ctaPrimary/ctaSecondary computed vars removed
 // вместе с hero-actions template block (schema fields preserved в manifest per анти-ломкость canon).
@@ -40,10 +44,11 @@ const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '
       />
     </div>
     <h1 class="hero-subtitle">{{ subtitle }}</h1>
+    <p v-if="subline" class="hero-subline">{{ subline }}</p>
     <p class="hero-tagline">{{ tagline }}</p>
     <!-- GLAV-1: hero-actions block removed per Iskra PAKET-GLAVNAYA S290-07 §3.
-         #books якорь дублировал первый скролл; текстовый финал tagline «Дверь открыта — заходите»
-         — настоящий CTA. Schema fields preserved в manifest (ctaPrimary/ctaSecondary empty). -->
+         Hero F variant cont+2 preserves no-CTA (respects editorial), adds subline
+         between subtitle+tagline (3 punchy adjectives — factual anchor). -->
   </section>
 </template>
 
@@ -90,6 +95,19 @@ const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '
   margin: 0 0 0.5rem;
   max-width: 620px;
   line-height: 1.2;
+}
+
+/* Hero F variant cont+2: subline = 3 punchy adjectives («Open. Verified. Multilingual.»)
+   Small italic centered между subtitle+tagline. Factual anchor под philosophy subtitle. */
+.hero-subline {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--color-muted);
+  margin: 0 0 1.25rem;
+  max-width: 620px;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 /* GLAVNAYA v1.1 FINAL-VIZA Iskra S238 2026-07-30: tagline semantics shifted к

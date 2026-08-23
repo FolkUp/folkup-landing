@@ -57,17 +57,33 @@ export const homePage: Page = {
       // PT-EU sub-session (cont+36 B-PT-dispatch), Iskra deploy blocker enforces
       // 3-locale sync ship. subtitle=canonical bold headline, tagline=body
       // paragraph (semantic shift; HeroSection.vue CSS adjusted for body render).
+      // Hero F variant (Andrey cont+2 verdict 2026-08-23 via zerkalce v2):
+      // Short philosophy + factual subline + concise body paragraph.
+      // Supersedes prior «Знание огородили» hero (S238 FINAL-VIZA) per Andrey
+      // carte-blanche landing refresh + no-numbers rule («мы нигде не указываем
+      // точного количества наших продуктов»). Preserves мастерская/форниты identity,
+      // removes «Дверь открыта — заходите» clichet (V4=б), replaces «на трёх языках»
+      // с «многоязычно» (А2=б), сохраняет «один человек» как personal identity (А1=а).
+      // NO CTA (respects Iskra PAKET-GLAVNAYA S290-07 §3 — CTA removal preserved).
+      // POMETKA к Iskra post-ship for editorial Vier-Augen retro-review (RU canonical
+      // = Andrey approval; EN/PT/DE best-effort awaiting Lyolik/Zeka/Bolik cascade).
       subtitle: {
-        en: 'They fenced the knowledge in. We build without fences.',
-        ru: 'Знание огородили. Мы строим без забора.',
-        pt: 'Cercaram o saber. Nós construímos sem cercas.',
+        en: 'Knowledge you can actually read.',
+        ru: 'Знание, которое можно читать.',
+        pt: 'Conhecimento que se pode ler.',
+        de: 'Wissen, das man wirklich lesen kann.',
       },
-      // GLAV-8 (Iskra PAKET-GLAVNAYA S290-07 §3): «AI helpers/ИИ-помощников» → «AI fornits/AI-форнитов»
-      // (терминология-унификация; team-секция даёт пояснение). PT already «fornits de IA».
+      subline: {
+        en: 'Open. Verified. Multilingual.',
+        ru: 'Открытое. Проверенное. Многоязычное.',
+        pt: 'Aberto. Verificado. Multilingue.',
+        de: 'Offen. Geprüft. Mehrsprachig.',
+      },
       tagline: {
-        en: 'FolkUp is a small workshop. One person, a team of AI fornits — each with a name, a character, a job: research, verification, law, security, light. We write what we ourselves believe in: books, encyclopedias, investigations. Every fact is checked against sources; every text is signed — you can see who wrote, who verified, who edited. And then we give it away. Whole, free, no "sign up to keep reading". The door is open — come in.',
-        ru: 'FolkUp — маленькая мастерская. Один человек, команда AI-форнитов — у каждого имя, характер и своя работа: поиск, проверка, право, охрана, свет. Мы пишем то, во что верим сами: книги, энциклопедии, расследования. Каждый факт сверяем с источниками, каждый текст подписываем — видно, кто писал, кто проверял, кто редактировал. А потом отдаём. Целиком, бесплатно, без «зарегистрируйтесь, чтобы дочитать». Дверь открыта — заходите.',
-        pt: 'Textos longos. Uma pessoa, uma equipa de fornits de IA.',
+        en: 'FolkUp is a small workshop — one person and a team of AI fornits. We make encyclopedias, a book series, and slow investigations. Every fact by source, every text signed. Freely, without registration, without ads.',
+        ru: 'FolkUp — маленькая мастерская: один человек и команда AI-форнитов. Мы делаем энциклопедии, книжную серию и медленные расследования. Каждый факт — по источникам, каждый текст — с подписью. Свободно, без регистрации, без рекламы.',
+        pt: 'FolkUp é uma pequena oficina — uma pessoa e uma equipa de fornits de IA. Fazemos enciclopédias, uma série de livros e investigações lentas. Cada facto por fontes, cada texto assinado. Livre, sem registo, sem publicidade.',
+        de: 'FolkUp ist eine kleine Werkstatt — eine Person und ein Team von KI-Fornits. Wir machen Enzyklopädien, eine Buchreihe und langsame Recherchen. Jeder Fakt durch Quellen, jeder Text signiert. Frei, ohne Registrierung, ohne Werbung.',
       },
       // GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
       // hero-actions block снят целиком (#books якорь дублирует первый скролл, текстовый финал hero
@@ -113,7 +129,9 @@ export const homePage: Page = {
         {
           key: 'trilogy-own-means',
           name: { en: 'By Our Own Means', ru: 'Своими силами', pt: 'Pelos Nossos Meios' },
-          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          // Cont+2 badge cleanup (Andrey verdict item #5 2026-08-23):
+          // kn1 = LIVE (Iskra S284 v1.0.22 shipped, chapters readable). Badge «Читать →» signals CTA.
+          count: { en: 'Read →', ru: 'Читать →', pt: 'Ler →', de: 'Lesen →' },
           description: {
             en: 'How a team does its work: learns to see itself, designs something better, and brings into being what was not there before. Verne, Shelley, Holmes and Borges diagnose management long before the consultants.',
             ru: 'Как команда делает своё дело: учится видеть себя, придумывает лучшее устройство и рождает то, чего раньше не было. Верн, Шелли, Холмс и Борхес ставят управленческие диагнозы задолго до консультантов.',
@@ -121,14 +139,22 @@ export const homePage: Page = {
           },
           langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
-          url: 'https://books.folkup.life/#trilogy-svoimi_silami-heading',
+          // Cont+2 URL upgrade (Andrey verdict item #5 2026-08-23):
+          // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
+          // Prior anchor `#trilogy-svoimi_silami-heading` scrolled to portal heading;
+          // «Читать →» badge implies CTA — direct chapter reader matches user intent.
+          url: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
           icon: 'https://books.folkup.life/covers/cover_kn1.svg',
           accent: 'var(--color-accent-padel)',
         },
         {
           key: 'trilogy-firsthand',
           name: { en: 'Firsthand', ru: 'Из первых рук', pt: 'Em Primeira Mão' },
-          count: { en: 'a trilogy, open now', ru: 'трилогия, открыта', pt: 'trilogia, aberta' },
+          // Cont+2 badge fix (Andrey verdict item #5 2026-08-23):
+          // kn2 = NOT open (drafting phase, concept links to portal general page).
+          // Prior «trilogy, open now»/«трилогия, открыта» was factually incorrect
+          // (kn1 open, kn2/kn3 в работе).
+          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
           description: {
             en: 'How knowledge reaches us: past those who locked it up, through those who stand in the middle — and how to check that what arrived is what was sent.',
             ru: 'Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто стоит посредине, — и как проверить, что донесли именно то.',
@@ -143,7 +169,10 @@ export const homePage: Page = {
         {
           key: 'trilogy-common-ground',
           name: { en: 'Common Ground', ru: 'Общий язык', pt: 'Linguagem Comum' },
-          count: { en: 'in the workshop', ru: 'готовится', pt: 'na oficina' },
+          // Cont+2 badge unified (Andrey verdict item #5 2026-08-23):
+          // kn3 = NOT open. Unified label с kn2 для consistency («В работе» singular).
+          // Prior «готовится» → «В работе» (aligned с kn2 pattern).
+          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
           description: {
             en: 'Why agreeing is harder than it looks — an orchestra plays inside the head, but what comes out is a knock. On the barriers to understanding and how to break through them.',
             ru: 'Почему договориться труднее, чем кажется: в голове играет оркестр — наружу выходит стук. О барьерах понимания и о том, как через них пробиваться.',
@@ -158,72 +187,13 @@ export const homePage: Page = {
       ],
     },
 
-    // ---------------------------------------------------- TRILOGY VISUAL BLOCK
-    // Cont+8 S1IMG (Q5 wire-strategy a3 per Andrey verdict 2026-08-17): Frida
-    // trilogy glyphs (AGIL / CWV / COS) как visual identity block. Distinct
-    // от prior TrilogySection.vue (orphan since 2026-06-22 «книжные ссылки
-    // убираем» mandate) — this section has NO CTA, no book links, purely
-    // brand visual anchor. Books text remains в 'books' section выше.
-    // Assets shipped cont+7 A5 5df0198 к /public/images/trilogy/glyph-*.webp.
-    {
-      id: 'trilogy-visual',
-      type: 'trilogy-visual',
-      schemaType: 'none',
-      label: {
-        en: 'Trilogy',
-        ru: 'Трилогия',
-        pt: 'Trilogia',
-      },
-      title: {
-        en: 'Three ways of working, one workshop',
-        ru: 'Три способа работы, одна мастерская',
-        pt: 'Três formas de trabalhar, uma oficina',
-      },
-      items: [
-        {
-          key: 'agil',
-          glyph: '/images/trilogy/glyph-agil.webp',
-          label: {
-            en: 'By Our Own Means',
-            ru: 'Своими силами',
-            pt: 'Pelos Nossos Meios',
-          },
-          caption: {
-            en: 'Seeing the work, designing better, giving birth to what was not there',
-            ru: 'Видеть работу, проектировать лучше, рождать то, чего не было',
-            pt: 'Ver o trabalho, desenhar melhor, dar à luz o que não existia',
-          },
-        },
-        {
-          key: 'cwv',
-          glyph: '/images/trilogy/glyph-cwv.webp',
-          label: {
-            en: 'Firsthand',
-            ru: 'Из первых рук',
-            pt: 'Em Primeira Mão',
-          },
-          caption: {
-            en: 'Past the gatekeepers, through the intermediaries — verify what arrived',
-            ru: 'Сквозь стражей, через посредников — проверять, что дошло',
-            pt: 'Passar os guardiões, atravessar os intermediários — verificar o que chegou',
-          },
-        },
-        {
-          key: 'cos',
-          glyph: '/images/trilogy/glyph-cos.webp',
-          label: {
-            en: 'Common Ground',
-            ru: 'Общий язык',
-            pt: 'Linguagem Comum',
-          },
-          caption: {
-            en: 'Break through the noise — the orchestra plays, but only a knock comes out',
-            ru: 'Пробиваться через шум — в голове оркестр, наружу — стук',
-            pt: 'Atravessar o ruído — dentro toca a orquestra, mas só sai uma batida',
-          },
-        },
-      ],
-    },
+    // trilogy-visual section removed cont+2 per Andrey verdict item #4 (2026-08-23):
+    // «УДАЛИТЬ секцию целиком — она дублирует основную трилогию блок выше»
+    // (books section already carries trilogy titles + descriptions).
+    // Section data preserved в git history (commit `21cc1cc` or earlier) for
+    // potential restoration. TrilogyVisualSection interface/type kept in types.ts,
+    // component file kept on disk (canonical anti-fragility pattern).
+    // Trilogy glyphs assets (/public/images/trilogy/glyph-*.webp) preserved.
 
     // -------------------------------------------------------------- MISSION
     // GLAVNAYA v1.1 FINAL-VIZA S238 §4 «Mission → «Как это делается» (заменяет
@@ -252,9 +222,14 @@ export const homePage: Page = {
       // «buy us a coffee» / «поддержать нас чашкой кофе» → hyperlink к https://ko-fi.com/folkup
       // (target _blank rel noopener). Схема sameAs первоисточник (schema.ts + App.vue).
       // PT text preserved pending Quatro Olhos (не мой scope, второй PR каскад).
+      // Cont+2 «раньше красивых слов» → «перед оформлением» (Andrey verdict item #6):
+      // Removes metaphor-возвышенность («красивые слова» — vague) в favor of nachlaß
+      // technical phrasing «перед оформлением» (warnings come before pretty formatting).
+      // Matches broader landing-refresh mandate: less метafor, more по делу.
+      // EN/PT/DE cascaded (Lyolik/Zeka/Bolik Vier-Augen retro-review pending).
       text: {
-        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before pretty words.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
-        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят раньше красивых слов.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
+        en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before formatting.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
+        ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят перед оформлением.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
         pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de fornits de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
       },
       principles: [],
@@ -266,6 +241,82 @@ export const homePage: Page = {
     // for restoration. TrilogySection.vue component file kept on disk — no longer
     // imported, but не deleting in case future redesign restores. plates carousel
     // (5 AGIL illustrations) goes away with section.
+
+    // -------------------------------------------------------------- NEWS
+    // Cont+2 «Что нового» section (Andrey verdict item #10 landing refresh
+    // 2026-08-23). Manual authoring, 3-5 items typical, no-numbers rule applies
+    // к contents (per Andrey «мы нигде не указываем точного количества»).
+    // Position per copy-changes list: between «Как это делается» и «Декларация».
+    // Update cadence: manual raz в 1-2 weeks OR при substantive release.
+    {
+      id: 'news',
+      type: 'news',
+      schemaType: 'none',
+      label: {
+        en: "What's new",
+        ru: 'Что нового',
+        pt: 'Novidades',
+        de: 'Neues',
+      },
+      title: {
+        en: 'Recent updates',
+        ru: 'Последние обновления',
+        pt: 'Atualizações recentes',
+        de: 'Aktuelle Aktualisierungen',
+      },
+      items: [
+        {
+          id: 'kn1-new-edition',
+          text: {
+            en: 'First book: new edition with fixes and refined chapters',
+            ru: 'Первая книга: новая редакция с исправлениями и правкой глав',
+            pt: 'Primeiro livro: nova edição com correções e capítulos refinados',
+            de: 'Erstes Buch: neue Ausgabe mit Korrekturen und überarbeiteten Kapiteln',
+          },
+          link: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
+        },
+        {
+          id: 'lucerna-flightpass3d',
+          text: {
+            en: 'Lucerna: FlightPass3D investigation — status updated',
+            ru: 'Lucerna: обновили статус расследования ФлайтПас3D',
+            pt: 'Lucerna: investigação FlightPass3D — estado atualizado',
+            de: 'Lucerna: FlightPass3D-Recherche — Status aktualisiert',
+          },
+          link: 'https://lucerna.folkup.app',
+        },
+        {
+          id: 'setubal-articles',
+          text: {
+            en: 'Setúbal: new neighborhood articles and updated maps',
+            ru: 'Setúbal: новые статьи по кварталам и обновлённые карты',
+            pt: 'Setúbal: novos artigos sobre bairros e mapas atualizados',
+            de: 'Setúbal: neue Stadtteilartikel und aktualisierte Karten',
+          },
+          link: 'https://setubal.folkup.city',
+        },
+        {
+          id: 'cogumelos-safety',
+          text: {
+            en: 'Cogumelos: expanded safety notes and toxicity warnings',
+            ru: 'Cogumelos: расширили заметки о безопасности и предупреждения о токсичности',
+            pt: 'Cogumelos: notas de segurança e avisos de toxicidade ampliados',
+            de: 'Cogumelos: erweiterte Sicherheitshinweise und Toxizitätswarnungen',
+          },
+          link: 'https://cogumelos.folkup.fit',
+        },
+        {
+          id: 'padel-technique',
+          text: {
+            en: 'Padel: technique section refined, new tournament entries',
+            ru: 'Padel: обновили раздел техники, добавили турниры',
+            pt: 'Padel: secção de técnica refinada, novos torneios',
+            de: 'Padel: Technik-Bereich überarbeitet, neue Turniere',
+          },
+          link: 'https://padel.folkup.fit',
+        },
+      ],
+    },
 
     // ------------------------------------------------------------ DECL HERO
     {
@@ -314,10 +365,17 @@ export const homePage: Page = {
         ru: 'Экосистема',
         pt: 'Ecossistema',
       },
+      // Cont+2 Andrey verdict item #3 (2026-08-23 landing refresh):
+      // Rename to no-numbers title per «мы нигде не указываем точного количества».
+      // Prior title «Три энциклопедии открыты сейчас — список растёт» hard-coded «3»
+      // — actually 6 encyclopedias LIVE (Setúbal + Padel + Cogumelos promoted; Tarot +
+      // Aquarium + Dial-up in background per Andrey «эти три активные, остальные не
+      // рекламируем»). No-numbers title = zero drift when promotion set changes.
       title: {
-        en: 'Three encyclopedias open today — the list keeps growing',
-        ru: 'Три энциклопедии открыты сейчас — список растёт',
-        pt: 'Três enciclopédias abertas hoje — a lista continua a crescer',
+        en: 'Our open encyclopedias',
+        ru: 'Наши открытые энциклопедии',
+        pt: 'As nossas enciclopédias abertas',
+        de: 'Unsere offenen Enzyklopädien',
       },
       subtitle: {
         en: "A few more are being built, and the queue ahead is long. Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. Have a project of your own? Reach us at the contacts below.",
@@ -392,17 +450,23 @@ export const homePage: Page = {
         ru: 'Работа медленнее, ближе к источнику',
         pt: 'Trabalho mais lento, mais perto da fonte',
       },
+      // Cont+2 Pro Lab cleanup (Andrey verdict item #8 2026-08-23):
+      // - Removed «Closer to CERN's preprints than to a magazine» (В2=б) — CERN reference
+      //   too jargon-heavy для broad audience, «small book vs wiki entry» comparison
+      //   already conveys the depth-vs-brevity distinction.
+      // - Removed «Latin for lamp» clause (В3=б) — etymology metaphor decorative,
+      //   simplified к «first Pro Lab project». «Lucerna» name speaks for itself.
       body: {
-        en: "The encyclopedias are wide and fast. Pro Lab is narrow and slow. It's where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry. Closer to CERN's preprints than to a magazine.",
-        ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья. Ближе к препринтам CERN, чем к журналу.',
-        pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki. Mais perto dos preprints do CERN do que de uma revista.',
+        en: 'The encyclopedias are wide and fast. Pro Lab is narrow and slow. It\'s where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry.',
+        ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья.',
+        pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki.',
       },
       highlight: {
         name: 'Lucerna',
         pitch: {
-          en: 'Lucerna — Latin for lamp — is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
-          ru: 'Lucerna — на латыни «лампа» — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
-          pt: 'Lucerna — latim para candeia — é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
+          en: 'Lucerna is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
+          ru: 'Lucerna — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
+          pt: 'Lucerna é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
         },
         url: 'https://lucerna.folkup.app',
       },
@@ -519,10 +583,15 @@ export const homePage: Page = {
         ru: 'Под светом фонаря',
         pt: 'Sob a luz do farol',
       },
+      // Cont+2 team subtitle simplify (Andrey verdict item #11 2026-08-23 + R7=B):
+      // Stephen King fornit explanation moved к /team subpage (already implemented в
+      // team.vue via teamPageIntro locale string). Home team block gets terse subtitle;
+      // «Все →» link (team-view-all в TeamSection.vue compact mode) carries CTA к /team.
       subtitle: {
-        en: 'The fornits who keep the light on — Stephen King’s name for spirit-helpers living in writers’ typewriters; we borrowed it for our AI workers',
-        ru: 'Форниты, которые держат свет — так Стивен Кинг называл духов-помощников в пишущих машинках писателей; мы позаимствовали имя для наших AI-работников',
-        pt: 'Os fornits que mantêm a luz acesa — assim Stephen King chamava os espíritos-ajudantes nas máquinas de escrever dos escritores; emprestámos o nome aos nossos trabalhadores de IA',
+        en: 'AI helpers by name — each with their own work.',
+        ru: 'AI-помощники по именам — у каждого своя работа.',
+        pt: 'Fornits de IA por nome — cada um com o seu trabalho.',
+        de: 'KI-Helfer mit Namen — jeder mit eigener Arbeit.',
       },
       members: [
         {

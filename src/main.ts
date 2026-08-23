@@ -13,6 +13,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/:lang(en|ru|pt|de)?/about/ai-use', component: () => import('./pages/ai-use.vue') },
   { path: '/:lang(en|ru|pt|de)?/projects', component: () => import('./pages/projects.vue') },
   { path: '/:lang(en|ru|pt|de)?/services', component: () => import('./pages/services.vue') },
+  { path: '/:lang(en|ru|pt|de)?/team', component: () => import('./pages/team.vue') },
   // 404 — locale-neutral. VPS nginx try_files fallback к /404.html
   // (prerendered from this route, served на any unmatched URL).
   { path: '/404', component: () => import('./pages/404.vue') },
@@ -67,6 +68,6 @@ export const includedRoutes = async (
   const homePaths = LANGS.map((l) => (l === 'en' ? '/' : `/${l}`))
   const legalBasePaths = ['/privacy', '/terms', '/cookies', '/about/ai-use']
   const legalPaths = legalBasePaths.flatMap((p) => LANGS.map((l) => `/${l}${p}`))
-  const subRoutePaths = ['/projects', '/services'].flatMap((p) => LANGS.map((l) => `/${l}${p}`))
+  const subRoutePaths = ['/projects', '/services', '/team'].flatMap((p) => LANGS.map((l) => `/${l}${p}`))
   return [...homePaths, ...legalPaths, ...subRoutePaths, '/404']
 }

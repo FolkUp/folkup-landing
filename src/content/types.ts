@@ -150,6 +150,19 @@ export interface TeamMember {
   oneliner: LocalizedString
 }
 
+/**
+ * News feed item — 1-line update about recent work.
+ * Manual authoring (no CMS) — added cont+2 S8SCOOP per Andrey verdict item #10.
+ */
+export interface NewsItem {
+  /** Stable identifier for keying in Vue v-for. */
+  id: string
+  /** 1-line update text — e.g. «Cogumelos: расширили безопасность». */
+  text: LocalizedString
+  /** Optional URL to the source (external site, chapter, article). */
+  link?: string
+}
+
 export interface FooterLink {
   /** privacy | terms | cookies */
   id: string
@@ -168,6 +181,13 @@ export interface HeroSection extends SectionBase {
   /** Brand mark — intentionally not localised. */
   title: string
   subtitle: LocalizedString
+  /**
+   * Short italic sub-line rendered between subtitle and tagline.
+   * Added cont+2 S8SCOOP (Hero F variant «short philosophy»): 3 punchy adjectives
+   * («Open. Verified. Multilingual.») anchor factual value under philosophy subtitle.
+   * Optional — legacy Hero без subline still type-checks (Vue conditional render).
+   */
+  subline?: LocalizedString
   tagline: LocalizedString
   ctaPrimary: LocalizedString
   ctaSecondary: LocalizedString
@@ -319,6 +339,20 @@ export interface TeamSection extends SectionBase {
   members: TeamMember[]
 }
 
+/**
+ * «Что нового» — recent updates list.
+ * Non-CMS static section, 3-5 items typical, manual authoring updates only.
+ * Andrey no-numbers rule applies к contents (не «5 новых статей» но «новые статьи»).
+ * Added cont+2 S8SCOOP per Andrey verdict item #10 landing refresh 2026-08-23.
+ */
+export interface NewsSection extends SectionBase {
+  type: 'news'
+  schemaType: 'none'
+  label: LocalizedString
+  title: LocalizedString
+  items: NewsItem[]
+}
+
 export interface FooterSection extends SectionBase {
   type: 'footer'
   schemaType: 'none'
@@ -356,6 +390,7 @@ export type Section =
   | ProLabSection
   | AnchorSection
   | FrameworkSection
+  | NewsSection
   | TeamSection
   | FooterSection
   | LegalPageSection

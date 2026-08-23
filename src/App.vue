@@ -28,6 +28,7 @@ type RouteKind =
   | 'ai-use'
   | 'projects'
   | 'services'
+  | 'team'
   | 'unknown'
 
 /**
@@ -45,6 +46,7 @@ const routeKind = computed<RouteKind>(() => {
   if (stripped === '/about/ai-use') return 'ai-use'
   if (stripped === '/projects') return 'projects'
   if (stripped === '/services') return 'services'
+  if (stripped === '/team') return 'team'
   return 'unknown'
 })
 
@@ -152,6 +154,12 @@ const titleMap: Record<RouteKind, Record<string, string>> = {
     ru: 'Услуги — FolkUp',
     pt: 'Serviços — FolkUp',
   },
+  team: {
+    en: 'Team — FolkUp',
+    ru: 'Команда — FolkUp',
+    pt: 'Equipa — FolkUp',
+    de: 'Team — FolkUp',
+  },
   unknown: { en: 'FolkUp', ru: 'FolkUp', pt: 'FolkUp', de: 'FolkUp' },
 }
 
@@ -186,6 +194,11 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. Russian version ready, English translation in progress.',
     ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
     pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Versão em russo disponível, tradução em português em curso.',
+  },
+  team: {
+    en: 'The fornits who keep the FolkUp light on — one person and a team of AI helpers, each with a name, a role, and a human review before every publication.',
+    ru: 'Форниты, которые держат свет FolkUp — один человек и команда AI-помощников, у каждого имя, роль и обязательная проверка человеком перед публикацией.',
+    pt: 'Os fornits que mantêm a luz FolkUp acesa — uma pessoa e uma equipa de assistentes de IA, cada um com nome, papel e revisão humana antes de cada publicação.',
   },
   unknown: {
     en: 'FolkUp — knowledge tools for real communities.',
@@ -245,6 +258,7 @@ const schemas = computed<object[]>(() => {
     'ai-use': 'AI use',
     projects: 'Encyclopedias',
     services: 'Services',
+    team: 'Team',
   }
   const homeLabel =
     locale.value === 'ru' ? 'Главная'

@@ -1,6 +1,7 @@
 {
   "navBooks": "Bücher",
   "navProjects": "Projekte",
+  "navDeclaration": "Deklaration",
   "navTeam": "Team",
   "settingsTitle": "Sprache und Erscheinungsbild",
   "settingsLang": "Sprache",
@@ -8,5 +9,9 @@
   "themeDefault": "Klassik",
   "themeSteampunk": "Steampunk",
   "themeBwLight": "Schwarz-weiß — hell",
-  "themeBwDark": "Schwarz-weiß — dunkel"
+  "themeBwDark": "Schwarz-weiß — dunkel",
+  "teamViewAll": "Alle anzeigen →",
+  "teamPageTitle": "Unter der Laterne",
+  "teamPageIntro": "FolkUp ist eine Person und ein Team von KI-Fornits — Stephen Kings Name für Geisterhelfer, die in den Schreibmaschinen der Schriftsteller leben. Jeder Text wird vor der Veröffentlichung von Menschen geprüft; kein KI-System spricht mit Ihnen auf diesen Seiten.",
+  "teamPageAiLinkLabel": "Vollständige KI-Nutzungsrichtlinie lesen →"
 }
