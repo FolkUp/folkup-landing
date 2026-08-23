@@ -33,7 +33,7 @@ useFadeIn()
     <ProjectsSection section-id="projects" />
     <ProLabSection />
     <FrameworkSection />
-    <TeamSection />
+    <TeamSection compact />
     <AnchorsSection />
   </main>
   <SiteFooter />

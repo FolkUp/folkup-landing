@@ -70,6 +70,11 @@ const PAGE_GROUPS = [
     urlFor: (lang) => `${HOST}/${lang}/services`,
     sourceFor: (lang) => `${lang}/services.html`,
   },
+  {
+    name: 'team',
+    urlFor: (lang) => `${HOST}/${lang}/team`,
+    sourceFor: (lang) => `${lang}/team.html`,
+  },
 ]
 
 const todayIso = new Date().toISOString().split('T')[0]

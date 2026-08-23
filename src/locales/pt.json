@@ -8,5 +8,9 @@
   "themeDefault": "Clássica",
   "themeSteampunk": "Steampunk",
   "themeBwLight": "Preto e branco — claro",
-  "themeBwDark": "Preto e branco — escuro"
+  "themeBwDark": "Preto e branco — escuro",
+  "teamViewAll": "Ver todos 10 →",
+  "teamPageTitle": "Sob a luz do farol",
+  "teamPageIntro": "A FolkUp é uma pessoa e uma equipa de fornits de IA — assim Stephen King chamava os espíritos-ajudantes que vivem nas máquinas de escrever dos escritores. Cada texto é revisto por humano antes da publicação; nenhum sistema de IA fala consigo nestas páginas.",
+  "teamPageAiLinkLabel": "Ler a política completa de uso de IA →"
 }
