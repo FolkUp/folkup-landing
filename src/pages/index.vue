@@ -5,6 +5,7 @@ import { useFadeIn } from '@/composables/useFadeIn'
 import SiteHeader from '@/components/SiteHeader.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import MissionSection from '@/components/MissionSection.vue'
+import NewsSection from '@/components/NewsSection.vue'
 import DeclHeroSection from '@/components/DeclHeroSection.vue'
 import ProjectsSection from '@/components/ProjectsSection.vue'
 // TrilogyVisualSection removed cont+2 per Andrey verdict item #4 «Три способа работы» section
@@ -30,6 +31,7 @@ useFadeIn()
     </div>
     <ProjectsSection section-id="books" />
     <MissionSection />
+    <NewsSection />
     <DeclHeroSection />
     <ProjectsSection section-id="projects" />
     <ProLabSection />

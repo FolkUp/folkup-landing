@@ -242,6 +242,82 @@ export const homePage: Page = {
     // imported, but не deleting in case future redesign restores. plates carousel
     // (5 AGIL illustrations) goes away with section.
 
+    // -------------------------------------------------------------- NEWS
+    // Cont+2 «Что нового» section (Andrey verdict item #10 landing refresh
+    // 2026-08-23). Manual authoring, 3-5 items typical, no-numbers rule applies
+    // к contents (per Andrey «мы нигде не указываем точного количества»).
+    // Position per copy-changes list: between «Как это делается» и «Декларация».
+    // Update cadence: manual raz в 1-2 weeks OR при substantive release.
+    {
+      id: 'news',
+      type: 'news',
+      schemaType: 'none',
+      label: {
+        en: "What's new",
+        ru: 'Что нового',
+        pt: 'Novidades',
+        de: 'Neues',
+      },
+      title: {
+        en: 'Recent updates',
+        ru: 'Последние обновления',
+        pt: 'Atualizações recentes',
+        de: 'Aktuelle Aktualisierungen',
+      },
+      items: [
+        {
+          id: 'kn1-v1024',
+          text: {
+            en: 'First book: v1.0.24 — new edition with fixes and refined chapters',
+            ru: 'Первая книга: v1.0.24 — новая редакция с исправлениями и правкой глав',
+            pt: 'Primeiro livro: v1.0.24 — nova edição com correções e capítulos refinados',
+            de: 'Erstes Buch: v1.0.24 — neue Ausgabe mit Korrekturen und überarbeiteten Kapiteln',
+          },
+          link: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
+        },
+        {
+          id: 'lucerna-flightpass3d',
+          text: {
+            en: 'Lucerna: FlightPass3D investigation — status updated',
+            ru: 'Lucerna: обновили статус расследования ФлайтПас3D',
+            pt: 'Lucerna: investigação FlightPass3D — estado atualizado',
+            de: 'Lucerna: FlightPass3D-Recherche — Status aktualisiert',
+          },
+          link: 'https://lucerna.folkup.app',
+        },
+        {
+          id: 'setubal-articles',
+          text: {
+            en: 'Setúbal: new neighborhood articles and updated maps',
+            ru: 'Setúbal: новые статьи по кварталам и обновлённые карты',
+            pt: 'Setúbal: novos artigos sobre bairros e mapas atualizados',
+            de: 'Setúbal: neue Stadtteilartikel und aktualisierte Karten',
+          },
+          link: 'https://setubal.folkup.city',
+        },
+        {
+          id: 'cogumelos-safety',
+          text: {
+            en: 'Cogumelos: expanded safety notes and toxicity warnings',
+            ru: 'Cogumelos: расширили заметки о безопасности и предупреждения о токсичности',
+            pt: 'Cogumelos: notas de segurança e avisos de toxicidade ampliados',
+            de: 'Cogumelos: erweiterte Sicherheitshinweise und Toxizitätswarnungen',
+          },
+          link: 'https://cogumelos.folkup.fit',
+        },
+        {
+          id: 'padel-technique',
+          text: {
+            en: 'Padel: technique section refined, new tournament entries',
+            ru: 'Padel: обновили раздел техники, добавили турниры',
+            pt: 'Padel: secção de técnica refinada, novos torneios',
+            de: 'Padel: Technik-Bereich überarbeitet, neue Turniere',
+          },
+          link: 'https://padel.folkup.fit',
+        },
+      ],
+    },
+
     // ------------------------------------------------------------ DECL HERO
     {
       id: 'declaration',
@@ -374,17 +450,23 @@ export const homePage: Page = {
         ru: 'Работа медленнее, ближе к источнику',
         pt: 'Trabalho mais lento, mais perto da fonte',
       },
+      // Cont+2 Pro Lab cleanup (Andrey verdict item #8 2026-08-23):
+      // - Removed «Closer to CERN's preprints than to a magazine» (В2=б) — CERN reference
+      //   too jargon-heavy для broad audience, «small book vs wiki entry» comparison
+      //   already conveys the depth-vs-brevity distinction.
+      // - Removed «Latin for lamp» clause (В3=б) — etymology metaphor decorative,
+      //   simplified к «first Pro Lab project». «Lucerna» name speaks for itself.
       body: {
-        en: "The encyclopedias are wide and fast. Pro Lab is narrow and slow. It's where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry. Closer to CERN's preprints than to a magazine.",
-        ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья. Ближе к препринтам CERN, чем к журналу.',
-        pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki. Mais perto dos preprints do CERN do que de uma revista.',
+        en: 'The encyclopedias are wide and fast. Pro Lab is narrow and slow. It\'s where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry.',
+        ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья.',
+        pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki.',
       },
       highlight: {
         name: 'Lucerna',
         pitch: {
-          en: 'Lucerna — Latin for lamp — is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
-          ru: 'Lucerna — на латыни «лампа» — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
-          pt: 'Lucerna — latim para candeia — é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
+          en: 'Lucerna is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
+          ru: 'Lucerna — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
+          pt: 'Lucerna é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
         },
         url: 'https://lucerna.folkup.app',
       },
@@ -501,10 +583,15 @@ export const homePage: Page = {
         ru: 'Под светом фонаря',
         pt: 'Sob a luz do farol',
       },
+      // Cont+2 team subtitle simplify (Andrey verdict item #11 2026-08-23 + R7=B):
+      // Stephen King fornit explanation moved к /team subpage (already implemented в
+      // team.vue via teamPageIntro locale string). Home team block gets terse subtitle;
+      // «Все →» link (team-view-all в TeamSection.vue compact mode) carries CTA к /team.
       subtitle: {
-        en: 'The fornits who keep the light on — Stephen King’s name for spirit-helpers living in writers’ typewriters; we borrowed it for our AI workers',
-        ru: 'Форниты, которые держат свет — так Стивен Кинг называл духов-помощников в пишущих машинках писателей; мы позаимствовали имя для наших AI-работников',
-        pt: 'Os fornits que mantêm a luz acesa — assim Stephen King chamava os espíritos-ajudantes nas máquinas de escrever dos escritores; emprestámos o nome aos nossos trabalhadores de IA',
+        en: 'AI helpers by name — each with their own work.',
+        ru: 'AI-помощники по именам — у каждого своя работа.',
+        pt: 'Fornits de IA por nome — cada um com o seu trabalho.',
+        de: 'KI-Helfer mit Namen — jeder mit eigener Arbeit.',
       },
       members: [
         {
