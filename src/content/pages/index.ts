@@ -266,12 +266,12 @@ export const homePage: Page = {
       },
       items: [
         {
-          id: 'kn1-v1024',
+          id: 'kn1-new-edition',
           text: {
-            en: 'First book: v1.0.24 — new edition with fixes and refined chapters',
-            ru: 'Первая книга: v1.0.24 — новая редакция с исправлениями и правкой глав',
-            pt: 'Primeiro livro: v1.0.24 — nova edição com correções e capítulos refinados',
-            de: 'Erstes Buch: v1.0.24 — neue Ausgabe mit Korrekturen und überarbeiteten Kapiteln',
+            en: 'First book: new edition with fixes and refined chapters',
+            ru: 'Первая книга: новая редакция с исправлениями и правкой глав',
+            pt: 'Primeiro livro: nova edição com correções e capítulos refinados',
+            de: 'Erstes Buch: neue Ausgabe mit Korrekturen und überarbeiteten Kapiteln',
           },
           link: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
         },

@@ -32,8 +32,15 @@ const items = computed(() =>
     <h2 class="section-title">{{ title }}</h2>
     <ul class="news-list">
       <li v-for="item in items" :key="item.id">
-        <a v-if="item.link" :href="item.link" target="_blank" rel="noopener noreferrer">
-          {{ item.text }}
+        <a
+          v-if="item.link"
+          :href="item.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="news-link"
+        >
+          {{ item.text }}<span class="external-icon" aria-hidden="true"> ↗</span>
+          <span class="sr-only"> (opens in new tab)</span>
         </a>
         <span v-else>{{ item.text }}</span>
       </li>
@@ -65,7 +72,9 @@ const items = computed(() =>
 .news-list a {
   color: var(--color-text);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  /* WCAG 1.4.1 (Use of Color): persistent underline distinguishes link от text
+     without relying only on color/hover. Vraga cont+2 catch. */
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 1px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
@@ -79,5 +88,30 @@ const items = computed(() =>
   outline: 2px solid var(--color-bordo);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* External-link ↗ affordance: visual «opens in new tab» indicator per WCAG 3.2.5.
+   sr-only span provides screen-reader label «(opens in new tab)». */
+.external-icon {
+  font-size: 0.85em;
+  color: var(--color-muted);
+  margin-left: 0.15em;
+}
+
+.news-list a:hover .external-icon {
+  color: var(--color-bordo);
+}
+
+/* Screen-reader-only pattern (WCAG hidden but announced). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 </style>
