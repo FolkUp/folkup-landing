@@ -35,11 +35,15 @@ export const homePage: Page = {
     // Workshop framing replaces it. AI-fornits → AI-workers in snippet per
     // Фонарщик/Андрей brand decision (snippet CTR > distinctiveness here;
     // Hero copy still uses «fornits» where context exists).
+    //
+    // T4 FIX-3 (Iskra S295-10, Alisa S295KONSOL 2026-08-23): добавлено
+    // упоминание книжной серии (books.folkup.life трилогия) — расширяет
+    // scope description за пределы encyclopedias+investigations.
     description: {
-      en: 'A workshop making encyclopedias and investigations. Free, verified, multilingual. One person and a team of AI workers.',
-      ru: 'Мастерская, где делают энциклопедии и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
-      pt: 'Uma oficina que faz enciclopédias e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
-      de: 'Eine Werkstatt, die Enzyklopädien und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
+      en: 'A workshop making encyclopedias, a book trilogy, and investigations. Free, verified, multilingual. One person and a team of AI workers.',
+      ru: 'Мастерская, где делают энциклопедии, книжную трилогию и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
+      pt: 'Uma oficina que faz enciclopédias, uma trilogia de livros e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
+      de: 'Eine Werkstatt, die Enzyklopädien, eine Buchtrilogie und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
