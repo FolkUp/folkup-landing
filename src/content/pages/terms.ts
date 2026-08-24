@@ -62,7 +62,7 @@ export const termsPage: Page = {
 <p>We may update these terms at any time. Continued use constitutes acceptance of the updated terms.</p>
 
 <h2>Contact</h2>
-<p>For questions: <a href="mailto:legal@folkup.app">legal@folkup.app</a></p>`,
+<p>For questions: <a href="mailto:info@folkup.app">info@folkup.app</a></p>`,
         ru: `<h2>Принятие условий</h2>
 <p>Используя folkup.app, вы соглашаетесь с данными условиями. Если вы не согласны, пожалуйста, не используйте сайт.</p>
 
@@ -82,7 +82,7 @@ export const termsPage: Page = {
 <p>Мы можем обновить эти условия в любое время. Продолжение использования сайта означает принятие обновлённых условий.</p>
 
 <h2>Контакты</h2>
-<p>По вопросам: <a href="mailto:legal@folkup.app">legal@folkup.app</a></p>`,
+<p>По вопросам: <a href="mailto:info@folkup.app">info@folkup.app</a></p>`,
         pt: `<h2>Aceitação</h2>
 <p>Ao aceder ao folkup.app, concorda com estes termos. Se não concordar, por favor não utilize o site.</p>
 
@@ -102,7 +102,7 @@ export const termsPage: Page = {
 <p>Podemos atualizar estes termos a qualquer momento. A utilização contínua constitui aceitação dos termos atualizados.</p>
 
 <h2>Contacto</h2>
-<p>Para questões: <a href="mailto:legal@folkup.app">legal@folkup.app</a></p>`,
+<p>Para questões: <a href="mailto:info@folkup.app">info@folkup.app</a></p>`,
       },
     },
   ],
