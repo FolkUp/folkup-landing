@@ -72,7 +72,7 @@ export const homePage: Page = {
       // с «многоязычно» (А2=б), сохраняет «один человек» как personal identity (А1=а).
       // NO CTA (respects Iskra PAKET-GLAVNAYA S290-07 §3 — CTA removal preserved).
       // POMETKA к Iskra post-ship for editorial Vier-Augen retro-review (RU canonical
-      // = Andrey approval; EN/PT/DE best-effort awaiting Lyolik/Zeka/Bolik cascade).
+      // = Andrey approval; EN/PT/DE best-effort awaiting Lolik/Zeka/Bolik cascade).
       subtitle: {
         en: 'Knowledge you can actually read.',
         ru: 'Знание, которое можно читать.',
@@ -232,7 +232,7 @@ export const homePage: Page = {
       // Removes metaphor-возвышенность («красивые слова» — vague) в favor of nachlaß
       // technical phrasing «перед оформлением» (warnings come before pretty formatting).
       // Matches broader landing-refresh mandate: less метafor, more по делу.
-      // EN/PT/DE cascaded (Lyolik/Zeka/Bolik Vier-Augen retro-review pending).
+      // EN/PT/DE cascaded (Lolik/Zeka/Bolik Vier-Augen retro-review pending).
       text: {
         en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before formatting.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
         ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят перед оформлением.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
@@ -575,7 +575,7 @@ export const homePage: Page = {
         },
         {
           key: 'lantern',
-          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'O Faroleiro' },
+          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'The Lamplighter' },
           role: {
             en: 'Brand & Visual Identity',
             ru: 'Бренд и визуальная идентичность',
@@ -589,7 +589,7 @@ export const homePage: Page = {
         },
         {
           key: 'lev',
-          name: { en: 'Lev', ru: 'Лев', pt: 'Lev' },
+          name: { en: 'Lyov', ru: 'Лёв', pt: 'Lyov' },
           role: {
             en: 'Legal & Compliance',
             ru: 'Legal и compliance',
@@ -631,7 +631,7 @@ export const homePage: Page = {
         },
         {
           key: 'lyolik',
-          name: { en: 'Lyolik', ru: 'Лёлик', pt: 'Lyolik' },
+          name: { en: 'Lolik', ru: 'Лёлик', pt: 'Lolik' },
           role: {
             en: 'English Translator',
             ru: 'Переводчик на английский',
