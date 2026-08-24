@@ -25,3 +25,10 @@
 /services  /en/services  301
 /projects  /en/projects  301
 /team      /en/team      301
+
+# EN root canonical per LOCALE-DEFAULTS-1 canon (Iskra S301-08): EN default = /.
+# Fix per Iskra S301-09 T3 P1 (2026-08-24): «Английский живёт в корне; адрес /en
+# в схеме отсутствует. Правка — 301 на /». Prior /en /en/ → 404 ломало переключатель
+# language. Redirect /en + /en/ → / (301 permanent, EN homepage lives at root).
+/en    /   301
+/en/   /   301

@@ -1,10 +1,10 @@
 # FolkUp
 
-> Independent open-content publisher producing free encyclopedias, books, and a public manifesto. Long-form writing — one person plus a team of AI fornits. Every publication signed by Andrei Klemenchonok.
+> Independent open-content publisher producing free encyclopedias, books, and a public manifesto. Long-form writing — one person plus a team of AI fornits. Every publication signed by Andrei Klemenchenok.
 
 ## About
 
-FolkUp is a single-person editorial enterprise — Andrei Klemenchonok with a team of AI fornits — publishing free encyclopedias, books, and the Unenclosed Knowledge Declaration. Banking-level fact verification, OSINT-anchored sources, transparent editorial process. Content is licensed CC BY-SA 4.0; code is MIT/Apache 2.0. Funded by commissioned work, not advertising.
+FolkUp is a single-person editorial enterprise — Andrei Klemenchenok with a team of AI fornits — publishing free encyclopedias, books, and the Unenclosed Knowledge Declaration. Banking-level fact verification, OSINT-anchored sources, transparent editorial process. Content is licensed CC BY-SA 4.0; code is MIT/Apache 2.0. Funded by commissioned work, not advertising.
 
 ## Encyclopedias
 
