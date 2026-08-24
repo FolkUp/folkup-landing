@@ -213,10 +213,10 @@ const descMap: Record<RouteKind, Record<string, string>> = {
     pt: 'Os fornits que mantêm a luz FolkUp acesa — uma pessoa e uma equipa de assistentes de IA, cada um com nome, papel e revisão humana antes de cada publicação.',
   },
   unknown: {
-    en: 'FolkUp — knowledge tools for real communities.',
-    ru: 'FolkUp — инструменты знаний для живых сообществ.',
-    pt: 'FolkUp — ferramentas de conhecimento para comunidades reais.',
-    de: 'FolkUp — Werkzeuge des Wissens für lebendige Gemeinschaften.',
+    en: 'FolkUp — knowledge tools for real people.',
+    ru: 'FolkUp — инструменты знаний для реальных людей.',
+    pt: 'FolkUp — ferramentas de conhecimento para pessoas reais.',
+    de: 'FolkUp — Werkzeuge des Wissens für echte Menschen.',
   },
 }
 

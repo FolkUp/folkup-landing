@@ -44,7 +44,18 @@ const licenseLabel = computed(() => {
   const l = locale.value
   if (l === 'ru') return 'Контент'
   if (l === 'pt') return 'Conteúdo'
+  if (l === 'de') return 'Inhalt'
   return 'Content'
+})
+
+// Copyright ownership per Iskra PRIKAZ S299-16 §2.5 LANDING-FANTOMY P1 (2026-08-24)
+// + Alice/Alisa name-canon S299-16 §1: EN «Comandante FolkUp» / RU «Команданте FolkUp»
+// / PT «Comandante FolkUp» / DE «Comandante FolkUp» (Spanish/Italian loan retained
+// across languages, mirror books portal EN pro-chto signature convention).
+const copyrightHolder = computed(() => {
+  const l = locale.value
+  if (l === 'ru') return 'Команданте FolkUp'
+  return 'Comandante FolkUp'
 })
 
 // Ecosystem dropdown label (Batch D · ECOSYSTEM-NAV-1 · Iskra TIKET-06 §3).
@@ -98,7 +109,7 @@ const ecosystemLabel = computed(() => {
       </div>
     </div>
     <p class="footer-license">
-      &copy; 2026 FolkUp contributors &middot; {{ licenseLabel }}:
+      &copy; 2026 {{ copyrightHolder }} &middot; {{ licenseLabel }}:
       <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a>
     </p>
   </footer>

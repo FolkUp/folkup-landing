@@ -25,10 +25,10 @@ export const homePage: Page = {
   availableLangs: ['en', 'ru', 'pt', 'de'],
   meta: {
     title: {
-      en: 'FolkUp — knowledge tools for real communities',
-      ru: 'FolkUp — инструменты знаний для живых сообществ',
-      pt: 'FolkUp — ferramentas de conhecimento para comunidades reais',
-      de: 'FolkUp — Werkzeuge des Wissens für lebendige Gemeinschaften',
+      en: 'FolkUp — knowledge tools for real people',
+      ru: 'FolkUp — инструменты знаний для реальных людей',
+      pt: 'FolkUp — ferramentas de conhecimento para pessoas reais',
+      de: 'FolkUp — Werkzeuge des Wissens für echte Menschen',
     },
     // Phase-4-P1 concept v1 restoration: «one approach» no longer covers
     // the scope after Trilogy + Pro Lab were added (3 distinct product lines).
@@ -72,7 +72,7 @@ export const homePage: Page = {
       // с «многоязычно» (А2=б), сохраняет «один человек» как personal identity (А1=а).
       // NO CTA (respects Iskra PAKET-GLAVNAYA S290-07 §3 — CTA removal preserved).
       // POMETKA к Iskra post-ship for editorial Vier-Augen retro-review (RU canonical
-      // = Andrey approval; EN/PT/DE best-effort awaiting Lyolik/Zeka/Bolik cascade).
+      // = Andrey approval; EN/PT/DE best-effort awaiting Lolik/Zeka/Bolik cascade).
       subtitle: {
         en: 'Knowledge you can actually read.',
         ru: 'Знание, которое можно читать.',
@@ -232,7 +232,7 @@ export const homePage: Page = {
       // Removes metaphor-возвышенность («красивые слова» — vague) в favor of nachlaß
       // technical phrasing «перед оформлением» (warnings come before pretty formatting).
       // Matches broader landing-refresh mandate: less метafor, more по делу.
-      // EN/PT/DE cascaded (Lyolik/Zeka/Bolik Vier-Augen retro-review pending).
+      // EN/PT/DE cascaded (Lolik/Zeka/Bolik Vier-Augen retro-review pending).
       text: {
         en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before formatting.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
         ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят перед оформлением.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
@@ -248,81 +248,12 @@ export const homePage: Page = {
     // imported, but не deleting in case future redesign restores. plates carousel
     // (5 AGIL illustrations) goes away with section.
 
-    // -------------------------------------------------------------- NEWS
-    // Cont+2 «Что нового» section (Andrey verdict item #10 landing refresh
-    // 2026-08-23). Manual authoring, 3-5 items typical, no-numbers rule applies
-    // к contents (per Andrey «мы нигде не указываем точного количества»).
-    // Position per copy-changes list: between «Как это делается» и «Декларация».
-    // Update cadence: manual raz в 1-2 weeks OR при substantive release.
-    {
-      id: 'news',
-      type: 'news',
-      schemaType: 'none',
-      label: {
-        en: "What's new",
-        ru: 'Что нового',
-        pt: 'Novidades',
-        de: 'Neues',
-      },
-      title: {
-        en: 'Recent updates',
-        ru: 'Последние обновления',
-        pt: 'Atualizações recentes',
-        de: 'Aktuelle Aktualisierungen',
-      },
-      items: [
-        {
-          id: 'kn1-new-edition',
-          text: {
-            en: 'First book: new edition with fixes and refined chapters',
-            ru: 'Первая книга: новая редакция с исправлениями и правкой глав',
-            pt: 'Primeiro livro: nova edição com correções e capítulos refinados',
-            de: 'Erstes Buch: neue Ausgabe mit Korrekturen und überarbeiteten Kapiteln',
-          },
-          link: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
-        },
-        {
-          id: 'lucerna-flightpass3d',
-          text: {
-            en: 'Lucerna: FlightPass3D investigation — status updated',
-            ru: 'Lucerna: обновили статус расследования ФлайтПас3D',
-            pt: 'Lucerna: investigação FlightPass3D — estado atualizado',
-            de: 'Lucerna: FlightPass3D-Recherche — Status aktualisiert',
-          },
-          link: 'https://lucerna.folkup.app',
-        },
-        {
-          id: 'setubal-articles',
-          text: {
-            en: 'Setúbal: new neighborhood articles and updated maps',
-            ru: 'Setúbal: новые статьи по кварталам и обновлённые карты',
-            pt: 'Setúbal: novos artigos sobre bairros e mapas atualizados',
-            de: 'Setúbal: neue Stadtteilartikel und aktualisierte Karten',
-          },
-          link: 'https://setubal.folkup.city',
-        },
-        {
-          id: 'cogumelos-safety',
-          text: {
-            en: 'Cogumelos: expanded safety notes and toxicity warnings',
-            ru: 'Cogumelos: расширили заметки о безопасности и предупреждения о токсичности',
-            pt: 'Cogumelos: notas de segurança e avisos de toxicidade ampliados',
-            de: 'Cogumelos: erweiterte Sicherheitshinweise und Toxizitätswarnungen',
-          },
-          link: 'https://cogumelos.folkup.fit',
-        },
-        {
-          id: 'padel-technique',
-          text: {
-            en: 'Padel: technique section refined, new tournament entries',
-            ru: 'Padel: обновили раздел техники, добавили турниры',
-            pt: 'Padel: secção de técnica refinada, novos torneios',
-            de: 'Padel: Technik-Bereich überarbeitet, neue Turniere',
-          },
-          link: 'https://padel.folkup.fit',
-        },
-      ],
-    },
+    // NEWS section removed 2026-08-24 per Iskra PRIKAZ S299-16 §2.1 LANDING-FANTOMY P1
+    // package (Andrey mandate «мне не нравится что главная по-прежнему содержит фантомы»).
+    // Section snyat целиком — contained FlightPass3D фантом (wrong firm name + fictitious
+    // «news»). Section data preserved в git history для future restoration если pattern
+    // renewed. Position was between «Как это делается» и «Декларация» — preserved gap
+    // for potential future manual news content OR another section.
 
     // ------------------------------------------------------------ DECL HERO
     {
@@ -644,7 +575,7 @@ export const homePage: Page = {
         },
         {
           key: 'lantern',
-          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'O Faroleiro' },
+          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'The Lamplighter' },
           role: {
             en: 'Brand & Visual Identity',
             ru: 'Бренд и визуальная идентичность',
@@ -658,7 +589,7 @@ export const homePage: Page = {
         },
         {
           key: 'lev',
-          name: { en: 'Lev', ru: 'Лев', pt: 'Lev' },
+          name: { en: 'Lyov', ru: 'Лёв', pt: 'Lyov' },
           role: {
             en: 'Legal & Compliance',
             ru: 'Legal и compliance',
@@ -700,7 +631,7 @@ export const homePage: Page = {
         },
         {
           key: 'lyolik',
-          name: { en: 'Lyolik', ru: 'Лёлик', pt: 'Lyolik' },
+          name: { en: 'Lolik', ru: 'Лёлик', pt: 'Lolik' },
           role: {
             en: 'English Translator',
             ru: 'Переводчик на английский',
