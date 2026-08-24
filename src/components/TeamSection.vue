@@ -46,9 +46,19 @@ const allMembers = computed(() =>
   })),
 )
 
-const members = computed(() =>
-  props.compact ? allMembers.value.slice(0, 4) : allMembers.value,
-)
+// Home teaser roster per Iskra KANON S299-13 TEAM-COMPOSITION + PRIKAZ S299-16 §2.3
+// (LANDING-FANTOMY P1 2026-08-24): Alice + Iskra + Lolik + Frida в этом порядке.
+// Прежде было first-4-slice: alice/gonzo/cooper/lantern — заменено explicit keys list.
+// /team page (compact=false) preserves full editorial ordering members[] intact.
+const HOME_TEASER_KEYS = ['alice', 'iskra', 'lyolik', 'frida']
+
+const members = computed(() => {
+  if (!props.compact) return allMembers.value
+  const memberByKey = new Map(allMembers.value.map((m) => [m.key, m]))
+  return HOME_TEASER_KEYS.map((k) => memberByKey.get(k)).filter(
+    (m): m is NonNullable<typeof m> => m !== undefined,
+  )
+})
 
 const teamPageUrl = computed(() =>
   locale.value === 'en' ? '/team' : `/${locale.value}/team`,
