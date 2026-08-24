@@ -13,10 +13,13 @@
   <meta property="og:image" content="https://folkup.app/images/og-image.png?v=2" />
   <meta property="og:url" content="https://folkup.app/" />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en" />
-  <meta property="og:locale:alternate" content="ru" />
-  <meta property="og:locale:alternate" content="pt" />
-  <meta property="og:locale:alternate" content="de" />
+  <!--
+    og:locale + og:locale:alternate injected per-route by useHead in src/App.vue
+    (S301-09 §2 Тикет 5 fix Iskra Vier-Augen 2026-08-24). Static defaults ниже
+    только для pre-hydration/bots-без-JS — dynamic per-page values win post-hydration
+    (per @unhead/vue key-based dedup).
+  -->
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
