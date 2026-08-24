@@ -31,10 +31,10 @@ export const projectsPage: Page = {
       de: 'Enzyklopädien und eine Werkstatt — FolkUp',
     },
     description: {
-      en: 'Three encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
-      ru: 'Три энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
-      pt: 'Três enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
-      de: 'Drei Enzyklopädien sind heute offen — Setúbal, Padel, Cogumelos. Weitere kommen. Eine Werkstatt, kostenlos, signiert, unsere.',
+      en: 'Encyclopedias open today — Setúbal, Padel, Cogumelos. More on the way. One workshop, free, signed, ours.',
+      ru: 'Энциклопедии открыты сейчас — Сетубал, падел, грибы. Список растёт. Одна мастерская, бесплатно, подписано, своё.',
+      pt: 'Enciclopédias abertas hoje — Setúbal, padel, cogumelos. A lista cresce. Uma oficina, grátis, assinada, nossa.',
+      de: 'Enzyklopädien sind heute offen — Setúbal, Padel, Cogumelos. Weitere kommen. Eine Werkstatt, kostenlos, signiert, unsere.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/projects',
@@ -55,7 +55,7 @@ export const projectsPage: Page = {
         pt: 'Atualizado em junho de 2026',
       },
       content: {
-        en: `<p>Three encyclopedias are open today. A Portuguese city, a fast-growing racket sport, and the mushrooms that grow in Portuguese forests. The list keeps growing — others are in build, and the queue ahead is long.</p>
+        en: `<p>Encyclopedias are open today. A Portuguese city, a fast-growing racket sport, and the mushrooms that grow in Portuguese forests. The list keeps growing — others are in build, and the queue ahead is long.</p>
 
 <p>Every project follows the same workshop pattern. We pick a specific subject. We go look. We verify twice, by hand. We publish — free, signed, ours.</p>
 
@@ -83,7 +83,7 @@ export const projectsPage: Page = {
 
 <h2>In build</h2>
 
-<p>Three more encyclopedias are in active development. The work is real, the structure is being laid out, the first articles are taking shape. They'll open here when they're ready to read, not before.</p>
+<p>More encyclopedias are in active development. The work is real, the structure is being laid out, the first articles are taking shape. They'll open here when they're ready to read, not before.</p>
 
 <ul class="encyclopedia-coming">
 <li><strong><a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a></strong> — a culture encyclopedia. Soft-launch shape today.</li>
@@ -107,7 +107,7 @@ export const projectsPage: Page = {
 <p>Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. The workshop pattern is the same: specific subjects, careful sources, no shortcuts.</p>
 
 <p>If you have a project and want to see what it would look like coming through this workshop, write to <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Read by hand.</p>`,
-        ru: `<p>Три энциклопедии открыты сейчас. Португальский город, быстрорастущий ракеточный спорт и грибы, которые растут в португальских лесах. Список растёт — несколько ещё готовятся, впереди — длинная очередь.</p>
+        ru: `<p>Энциклопедии открыты сейчас. Португальский город, быстрорастущий ракеточный спорт и грибы, которые растут в португальских лесах. Список растёт — несколько ещё готовятся, впереди — длинная очередь.</p>
 
 <p>Каждый проект собирается одной и той же мастерской. Выбираем конкретную тему. Идём смотреть. Проверяем дважды, руками. Публикуем — бесплатно, подписано, своё.</p>
 
@@ -159,7 +159,7 @@ export const projectsPage: Page = {
 <p>Энциклопедии, каталоги библиотек, техническая документация — такие тексты мы делаем и на заказ. Мастерская работает по той же схеме: конкретные темы, проверенные источники, без срезаний углов.</p>
 
 <p>Если у тебя есть проект и хочется увидеть, как он пройдёт через эту мастерскую — напиши на <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Читаем вручную.</p>`,
-        pt: `<p>Três enciclopédias estão abertas hoje. Uma cidade portuguesa, um desporto de raquete em rápido crescimento, e os cogumelos que crescem nas florestas portuguesas. A lista cresce — outras estão em construção, e a fila à frente é longa.</p>
+        pt: `<p>Enciclopédias estão abertas hoje. Uma cidade portuguesa, um desporto de raquete em rápido crescimento, e os cogumelos que crescem nas florestas portuguesas. A lista cresce — outras estão em construção, e a fila à frente é longa.</p>
 
 <p>Cada projeto sai da mesma oficina. Escolhemos um tema específico. Vamos ver. Verificamos duas vezes, à mão. Publicamos — grátis, assinado, nosso.</p>
 
