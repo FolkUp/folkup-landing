@@ -28,6 +28,17 @@ function navAnchor(anchor: string) {
 // Anchor pattern reserved для navProjects (still page-level scroll target).
 const teamUrl = computed(() => (locale.value === 'en' ? '/team' : `/${locale.value}/team`))
 
+// S301-09 §2 Тикет 2 P1 fix (Iskra Vier-Augen 2026-08-24 cont+8 S8SCOOP):
+// Locale-aware books.folkup.life URL per S301-08 LOCALE-DEFAULTS-1 table:
+// landing EN default → portal /en · landing /ru → portal / · landing /pt → portal /pt · landing /de → portal /de.
+// Раньше hardcoded https://books.folkup.life → португалец с /pt уходил в русскую библиотеку.
+const booksUrl = computed(() => {
+  const lang = locale.value
+  if (lang === 'ru') return 'https://books.folkup.life/'
+  if (lang === 'en') return 'https://books.folkup.life/en'
+  return `https://books.folkup.life/${lang}`
+})
+
 /**
  * Hamburger open state for mobile viewports. Phase 4 P1 SiteHeader v3:
  *
@@ -85,7 +96,7 @@ function closeNav() {
         :class="{ 'header-nav--open': navOpen }"
         aria-label="Main navigation"
       >
-        <a href="https://books.folkup.life" @click="closeNav">{{ t('navBooks') }}</a>
+        <a :href="booksUrl" @click="closeNav">{{ t('navBooks') }}</a>
         <a :href="navAnchor('#projects')" @click="closeNav">{{ t('navProjects') }}</a>
         <a href="https://declaration.folkup.app" @click="closeNav">{{ t('navDeclaration') }}</a>
         <a :href="teamUrl" @click="closeNav">{{ t('navTeam') }}</a>

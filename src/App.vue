@@ -230,6 +230,23 @@ const ogLocale = computed(() => {
   return 'en_US'
 })
 
+// S301-09 §2 Тикет 5 P1 fix (Iskra Vier-Augen 2026-08-24 cont+8 S8SCOOP):
+// og:locale:alternate = все остальные локали кроме current (не self-link).
+// Iskra: «og:locale:alternate везде объявлен de, включая саму немецкую страницу».
+// На поиск не влияет, на превью в соцсетях влияет.
+// Static index.html had 3 alternates (ru/pt/de) always — теперь per-page dynamic.
+const OG_LOCALE_MAP: Record<string, string> = {
+  ru: 'ru_RU',
+  en: 'en_US',
+  pt: 'pt_PT',
+  de: 'de_DE',
+}
+const ogLocaleAlternates = computed<string[]>(() =>
+  Object.entries(OG_LOCALE_MAP)
+    .filter(([lang]) => lang !== locale.value)
+    .map(([, code]) => code),
+)
+
 const schemas = computed<object[]>(() => {
   const kind = routeKind.value
   if (kind === 'home') return pageSchemas(homePage, locale.value)
@@ -323,6 +340,10 @@ useHead({
     { property: 'og:description', content: pageDescription.value },
     { property: 'og:url', content: canonical.value },
     { property: 'og:locale', content: ogLocale.value },
+    ...ogLocaleAlternates.value.map((code) => ({
+      property: 'og:locale:alternate',
+      content: code,
+    })),
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: 'FolkUp' },
     { property: 'og:image', content: `${HOST}/images/og-image.png?v=2` },

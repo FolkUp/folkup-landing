@@ -67,6 +67,18 @@ const ecosystemLabel = computed(() => {
   if (l === 'de') return 'Unsere Projekte'
   return 'Our projects'
 })
+
+// S301-09 §2 Тикет 2 P1 fix (Iskra Vier-Augen 2026-08-24 cont+8 S8SCOOP):
+// Locale-aware books.folkup.life URL per S301-08 LOCALE-DEFAULTS-1 table:
+// landing EN default → portal /en · landing /ru → portal / · landing /pt → portal /pt · landing /de → portal /de.
+// Other ecosystem sites (declaration/padel/setubal/etc) — no language routes yet,
+// оставлены as-is (отдельные тикеты для каждого).
+const booksUrl = computed(() => {
+  const lang = locale.value
+  if (lang === 'ru') return 'https://books.folkup.life/'
+  if (lang === 'en') return 'https://books.folkup.life/en'
+  return `https://books.folkup.life/${lang}`
+})
 </script>
 
 <template>
@@ -91,7 +103,7 @@ const ecosystemLabel = computed(() => {
       <details class="footer-ecosystem">
         <summary class="footer-ecosystem-toggle">{{ ecosystemLabel }}</summary>
         <ul class="footer-ecosystem-list">
-          <li><a href="https://books.folkup.life" target="_blank" rel="noopener noreferrer">Books</a></li>
+          <li><a :href="booksUrl" target="_blank" rel="noopener noreferrer">Books</a></li>
           <li><a href="https://declaration.folkup.app" target="_blank" rel="noopener noreferrer">Declaration</a></li>
           <li><a href="https://padel.folkup.fit" target="_blank" rel="noopener noreferrer">Padel</a></li>
           <li><a href="https://setubal.folkup.city" target="_blank" rel="noopener noreferrer">Setúbal</a></li>
