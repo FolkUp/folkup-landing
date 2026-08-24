@@ -35,10 +35,10 @@ export const servicesPage: Page = {
       de: 'Leistungen — FolkUp',
     },
     description: {
-      en: 'Seven directions, all on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI fornits.',
-      ru: 'Семь направлений — все на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
-      pt: 'Sete direções, todas em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de fornits de IA.',
-      de: 'Sieben Richtungen, alle auf langen Fristen. Übersetzungen, OSINT, lange Essays, Enzyklopädien, Illustration, Websites. Ohne Preise, nach vorherigem Gespräch. Geschrieben von einem Autor und einem Team von KI-Forniten.',
+      en: 'Directions on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI fornits.',
+      ru: 'Направления на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
+      pt: 'Direções em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de fornits de IA.',
+      de: 'Richtungen auf langen Fristen. Übersetzungen, OSINT, lange Essays, Enzyklopädien, Illustration, Websites. Ohne Preise, nach vorherigem Gespräch. Geschrieben von einem Autor und einem Team von KI-Forniten.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/services',
@@ -61,7 +61,7 @@ export const servicesPage: Page = {
       content: {
         en: `<p>We take on work with a shelf life longer than a quarter.</p>
 
-<p>Seven directions. Each with a concrete outcome and boundaries put in writing.</p>
+<p>Directions on long timelines. Each with a concrete outcome and boundaries put in writing.</p>
 
 <p>Not for everyone. The details are below.</p>
 
@@ -137,7 +137,7 @@ export const servicesPage: Page = {
 
 <h3>Work with a long memory.</h3>
 
-<p>Three encyclopedias are already open — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a>. Two are in preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>.</p>
+<p>Open encyclopedias — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a>. In preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>.</p>
 
 <p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Openly published — read, copy, continue — so the text outlives us.</p>
 
@@ -186,7 +186,7 @@ export const servicesPage: Page = {
 <p class="services-legal-footer"><small>See also: <a href="/en/privacy">Privacy Policy</a> · <a href="/en/about/ai-use">How we work with AI</a></small></p>`,
         ru: `<p>Мы берёмся за работу, у которой есть срок жизни длиннее квартала.</p>
 
-<p>Семь направлений. Каждое — с конкретным результатом и письменными границами.</p>
+<p>Направления на длинных дистанциях. Каждое — с конкретным результатом и письменными границами.</p>
 
 <p>Не для всех. Подробности — ниже.</p>
 
@@ -262,7 +262,7 @@ export const servicesPage: Page = {
 
 <h3>Долгопамятная работа.</h3>
 
-<p>Три энциклопедии открыты — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a>, <a href="https://padel.folkup.fit" rel="noopener">падел</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a>. Две готовятся — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>.</p>
+<p>Открытые энциклопедии — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a>, <a href="https://padel.folkup.fit" rel="noopener">падел</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a>. В подготовке — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>.</p>
 
 <p>Строим энциклопедию — от глоссария до полноценной справочной структуры с поиском, перекрёстными ссылками и структурированными метаданными. Полгода-год работы. Текст остаётся открытым — читайте, копируйте, продолжайте — чтобы пережил нас.</p>
 
@@ -311,7 +311,7 @@ export const servicesPage: Page = {
 <p class="services-legal-footer"><small>См. также: <a href="/ru/privacy">Политика конфиденциальности</a> · <a href="/ru/about/ai-use">Как мы работаем с AI</a></small></p>`,
         pt: `<p>Aceitamos trabalhos cuja vida útil seja mais longa do que um trimestre.</p>
 
-<p>Sete direções. Cada uma com um resultado concreto e limites escritos.</p>
+<p>Direções em prazos longos. Cada uma com um resultado concreto e limites escritos.</p>
 
 <p>Não é para todos. Os pormenores estão em baixo.</p>
 
@@ -387,7 +387,7 @@ export const servicesPage: Page = {
 
 <h3>Trabalho para longa memória.</h3>
 
-<p>Três enciclopédias estão abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a>. Duas em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>.</p>
+<p>Enciclopédias abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a>. Em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>.</p>
 
 <p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Texto aberto — ler, copiar, continuar — para que sobreviva a quem o fez.</p>
 
