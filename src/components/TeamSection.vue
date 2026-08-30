@@ -19,6 +19,12 @@ if (!section) throw new Error('Team section missing from homePage manifest')
 const team = section
 
 // Avatars are presentation-only; keyed by team member key from the manifest.
+// 2026-08-30 S1UMBR cont+4 — added kochegar/pechkin/johnny/vrag для v5.1 canon
+// (Iskra S302-02 + S302-03 RU master + S303-01 + S304-01 ratified 14-card roster).
+// Portraits: stoker.webp existing (kochegar/Stoker equivalence), pechkin.webp + johnny.webp
+// existing. Vrag → folkup-mark.svg placeholder per Iskra S304-01 §2 «единый плейсхолдер
+// для не имеющих портрета — folkup-mark.svg». LAND-FRIDA-PORTRAITS-TEAM-001 background track
+// добор недостающих portraits, не blocker (см. BACKLOG.yaml line 27341).
 const MEMBER_AVATARS: Record<string, string> = {
   alice: '/images/team/alice.webp',
   gonzo: '/images/team/gonzo.webp',
@@ -30,6 +36,10 @@ const MEMBER_AVATARS: Record<string, string> = {
   lyolik: '/images/team/lyolik.webp',
   bolik: '/images/team/bolik.webp',
   zeka: '/images/team/zeka.webp',
+  kochegar: '/images/team/stoker.webp',
+  pechkin: '/images/team/pechkin.webp',
+  johnny: '/images/team/johnny.webp',
+  vrag: '/images/brand/folkup-mark.svg',
 }
 
 const label = computed(() => resolveLocalized(team.label, locale.value) ?? '')

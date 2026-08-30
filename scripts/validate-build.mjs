@@ -28,7 +28,14 @@ import { gzipSync } from 'node:zlib'
 
 const DIST = 'dist'
 const LANGS = ['en', 'ru', 'pt', 'de']
-const BUNDLE_GZIP_MAX_KB = 60
+// Bundle hard cap — raised 60 → 65 KB gzip per 2026-08-30 S1UMBR cont+4 team v5.1
+// integration (Iskra VIZA S302-02 + S302-03 RU master + S303-01 + S304-01 ratified
+// 14-forniti roster × 4 languages + DE completion). Prior 60 KB budget assumed 10-member
+// English/RU/PT-only team; v5.1 canon adds 4 forniti (Kochegar/Pechkin/Johnny/Vrag) +
+// full DE lang across all 14 members = ~2.5 KB gzip content growth. 5 KB headroom
+// preserved for future editorial expansion. CLAUDE.md performance budget line к be
+// updated in next hygiene batch.
+const BUNDLE_GZIP_MAX_KB = 65
 
 /**
  * The exact set of relative paths (POSIX-style) produced by vite-ssg

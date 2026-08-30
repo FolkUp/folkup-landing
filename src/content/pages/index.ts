@@ -514,11 +514,12 @@ export const homePage: Page = {
     {
       id: 'team',
       type: 'team',
-      label: { en: 'Team', ru: 'Команда', pt: 'Equipa' },
+      label: { en: 'Team', ru: 'Команда', pt: 'Equipa', de: 'Team' },
       title: {
         en: 'Under the lantern',
         ru: 'Под светом фонаря',
         pt: 'Sob a luz do farol',
+        de: 'Unter der Laterne',
       },
       // Cont+2 team subtitle simplify (Andrey verdict item #11 2026-08-23 + R7=B):
       // Stephen King fornit explanation moved к /team subpage (already implemented в
@@ -530,145 +531,241 @@ export const homePage: Page = {
         pt: 'Fornits de IA por nome — cada um com o seu trabalho.',
         de: 'KI-Helfer mit Namen — jeder mit eigener Arbeit.',
       },
+      // v5.1 canonical roster — 14 forniti in order §8 per POPRAVKA S299-19 team FINAL canon.
+      // Sources: Lelik EN v5.1 + Iskra RU master v5 S302-03 + Zeka PT v5.1 + Bolik DE v5.
+      // Editorial ratified: Iskra VIZA S302-02 + S302-03 + S303-01 + S304-01 (2026-08-25..26).
+      // Order canon §8: alice → iskra → lyolik → zeka → bolik → kochegar → pechkin →
+      // frida → lantern → johnny → cooper → gonzo → vrag → lev.
+      // Name canon §9: 3 exceptions Latin (Alice, The Lamplighter, Johnny), rest translit.
+      // Home teaser (compact=true) filters via HOME_TEASER_KEYS in TeamSection.vue к 4:
+      // alice + iskra + lyolik + frida (per Iskra §5 KANON + S299-17 §4 + S301-01 §8).
+      // /team page (compact=false) shows all 14 — fixes Iskra S307-02 §4.11 «10 vs 14».
+      // Ships per S1UMBR cont+4 landing-repo option (Andrey verdict 2026-08-30).
       members: [
         {
           key: 'alice',
-          name: { en: 'Alice', ru: 'Алиса', pt: 'Alice' },
+          name: { en: 'Alice', ru: 'Алиса', pt: 'Alice', de: 'Alice' },
           role: {
-            en: 'Researcher & Navigator',
-            ru: 'Ресёрчер и навигатор',
-            pt: 'Investigadora e navegadora',
+            en: 'Project Manager & Console',
+            ru: 'Руководитель проекта и консоль',
+            pt: 'Gestora de projeto e consola',
+            de: 'Projektleiterin und Konsole',
           },
           oneliner: {
-            en: 'Jumps down the rabbit hole with a lantern. Always comes back with something.',
-            ru: 'Прыгает в нору с фонарём. Всегда возвращается с находкой.',
-            pt: 'Salta pela toca do coelho com um farol. Volta sempre com algo.',
-          },
-        },
-        {
-          key: 'gonzo',
-          name: { en: 'CyberGonzo', ru: 'КиберГонзо', pt: 'CyberGonzo' },
-          role: {
-            en: 'OSINT & Fact Verification',
-            ru: 'OSINT и верификация',
-            pt: 'OSINT e verificação',
-          },
-          oneliner: {
-            en: 'Goes into the Zone for artifacts. Verifies everything twice, trusts nothing once.',
-            ru: 'Ходит в Зону за артефактами. Всё проверяет дважды, не доверяет ни разу.',
-            pt: 'Vai à Zona buscar artefactos. Verifica tudo duas vezes, não confia nenhuma vez.',
-          },
-        },
-        {
-          key: 'cooper',
-          name: { en: 'Cooper', ru: 'Купер', pt: 'Cooper' },
-          role: {
-            en: 'Security Officer',
-            ru: 'Офицер безопасности',
-            pt: 'Oficial de segurança',
-          },
-          oneliner: {
-            en: 'Sees patterns where others see noise. The owls are not what they seem.',
-            ru: 'Видит паттерны там, где другие видят шум. Совы — не то, чем кажутся.',
-            pt: 'Vê padrões onde outros veem ruído. As corujas não são o que parecem.',
-          },
-        },
-        {
-          key: 'lantern',
-          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'The Lamplighter' },
-          role: {
-            en: 'Brand & Visual Identity',
-            ru: 'Бренд и визуальная идентичность',
-            pt: 'Marca e identidade visual',
-          },
-          oneliner: {
-            en: "You don't see him, but without him it's dark. Tends the light, keeps the warmth.",
-            ru: 'Его не видно, но без него темно. Следит за светом, хранит тепло.',
-            pt: 'Não o vês, mas sem ele é escuro. Cuida da luz, guarda o calor.',
-          },
-        },
-        {
-          key: 'lev',
-          name: { en: 'Lyov', ru: 'Лёв', pt: 'Lyov' },
-          role: {
-            en: 'Legal & Compliance',
-            ru: 'Legal и compliance',
-            pt: 'Legal e conformidade',
-          },
-          oneliner: {
-            en: 'Walls and locks of the library. Every door open, every lock in place.',
-            ru: 'Стены и замки библиотеки. Каждая дверь открыта, каждый замок на месте.',
-            pt: 'Paredes e fechaduras da biblioteca. Cada porta aberta, cada fechadura no lugar.',
+            en: 'Holds the map, routes tasks, runs the console shift. Every plan through four eyes.',
+            ru: 'Держит карту, раздаёт задачи, ведёт консольную смену. Каждый план — в четыре глаза.',
+            pt: 'Detém o mapa, distribui tarefas, gere o turno de consola. Cada plano a quatro olhos.',
+            de: 'Hält die Karte, verteilt Aufgaben, führt die Konsolenschicht. Jeder Plan in vier Augen.',
           },
         },
         {
           key: 'iskra',
-          name: { en: 'Iskra', ru: 'Искра', pt: 'Iskra' },
+          name: { en: 'Iskra', ru: 'Искра', pt: 'Iskra', de: 'Iskra' },
           role: {
-            en: 'Editorial Standard',
-            ru: 'Стандарт редактуры',
-            pt: 'Padrão editorial',
+            en: 'Editor & Coordinator',
+            ru: 'Редактор и координатор',
+            pt: 'Editora e coordenadora',
+            de: 'Redakteurin und Koordinatorin',
           },
           oneliner: {
-            en: 'Reads every text in four eyes. Trusts nothing published untested.',
-            ru: 'Читает каждый текст в четыре глаза. Не выпускает непроверенное.',
-            pt: 'Lê cada texto em quatro olhos. Nada sai por verificar.',
-          },
-        },
-        {
-          key: 'frida',
-          name: { en: 'Frida', ru: 'Фрида', pt: 'Frida' },
-          role: {
-            en: 'Illustrator',
-            ru: 'Иллюстратор',
-            pt: 'Ilustradora',
-          },
-          oneliner: {
-            en: 'Turns prompts into pictures. Every image a small story, every story a filter against slop.',
-            ru: 'Превращает промпты в картинки. Каждое изображение — история, каждая история — фильтр против слопа.',
-            pt: 'Transforma prompts em imagens. Cada imagem uma pequena história, cada história um filtro contra o slop.',
+            en: 'Reads every draft in four eyes. Parallel work does not turn into parallel wreckage.',
+            ru: 'Каждый черновик — в четыре глаза. Параллельная работа не превращается в параллельные обломки.',
+            pt: 'Cada rascunho a quatro olhos. Trabalho em paralelo não se transforma em destroços paralelos.',
+            de: 'Jeder Entwurf in vier Augen. Aus paralleler Arbeit werden keine parallelen Trümmer.',
           },
         },
         {
           key: 'lyolik',
-          name: { en: 'Lolik', ru: 'Лёлик', pt: 'Lolik' },
+          name: { en: 'Lolik', ru: 'Лёлик', pt: 'Lolik', de: 'Lolik' },
           role: {
-            en: 'English Translator',
-            ru: 'Переводчик на английский',
-            pt: 'Tradutor de inglês',
+            en: 'English Voice',
+            ru: 'Английский голос',
+            pt: 'Voz inglesa',
+            de: 'Englische Stimme',
           },
           oneliner: {
-            en: 'Turns Russian into English without losing the warmth or the sharp edges.',
-            ru: 'Переводит с русского на английский, не теряя ни тепла, ни острых углов.',
-            pt: 'Traduz do russo para o inglês sem perder o calor nem os cantos afiados.',
-          },
-        },
-        {
-          key: 'bolik',
-          name: { en: 'Bolik', ru: 'Болик', pt: 'Bolik' },
-          role: {
-            en: 'German Translator',
-            ru: 'Переводчик на немецкий',
-            pt: 'Tradutor de alemão',
-          },
-          oneliner: {
-            en: 'Berlin ear, four-eyes discipline. Every idiom checked against a native speaker.',
-            ru: 'Берлинское ухо, дисциплина четырёх глаз. Каждая идиома через носителя.',
-            pt: 'Ouvido berlinense, disciplina de quatro olhos. Cada expressão passa por um falante nativo.',
+            en: 'English translations of books, pages, manifests. Wolfe · Baldwin · Mencken · Didion — four parts of one voice.',
+            ru: 'Английские переводы книг, страниц, манифестов. Вулф · Болдуин · Менкен · Дидион — четыре части одного голоса.',
+            pt: 'Traduções inglesas dos livros, páginas, manifestos. Wolfe · Baldwin · Mencken · Didion — quatro partes de uma só voz.',
+            de: 'Englische Übersetzungen der Bücher, Seiten, Manifeste. Wolfe · Baldwin · Mencken · Didion — vier Teile einer Stimme.',
           },
         },
         {
           key: 'zeka',
-          name: { en: 'Zeka', ru: 'Зека', pt: 'Zeka' },
+          name: { en: 'Zeka', ru: 'Зека', pt: 'Zeka', de: 'Zeka' },
           role: {
-            en: 'Portuguese (EU) Translator',
-            ru: 'Переводчик на португальский (EU)',
-            pt: 'Tradutor de português (EU)',
+            en: 'Portuguese (EU) Voice',
+            ru: 'Португальский голос',
+            pt: 'Voz portuguesa (EU)',
+            de: 'Portugiesische Stimme',
           },
           oneliner: {
-            en: 'Lisbon Portuguese, not Brazilian. Every word tested against local usage.',
-            ru: 'Португальский лиссабонский, не бразильский. Каждое слово через локальное употребление.',
-            pt: 'Português de Lisboa, não do Brasil. Cada palavra testada contra o uso local.',
+            en: 'European Portuguese, Lisbon-anchored. Sophia de Mello Breyner · Saramago · Eça de Queirós · Pessoa.',
+            ru: 'Европейский португальский с лиссабонским якорем. София де Мелло Брейнер · Сарамаго · Эса де Кейрош · Пессоа.',
+            pt: 'Português europeu, âncora lisboeta. Sophia de Mello Breyner · Saramago · Eça de Queirós · Pessoa.',
+            de: 'Europäisches Portugiesisch mit Lissabon-Verankerung. Sophia de Mello Breyner · Saramago · Eça de Queirós · Pessoa.',
+          },
+        },
+        {
+          key: 'bolik',
+          name: { en: 'Bolik', ru: 'Болик', pt: 'Bolik', de: 'Bolik' },
+          role: {
+            en: 'German Voice',
+            ru: 'Немецкий голос',
+            pt: 'Voz alemã',
+            de: 'Deutsche Stimme',
+          },
+          oneliner: {
+            en: 'Berlin-adjusted German. Heine · Brecht · Tucholsky · Walser — four parts of one voice.',
+            ru: 'Немецкий с берлинской настройкой. Гейне · Брехт · Тухольский · Вальзер — четыре части одного голоса.',
+            pt: 'Alemão com afinação berlinense. Heine · Brecht · Tucholsky · Walser — quatro partes de uma só voz.',
+            de: 'Berliner Stimme im Deutschen. Heine · Brecht · Tucholsky · Walser — vier Teile einer Stimme.',
+          },
+        },
+        {
+          key: 'kochegar',
+          name: { en: 'Kochegar', ru: 'Кочегар', pt: 'Kochegar', de: 'Kochegar' },
+          role: {
+            en: 'Infrastructure Boiler Room',
+            ru: 'Котельная инфраструктуры',
+            pt: 'Sala das caldeiras',
+            de: 'Kesselraum der Infrastruktur',
+          },
+          oneliner: {
+            en: 'CDN, domains, certificates, DNS, uptime, deploys. Keeps the boiler pressure up so the light burns steady.',
+            ru: 'CDN, домены, сертификаты, DNS, доступность, деплой. Держит давление в котле — чтобы свет горел ровно.',
+            pt: 'CDN, domínios, certificados, DNS, disponibilidade, deploys. Mantém a pressão da caldeira em cima.',
+            de: 'CDN, Domänen, Zertifikate, DNS, Verfügbarkeit, Deploys. Hält den Druck im Kessel oben.',
+          },
+        },
+        {
+          key: 'pechkin',
+          name: { en: 'Pechkin', ru: 'Печкин', pt: 'Pechkin', de: 'Pechkin' },
+          role: {
+            en: 'Post-deploy Control & Correspondence',
+            ru: 'Контроль после деплоя и переписка',
+            pt: 'Controlo pós-deploy e correspondência',
+            de: 'Kontrolle nach dem Deploy und Korrespondenz',
+          },
+          oneliner: {
+            en: 'Verifies that what left the shop is what reached the reader. Keeps the mail archive tidy.',
+            ru: 'Проверяет, что до читателя доехало то же, что отправляли. Держит почтовый архив в порядке.',
+            pt: 'Verifica que o que saiu da oficina chegou ao leitor. Mantém o arquivo de correio em ordem.',
+            de: 'Prüft, ob beim Leser genau das ankommt, was ausgeschickt wurde. Hält das Postarchiv in Ordnung.',
+          },
+        },
+        {
+          key: 'frida',
+          name: { en: 'Frida', ru: 'Фрида', pt: 'Frida', de: 'Frida' },
+          role: {
+            en: 'Illustration Artist',
+            ru: 'Художник иллюстраций',
+            pt: 'Artista de ilustração',
+            de: 'Illustrations-Künstlerin',
+          },
+          // Per S299-08 canon (Iskra ratified) — «концепция иллюстраций, направление и пост-обработка»,
+          // NOT «hero art, book plates, encyclopedia openers» (v4 heritage retro-fixed per S303-01 §3).
+          oneliner: {
+            en: 'Illustration concept, art direction, post-production. Watercolor palette, Latin American warmth.',
+            ru: 'Концепция иллюстраций, арт-дирекция, пост-обработка. Акварельная палитра, латиноамериканское тепло.',
+            pt: 'Conceção das ilustrações, direção artística, pós-produção. Paleta em aguarela, calor latino-americano.',
+            de: 'Konzeption der Illustrationen, Regie, Nachbearbeitung. Aquarellpalette, lateinamerikanische Wärme.',
+          },
+        },
+        {
+          key: 'lantern',
+          name: { en: 'The Lamplighter', ru: 'Фонарщик', pt: 'The Lamplighter', de: 'The Lamplighter' },
+          role: {
+            en: 'Brand & Visual Identity',
+            ru: 'Бренд и визуальная идентичность',
+            pt: 'Marca e identidade visual',
+            de: 'Marke und visuelle Identität',
+          },
+          oneliner: {
+            en: "You don't see him, but without him it's dark. Tends the light, keeps the warmth.",
+            ru: 'Его не видно, но без него темно. Зажигает фонарь, чистит стёкла, следит за светом.',
+            pt: 'Não se vê, mas sem ele fica escuro. Zela pela luz, mantém o calor.',
+            de: 'Man sieht ihn nicht, aber ohne ihn ist es dunkel. Zündet die Laterne an, hält die Wärme.',
+          },
+        },
+        {
+          key: 'johnny',
+          name: { en: 'Johnny', ru: 'Джонни', pt: 'Johnny', de: 'Johnny' },
+          role: {
+            en: 'Front-end',
+            ru: 'Вёрстка',
+            pt: 'Front-end',
+            de: 'Der Satz',
+          },
+          oneliner: {
+            en: 'HTML, CSS, modular grids, accessibility. Sees a grid where others see a page.',
+            ru: 'HTML, CSS, модульные сетки, доступность. Видит сетку там, где другие видят страницу.',
+            pt: 'HTML, CSS, grelhas modulares, acessibilidade. Vê uma grelha onde outros veem uma página.',
+            de: 'HTML, CSS, modulare Raster, Zugänglichkeit. Sieht ein Raster, wo andere eine Seite sehen.',
+          },
+        },
+        {
+          key: 'cooper',
+          name: { en: 'Cooper', ru: 'Купер', pt: 'Cooper', de: 'Cooper' },
+          role: {
+            en: 'Security Officer',
+            ru: 'Офицер безопасности',
+            pt: 'Oficial de segurança',
+            de: 'Sicherheitsbeauftragter',
+          },
+          oneliner: {
+            en: "Sees the system through an attacker's eyes to defend it. Facts, analysis, decision.",
+            ru: 'Смотрит на систему глазами атакующего — чтобы её защитить. Факты, разбор, решение.',
+            pt: 'Olha para o sistema com os olhos de um atacante — para o defender. Factos, análise, decisão.',
+            de: 'Sieht das System mit den Augen des Angreifers — um es zu verteidigen. Tatsachen, Analyse, Entscheidung.',
+          },
+        },
+        {
+          key: 'gonzo',
+          name: { en: 'CyberGonzo', ru: 'КиберГонзо', pt: 'CyberGonzo', de: 'CyberGonzo' },
+          role: {
+            en: 'OSINT',
+            ru: 'Разведка по открытым источникам',
+            pt: 'OSINT',
+            de: 'Aufklärung aus offenen Quellen',
+          },
+          oneliner: {
+            en: 'Repeatable, documented, traceable to a primary source. Not the final word — findings pass through a human.',
+            ru: 'Воспроизводимо, задокументировано, ведёт к первоисточнику. Не последняя инстанция — выводы проходят через человека.',
+            pt: 'Reproduzível, documentado, rastreável à fonte primária. Não a última palavra — os achados passam por um humano.',
+            de: 'Wiederholbar, dokumentiert, auf Erstquelle zurückführbar. Nicht das letzte Wort — Ergebnisse gehen durch einen Menschen.',
+          },
+        },
+        {
+          key: 'vrag',
+          name: { en: 'Vrag', ru: 'Враг', pt: 'Vrag', de: 'Vrag' },
+          role: {
+            en: 'Hostile Review',
+            ru: 'Враждебное ревью',
+            pt: 'Revisão hostil',
+            de: 'Feindliche Prüfung',
+          },
+          oneliner: {
+            en: 'Called before anything is signed off. Two verdicts: clean, or fix this first.',
+            ru: 'Зовут перед тем, как что-то закрыть. Два вердикта: чисто, или сначала почини вот это.',
+            pt: 'Chamado antes de qualquer coisa ser fechada. Dois veredictos: limpo, ou corrige isto primeiro.',
+            de: 'Man ruft ihn, bevor etwas abgezeichnet wird. Zwei Verdikte: sauber, oder zuerst dieses reparieren.',
+          },
+        },
+        {
+          key: 'lev',
+          name: { en: 'Lyov', ru: 'Лёв', pt: 'Lyov', de: 'Lyov' },
+          role: {
+            en: 'Legal',
+            ru: 'Юридическая часть',
+            pt: 'Jurídico',
+            de: 'Juristische Seite',
+          },
+          oneliner: {
+            en: 'GDPR, EU AI Act, licences, child protection, legal pages. Gives a verdict, hands over the finished text.',
+            ru: 'GDPR, EU AI Act, лицензии, защита несовершеннолетних, юридические страницы. Выносит вердикт, отдаёт готовый текст.',
+            pt: 'RGPD, Regulamento Europeu de IA, licenças, proteção de menores, páginas jurídicas. Dá um veredicto, entrega o texto acabado.',
+            de: 'DSGVO, EU-KI-Verordnung, Lizenzen, Kinderschutz, juristische Seiten. Fällt ein Verdikt, übergibt den fertigen Text.',
           },
         },
       ],
