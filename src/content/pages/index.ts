@@ -810,20 +810,30 @@ export const homePage: Page = {
       id: 'services',
       type: 'services',
       schemaType: 'none',
-      label: { en: 'Commissions', ru: 'Заказы', pt: 'Encomendas' },
+      label: { en: 'Commissions', ru: 'Заказы', pt: 'Encomendas', de: 'Aufträge' },
       title: {
         en: 'Open for commissions',
         ru: 'Принимаю заказы',
         pt: 'Aberto a encomendas',
+        de: 'Offen für Aufträge',
       },
+      // 2026-08-30 S1UMBR cont+4 §4.12 fix (Iskra S307-02) — unified body text across
+      // 4 langs. Prior state: RU claimed «Семь направлений» but listed 6 items (нарушение
+      // Andrey no-numbers rule + honesty); EN was 4-items different content
+      // («Encyclopedias on your subject, long-form books, longread series, OSINT
+      // investigations»); PT similar к EN structure; DE missing entirely. Iskra flag:
+      // «Commissions RU/EN расходятся содержательно — свести к одному тексту».
+      // Unified к 7 items matching /services deep page canon («Перевод + OSINT +
+      // Lucerna long invest + Длинная статья + Энциклопедия + Иллюстрации + Сайт»)
+      // без явного числа per Andrey no-numbers rule. Anti-anglicism DE: «lange Essays»
+      // не «Longread-Essays». Retro-viza pattern applied per editorial-vier-augen §3
+      // (Andrey cont+4 «Landing-repo» option carte-blanche + Iskra S307-06 §2 assign
+      // «Консоль лендинга: §4.12 Commissions RU/EN»); POMETKA к Iskra Vier-Augen retro.
       body: {
-        en: 'Encyclopedias on your subject, long-form books, longread series, OSINT investigations. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else\'s algorithm. <a href="/en/services">More →</a> Write: info@folkup.app',
-        // ru body refresh cont +42 2026-06-30: ЩИТ v4 + Огилви spirit applied.
-        // Семь направлений матч /services page (Перевод DE+PT_EU / OSINT / Lucerna
-        // long invest / Длинная статья / Энциклопедия / Иллюстрации / Сайт).
-        // EN/PT остаются текущие — Translator pipeline dispatch отдельным батчем.
-        ru: 'Семь направлений: переводы, расследования, долгие очерки, энциклопедии, иллюстрации, сайты. Один автор плюс команда AI-форнитов. Типичный цикл — от трёх месяцев. Не для срочных проектов и не для текстов под чужой алгоритм. <a href="/ru/services">Подробнее →</a> Пишите: info@folkup.app',
-        pt: 'Enciclopédias sobre o seu tema, livros longos, séries de ensaios, investigações OSINT. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. <a href="/pt/services">Mais →</a> Escreva: info@folkup.app',
+        en: 'Encyclopedias on your subject, books, long investigations, long-form essays, translations, illustrations, websites. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else\'s algorithm. <a href="/en/services">More →</a> Write: info@folkup.app',
+        ru: 'Энциклопедии на вашу тему, книги, длинные расследования, длинные статьи, переводы, иллюстрации, сайты. Один автор и команда AI-форнитов. Типичный цикл — от трёх месяцев. Не для срочных проектов и не для текстов под чужой алгоритм. <a href="/ru/services">Подробнее →</a> Пишите: info@folkup.app',
+        pt: 'Enciclopédias sobre o seu tema, livros, investigações longas, ensaios longos, traduções, ilustrações, sítios web. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. <a href="/pt/services">Mais →</a> Escreva: info@folkup.app',
+        de: 'Enzyklopädien zu Ihrem Thema, Bücher, lange Recherchen, lange Essays, Übersetzungen, Illustrationen, Websites. Ein Autor und ein Team von KI-Fornits. Typischer Zyklus — ab drei Monaten. Nicht für dringende Arbeit, nicht für Inhalte um fremde Algorithmen herum. <a href="/de/services">Mehr →</a> Schreiben: info@folkup.app',
       },
     },
 
