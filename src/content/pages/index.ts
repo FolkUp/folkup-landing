@@ -149,7 +149,21 @@ export const homePage: Page = {
           // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
           // Prior anchor `#trilogy-svoimi_silami-heading` scrolled to portal heading;
           // «Читать →» badge implies CTA — direct chapter reader matches user intent.
+          //
+          // 2026-08-30 S1UMBR cont+4 §2.4 fix (Iskra S307-02) — added urlByLang для
+          // per-locale portal routing. Iskra flag: «/en/kn1 (или EN-читалка) и /en»
+          // (EN visitor must reach EN surface, not RU-only chapter). Portal /kn1 has
+          // lang-switcher + hreflang к /en /pt /de per LOCALE_ENTRY-1 canon S301-05.
+          // Static url stays kn1/read/chapter-1-jules-verne (RU direct, kn1 LIVE) as
+          // fallback if urlByLang missing или renderer legacy.
+          // Verified HTTP 200 (2026-08-30): /kn1 (RU no-prefix), /en/kn1, /pt/kn1, /de/kn1.
           url: 'https://books.folkup.life/kn1/read/chapter-1-jules-verne',
+          urlByLang: {
+            en: 'https://books.folkup.life/en/kn1',
+            ru: 'https://books.folkup.life/kn1',
+            pt: 'https://books.folkup.life/pt/kn1',
+            de: 'https://books.folkup.life/de/kn1',
+          },
           icon: 'https://books.folkup.life/covers/cover_kn1.svg',
           accent: 'var(--color-accent-padel)',
         },
@@ -168,7 +182,17 @@ export const homePage: Page = {
           },
           langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
-          url: 'https://books.folkup.life/#trilogy-iz_pervyh_ruk-heading',
+          // 2026-08-30 S1UMBR cont+4 §2.4 fix — kn2 URL was RU hash anchor
+          // «#trilogy-iz_pervyh_ruk-heading» (Iskra S307-02 §2.4 flagged: «Firsthand →
+          // RU-корень#якорь»). Per-locale portal book landing pages preparing state.
+          // Verified HTTP 200 (2026-08-30): /kn2, /en/kn2, /pt/kn2, /de/kn2.
+          url: 'https://books.folkup.life/kn2',
+          urlByLang: {
+            en: 'https://books.folkup.life/en/kn2',
+            ru: 'https://books.folkup.life/kn2',
+            pt: 'https://books.folkup.life/pt/kn2',
+            de: 'https://books.folkup.life/de/kn2',
+          },
           icon: 'https://books.folkup.life/covers/cover_kn2.svg',
           accent: 'var(--color-accent-setubal)',
         },
@@ -186,7 +210,17 @@ export const homePage: Page = {
           },
           langs: { en: 'RU · in the workshop', ru: 'RU · в мастерской', pt: 'RU · na oficina' },
           category: { en: 'Book', ru: 'Книга', pt: 'Livro' },
-          url: 'https://books.folkup.life',
+          // 2026-08-30 S1UMBR cont+4 §2.4 fix — kn7 URL was portal root (Iskra S307-02
+          // §2.4 flagged: «Common Ground → RU-корень»). Per-locale portal book landing
+          // pages preparing state. Verified HTTP 200 (2026-08-30): /kn7, /en/kn7,
+          // /pt/kn7, /de/kn7.
+          url: 'https://books.folkup.life/kn7',
+          urlByLang: {
+            en: 'https://books.folkup.life/en/kn7',
+            ru: 'https://books.folkup.life/kn7',
+            pt: 'https://books.folkup.life/pt/kn7',
+            de: 'https://books.folkup.life/de/kn7',
+          },
           icon: 'https://books.folkup.life/covers/cover_kn7.svg',
           accent: 'var(--color-accent-cogumelos)',
         },

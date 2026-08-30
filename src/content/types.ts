@@ -121,8 +121,16 @@ export interface ProjectCard {
   langs: LocalizedString
   /** Category label, e.g. "Sport"/"City"/"Nature"/"Culture". */
   category: LocalizedString
-  /** Public URL of the project. */
+  /** Public URL of the project (fallback if urlByLang не populated OR locale key missing). */
   url: string
+  /**
+   * Optional per-locale URL — when present, renderer picks urlByLang[currentLocale]
+   * с fallback к url. Added 2026-08-30 S1UMBR cont+4 per Iskra S307-02 §2.4 fix
+   * (EN book cards ведут на RU-поверхности при живом /en/kn1). Populated для book
+   * items (kn1/kn2/kn7) с URLs portal per-locale routing (`/en/kn1`, `/kn1` RU no-prefix,
+   * `/pt/kn1`, `/de/kn1`). Encyclopedias / other items не populate — их URL locale-neutral.
+   */
+  urlByLang?: LocalizedString
   /** Path to icon under /public. */
   icon: string
   /** CSS custom property accent for the card. */

@@ -37,7 +37,10 @@ const projects = computed(() =>
     hero: item.hero,
     count: resolveLocalized(item.count, locale.value) ?? '',
     description: resolveLocalized(item.description, locale.value) ?? '',
-    url: item.url,
+    // 2026-08-30 S1UMBR cont+4 §2.4 fix (Iskra S307-02) — prefer urlByLang[locale]
+    // if populated, fall back к static url. Enables per-locale portal routing
+    // for book cards (kn1/kn2/kn7) while keeping encyclopedias locale-neutral.
+    url: resolveLocalized(item.urlByLang, locale.value) ?? item.url,
     accent: item.accent,
     langs: resolveLocalized(item.langs, locale.value) ?? '',
     category: resolveLocalized(item.category, locale.value) ?? '',
