@@ -304,6 +304,46 @@ export const homePage: Page = {
     // renewed. Position was between «Как это делается» и «Декларация» — preserved gap
     // for potential future manual news content OR another section.
 
+    // ------------------------------------------------------------ NEWS (RESTORED cont+9 S1UMBR)
+    // Iskra FINAL-ANONS S311-07 §3 «Variant A на главной folkup.app — Зека/S1UMBR:
+    // §3 на главную следующим касанием лендинга» + POMETKA-RELAY-Alisa-S2PT-cont7-to-S1UMBR
+    // (Zeka relay per §7.9.6 sibling cascade → landing PM native scope = S1UMBR).
+    // Section restored: FIRST real publication event = kn.1 «Agile Sapiens» PT v1.0.0 estável.
+    // Anti-phantom canon preserved: single item, real event (books.folkup.life/kn1/pt/read/
+    // LIVE per Iskra S311-03 ratifikaciya integralnaya + Andrey B telegram + FINAL-ANONS-07).
+    // Slot position matches removed News gap (between «Как это делается» и «Декларация»).
+    // Future items append як real events land (kn.5 v1.0.1 EPUB Kочегарова already, waiting
+    // Iskra visa для landing tier vs portal-only announcement — separate call).
+    {
+      id: 'news',
+      type: 'news',
+      schemaType: 'none',
+      label: {
+        en: 'Publications',
+        ru: 'Выход в свет',
+        pt: 'Publicações',
+        de: 'Neu erschienen',
+      },
+      title: {
+        en: 'What has just come out',
+        ru: 'Что вышло свежего',
+        pt: 'O que acaba de sair',
+        de: 'Was gerade erschienen ist',
+      },
+      items: [
+        {
+          id: 'kn1-pt-v1-0-0-stable',
+          text: {
+            en: 'Book 1 «Agile Sapiens» now in Portuguese — v1.0.0 estável. Translation by Zeka (PT-EU), editorial review by Iskra. AO1990 orthography, full apparatus, CC BY-SA 4.0.',
+            ru: 'Книга 1 «Agile Sapiens» вышла на португальском — v1.0.0 estável. Перевод Zeka (PT-EU), редактура Iskra. Орфография AO1990, полный аппарат, CC BY-SA 4.0.',
+            pt: 'Livro 1 «Agile Sapiens» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Livro 1 da trilogia «Pelos Nossos Meios».',
+            de: 'Buch 1 «Agile Sapiens» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
+          },
+          link: 'https://books.folkup.life/kn1/pt/read/',
+        },
+      ],
+    },
+
     // ------------------------------------------------------------ DECL HERO
     {
       id: 'declaration',
