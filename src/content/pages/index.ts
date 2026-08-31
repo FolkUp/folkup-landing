@@ -181,11 +181,15 @@ export const homePage: Page = {
         {
           key: 'trilogy-firsthand',
           name: { en: 'Firsthand', ru: 'Из первых рук', pt: 'Em Primeira Mão' },
-          // Cont+2 badge fix (Andrey verdict item #5 2026-08-23):
-          // kn2 = NOT open (drafting phase, concept links to portal general page).
-          // Prior «trilogy, open now»/«трилогия, открыта» was factually incorrect
-          // (kn1 open, kn2/kn3 в работе).
-          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
+          // KNIGA-OTKRYTA-1 canon (Iskra S310-10 verdikt Andreya 2026-08-31 S1UMBR cont+6+):
+          // «Если книга готова и не открыта, это баг.» Kn2 «Согласные без гласных»
+          // RU status=live с 30.07 (S236) + EPUB v1.0 → достижима через /kn2.
+          // Prior «В работе» count был баг per KNIGA-OTKRYTA-1 §2 canon-строка.
+          // Fix: count → «Read →» pattern (align с kn1). Link urlByLang на /kn2 уже stоит.
+          //
+          // Prior context (Cont+2 badge fix Andrey verdict item #5 2026-08-23):
+          // «kn2 = NOT open» — устарело per S236 RU release, superseded S310-10.
+          count: { en: 'Read →', ru: 'Читать →', pt: 'Ler →', de: 'Lesen →' },
           description: {
             en: 'How knowledge reaches us: past those who locked it up, through those who stand in the middle — and how to check that what arrived is what was sent.',
             ru: 'Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто стоит посредине, — и как проверить, что донесли именно то.',
