@@ -37,13 +37,17 @@ export const homePage: Page = {
     // Hero copy still uses «fornits» where context exists).
     //
     // T4 FIX-3 (Iskra S295-10, Alisa S295KONSOL 2026-08-23): добавлено
-    // упоминание книжной серии (books.folkup.life трилогия) — расширяет
+    // упоминание книжной серии (books.folkup.life) — расширяет
     // scope description за пределы encyclopedias+investigations.
+    // БЕЗ-СЧЁТА v3 (Iskra S309-11 verdikt Andreya 2026-08-31 S1UMBR cont+6):
+    // «book trilogy» → «book series» × 4 langs — снимаем счётчик «3 книги»
+    // с публичной поверхности. Category badges «Trilogy» kn1/kn2 (line 154/191)
+    // оставлены как ИМЯ конкретной серии (Iskra §2 exception — паспорт).
     description: {
-      en: 'A workshop making encyclopedias, a book trilogy, and investigations. Free, verified, multilingual. One person and a team of AI workers.',
-      ru: 'Мастерская, где делают энциклопедии, книжную трилогию и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
-      pt: 'Uma oficina que faz enciclopédias, uma trilogia de livros e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
-      de: 'Eine Werkstatt, die Enzyklopädien, eine Buchtrilogie und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
+      en: 'A workshop making encyclopedias, a book series, and investigations. Free, verified, multilingual. One person and a team of AI workers.',
+      ru: 'Мастерская, где делают энциклопедии, книжную серию и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
+      pt: 'Uma oficina que faz enciclopédias, uma série de livros e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
+      de: 'Eine Werkstatt, die Enzyklopädien, eine Buchreihe und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
