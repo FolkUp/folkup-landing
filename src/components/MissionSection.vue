@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFallbackNotice } from '@/composables/useFallbackNotice'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { MissionSection as MissionSectionType } from '@/content/types'
+import FallbackNoticeBadge from './FallbackNoticeBadge.vue'
 
 const { locale } = useI18n()
 
@@ -15,6 +17,11 @@ const mission = section
 const label = computed(() => resolveLocalized(mission.label, locale.value) ?? '')
 const title = computed(() => resolveLocalized(mission.title, locale.value) ?? '')
 const text = computed(() => resolveLocalized(mission.text, locale.value) ?? '')
+
+// Iskra S308-10 §1 item 1 (2026-08-31): fallback notice above section when
+// main content field (`text`) lacks current locale. Auto-hides once Bolik
+// LAND-DE-EPIC-001 ships DE mission.text.
+const { isFallback, message } = useFallbackNotice(mission.text)
 
 // GLAV-6 KOFI-LINK-ON-MAIN (Iskra PAKET-GLAVNAYA S290-07 §3): split \n\n paragraphs + v-html
 // для sanctioned inline <a href="https://ko-fi.com/folkup"> в тексте mission (EN/RU).
@@ -47,6 +54,7 @@ const principles = computed(() =>
   <section id="mission" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
+    <FallbackNoticeBadge v-if="isFallback" :message="message" />
     <!-- GLAV-6: split \n\n paragraphs + v-html per sanctioned inline <a> pattern (AnchorsSection precedent). -->
     <p v-for="(para, i) in paragraphs" :key="i" class="mission-text" v-html="para" />
 

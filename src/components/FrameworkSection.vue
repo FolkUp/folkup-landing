@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFallbackNotice } from '@/composables/useFallbackNotice'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { FrameworkSection as FrameworkSectionType } from '@/content/types'
+import FallbackNoticeBadge from './FallbackNoticeBadge.vue'
 
 const { locale } = useI18n()
 
@@ -18,6 +20,9 @@ const framework = section
 const label = computed(() => resolveLocalized(framework.label, locale.value) ?? '')
 const title = computed(() => resolveLocalized(framework.title, locale.value) ?? '')
 
+// Iskra S308-10 §1 item 1: fallback notice when title lacks current locale.
+const { isFallback, message } = useFallbackNotice(framework.title)
+
 const capabilities = computed(() =>
   framework.features.map((feature) => ({
     id: feature.id,
@@ -31,6 +36,7 @@ const capabilities = computed(() =>
   <section id="framework" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
+    <FallbackNoticeBadge v-if="isFallback" :message="message" />
     <div class="capabilities-grid">
       <div v-for="cap in capabilities" :key="cap.id" class="capability">
         <!-- GLAV-2: capability-icon span removed per Iskra PAKET-GLAVNAYA S290-07 §3 -->

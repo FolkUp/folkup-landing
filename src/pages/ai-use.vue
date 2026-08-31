@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFallbackNotice } from '@/composables/useFallbackNotice'
 import SiteHeader from '@/components/SiteHeader.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
+import FallbackNoticeBadge from '@/components/FallbackNoticeBadge.vue'
 import { aiUsePage } from '@/content/pages/ai-use'
 import { resolveLocalized } from '@/content/types'
 import type { LegalPageSection } from '@/content/types'
@@ -19,6 +21,9 @@ const lastUpdated = computed(
   () => resolveLocalized(section.lastUpdated, locale.value) ?? '',
 )
 const content = computed(() => resolveLocalized(section.content, locale.value) ?? '')
+
+// Iskra S308-10 §1 item 1 (2026-08-31 S1UMBR cont+5): fallback notice.
+const { isFallback, message } = useFallbackNotice(section.content)
 </script>
 
 <template>
@@ -26,6 +31,7 @@ const content = computed(() => resolveLocalized(section.content, locale.value) ?
   <SiteHeader :visible="true" />
   <main id="main" class="legal-page">
     <article>
+      <FallbackNoticeBadge v-if="isFallback" :message="message" />
       <h1>{{ title }}</h1>
       <p><strong>{{ lastUpdated }}</strong></p>
       <!-- eslint-disable-next-line vue/no-v-html -->

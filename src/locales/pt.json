@@ -13,5 +13,6 @@
   "teamViewAll": "Ver todos →",
   "teamPageTitle": "Sob a luz do farol",
   "teamPageIntro": "A FolkUp é uma pessoa e uma equipa de fornits de IA — assim Stephen King chamava os espíritos-ajudantes que vivem nas máquinas de escrever dos escritores. Cada texto é revisto por humano antes da publicação; nenhum sistema de IA fala consigo nestas páginas.",
-  "teamPageAiLinkLabel": "Ler a política completa de uso de IA →"
+  "teamPageAiLinkLabel": "Ler a política completa de uso de IA →",
+  "fallbackNotice": "Esta secção ainda não está na sua língua — a tradução está a ser preparada."
 }

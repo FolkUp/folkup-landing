@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFallbackNotice } from '@/composables/useFallbackNotice'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { ProLabSection as ProLabSectionType } from '@/content/types'
+import FallbackNoticeBadge from './FallbackNoticeBadge.vue'
 
 const { locale } = useI18n()
 
@@ -16,6 +18,9 @@ const title = computed(() => resolveLocalized(proLab.title, locale.value) ?? '')
 const body = computed(() => resolveLocalized(proLab.body, locale.value) ?? '')
 const highlightPitch = computed(() => resolveLocalized(proLab.highlight.pitch, locale.value) ?? '')
 const ctaLabel = computed(() => resolveLocalized(proLab.cta.label, locale.value) ?? '')
+
+// Iskra S308-10 §1 item 1: fallback notice when main body lacks current locale.
+const { isFallback, message } = useFallbackNotice(proLab.body)
 </script>
 
 <template>
@@ -23,6 +28,7 @@ const ctaLabel = computed(() => resolveLocalized(proLab.cta.label, locale.value)
     <div class="prolab-inner">
       <span class="section-label">{{ label }}</span>
       <h2 class="section-title">{{ title }}</h2>
+      <FallbackNoticeBadge v-if="isFallback" :message="message" />
       <p class="prolab-body">{{ body }}</p>
 
       <div class="prolab-highlight">

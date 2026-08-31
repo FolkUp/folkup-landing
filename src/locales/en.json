@@ -13,5 +13,6 @@
   "teamViewAll": "View all →",
   "teamPageTitle": "Under the lantern",
   "teamPageIntro": "FolkUp is one person and a team of AI fornits — Stephen King's name for spirit-helpers who live in writers' typewriters. Every text is human-reviewed before publication; no AI system talks to you on these pages.",
-  "teamPageAiLinkLabel": "Read the full AI use policy →"
+  "teamPageAiLinkLabel": "Read the full AI use policy →",
+  "fallbackNotice": "This section is not yet in your language — the workshop is on it."
 }

@@ -473,3 +473,31 @@ export function resolveLocalized<T>(
 
   return undefined
 }
+
+/**
+ * Check whether the requested language is present as a key in a localised
+ * record. Returns `true` when the language is missing and `resolveLocalized`
+ * would fall back to another language.
+ *
+ * Design note (Iskra S308-10 §1 item 1, 2026-08-31): use this at render layer
+ * to surface a one-line notice above the block/page telling the guest that
+ * the content is in a different language while the translation is prepared.
+ *
+ * Semantics: checks key-existence, not value nullability. If a lang key is
+ * present with an empty string value, that counts as translated (badge stays
+ * hidden). Callers wanting stricter «has non-empty content» must add their
+ * own check.
+ *
+ * @example
+ *   wasFallback({ en: 'Hello', ru: 'Привет' }, 'de') // → true
+ *   wasFallback({ en: 'Hello', de: 'Hallo' }, 'de')  // → false
+ *   wasFallback({}, 'en')                            // → true (empty record)
+ *   wasFallback(undefined, 'en')                     // → true
+ */
+export function wasFallback<T>(
+  localized: Partial<Record<LangCode, T>> | undefined,
+  lang: LangCode,
+): boolean {
+  if (!localized) return true
+  return !(lang in localized)
+}

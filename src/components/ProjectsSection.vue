@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFallbackNotice } from '@/composables/useFallbackNotice'
 import { homePage } from '@/content/pages'
 import { resolveLocalized } from '@/content/types'
 import type { ProjectsSection as ProjectsSectionType } from '@/content/types'
 import ProjectCard from './ProjectCard.vue'
+import FallbackNoticeBadge from './FallbackNoticeBadge.vue'
 
 const props = withDefaults(defineProps<{
   sectionId?: string
@@ -29,6 +31,11 @@ const subtitle = computed(() =>
   projectsSection.subtitle ? resolveLocalized(projectsSection.subtitle, locale.value) ?? '' : '',
 )
 
+// Iskra S308-10 §1 item 1: fallback notice when subtitle lacks current locale.
+// Subtitle chosen as canary — Iskra AUDIT flagged both «books» and «projects»
+// (ecosystem) instances for subtitle missing DE (books title also missing DE).
+const { isFallback, message } = useFallbackNotice(projectsSection.subtitle)
+
 const projects = computed(() =>
   projectsSection.items.map((item) => ({
     key: item.key,
@@ -52,6 +59,7 @@ const projects = computed(() =>
   <section :id="sectionId" class="section fade-in">
     <span class="section-label">{{ label }}</span>
     <h2 class="section-title">{{ title }}</h2>
+    <FallbackNoticeBadge v-if="isFallback" :message="message" />
     <p v-if="subtitle" class="section-subtitle">{{ subtitle }}</p>
     <div class="projects-grid">
       <ProjectCard
