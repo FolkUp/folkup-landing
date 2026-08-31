@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { useFadeIn } from '@/composables/useFadeIn'
 import SiteHeader from '@/components/SiteHeader.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 import TeamSection from '@/components/TeamSection.vue'
@@ -9,8 +10,17 @@ import { resolveLocalized } from '@/content/types'
 
 // T4 FIX-2 SITE-TEAM-001 (Andrey ratified B/C/C/A/B via Iskra S295-12 2026-08-23):
 // Full /team page — hero AI disclosure first screen (Q2=C, Q3=C) + full team
-// roster (reuses TeamSection.vue без compact prop → all 10 members).
+// roster (reuses TeamSection.vue без compact prop → all 14 members per Iskra
+// v5.1 canon S302-02 + S302-03 + S303-01 + S304-01 shipped cont+4 Batch A).
+//
+// 2026-08-31 S1UMBR cont+4 hotfix — added useFadeIn() call. TeamSection renders
+// <section class="section fade-in"> — .fade-in has opacity:0 initially, IntersectionObserver
+// triggers .visible class via useFadeIn composable. Without this call, team-section stays
+// invisible на /team page (server HTML present, browser не renders cards). Pre-existing bug
+// since team.vue creation 2026-08-23 — surfaced by Andrey visual report /team empty page.
+// Fix aligns team.vue с pattern used в other page components (index.vue etc).
 const { locale, t } = useI18n()
+useFadeIn()
 
 const pageDescription = computed(
   () => resolveLocalized(teamPage.meta.description, locale.value) ?? '',
