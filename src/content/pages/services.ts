@@ -175,7 +175,7 @@ export const servicesPage: Page = {
 
 <p>Accessible to WCAG 2.1 AA, GDPR observed. The result: a site that three years on opens in a second and a half.</p>
 
-<p>Twelve sites are already running.</p>
+<p>Our sites are already running.</p>
 
 <p><em>We do not do commercial shops; we do not do landing pages that push the visitor to buy. We do publishing sites for a thoughtful readership.</em></p>
 
@@ -300,7 +300,7 @@ export const servicesPage: Page = {
 
 <p>Доступность по стандарту WCAG 2.1 AA, GDPR соблюдён. На выходе — сайт, который через три года открывается за полторы секунды.</p>
 
-<p>Двенадцать сайтов уже работают.</p>
+<p>Наши сайты уже работают.</p>
 
 <p><em>Не делаем коммерческие магазины, не делаем лендинги, которые гонят на покупку. Делаем издательские сайты для интеллектуальной аудитории.</em></p>
 
@@ -425,7 +425,7 @@ export const servicesPage: Page = {
 
 <p>Acessibilidade segundo a norma WCAG 2.1 AA, RGPD cumprido. À saída, um site que, três anos depois, abre em segundo e meio.</p>
 
-<p>Doze sites já estão a funcionar.</p>
+<p>Os nossos sites já estão a funcionar.</p>
 
 <p><em>Não fazemos lojas de comércio eletrónico, nem páginas de aterragem para forçar a compra. Fazemos sites editoriais para um público intelectual.</em></p>
 
