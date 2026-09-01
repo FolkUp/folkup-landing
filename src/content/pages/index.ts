@@ -147,14 +147,14 @@ export const homePage: Page = {
             ru: 'Как команда делает своё дело: учится видеть себя, придумывает лучшее устройство и рождает то, чего раньше не было. Верн, Шелли, Холмс и Борхес ставят управленческие диагнозы задолго до консультантов.',
             pt: 'Como uma equipa faz o seu trabalho: aprende a ver-se, desenha algo melhor e faz nascer o que antes não existia. Verne, Shelley, Holmes e Borges diagnosticam a gestão muito antes dos consultores.',
           },
-          // Iskra S308-10 §1 item 3 (2026-08-31 S1UMBR cont+5): kn1 langs
-          // badge updated «RU · translations in the workshop» → «RU · EN · PT
-          // preview» — portal LIVE EN 23/23 (S1TREN cont+X) + PT preview
-          // (S1DEFIX cont+2 PT-flip Option B). Badge no longer contradicts
-          // portal reality. DE key «Vorschau» added per Vraga architectural
-          // review (View A) — reduces double-fallback UX jarring (EN content
-          // + EN badge on DE guest page).
-          langs: { en: 'RU · EN · PT preview', ru: 'RU · EN · PT preview', pt: 'RU · EN · PT preview', de: 'RU · EN · PT Vorschau' },
+          // Iskra S308-10 §1 item 3 (2026-08-31 S1UMBR cont+5): kn1 langs badge
+          // updated «RU · translations in the workshop» → «RU · EN · PT preview».
+          // Iskra S311-03 integral ratification kn1 PT v1.0.0 estável (2026-08-31
+          // evening) — «PT preview» qualifier stale, removed cont+10 S1UMBR
+          // 2026-09-01 per S1ORCH signal-forward Q4 + Andrey carte-blanche.
+          // Badge now aligned с ratified state: «RU · EN · PT» × 4 langs
+          // (DE «Vorschau» removed too — consistent all-langs post-ratification).
+          langs: { en: 'RU · EN · PT', ru: 'RU · EN · PT', pt: 'RU · EN · PT', de: 'RU · EN · PT' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
           // Cont+2 URL upgrade (Andrey verdict item #5 2026-08-23):
           // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
