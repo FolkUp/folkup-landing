@@ -332,6 +332,23 @@ export const homePage: Page = {
       },
       items: [
         {
+          // Kn7 anúncio per Iskra S312-01 §3 «GO АВТОМАТОМ» pre-visa executed cont+10
+          // trigger fires post-batch 3 (Iskra S312-07/09) — 3 URLs verified:
+          // /kn7/read/apparatus-level-3 FACT-GATE=0 + /kn7/read/colophon 200 + Art.50 +
+          // /kn7/read/title-page canon v2 «Библиотека FolkUp · Трилогия «Общий язык»».
+          // Text from Iskra S311-21 Variant A + Andrey S312-04 EN «Lost in Conversation».
+          // LANDING-NEWS-1 canon: short format + accumulate ≤3 (currently 2 items).
+          // PT + DE: Zeka/Bolik native versions pending future cycle refinement.
+          id: 'kn7-trudnosti-dialoga-v1-0-live',
+          text: {
+            en: 'Book Seven is out — «Lost in Conversation» (EN edition in preparation), the first book of the «Common Ground» trilogy: why agreeing is harder than it looks, and what to do about it. Read online (Russian) or download the EPUB → books.folkup.life/kn7',
+            ru: 'Вышла седьмая книга — «Трудности диалога», первая в трилогии «Общий язык». Почему договориться труднее, чем кажется, и что с этим делать. Читать онлайн и скачать EPUB → books.folkup.life/kn7',
+            pt: 'Livro Sete acaba de sair — «Lost in Conversation» (edição em preparação), primeiro livro da trilogia «Common Ground»: porque concordar é mais difícil do que parece, e o que fazer em relação a isso. Leia online (russo) ou baixe o EPUB → books.folkup.life/kn7',
+            de: 'Buch Sieben ist erschienen — «Lost in Conversation» (Ausgabe in Vorbereitung), das erste Buch der «Common Ground»-Trilogie: warum eine Einigung schwieriger ist, als es scheint, und was man dagegen tun kann. Online lesen (Russisch) oder EPUB herunterladen → books.folkup.life/kn7',
+          },
+          link: 'https://books.folkup.life/kn7',
+        },
+        {
           id: 'kn1-pt-v1-0-0-stable',
           text: {
             en: 'Book 1 «Agile Sapiens» now in Portuguese — v1.0.0 estável. Translation by Zeka (PT-EU), editorial review by Iskra. AO1990 orthography, full apparatus, CC BY-SA 4.0.',
