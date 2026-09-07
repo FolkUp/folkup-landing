@@ -990,10 +990,16 @@ export const homePage: Page = {
       id: 'footer',
       type: 'footer',
       schemaType: 'none',
+      // T-316-22/23/29 footer-эталон DE parity (Iskra POMETKA-S316-11 §1 + S318-02
+      // §1 F18 P1 → S1ORCH cont+4 PR-E1 2026-09-07): endorsement.de добавлен
+      // draft SLOGAN-1 mirror RU/EN/PT «свет + корни» metaphor. Bolik retro-viza
+      // возможна после kn1 DE apply (VIZA-S317-05 §3 flow) — если adjust нужен,
+      // отдельный micro-PR.
       endorsement: {
         en: 'FolkUp — the light is on, the roots run deep.',
         ru: 'FolkUp — свет горит, корни крепкие.',
         pt: 'FolkUp — a luz acesa, raízes firmes.',
+        de: 'FolkUp — das Licht brennt, die Wurzeln halten fest.',
       },
       links: [
         {
