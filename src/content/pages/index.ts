@@ -977,7 +977,10 @@ export const homePage: Page = {
         },
         {
           id: 'ai-use',
-          label: { en: 'AI use', ru: 'Использование AI', pt: 'Uso de IA' },
+          // F3 (Iskra S317-08 §3 canon → S1ORCH cont+3 PR-D1 2026-09-07):
+          // RU label «Использование AI» → «Использование ИИ» consistency с page title
+          // (Iskra canon uses «ИИ» russian). EN/PT/DE — переводчики параллельно.
+          label: { en: 'AI use', ru: 'Использование ИИ', pt: 'Uso de IA' },
           href: '/about/ai-use',
         },
         {
