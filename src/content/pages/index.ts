@@ -89,11 +89,17 @@ export const homePage: Page = {
         pt: 'Aberto. Verificado. Multilingue.',
         de: 'Offen. Geprüft. Mehrsprachig.',
       },
+      // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 2026-09-07):
+      // Снято «Every text signed / каждый текст — с подписью / cada texto assinado /
+      // jeder Text signiert» — overclaim (энциклопедии не имеют per-article signature;
+      // формула колофонов работает только на портале books.folkup.life). Iskra
+      // явно перечислила эту фразу как «неподтверждённое утверждение» — снять.
+      // «Каждый факт — по источникам» остаётся: это подтверждается на всех сайтах.
       tagline: {
-        en: 'FolkUp is a small workshop — one person and a team of AI fornits. We make encyclopedias, a book series, and slow investigations. Every fact by source, every text signed. Freely, without registration, without ads.',
-        ru: 'FolkUp — маленькая мастерская: один человек и команда AI-форнитов. Мы делаем энциклопедии, книжную серию и медленные расследования. Каждый факт — по источникам, каждый текст — с подписью. Свободно, без регистрации, без рекламы.',
-        pt: 'FolkUp é uma pequena oficina — uma pessoa e uma equipa de fornits de IA. Fazemos enciclopédias, uma série de livros e investigações lentas. Cada facto por fontes, cada texto assinado. Livre, sem registo, sem publicidade.',
-        de: 'FolkUp ist eine kleine Werkstatt — eine Person und ein Team von KI-Fornits. Wir machen Enzyklopädien, eine Buchreihe und langsame Recherchen. Jeder Fakt durch Quellen, jeder Text signiert. Frei, ohne Registrierung, ohne Werbung.',
+        en: 'FolkUp is a small workshop — one person and a team of AI fornits. We make encyclopedias, a book series, and slow investigations. Every fact by source. Freely, without registration, without ads.',
+        ru: 'FolkUp — маленькая мастерская: один человек и команда AI-форнитов. Мы делаем энциклопедии, книжную серию и медленные расследования. Каждый факт — по источникам. Свободно, без регистрации, без рекламы.',
+        pt: 'FolkUp é uma pequena oficina — uma pessoa e uma equipa de fornits de IA. Fazemos enciclopédias, uma série de livros e investigações lentas. Cada facto por fontes. Livre, sem registo, sem publicidade.',
+        de: 'FolkUp ist eine kleine Werkstatt — eine Person und ein Team von KI-Fornits. Wir machen Enzyklopädien, eine Buchreihe und langsame Recherchen. Jeder Fakt durch Quellen. Frei, ohne Registrierung, ohne Werbung.',
       },
       // GLAV-1 HERO-CTA-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
       // hero-actions block снят целиком (#books якорь дублирует первый скролл, текстовый финал hero
@@ -607,10 +613,20 @@ export const homePage: Page = {
             ru: 'Приватность и compliance',
             pt: 'Privacidade e conformidade',
           },
+          // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 2026-09-07):
+          // Снято «WCAG accessibility / WCAG-доступность / acessibilidade WCAG» —
+          // pa11y-CI показал 49 WCAG errors на сайтах экосистемы (Печкин cont+3-09
+          // T-316-14 sweep); утверждение не подтверждается. Снято «cookie consent /
+          // согласие на cookies / consentimento de cookies» — у нас cookie-free
+          // (self-hosted fonts + no analytics + no IP logging); «согласие на cookies»
+          // вводит в заблуждение, потому что нет ни cookies, ни consent-banner. GDPR
+          // и security headers остаются: подтверждаются self-hosted fonts, cookie-free
+          // analytics, no IP logging (GDPR) + `_headers` file c CSP/HSTS/X-Frame/
+          // Referrer-Policy/Permissions-Policy (security headers).
           text: {
-            en: 'GDPR, security headers, WCAG accessibility, cookie consent. The same care as the articles themselves.',
-            ru: 'GDPR, заголовки безопасности, WCAG-доступность, согласие на cookies. Та же забота, что и о самих статьях.',
-            pt: 'RGPD, cabeçalhos de segurança, acessibilidade WCAG, consentimento de cookies. O mesmo cuidado dos artigos.',
+            en: 'GDPR, security headers. The same care as the articles themselves.',
+            ru: 'GDPR, заголовки безопасности. Та же забота, что и о самих статьях.',
+            pt: 'RGPD, cabeçalhos de segurança. O mesmo cuidado dos artigos.',
           },
         },
       ],
