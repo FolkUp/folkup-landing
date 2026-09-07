@@ -263,7 +263,12 @@ export const homePage: Page = {
           // ещё в мастерской). Добавлен DE key (Iskra flag «RU-версию проверь тоже»
           // → все 4 lang consistent).
           langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina', de: 'RU · Übersetzungen in Arbeit' },
-          category: { en: 'Book', ru: 'Книга', pt: 'Livro' },
+          // Q2 amendment (Iskra SINHRO-S318-06 §1 → S1ORCH cont+4 PR-D2 2026-09-07):
+          // kn7 category «Book» → «Trilogy» align с kn1/kn2 (kn7 = открывающая
+          // книга трилогии «Общий язык», подтверждено news card «Book Seven is
+          // out — first book of the Common Ground trilogy»). Added DE key
+          // «Trilogie» consistency с langs badge выше (4 langs теперь).
+          category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia', de: 'Trilogie' },
           // 2026-08-30 S1UMBR cont+4 §2.4 fix — kn7 URL was portal root (Iskra S307-02
           // §2.4 flagged: «Common Ground → RU-корень»). Per-locale portal book landing
           // pages preparing state. Verified HTTP 200 (2026-08-30): /kn7, /en/kn7,
