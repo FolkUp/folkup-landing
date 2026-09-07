@@ -33,8 +33,13 @@ const anchors = computed(() =>
         <!-- v-html: body strings в manifest contain sanctioned inline <a> к
              /{lang}/services + plaintext "Write: email". Content author-trusted
              (typed manifest, not user input). Fix per Iskra S238 §7 «литерал
-             HTML в тексте виден» — cont+38 B1 2026-08-02. -->
-        <p class="anchor-body" v-html="a.body"></p>
+             HTML в тексте виден» — cont+38 B1 2026-08-02.
+             T-315-13 вариант Б RU канон (Iskra S315-14 §2 → S1ORCH cont+3 PR-C
+             2026-09-07): контейнер `<p>` → `<div>` для multi-block содержимого
+             (h4/figure/img внутри body per RU канон §2 «4 punkta с образцами»).
+             EN/PT/DE body остаются single-paragraph strings — рендерятся идентично
+             в `<div>`, зависимость от `<p>` не была семантической. -->
+        <div class="anchor-body" v-html="a.body"></div>
       </article>
     </div>
   </section>

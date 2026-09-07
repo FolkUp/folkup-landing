@@ -43,9 +43,14 @@ export const homePage: Page = {
     // «book trilogy» → «book series» × 4 langs — снимаем счётчик «3 книги»
     // с публичной поверхности. Category badges «Trilogy» kn1/kn2 (line 154/191)
     // оставлены как ИМЯ конкретной серии (Iskra §2 exception — паспорт).
+    // T-315-12 вариант Б RU канон (Iskra S315-14 §1 → S1ORCH cont+3 2026-09-07):
+    // meta.description.ru обновлена к абзацу 1 verbatim per Iskra §1 «Абзац 1
+    // (он же meta-description)». EN/PT/DE остаются: переводчики (Лёлик/Зека/Болик)
+    // делают свои PR с апдейтом meta.description параллельно per Iskra Q3 verdict
+    // «PR-C только RU первым, EN за Лёликом, PT за Зекой, DE за Боликом».
     description: {
       en: 'A workshop making encyclopedias, a book series, and investigations. Free, verified, multilingual. One person and a team of AI workers.',
-      ru: 'Мастерская, где делают энциклопедии, книжную серию и расследования. Бесплатно, проверено, многоязычно. Один человек и команда ИИ-помощников.',
+      ru: 'Открытые книги и энциклопедии: каждый факт — по источнику, каждый текст подписан, четыре языка, без рекламы и без регистрации.',
       pt: 'Uma oficina que faz enciclopédias, uma série de livros e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
       de: 'Eine Werkstatt, die Enzyklopädien, eine Buchreihe und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
     },
@@ -89,15 +94,26 @@ export const homePage: Page = {
         pt: 'Aberto. Verificado. Multilingue.',
         de: 'Offen. Geprüft. Mehrsprachig.',
       },
-      // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 2026-09-07):
+      // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 PR #53 2026-09-07):
       // Снято «Every text signed / каждый текст — с подписью / cada texto assinado /
-      // jeder Text signiert» — overclaim (энциклопедии не имеют per-article signature;
-      // формула колофонов работает только на портале books.folkup.life). Iskra
-      // явно перечислила эту фразу как «неподтверждённое утверждение» — снять.
-      // «Каждый факт — по источникам» остаётся: это подтверждается на всех сайтах.
+      // jeder Text signiert» — overclaim (энциклопедии не имеют per-article signature).
+      //
+      // T-315-12 вариант Б RU канон (Iskra S315-14 §1 → S1ORCH cont+3 PR-C 2026-09-07):
+      // tagline.ru переписан к 2-абзацному первому экрану per §1 «Абзац 1» + «Абзац 2»
+      // verbatim (RU канон). Гейт §1: «ИИ/AI/KI/IA не раньше второго абзаца, во втором —
+      // обязательно» — в RU выполнено (абзац 1 без «ИИ», абзац 2 «ИИ-ассистентов»).
+      // «форниты» перенесены на страницу /team per §1 «форниты только на странице
+      // команды с объяснением» — hero tagline RU называет «ИИ-ассистентов, известных
+      // по именам».
+      // EN/PT/DE остаются PR-A версии — переводчики (Лёлик/Зека/Болик) обновят
+      // свои локали параллельными PR per Iskra Q3 verdict «PR-C только RU первым,
+      // EN за Лёликом, PT за Зекой, DE за Боликом» + S316-11 §2 п.3 «выкат RU
+      // первым, остальные по готовности».
+      // Multi-абзац RU рендерится через `white-space: pre-line` CSS в
+      // HeroSection.vue (см. `\n\n` separator между абзацами).
       tagline: {
         en: 'FolkUp is a small workshop — one person and a team of AI fornits. We make encyclopedias, a book series, and slow investigations. Every fact by source. Freely, without registration, without ads.',
-        ru: 'FolkUp — маленькая мастерская: один человек и команда AI-форнитов. Мы делаем энциклопедии, книжную серию и медленные расследования. Каждый факт — по источникам. Свободно, без регистрации, без рекламы.',
+        ru: 'Открытые книги и энциклопедии: каждый факт — по источнику, каждый текст подписан, четыре языка, без рекламы и без регистрации.\n\nМастерская одного автора и команды ИИ-ассистентов, известных по именам. Что делала машина, а что человек, — сказано в каждом колофоне.',
         pt: 'FolkUp é uma pequena oficina — uma pessoa e uma equipa de fornits de IA. Fazemos enciclopédias, uma série de livros e investigações lentas. Cada facto por fontes. Livre, sem registo, sem publicidade.',
         de: 'FolkUp ist eine kleine Werkstatt — eine Person und ein Team von KI-Fornits. Wir machen Enzyklopädien, eine Buchreihe und langsame Recherchen. Jeder Fakt durch Quellen. Frei, ohne Registrierung, ohne Werbung.',
       },
@@ -898,28 +914,30 @@ export const homePage: Page = {
       id: 'services',
       type: 'services',
       schemaType: 'none',
-      label: { en: 'Commissions', ru: 'Заказы', pt: 'Encomendas', de: 'Aufträge' },
+      label: { en: 'Commissions', ru: 'Комиссии', pt: 'Encomendas', de: 'Aufträge' },
+      // T-315-13 вариант Б RU канон (Iskra S315-14 §2 → S1ORCH cont+3 PR-C 2026-09-07):
+      // title.ru переписан к канону заголовка §2 verbatim + label.ru «Заказы» → «Комиссии»
+      // (соответствие терминологии §2 «Раздел Комиссии»).
+      // EN/PT/DE остаются PR-A версии — переводчики параллельно.
       title: {
         en: 'Open for commissions',
-        ru: 'Принимаю заказы',
+        ru: 'Мы не продаём тексты. Мы отдаём проверяемое знание — с подписью, с источниками, открытое.',
         pt: 'Aberto a encomendas',
         de: 'Offen für Aufträge',
       },
-      // 2026-08-30 S1UMBR cont+4 §4.12 fix (Iskra S307-02) — unified body text across
-      // 4 langs. Prior state: RU claimed «Семь направлений» but listed 6 items (нарушение
-      // Andrey no-numbers rule + honesty); EN was 4-items different content
-      // («Encyclopedias on your subject, long-form books, longread series, OSINT
-      // investigations»); PT similar к EN structure; DE missing entirely. Iskra flag:
-      // «Commissions RU/EN расходятся содержательно — свести к одному тексту».
-      // Unified к 7 items matching /services deep page canon («Перевод + OSINT +
-      // Lucerna long invest + Длинная статья + Энциклопедия + Иллюстрации + Сайт»)
-      // без явного числа per Andrey no-numbers rule. Anti-anglicism DE: «lange Essays»
-      // не «Longread-Essays». Retro-viza pattern applied per editorial-vier-augen §3
-      // (Andrey cont+4 «Landing-repo» option carte-blanche + Iskra S307-06 §2 assign
-      // «Консоль лендинга: §4.12 Commissions RU/EN»); POMETKA к Iskra Vier-Augen retro.
+      // T-315-13 вариант Б RU канон (Iskra S315-14 §2 → S1ORCH cont+3 PR-C 2026-09-07):
+      // body.ru переписан к канону §2 verbatim — обязательная подводка + 4 punkta
+      // с живыми ссылками на образцы. Hero image commission 4 (Frida cont+8 «Соседский
+      // стол», Andrey verdict В seed 918) вписан <figure> перед 4-м пунктом
+      // «Помощь с домом». Iskra explicit S315-13a §1 formulation п.4 «не оферта —
+      // соседская помощь case-by-case» — сохранено verbatim.
+      // «Напишите нам:» и Ko-fi — без изменений (Iskra §2 mandate).
+      // <div> контейнер требует update AnchorsSection.vue: `<p>` → `<div>` для
+      // multi-block содержимого (headings/figure inside).
+      // EN/PT/DE остаются PR-A версии — переводчики (Лёлик/Зека/Болик) параллельно.
       body: {
         en: 'Encyclopedias on your subject, books, long investigations, long-form essays, translations, illustrations, websites. One author and a team of AI fornits. Typical cycle — from three months. Not for urgent work, not for content built around someone else\'s algorithm. <a href="/en/services">More →</a> Write to: info@folkup.app',
-        ru: 'Энциклопедии на вашу тему, книги, длинные расследования, длинные статьи, переводы, иллюстрации, сайты. Один автор и команда AI-форнитов. Типичный цикл — от трёх месяцев. Не для срочных проектов и не для текстов под чужой алгоритм. <a href="/ru/services">Подробнее →</a> Пишите: info@folkup.app',
+        ru: '<p><em>Всё ниже мы сделали для себя — и можем сделать для вас. Каждый пункт — с живой ссылкой на образец.</em></p><h4>Энциклопедия под ключ</h4><p>Образец: <a href="https://cogumelos.folkup.fit">cogumelos.folkup.fit</a>, <a href="https://padel.folkup.fit">padel.folkup.fit</a>. Для ассоциации, клуба, региона: структура, 50–150 статей с источником у каждого факта и видимым статусом проверки, три языка, предупреждения там, где ошибка стоит здоровья, открытая лицензия — вы не привязаны к нам. От трёх месяцев, дальше ежемесячное обновление.</p><h4>Книга-исследование с полным аппаратом</h4><p>Образец: <a href="https://books.folkup.life">books.folkup.life</a>, <a href="https://lucerna.folkup.app">lucerna.folkup.app</a>. Из лекций, интервью, опыта — книга: структура, источники, указатель, раскрытие об использовании ИИ по закону, обложка, EPUB, читалка на четырёх языках. Лицензия — по вашему выбору. От четырёх месяцев.</p><h4>Перевод с аппаратом и живым читателем</h4><p>Образец: «Agile Sapiens» на <a href="https://books.folkup.life/en/kn1">английском</a> и <a href="https://books.folkup.life/pt/kn1">португальском</a> (немецкий в работе). Черновик ИИ → правка переводчика → редакторская проверка → читатель-носитель; колофон с честным описанием процесса, указатель и источники на языке издания, проверка прав на цитаты. Шесть–восемь недель на книгу.</p><figure><img src="/images/services/hero-help-with-home.webp" alt="Двое соседей за рабочим столом с чертежом, латунной лампой и кружками чая; за окном тёплый вечер. Соседская встреча, не сделка." loading="lazy" width="1344" height="768"></figure><h4>Помощь с домом для открытой работы</h4><p>Если ваш проект или текст выходит под открытой лицензией и ему негде жить — напишите. Там, где наша инфраструктура позволяет, дадим место рядом с нашими: поддомен или ваш домен, HTTPS, публикация из git, без рекламы и слежки. Там, где не позволяет, — поможем собрать то же самое у вас: инструменты открытые, рецепт наш. Это не хостинг с тарифами и лимитами, а соседская помощь, случай за случаем. Лицензия — открытая; за содержание отвечает автор.</p><p><a href="/ru/services">Подробнее →</a> Пишите: editor@folkup.app</p>',
         pt: 'Enciclopédias sobre o seu tema, livros, investigações longas, ensaios longos, traduções, ilustrações, sítios web. Um autor com uma equipa de fornits de IA. Ciclo típico — a partir de três meses. Não para trabalho urgente, nem para conteúdos desenhados para o algoritmo alheio. <a href="/pt/services">Mais →</a> Escreva: info@folkup.app',
         de: 'Enzyklopädien zu Ihrem Thema, Bücher, lange Recherchen, lange Essays, Übersetzungen, Illustrationen, Websites. Ein Autor und ein Team von KI-Fornits. Typischer Zyklus — ab drei Monaten. Nicht für dringende Arbeit, nicht für Inhalte, die auf fremde Algorithmen zugeschnitten sind. <a href="/de/services">Mehr →</a> Schreiben Sie an: info@folkup.app',
       },

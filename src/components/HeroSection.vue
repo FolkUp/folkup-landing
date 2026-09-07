@@ -113,7 +113,12 @@ const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '
 /* GLAVNAYA v1.1 FINAL-VIZA Iskra S238 2026-07-30: tagline semantics shifted к
    body-paragraph (5-sentence workshop introduction). Removed italic + smaller
    font, widened max-width + left-align для reading pattern. Anti-busy-work:
-   preserve field name «tagline» rather than schema rename (single consumer). */
+   preserve field name «tagline» rather than schema rename (single consumer).
+
+   T-315-12 вариант Б RU канон (Iskra S315-14 §1 → S1ORCH cont+3 PR-C 2026-09-07):
+   `white-space: pre-line` добавлен для multi-paragraph рендеринга RU локали
+   (два абзаца через `\n\n` в manifest tagline.ru). EN/PT/DE single-paragraph
+   tagline рендерятся идентично (нет `\n\n` в тексте — pre-line не меняет). */
 .hero-tagline {
   font-family: var(--font-heading);
   font-size: clamp(1rem, 2vw, 1.15rem);
@@ -122,6 +127,7 @@ const tagline = computed(() => resolveLocalized(hero.tagline, locale.value) ?? '
   max-width: 640px;
   margin: 0 auto 2rem;
   text-align: left;
+  white-space: pre-line;
 }
 
 /* GLAV-1: .hero-actions + .hero-cta + .hero-cta--secondary CSS removed per Iskra PAKET-GLAVNAYA S290-07 §3
