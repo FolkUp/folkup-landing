@@ -1,0 +1,299 @@
+# Series metadata canonical
+# EN slugs: temporary из Иви S138 SVG covers (per Q1.3=А cont +39). Лёлик утвердит финальные позже.
+# License: CC BY-SA 4.0 (S100/S135 canon)
+# Covers v1 (S138 Иви pack): временные, канон до финального арта Фриды/Ремедиос.
+#   Каждая обложка несёт круглый штамп «ЭКСПОНАТ НА РЕСТАВРАЦИИ» (переведён по языку).
+#   DE обложки содержат «Kommandant» — pending regen с «Comandante» per Иви S152.
+# CANON v2 «Своим умом» Iskra S214 2026-07-23 (виза «раз и навсегда»):
+#   Серия — «Своим умом»; читателю нумерация НЕ показывается (canon v2 §1).
+#   Внутренний порядок = карта замысла: создаём → получаем без искажений → договариваемся.
+#   Три трилогии: I. «Своими силами» (kn1+kn3+kn4) · II. «Из первых рук» (kn2+kn5+kn6) · III. «Общий язык» (kn7+…)
+#   Slug ≠ position: URL /kn1–/kn7 живой, не меняем; position = поле сортировки карточек.
+
+series:
+  # CANON v2 Iskra S214: серия «Своим умом» (виза — «FolkUp» бренд, не имя серии).
+  # T-315-09 P1 (Lelik S1LOLIK cont+16 2026-09-07): name_i18n per Iskra S315-01 §1.5 canon
+  # (EN «A Mind of One's Own» S268 + PT «Pela Própria Cabeça» S311-18 + DE «Selbstständig denken» S312-05).
+  # JSON-LD `series.name` per-locale (gate: curl `/en/`,`/pt/`,`/de/` → localised series name).
+  # Legacy `name` field остаётся RU baseline (fallback + SSR default).
+  name: Своим умом
+  name_i18n:
+    ru: Своим умом
+    en: A Mind of One's Own
+    pt: Pela Própria Cabeça
+    de: Selbstständig denken
+  # Public author display = pseudonym per Iskra S178b canon 2026-07-18.
+  # Legal identity reserved для /ai-disclosure page (AI Act Art. 50(4))
+  # per Лев Option F canon: legal name published only where legally required.
+  author: Команданте FolkUp
+  author_url: https://books.folkup.life/#author
+  license: CC BY-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  total_books: 7
+  publisher: FolkUp Ecosystem
+  publisher_imprint: Редакция FolkUp
+  # Трилогии — внутренняя карта замысла (canon v2 §3).
+  # DE/EN/PT — placeholder RU до перевода (Iskra §1 «не подстрочник»).
+  # Iskra §3 VITRINNYY-PAKET S214: подписи-описания для группировки на главной.
+  # Третью трилогию НЕ пишем «в работе» — читатель видит группу с одной книгой,
+  # когда выйдут остальные, группа просто пополнится (Iskra §3 canonical).
+  trilogies:
+    svoimi_silami:
+      name: Своими силами
+      arc: команда создаёт
+      description: >-
+        Как команда делает своё дело: учится видеть себя, придумывает лучшее
+        устройство и рождает то, чего раньше не было.
+    iz_pervyh_ruk:
+      name: Из первых рук
+      arc: знание доходит до нас
+      description: >-
+        Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто
+        стоит посредине, — и как проверить, что донесли именно то.
+    obshchiy_yazyk:
+      name: Общий язык
+      arc: люди договариваются
+      description: >-
+        Почему договориться труднее, чем кажется, и что с этим делать.
+
+# CANON v2 §2 таблица переномеровки (визирована):
+#   kn1 pos 1 (I·1) · kn3 pos 2 (I·2) · kn4 pos 3 (I·3)
+#   kn2 pos 4 (II·1) · kn5 pos 5 (II·2) · kn6 pos 6 (II·3)
+#   kn7 pos 7 (III·1) · будущие тома III·2, III·3
+# Slug /kn1–/kn7 НЕ меняется — технический идентификатор.
+books:
+  - position: 1
+    slug: kn1
+    slug_en_temp: agile-sapiens
+    trilogy: svoimi_silami
+    status: live
+    version: 1.0.24
+    launch_date: 2026-05-24
+    date_relicensed: 2026-06-25
+    date_patched: 2026-08-17  # v1.0.24 HOTFIX B S1TREN cont+6 CARTOUCHE L3 2026-08-17 per Iskra VERDICT-S289-01 §2: revert series.yaml version+downloads к v1.0.24 (files v1.0.25.epub/.pdf DO NOT EXIST physically в public/kn1/downloads/ — PR #197 ee829aa bumped version+URLs to v1.0.25 без физического rebuild pipeline output → user-facing 404 регрессия). Apparatus 4 EN файла + colophon KAND-1 RU trilogy naming + KAND-2 колофон v1.0.25 mentions LEFT AS IS per Iskra explicit «apparatus + colophon НЕ трогать» (content-side достигла v1.0.25 через KN1-FAKTY-12/13 + Batch07-10 + EN-TITLE-RENUM-1). Roll-forward A планово: rebuild pipeline agile-sapiens → физфайлы v1.0.25.epub/.pdf → атомарный PR (физфайлы + series.yaml version+URLs + format_stale_note) per Iskra VERDICT-S289-01 §3. LESSON-S288-2 канонизирован (Iskra принят): string-match тест version не гарантирует HTTP fetch — CI post-deploy 3-URL smoke check TIKET у S1PT. Previous v1.0.25 note (ee829aa): «КОНТЕНТНЫЙ bump per Iskra VIZA-KASKAD S287-02 KANON VERSION-COLOPHON-1» — logically valid для content-side но series.yaml должен match file availability truth. Previous v1.0.24 S6SCOOP cont+7 2026-08-11: build pipeline fixes per Iskra GLAZA-VERDIKTY (Д-2 EPUB spine linear=no + Д-4-final PDF plates derivePlate + Д-4-Chrome-headers off) + Д-2b epubcheck OPF-096 fix (nav.xhtml link on title.xhtml). Iskra S274 PROD-GATE-GO ADDENDUM: «номер остаётся v1.0.24 (публично не выкладывался, bump не нужен)». Content unchanged relative v1.0.23. PRs chain: agile-sapiens #235 05ed2a8 + #236 9a4e5dd CI-guard + #237 41bc924 Д-2b.
+    downloads:
+      # Top-level = RU default (backward compat: existing top-level consumers see RU URLs)
+      epub: https://books.folkup.life/kn1/downloads/agile-sapiens-v1.0.24.epub
+      pdf: https://books.folkup.life/kn1/downloads/agile-sapiens-v1.0.24.pdf
+      # LIVE-GATE-EN-1 G2 per Iskra KANON-VOROTA S289-07: per-locale nested downloads
+      # для EN edition. Схема имени per Iskra ADDENDUM S289 §1 G3: EN версионный ряд
+      # v1.0.0 (translated из RU v1.0.25 corpus per KAND-1/2 cascade). Активируется когда
+      # translations.en flip'ается preview→live per Q-C26 canon Andrey personal browser check.
+      # Vue lookup: `book.downloads?.[locale]?.epub ?? book.downloads?.epub` (RU fallback).
+      en:
+        epub: https://books.folkup.life/kn1/downloads/agile-sapiens-en-v1.0.1.epub
+        pdf: https://books.folkup.life/kn1/downloads/agile-sapiens-en-v1.0.1.pdf
+    # v1.0.20 cont+39/+44 S2SCOOP+S3SCOOP 2026-08-03: ЭШЕЛОН-2 dedup canon
+    # per Iskra S248 МАЯК-КАНОН-DEDUP GO — 11 patches П6-П16 (dedup + rename
+    # Иви→Искра + term-α EN form + hybrid П15 for portal absent ЭШЕЛОН-1).
+    # Соседkа cont+39 (S2SCOOP) applied dedup patches + version bump 1.0.19→1.0.20;
+    # Alisa cont+44 (S3SCOOP) executed build + upload + series.yaml sync.
+    # v1.0.19 legacy patch (S2SCOOP cont+31 2026-07-29): автономный patch по Андрея carte blanche
+    # (Q2-Q5 на моё усмотрение), Iskra S234 порядок волн W-A первым:
+    # (Q2 FACT#2) chapter-3 L101 drop «когда SEC потребовала снять Power Peg» —
+    # SEC Administrative Proceeding File No. 3-15570 (16.10.2013) не содержит
+    # приказа SEC на снятие Power Peg, Knight Capital сам прекратил в 2003;
+    # neutral phrasing защищает от неподтверждённого утверждения (Iskra flagged
+    # principle-level, Andrey mandate «на моё усмотрение» → Вариант B safest).
+    # (Q3) Обложка static/images/cover.webp заменена placeholder 62KB WebP
+    # 1600×2400 → Frida canonical KANON v2 27KB WebP 800×1200 (S1FRIDA PR#33+40
+    # MERGED 22-23 июля 2026, 4 langs shipped).
+    # (Q4) Colophon.md «Текущая версия» 1.0.17→1.0.19 (sync с package.json)
+    # + v1.0.19 changelog entry + retroactive v1.0.18 entry.
+    # v1.0.18 legacy S3SCOOP: Iskra S233 evidence-запросы p5+p6+FACT#1+#3.
+    # v1.0.17 legacy: Iskra S232 VERDIKT (Verne 15м/31вып/23фр/560%).
+    # v1.0.16 legacy: убрана метафора «вскрытий» + числа глав.
+    # v1.0.15 legacy: EPUB awk pipeline fix.
+    format_stale_note: |
+      Издание v1.0.24 · обновлено 11.08.2026
+    cover_v1: /covers/cover_kn1.svg
+    covers:
+      ru: /covers/cover_kn1.svg
+      en: /covers/cover_kn1_en.svg
+      de: /covers/cover_kn1_de.svg
+      pt: /covers/cover_kn1_pt.svg
+    # Translation status per language position — Iskra canon ZAGLUSHKI S179 (visa 2026-07-18).
+    # Rule «перевод не блокирует релиз»: RU не ждёт переводов, каждый выходит следующей версией.
+    translations:
+      ru: live
+      de: preparing
+      en: live  # 2026-08-17 flip preview→live per Iskra PRIKAZ-S290-10 + Andrey personal viza «флип GO приступай карт-бланш» + LIVE-GATE-EN-1 G1+G2+G3 closed (S1TREN PR #205 c63eb2f). BL-LAUNCH-1 trigger event.
+      pt: preview  # 2026-08-31 preparing→preview per Iskra VERDIKT-S307-03 §1 Q4 «PT-reader-flip GO» + Andrey S306 «флип без вето». Zeka batch 8 waves 1-4 shipped: chapter-7/8/9/10 LIVE `/kn1/pt/read/*` HTTP 200. Downloads (EPUB/PDF) pending. Route flip: /pt/kn1 stub→wrapper (S1DEFIX cont+2).
+    isbn: null  # Pending Гутенберг + Bowker
+
+  - position: 2
+    slug: kn3
+    slug_en_temp: city-of-the-sun
+    trilogy: svoimi_silami
+    status: live
+    version: 1.0.3
+    launch_date: 2026-07-26
+    date_epub_shipped: 2026-07-29  # S3SCOOP cont+30 · pandoc-based build pipeline
+    # Iskra S217 VIZA 2026-07-26 (publish canon «давайте её переводить к публикации»):
+    # kn.3 «Город Солнца» → LIVE per образцу kn.5 (веб pro-chto готов).
+    # FULL v3.1 проверен изнутри S216 (адрес приёмной верный, ИИ-запрет + NC-ND отсутствуют).
+    # pro-chto ратифицирован PR #54, маркер VIZA-S216.
+    # v1.0.1 S3SCOOP cont+30 2026-07-29: EPUB shipped. Title byline sanitized
+    # (real name → «Команданте FolkUp» per Andrey deanon mandate 2026-07-28).
+    # Colophon legal disclosure remains per PT Decreto-Lei 7/2004 Art. 10 + EU AI Act Art. 50(4).
+    # PDF готовится в v1.0.2 (Puppeteer pipeline setup).
+    downloads:
+      epub: https://books.folkup.life/kn3/downloads/city-of-the-sun-v1.0.1.epub
+    format_stale_note: |
+      Издание v1.0.1 · обновлено 29.07.2026
+    illustration_style: Bauhaus / Kandinsky
+    cover_v1: /covers/cover_kn3.svg
+    covers:
+      ru: /covers/cover_kn3.svg
+      en: /covers/cover_kn3_en.svg
+      de: /covers/cover_kn3_de.svg
+      pt: /covers/cover_kn3_pt.svg
+    translations:
+      ru: live  # RU веб-версия LIVE per Iskra S217 VIZA + publish canon «давайте её переводить к публикации» 2026-07-26 · fix regression cont+24 S2SCOOP POMETKA loop-poll-5
+      de: preparing
+      en: preparing
+      pt: preparing
+
+  - position: 3
+    slug: kn4
+    slug_en_temp: where-the-new-lives
+    trilogy: svoimi_silami
+    status: live
+    version: 1.0.0
+    launch_date: 2026-07-22
+    date_epub_shipped: 2026-07-30  # S3SCOOP cont+33 pandoc pipeline → S2SCOOP cont+32 portalization
+    # Iskra VIZA-PAKET S213 2026-07-23 Вариант А (kn.1-pattern): веб LIVE, EPUB/PDF готовятся.
+    # PR#30 merged 2026-07-22 (770db1a) — RU master .adoc + 3 правки H2 antisyflyorstvo (ЩИТ v5.0 PASS).
+    # Канон S212 ПАРИТЕТ ФОРМАТОВ — соблюдён через honest banner ниже.
+    # Iskra §7 VITRINNYY-PAKET S214 canonical: веб есть, файлов ещё нет.
+    # v1.0 S3SCOOP cont+33 2026-07-30: EPUB shipped (105 KB, SHA-256 12fbc054fd97...).
+    # Iskra S236 AKT-PRIYOMKI PASS G1-G4 GO G5 (10:13 UTC 2026-07-30).
+    # Portalization S2SCOOP cont+32 2026-07-30 (карт-бланш Andrey after S3SCOOP pre-compact SEAL).
+    downloads:
+      epub: https://books.folkup.life/kn4/downloads/gde-zhivet-novoe-v1.0.epub
+    format_stale_note: |
+      Издание v1.0.0 · обновлено 30.07.2026
+    cover_v1: /covers/cover_kn4.svg
+    covers:
+      ru: /covers/cover_kn4.svg
+      en: /covers/cover_kn4_en.svg
+      de: /covers/cover_kn4_de.svg
+      pt: /covers/cover_kn4_pt.svg
+    translations:
+      ru: live
+      de: preparing
+      en: preparing
+      pt: preparing
+
+  - position: 4
+    slug: kn2
+    slug_en_temp: consonants-without-vowels
+    trilogy: iz_pervyh_ruk
+    status: live
+    version: 1.0.0
+    launch_date: 2026-07-30
+    date_epub_shipped: 2026-07-30  # S3SCOOP cont+33 · pandoc MD→EPUB3 + Python 5-step processor
+    # Iskra §11 gate «даты-обещания запрещены» cont+22 2026-07-26 — launch_target removed.
+    # Iskra S236 KONFLIKT VIZ RESOLVED 2026-07-30 11:34 UTC: rev2 patch «Iskra»→«Иви» applied.
+    # Iskra S236 VIZA-PAKET Q3.1 (a) awk h1-dedup + Q3.2a (title page псевдоним) + Q3.2b (Иви co-author).
+    # v1.0 rev2 S3SCOOP cont+33 2026-07-30: EPUB 240 KB SHA ad7f45ed... TOC 19 clean.
+    # Body text-only (kn.2 без иллюстраций vault — обложка Иве S138 pack временная до Frida wave).
+    # Deanon canon S224: byline «Команданте FolkUp и Иви».
+    # PDF + illustrations v1.0.1 patch (Iskra AUTO-G5 карт-бланш).
+    downloads:
+      epub: https://books.folkup.life/kn2/downloads/soglasnye-bez-glasnyh-v1.0.epub
+    format_stale_note: |
+      Издание v1.0.0 · обновлено 30.07.2026
+    cover_v1: /covers/cover_kn2.svg
+    covers:
+      ru: /covers/cover_kn2.svg
+      en: /covers/cover_kn2_en.svg
+      de: /covers/cover_kn2_de.svg
+      pt: /covers/cover_kn2_pt.svg
+    translations:
+      ru: live  # v1.0 shipped 2026-07-30 · Iskra S236 AUTO-G5 карт-бланш
+      de: preparing
+      en: preparing
+      pt: preparing
+
+  - position: 5
+    slug: kn5
+    slug_en_temp: by-others-hands
+    trilogy: iz_pervyh_ruk
+    status: live
+    version: 1.0.3
+    launch_date: 2026-07-26
+    date_epub_shipped: 2026-08-31  # S1KOCHEGAR cont+9 · pandoc rebuild от canon v1.2 8e2ed16 per Iskra VIZA-S311-04 samoispolnimaya
+    # v1.0.1 rebuild S1KOCHEGAR cont+9 2026-08-31 per Iskra VIZA S311-04 «canon source = KN5-FULL v1.2 commit vault 8e2ed16, сверь MASTER — совпадает — ship по Option A»:
+    # MASTER 8e2ed16 diff HEAD = 0 (canon match) + rebuild с fresh assets (ill-11 v8 seed 811 per PR #194 Iskra VERDICT-S288-03 + ill-12 webp→jpg EPUB compat).
+    # Smoke 8/8 PASS + G1-грепы Iskra spec S234 (✎ / [дата / build-time / на визу / ГЕЙТ / ТЗ п. / Готовится Фридой) all=0 + Colophon Art 50 EU Regulation 2024/1689 + CC BY-SA 4.0.
+    # EPUB 6.2 MB · 8 illustrations (01/02/04/05/06/07/08/12) + cover_kn5.v3.png · 19 chapters · deep TOC 90 nav links.
+    #
+    # v1.0 history preserved for archive: S3SCOOP cont+33 2026-07-30 pandoc HTML→MD→EPUB3 4.96 MB SHA e36386a5.
+    # v1.0 P0 defect (no dedication) → v1.0.1 rebuild canonical (dedication + apparat + colophon + KANON v2 cover .v3 embedded).
+    #
+    downloads:
+      epub: https://books.folkup.life/kn5/downloads/kn5-chuzhimi-rukami-v1.0.1.epub  # ROLLBACK v1.0.3 → v1.0.1 per Iskra P0 S313-13: v1.0.3 структурно сломан (3 xhtml, nav 4 пункта «Title Page/Cover/TOC» — глав нет). v1.0.1 = 21 xhtml, 90 nav, 6.23 MB, md5 9a437d4aedd8ddb362135bb0d79b2857. Заморозка kn5 EPUB на v1.0.1 до конца спринта. Гейты структуры 10-13 добавлены к смоуку.
+    cover_v1: /covers/cover_kn5.svg
+    covers:
+      ru: /covers/cover_kn5.svg
+      en: /covers/cover_kn5_en.svg
+      de: /covers/cover_kn5_de.svg
+      pt: /covers/cover_kn5_pt.svg
+    translations:
+      ru: live  # RU FULL v1.1 clean per Iskra pair 2026-07-26 · publish Q5=А
+      de: preparing  # Кнут в работе, "перевод не блокирует релиз" S179
+      en: preparing
+      pt: preparing
+
+  - position: 6
+    slug: kn6
+    slug_en_temp: own-eyes
+    trilogy: iz_pervyh_ruk
+    status: live
+    version: 1.0.0
+    launch_date: 2026-07-30
+    date_epub_shipped: 2026-07-30  # S3SCOOP cont+34 pandoc pipeline → S2SCOOP cont+33 portalization
+    # Iskra S237 VERDIKT kn.6 REWORK build 2 2026-07-30 ~13:30 UTC: GO (F1-F5 fixed per S229 checklist).
+    # S3SCOOP cont+34 built EPUB via established pandoc pipeline (kn.4/kn.5/kn.2 pattern), ATTN S3SCOOP.
+    # S3SCOOP sealed cont+34 после ship — S2SCOOP cont+33 подхватила портализацию per Andrey verdict C + ROLLING mandate.
+    # v1.0 EPUB 6.9 MB (SHA-256 95417b114d8350e6a6f07245f30fd78c0536cd6b28e8677c3a64f1c9247dc2c8).
+    # LIVE кн.6 — с артом обложки Фриды K1 «Картотека» (vault/books/kn6-package/covers/kn6-cover-final.png).
+    downloads:
+      epub: https://books.folkup.life/kn6/downloads/kn6-svoimi-glazami-v1.1f.epub  # v1.1f FINAL S1KOCHEGAR cont+14 2026-09-07 per T-316-01 P0 kitchen leak fix + KANON EPUB-TRAKT-1 (S315-04 + S315-06 refinement). Iteration chain: v1.0 (07.30) → v1.1 (webp inline) → v1.1b (webp→jpg) → v1.1c (no captions in body) → v1.1d (K1 cover + nav linear=no) → v1.1e (nav itemref REMOVED from spine per Andrey S315-06 «читалки игнорируют linear=no») → v1.1f (T-316-01 fenced ```yaml preprocess strip Layer 3 + Gate 6 G1-ILL fail-loud per Iskra POMETKA-S316-03 §1 п.2). Canon compliance: (1) cover K1 «Картотека» Фриды vault md5 854af8b0... ✓, (2) nav.xhtml WITHOUT itemref в spine (grep idref=nav в opf = 0) ✓, (3) JPG only (0 webp) ✓, (4) RAW HTML img body без figure/figcaption (0 captions) ✓, (5) Аппарат «Иллюстрации» + colophon S223 ✓, (6) Gate 6 G1-ILL kitchen manifest YAML = 0 (Iskra Урок 11) ✓. Гейты 1-6 Template v3 PASS + epubcheck 3.3 0/0/0. md5 cb87f16dbd7db5edb17f50fbfac04725. Note filename convention: v1.1e = svoimi-glazami-v1.1e.epub (без prefix), v1.1f = kn6-svoimi-glazami-v1.1f.epub (с kn6- prefix, aligned с KANON EPUB-TRAKT-1 filename standard). F1 flip per Iskra AUDIT-S317-08 F1 + POMETKA-S318-05 §2 п.1 · S1KOCHEGAR cont+16 · Andrey DEPLOY-OVER-HOLE-1 canon (дырка в проде > формальная проба, v1.1g rebuild pending per S318-05 п.2).
+    format_stale_note: |
+      Издание v1.1f · обновлено 07.09.2026 · +20 иллюстраций · Layer 3 kitchen fix
+    cover_v1: /covers/cover_kn6.svg
+    covers:
+      ru: /covers/cover_kn6.svg
+      en: /covers/cover_kn6_en.svg
+      de: /covers/cover_kn6_de.svg
+      pt: /covers/cover_kn6_pt.svg
+    translations:
+      ru: live  # v1.0 shipped 2026-07-30 · Iskra S237 GO kn.6 build 2 · S2SCOOP cont+33 portalization
+      de: preparing
+      en: preparing
+      pt: preparing
+
+  - position: 7
+    slug: kn7
+    slug_en_temp: lost-in-conversation  # canonical per Andrey VERDIKT S312-04 (2026-09-01): «Lost in Conversation» = kn7 EN book title, «Common Ground» = trilogy III name (canon S259). Не temp. Slug canonical. Other 6 books' slug_en_temp остаются temp until Лёлик утвердит (per L2 comment).
+    trilogy: obshchiy_yazyk
+    status: live  # 2026-09-01 svod_zakryt_pre_shit_v5 → live per Iskra S312-01 §2 mandate «DEPLOY-VSYO-GOTOVOE» + Andrey carte-blanche cont+1 «оркестрируй + 7 раз отмерь». ЩИТ v5.1 GO S311-18 pre-shipping cascade: batch 1 PR #302 4c8f275 (source edits + PT routing) + batch 2 PR #302+X (reader wire-up parts-based manifest, ships FIRST не ждёт Kочегар свод). EPUB / kn5 Kочегар batch 2 когда стартует cont+10.
+    cover_v1: /covers/cover_kn7.svg
+    covers:
+      ru: /covers/cover_kn7.svg
+      en: /covers/cover_kn7_en.svg
+      de: /covers/cover_kn7_de.svg
+      pt: /covers/cover_kn7_pt.svg
+    translations:
+      ru: live  # 2026-09-01 preparing → live per Iskra S312-01 §2 mandate. Reader /kn7/read/* LIVE (18 частей + указатель) через kn7-reader-manifest.mjs parts-based manifest (S1DEFIX cont+7 batch 2). Kочегар свод master.md + KN7-15 колофон + EPUB v1.0 второй коммит cont+10 (DEPLOY-OVER-HOLE-1).
+      de: preparing
+      en: preparing  # 2026-09-06 preview→preparing per Iskra POMETKA-S315-10 T-315-08 P0 (Лёлик S1LOLIK cont+15). Rationale: S314-11 сняла переводы кн.7 с итерации, но статус витрины не откатили — `preview` рендерил «Read online» без маршрута читалки (/kn7/en/read = 404 pre-fix). Flip → honest «in preparation». Reader wire-up defer post-EN chapters translation (когда Iskra реверне kn7 EN в очередь после kn1 flagman closure). Previous state (2026-09-01 preview per Andrey S313-05 SVORACHIVANIE + Iskra S313-04 EN covers PASS + Andrey Q4 canon locked) actionable в prior kn7 EN roadmap но superseded S314-11 приоритет-переход к kn1 flagman focus.
+      pt: preparing  # 2026-09-06 preview→preparing per Iskra POMETKA-S315-10 T-315-08 P0. Same rationale as en. Zeka S2PT PR #300 pro-chto «As Dificuldades do Diálogo» контент shipped LIVE в repo (content/kn7/pt/pro-chto.md preserved), но status витрины honest = «em preparação» до PT chapters translation. Route flip /pt/kn7 wrapper preserved (S1DEFIX cont+7 batch 1 — /kn7 book page loads с BookPage.vue общий шаблон, preparing state renders «Coming soon» карточка + honest stub без «Ler online»). Previous state (2026-09-01 preview per Iskra S311-18 §2.3 + Zeka PR #300 Formato 3 4/4 PASS) actionable в prior kn7 PT roadmap но superseded S314-11.
+    svod_components:
+      - S120_master
+      - vstavka_perevodchik_S142
+      - interlude_zanzibar_v10  # Drive 1ryYCFpnS69ZXE8bhhNZShMfxuP0v6Q46 Transit
+    downloads:
+      epub: https://books.folkup.life/kn7/downloads/trudnosti-dialoga-v1.0.2.epub  # S1KOCHEGAR cont+10 pandoc rebuild от 19 частей per Iskra S311-17 колофон + S311-22 sluzhebnyj strip + S311-23 указатель + S311-24 slot filled + S1DEFIX PR #302 clean input parts/ + Kочегар KNIGA-OTKRYTA-1 second door (full URL per LESSON-S288-2 smoke convention)
