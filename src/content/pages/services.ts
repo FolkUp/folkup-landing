@@ -35,9 +35,9 @@ export const servicesPage: Page = {
       de: 'Leistungen — FolkUp',
     },
     description: {
-      en: 'Directions on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI fornits.',
+      en: 'Directions on long timelines. Translations, OSINT, long-form essays, encyclopedias, illustration, websites. No prices, by prior conversation. Written by one author and a team of AI assistants.',
       ru: 'Направления на длинных дистанциях. Переводы, расследования, очерки, энциклопедии, иллюстрации, сайты. Без цен, по предварительному общению.',
-      pt: 'Direções em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de fornits de IA.',
+      pt: 'Direções em prazos longos. Traduções, OSINT, ensaios longos, enciclopédias, ilustração, sites. Sem preços, por contacto prévio. Escrito por um autor e uma equipa de assistentes de IA.',
       de: 'Richtungen auf langen Fristen. Übersetzungen, OSINT, lange Essays, Enzyklopädien, Illustration, Websites. Ohne Preise, nach vorherigem Gespräch. Geschrieben von einem Autor und einem Team von KI-Assistenten.',
     },
     ogType: 'website',
