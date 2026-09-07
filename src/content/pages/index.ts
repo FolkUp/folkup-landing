@@ -56,7 +56,7 @@ export const homePage: Page = {
       en: 'Open books and encyclopedias: every fact by source, every text signed, four languages, no ads and no registration.',
       ru: 'Открытые книги и энциклопедии: каждый факт — по источнику, каждый текст подписан, четыре языка, без рекламы и без регистрации.',
       pt: 'Uma oficina que faz enciclopédias, uma série de livros e investigações. Grátis, verificado, multilingue. Uma pessoa e uma equipa de colaboradores de IA.',
-      de: 'Eine Werkstatt, die Enzyklopädien, eine Buchreihe und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Mensch und ein Team von KI-Mitarbeitern.',
+      de: 'Eine Werkstatt, die Enzyklopädien, eine Buchreihe und Recherchen macht. Kostenlos, geprüft, mehrsprachig. Ein Autor und ein Team von KI-Assistenten.',
     },
     ogType: 'website',
     canonical: 'https://folkup.app/',
