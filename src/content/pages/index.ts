@@ -176,7 +176,13 @@ export const homePage: Page = {
           // 2026-09-01 per S1ORCH signal-forward Q4 + Andrey carte-blanche.
           // Badge now aligned с ratified state: «RU · EN · PT» × 4 langs
           // (DE «Vorschau» removed too — consistent all-langs post-ratification).
-          langs: { en: 'RU · EN · PT', ru: 'RU · EN · PT', pt: 'RU · EN · PT', de: 'RU · EN · PT' },
+          // F5 (Iskra S317-08 §5 → S1ORCH cont+3 PR-D2 2026-09-07): kn1 langs badge
+          // «RU · EN · PT (превью)» — до flip PT (portal /pt/kn1 показывает
+          // «pré-visualização» + «Ler online» работает, но статус ещё «preparing»).
+          // После flip → вернуть «RU · EN · PT» unified (Iskra explicit «после flip
+          // — вернуть анонс»). Sync с новостью F5 news card ниже (обе на «до flip»
+          // pattern одновременно).
+          langs: { en: 'RU · EN · PT (preview)', ru: 'RU · EN · PT (превью)', pt: 'RU · EN · PT (pré-visualização)', de: 'RU · EN · PT (Vorschau)' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
           // Cont+2 URL upgrade (Andrey verdict item #5 2026-08-23):
           // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
@@ -239,13 +245,24 @@ export const homePage: Page = {
           // Cont+2 badge unified (Andrey verdict item #5 2026-08-23):
           // kn3 = NOT open. Unified label с kn2 для consistency («В работе» singular).
           // Prior «готовится» → «В работе» (aligned с kn2 pattern).
-          count: { en: 'In the workshop', ru: 'В работе', pt: 'Em construção', de: 'In Arbeit' },
+          //
+          // F8 (Iskra S317-08b §F8 P1 → S1ORCH cont+3 PR-D2 2026-09-07):
+          // kn7 = LIVE на RU (per news card «Вышла седьмая книга „Трудности диалога"»).
+          // Прежний badge «In the workshop / В работе / Em construção / In Arbeit»
+          // читал как «книга ещё не готова» — противоречит новости ниже «Book Seven is
+          // out». Iskra canon: align с kn1/kn2 pattern: `count` = «Read →» (RU LIVE),
+          // `langs` = «RU · translations in the workshop» (non-RU в переводе).
+          count: { en: 'Read →', ru: 'Читать →', pt: 'Ler →', de: 'Lesen →' },
           description: {
             en: 'Why agreeing is harder than it looks — an orchestra plays inside the head, but what comes out is a knock. On the barriers to understanding and how to break through them.',
             ru: 'Почему договориться труднее, чем кажется: в голове играет оркестр — наружу выходит стук. О барьерах понимания и о том, как через них пробиваться.',
             pt: 'Porque é mais difícil chegar a acordo do que parece — dentro da cabeça toca uma orquestra, mas o que sai é um bater. Sobre as barreiras da compreensão e como atravessá-las.',
           },
-          langs: { en: 'RU · in the workshop', ru: 'RU · в мастерской', pt: 'RU · na oficina' },
+          // F8 (Iskra S317-08b §F8 canon → S1ORCH cont+3 PR-D2 2026-09-07):
+          // langs badge → «RU · translations in the workshop» pattern (non-RU переводы
+          // ещё в мастерской). Добавлен DE key (Iskra flag «RU-версию проверь тоже»
+          // → все 4 lang consistent).
+          langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina', de: 'RU · Übersetzungen in Arbeit' },
           category: { en: 'Book', ru: 'Книга', pt: 'Livro' },
           // 2026-08-30 S1UMBR cont+4 §2.4 fix — kn7 URL was portal root (Iskra S307-02
           // §2.4 flagged: «Common Ground → RU-корень»). Per-locale portal book landing
@@ -372,9 +389,16 @@ export const homePage: Page = {
         },
         {
           id: 'kn1-pt-v1-0-0-stable',
+          // F5 + F5-EN (Iskra S317-08 §5 + S317-08b §F5-EN → S1ORCH cont+3 PR-D2 2026-09-07):
+          // Прежний анонс «v1.0.0 estável… полный аппарат» противоречил порталу
+          // (portal /pt/kn1 показывает «pré-visualização» — flip PT ещё не сделан).
+          // Iskra canon: до flip PT — «Книга 1 читается по-португальски онлайн; EPUB
+          // и полный аппарат — в ближайшие дни»; после flip — вернуть анонс полный.
+          // Sync с F5 kn1 langs badge выше «RU · EN · PT (превью)».
+          // PT/DE — переводчики (Зека/Болик) применят у себя параллельно.
           text: {
-            en: 'Book 1 «Agile Sapiens» now in Portuguese — v1.0.0 estável. Translation by Zeka (PT-EU), editorial review by Iskra. AO1990 orthography, full apparatus, CC BY-SA 4.0.',
-            ru: 'Книга 1 «Agile Sapiens» вышла на португальском — v1.0.0 estável. Перевод Zeka (PT-EU), редактура Iskra. Орфография AO1990, полный аппарат, CC BY-SA 4.0.',
+            en: 'Book 1 «Agile Sapiens» is now readable in Portuguese online; EPUB and full apparatus — within days.',
+            ru: 'Книга 1 «Agile Sapiens» читается по-португальски онлайн; EPUB и полный аппарат — в ближайшие дни.',
             pt: 'Livro 1 «Agile Sapiens» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Livro 1 da trilogia «Pelos Nossos Meios».',
             de: 'Buch 1 «Agile Sapiens» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
           },
@@ -584,10 +608,17 @@ export const homePage: Page = {
           // Canon replace RU+EN — «Not machine translation» противоречит духу AI-прозрачности
           // (переводчики — AI-форниты, мы это подписываем, а не открещиваемся).
           // «Two to three languages per encyclopedia» removed (число устаревает, DE идёт).
-          // PT — Зека вместе с GLAV-3 (второй PR каскад).
+          //
+          // F9 (Iskra S317-08b §F9 P1 → S1ORCH cont+3 PR-D2 2026-09-07):
+          // Прежний EN/RU текст содержал overclaim «native-speaker checks / сверка с
+          // носителем» — у EN и PT живого носителя нет (только у DE Кнут в Берлине).
+          // Iskra canon: «AI translator's draft, editorial cross-check against the
+          // original, a signature; where an edition has a living native reader, their
+          // notes go into revisions.» PT canon не даётся — переводчики (Зека) применят
+          // у себя параллельно. DE key отсутствует — Болик добавит.
           text: {
-            en: "Translation is workshop work: an AI translator's draft, editing, native-speaker checks, a signature. You can see who translated and who verified.",
-            ru: 'Перевод — часть мастерской: черновик от AI-переводчика, редактура, сверка с носителем, подпись. Видно, кто переводил и кто проверял.',
+            en: "Translation is workshop work: an AI translator's draft, editorial cross-check against the original, a signature; where an edition has a living native reader, their notes go into revisions.",
+            ru: 'Перевод — часть мастерской: черновик ИИ-ассистента-переводчика, редакторская сверка с оригиналом, подпись; там, где у издания есть живой читатель-носитель, его замечания входят в правки.',
             pt: 'Dois a três idiomas por enciclopédia. Não tradução automática — trabalho editorial real em cada idioma.',
           },
         },
