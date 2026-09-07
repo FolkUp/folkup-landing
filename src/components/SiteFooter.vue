@@ -116,7 +116,7 @@ const booksUrl = computed(() => {
         </ul>
       </details>
       <div class="footer-social">
-        <a href="https://t.me/+FKSLu1k3U5IyODZi" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
+        <a href="https://t.me/JohnDoeWasHere" target="_blank" rel="noopener noreferrer" aria-label="Telegram">Telegram</a>
         <a href="https://github.com/FolkUp" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
       </div>
     </div>
