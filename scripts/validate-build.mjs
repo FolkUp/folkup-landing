@@ -32,10 +32,17 @@ const LANGS = ['en', 'ru', 'pt', 'de']
 // integration (Iskra VIZA S302-02 + S302-03 RU master + S303-01 + S304-01 ratified
 // 14-forniti roster × 4 languages + DE completion). Prior 60 KB budget assumed 10-member
 // English/RU/PT-only team; v5.1 canon adds 4 forniti (Kochegar/Pechkin/Johnny/Vrag) +
-// full DE lang across all 14 members = ~2.5 KB gzip content growth. 5 KB headroom
-// preserved for future editorial expansion. CLAUDE.md performance budget line к be
-// updated in next hygiene batch.
-const BUNDLE_GZIP_MAX_KB = 65
+// full DE lang across all 14 members = ~2.5 KB gzip content growth.
+//
+// Raised 65 → 68 KB gzip per 2026-09-07 S1ORCH cont+3 (Iskra SINHRO-S317-04 §2 Q4
+// verdict A «cap 65 → 68 KB отдельным техническим PR, до PR Болика»). Rationale:
+// PR #55 landing вариант Б RU-first (Iskra §1-§2 канон verbatim) добавил ~1.05 KB
+// content growth; PR #56 F3+F6 ai-use RU rewrite (Iskra §3 canon verbatim) стабильно
+// в 63.47 KB; PR #57 F5+F8+F9 content honesty +0.05 KB. Ожидаемый рост: EN
+// (Лёлик hero + Commissions canon), PT (Zeka), DE (Bolik hero + Commissions + F9 +
+// footer SLOGAN-1 DE + Batch B) — совокупно ~2-3 KB. 3 KB буфер = ~1 год спокойного
+// роста контента. CLAUDE.md performance budget line обновляется в этом же PR.
+const BUNDLE_GZIP_MAX_KB = 68
 
 /**
  * The exact set of relative paths (POSIX-style) produced by vite-ssg
