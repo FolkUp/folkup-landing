@@ -173,7 +173,7 @@ export const homePage: Page = {
       items: [
         {
           key: 'trilogy-own-means',
-          name: { en: 'By Our Own Means', ru: 'Своими силами', pt: 'Pelos Nossos Meios' },
+          name: { en: 'By Our Own Means', ru: 'Своими силами', pt: 'Pelas Próprias Mãos' },
           // Cont+2 badge cleanup (Andrey verdict item #5 2026-08-23):
           // kn1 = LIVE (Iskra S284 v1.0.22 shipped, chapters readable). Badge «Читать →» signals CTA.
           count: { en: 'Read →', ru: 'Читать →', pt: 'Ler →', de: 'Lesen →' },
@@ -254,7 +254,7 @@ export const homePage: Page = {
         },
         {
           key: 'trilogy-common-ground',
-          name: { en: 'Common Ground', ru: 'Общий язык', pt: 'Linguagem Comum' },
+          name: { en: 'Common Ground', ru: 'Общий язык', pt: 'Língua Comum' },
           // Cont+2 badge unified (Andrey verdict item #5 2026-08-23):
           // kn3 = NOT open. Unified label с kn2 для consistency («В работе» singular).
           // Prior «готовится» → «В работе» (aligned с kn2 pattern).
@@ -400,7 +400,7 @@ export const homePage: Page = {
           text: {
             en: 'Book Seven is out — «Lost in Conversation» (EN edition in preparation), the first book of the «Common Ground» trilogy: why agreeing is harder than it looks, and what to do about it. Read online (Russian) or download the EPUB → books.folkup.life/kn7',
             ru: 'Вышла седьмая книга — «Трудности диалога», первая в трилогии «Общий язык». Почему договориться труднее, чем кажется, и что с этим делать. Читать онлайн и скачать EPUB → books.folkup.life/kn7',
-            pt: 'Livro Sete acaba de sair — «Lost in Conversation» (edição em preparação), primeiro livro da trilogia «Common Ground»: porque concordar é mais difícil do que parece, e o que fazer em relação a isso. Leia online (russo) ou baixe o EPUB → books.folkup.life/kn7',
+            pt: 'Livro Sete acaba de sair — «Dificuldades do diálogo» (edição em preparação), primeiro livro da trilogia «Língua Comum»: porque concordar é mais difícil do que parece, e o que fazer em relação a isso. Leia online (russo) ou baixe o EPUB → books.folkup.life/kn7',
             de: 'Buch Sieben ist erschienen — «Lost in Conversation» (Ausgabe in Vorbereitung), das erste Buch der «Common Ground»-Trilogie: warum eine Einigung schwieriger ist, als es scheint, und was man dagegen tun kann. Online lesen (Russisch) oder EPUB herunterladen → books.folkup.life/kn7',
           },
           link: 'https://books.folkup.life/kn7',
@@ -417,7 +417,7 @@ export const homePage: Page = {
           text: {
             en: 'Book 1 «Agile Sapiens» is now readable in Portuguese online; EPUB and full apparatus — within days.',
             ru: 'Книга 1 «Agile Sapiens» читается по-португальски онлайн; EPUB и полный аппарат — в ближайшие дни.',
-            pt: 'Livro 1 «Agile Sapiens» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Livro 1 da trilogia «Pelos Nossos Meios».',
+            pt: 'Livro 1 «Agile Sapiens» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Livro 1 da trilogia «Pelas Próprias Mãos».',
             de: 'Buch 1 «Agile Sapiens» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
           },
           link: 'https://books.folkup.life/kn1/pt/read/',
