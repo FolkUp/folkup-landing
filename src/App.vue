@@ -263,7 +263,7 @@ const schemas = computed<object[]>(() => {
       sameAs: [
         'https://github.com/FolkUp',
         'https://ko-fi.com/folkup',
-        'https://t.me/+FKSLu1k3U5IyODZi',
+        'https://t.me/JohnDoeWasHere',
       ] as string[],
     },
     {
