@@ -82,4 +82,73 @@ const anchors = computed(() =>
   margin: 0;
   overflow-wrap: break-word;
 }
+
+/*
+ * GLAV-16 verstka Комиссий per Iskra S319-02 §B + POPRAVKA-S319-03a §2 (cont+7 S1ORCH):
+ * - h4 headings разделены тонкой линейкой (без карточек с тенями, без нумерации 01/02/03)
+ * - 4-й h4 «Помощь с домом» визуально отделён (STRATEGIYA-1 «не услуга, помощь по необходимости»)
+ * - Frida figure inline вписана в тон, одна на раздел
+ * - <em> intro «Всё ниже мы сделали для себя…» акцентируется в подводку
+ * - section-label eyebrow «Commissions» снят (Iskra §2 «Ярлыки-eyebrow снять — заголовки
+ *   сами несут связку»)
+ * - Ссылка «Подробнее →» и mailto plaintext — без CTA-кнопки
+ */
+
+.anchors-section .section-label {
+  display: none;
+}
+
+.anchor-body :deep(> :first-child em) {
+  display: block;
+  font-style: italic;
+  color: var(--color-text-muted, var(--color-text));
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.anchor-body :deep(h4) {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-bordo);
+  border-top: 1px solid var(--divider, rgba(125, 68, 80, 0.15));
+  padding-top: 1.5rem;
+  margin: 2rem 0 0.75rem;
+  line-height: 1.35;
+}
+
+.anchor-body :deep(h4:first-of-type) {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+
+.anchor-body :deep(h4:nth-of-type(4)) {
+  background: var(--surface-quiet, rgba(232, 173, 74, 0.06));
+  padding: 1.5rem 1.25rem 0.75rem;
+  margin-top: 2.5rem;
+  border-top: none;
+  border-radius: 3px;
+  font-size: 0.98rem;
+}
+
+.anchor-body :deep(h4:nth-of-type(4) + p) {
+  background: var(--surface-quiet, rgba(232, 173, 74, 0.06));
+  padding: 0 1.25rem 1.5rem;
+  margin-top: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+.anchor-body :deep(figure) {
+  margin: 2rem 0;
+  border-top: 1px solid var(--divider, rgba(125, 68, 80, 0.15));
+  padding-top: 2rem;
+}
+
+.anchor-body :deep(figure img) {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
 </style>

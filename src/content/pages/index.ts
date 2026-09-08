@@ -92,11 +92,16 @@ export const homePage: Page = {
         pt: 'Conhecimento que se pode ler.',
         de: 'Wissen, das man wirklich lesen kann.',
       },
+      // GLAV-8 HERO-SUBLINE-REMOVE (Iskra POPRAVKA-S319-03a §2 + S319-03 §3
+       // «forbidden verbatim: Open. Verified. Multilingual.» — три прилагательных
+       // через точку = стартап-словарь, если фраза могла бы стоять на любом другом
+       // сайте — она не наша). Field пустой per анти-ломкость canon (HeroSection.vue
+       // v-if guard hides paragraph when empty). Cont+7 S1ORCH.
       subline: {
-        en: 'Open. Verified. Multilingual.',
-        ru: 'Открытое. Проверенное. Многоязычное.',
-        pt: 'Aberto. Verificado. Multilingue.',
-        de: 'Offen. Geprüft. Mehrsprachig.',
+        en: '',
+        ru: '',
+        pt: '',
+        de: '',
       },
       // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 PR #53 2026-09-07):
       // Снято «Every text signed / каждый текст — с подписью / cada texto assinado /
@@ -165,10 +170,15 @@ export const homePage: Page = {
         ru: 'Открытая книжная серия — читайте, копируйте, передавайте дальше',
         pt: 'Uma série de livros aberta — lê, copia, passa adiante',
       },
+      // GLAV-9 BOOKS-SUBTITLE-HONEST (Iskra POPRAVKA-S319-03a §2 п.6 audit fix
+       // «translations are in the workshop / переводы — в мастерской / traduções
+       // estão na oficina» — false hope per Iskra §1 п.6 «канон: перевод не
+       // планируется или молчание» — снято. Cont+7 S1ORCH.
       subtitle: {
-        en: 'Books about thinking with your own head: method, access to knowledge, the city, intermediaries, testimony, dialogue. Free online, EPUB and PDF. Translations are in the workshop.',
-        ru: 'Книги о том, как жить своим умом: метод, доступ к знанию, город, посредники, свидетельства, диалог. Бесплатно онлайн, EPUB и PDF. Переводы — в мастерской.',
-        pt: 'Livros sobre pensar pela própria cabeça: método, acesso ao conhecimento, a cidade, os intermediários, o testemunho, o diálogo. Grátis online, EPUB e PDF. As traduções estão na oficina.',
+        en: 'Books about thinking with your own head: method, access to knowledge, the city, intermediaries, testimony, dialogue. Free online, EPUB and PDF.',
+        ru: 'Книги о том, как жить своим умом: метод, доступ к знанию, город, посредники, свидетельства, диалог. Бесплатно онлайн, EPUB и PDF.',
+        pt: 'Livros sobre pensar pela própria cabeça: método, acesso ao conhecimento, a cidade, os intermediários, o testemunho, o diálogo. Grátis online, EPUB e PDF.',
+        de: 'Bücher darüber, mit eigenem Kopf zu denken: Methode, Zugang zum Wissen, die Stadt, die Vermittler, das Zeugnis, der Dialog. Kostenlos online, EPUB und PDF.',
       },
       items: [
         {
@@ -195,7 +205,11 @@ export const homePage: Page = {
           // После flip → вернуть «RU · EN · PT» unified (Iskra explicit «после flip
           // — вернуть анонс»). Sync с новостью F5 news card ниже (обе на «до flip»
           // pattern одновременно).
-          langs: { en: 'RU · EN · PT (preview)', ru: 'RU · EN · PT (превью)', pt: 'RU · EN · PT (pré-visualização)', de: 'RU · EN · PT (Vorschau)' },
+          // GLAV-10 kn1 4-lang badge (Iskra POPRAVKA-S319-03a §2 п.2 audit fix
+          // «kn1 = четыре языка» — DE LIVE с PR #366 22:46 UTC 2026-09-07 per Iskra
+          // SINHRO-S319-01 §1. PT preview qualifier преserved пока Kочегар flip
+          // v1.0.2 не done (S319-04 §1). Cont+7 S1ORCH.
+          langs: { en: 'RU · EN · PT (preview) · DE', ru: 'RU · EN · PT (превью) · DE', pt: 'RU · EN · PT (pré-visualização) · DE', de: 'RU · EN · PT (Vorschau) · DE' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
           // Cont+2 URL upgrade (Andrey verdict item #5 2026-08-23):
           // kn1 direct chapter reader URL (curl verified HTTP 200 pre-commit).
@@ -236,7 +250,11 @@ export const homePage: Page = {
             ru: 'Как знание доходит до нас: сквозь тех, кто его запирал, через тех, кто стоит посредине, — и как проверить, что донесли именно то.',
             pt: 'Como o conhecimento chega até nós: através de quem o trancou, por meio de quem está no meio — e como verificar que chegou o que foi enviado.',
           },
-          langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina' },
+          // GLAV-11 kn2 honest langs (Iskra POPRAVKA-S319-03a §2 п.6 audit fix
+          // «Translations are in the workshop / переводы в мастерской» = false hope
+          // per Iskra §1 п.6 canon «перевод не планируется или молчание». Snято
+          // qualifier — только RU честно. Cont+7 S1ORCH.
+          langs: { en: 'RU', ru: 'RU', pt: 'RU', de: 'RU' },
           category: { en: 'Trilogy', ru: 'Трилогия', pt: 'Trilogia' },
           // 2026-08-30 S1UMBR cont+4 §2.4 fix — kn2 URL was RU hash anchor
           // «#trilogy-iz_pervyh_ruk-heading» (Iskra S307-02 §2.4 flagged: «Firsthand →
@@ -275,7 +293,11 @@ export const homePage: Page = {
           // langs badge → «RU · translations in the workshop» pattern (non-RU переводы
           // ещё в мастерской). Добавлен DE key (Iskra flag «RU-версию проверь тоже»
           // → все 4 lang consistent).
-          langs: { en: 'RU · translations in the workshop', ru: 'RU · переводы в мастерской', pt: 'RU · traduções na oficina', de: 'RU · Übersetzungen in Arbeit' },
+          // GLAV-12 kn7 honest langs (Iskra POPRAVKA-S319-03a §2 п.6 audit fix
+          // «Translations are in the workshop / переводы в мастерской» = false hope
+          // per Iskra §1 п.6 canon «переводы kn7 сняты (S314), обещания нет».
+          // Snято qualifier — только RU честно. Cont+7 S1ORCH.
+          langs: { en: 'RU', ru: 'RU', pt: 'RU', de: 'RU' },
           // Q2 amendment (Iskra SINHRO-S318-06 §1 → S1ORCH cont+4 PR-D2 2026-09-07):
           // kn7 category «Book» → «Trilogy» align с kn1/kn2 (kn7 = открывающая
           // книга трилогии «Общий язык», подтверждено news card «Book Seven is
@@ -397,11 +419,15 @@ export const homePage: Page = {
           // LANDING-NEWS-1 canon: short format + accumulate ≤3 (currently 2 items).
           // PT + DE: Zeka/Bolik native versions pending future cycle refinement.
           id: 'kn7-trudnosti-dialoga-v1-0-live',
+          // GLAV-13 kn7 news snять EN edition promise (Iskra POPRAVKA-S319-03a §2
+          // п.5 audit fix «kn7 EN edition in preparation» = false hope per S314
+          // «переводы kn7 сняты, обещания нет». Snято «(EN edition in preparation)»
+          // и «(edição em preparação)» и «(Ausgabe in Vorbereitung)». Cont+7 S1ORCH.
           text: {
-            en: 'Book Seven is out — «Lost in Conversation» (EN edition in preparation), the first book of the «Common Ground» trilogy: why agreeing is harder than it looks, and what to do about it. Read online (Russian) or download the EPUB → books.folkup.life/kn7',
+            en: 'Book Seven is out — «Lost in Conversation», the first book of the «Common Ground» trilogy: why agreeing is harder than it looks, and what to do about it. Read online (Russian) or download the EPUB → books.folkup.life/kn7',
             ru: 'Вышла седьмая книга — «Трудности диалога», первая в трилогии «Общий язык». Почему договориться труднее, чем кажется, и что с этим делать. Читать онлайн и скачать EPUB → books.folkup.life/kn7',
-            pt: 'Livro Sete acaba de sair — «Dificuldades do diálogo» (edição em preparação), primeiro livro da trilogia «Língua Comum»: porque concordar é mais difícil do que parece, e o que fazer em relação a isso. Leia online (russo) ou baixe o EPUB → books.folkup.life/kn7',
-            de: 'Buch Sieben ist erschienen — «Lost in Conversation» (Ausgabe in Vorbereitung), das erste Buch der «Common Ground»-Trilogie: warum eine Einigung schwieriger ist, als es scheint, und was man dagegen tun kann. Online lesen (Russisch) oder EPUB herunterladen → books.folkup.life/kn7',
+            pt: 'Livro Sete acaba de sair — «Dificuldades do diálogo», primeiro livro da trilogia «Língua Comum»: porque concordar é mais difícil do que parece, e o que fazer em relação a isso. Leia online (russo) ou baixe o EPUB → books.folkup.life/kn7',
+            de: 'Buch Sieben ist erschienen — «Lost in Conversation», das erste Buch der «Common Ground»-Trilogie: warum eine Einigung schwieriger ist, als es scheint, und was man dagegen tun kann. Online lesen (Russisch) oder EPUB herunterladen → books.folkup.life/kn7',
           },
           link: 'https://books.folkup.life/kn7',
         },
@@ -414,11 +440,18 @@ export const homePage: Page = {
           // и полный аппарат — в ближайшие дни»; после flip — вернуть анонс полный.
           // Sync с F5 kn1 langs badge выше «RU · EN · PT (превью)».
           // PT/DE — переводчики (Зека/Болик) применят у себя параллельно.
+          // GLAV-14 kn1 news одно имя книги (Iskra POPRAVKA-S319-03a §2 п.3 audit fix
+          // «одна книга — два имени: карточка «By Our Own Means», новость «Agile Sapiens»»
+          // per Iskra §1 п.3 canon «одно имя по series.yaml». Align с card name
+          // trilogy-own-means: «By Our Own Means» / «Своими силами» / «Pelas Próprias
+          // Mãos» / «Mit eigenen Mitteln». «Agile Sapiens» = portal repo name,
+          // сохранена в PT canon body (long form) как secondary reference только.
+          // Cont+7 S1ORCH.
           text: {
-            en: 'Book 1 «Agile Sapiens» is now readable in Portuguese online; EPUB and full apparatus — within days.',
-            ru: 'Книга 1 «Agile Sapiens» читается по-португальски онлайн; EPUB и полный аппарат — в ближайшие дни.',
-            pt: 'Livro 1 «Agile Sapiens» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Livro 1 da trilogia «Pelas Próprias Mãos».',
-            de: 'Buch 1 «Agile Sapiens» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
+            en: 'Book 1 «By Our Own Means» is now readable in Portuguese online; EPUB and full apparatus — within days.',
+            ru: 'Книга 1 «Своими силами» читается по-португальски онлайн; EPUB и полный аппарат — в ближайшие дни.',
+            pt: 'Livro 1 «Pelas Próprias Mãos» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Trilogia «Pelas Próprias Mãos».',
+            de: 'Buch 1 «Mit eigenen Mitteln» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
           },
           link: 'https://books.folkup.life/kn1/pt/read/',
         },
@@ -712,10 +745,13 @@ export const homePage: Page = {
       // Stephen King fornit explanation moved к /team subpage (already implemented в
       // team.vue via teamPageIntro locale string). Home team block gets terse subtitle;
       // «Все →» link (team-view-all в TeamSection.vue compact mode) carries CTA к /team.
+      // GLAV-15 team subtitle PT «Fornits» → «Assistentes» (Iskra POPRAVKA-S319-03a
+      // §2 п.1 audit fix «форниты → ИИ-ассистенты на главной» per Iskra §1 п.1 +
+      // §2 п.6 canon «форнит только на /team page с этимологией». Cont+7 S1ORCH.
       subtitle: {
         en: 'AI helpers by name — each with their own work.',
         ru: 'AI-помощники по именам — у каждого своя работа.',
-        pt: 'Fornits de IA por nome — cada um com o seu trabalho.',
+        pt: 'Assistentes de IA por nome — cada um com o seu trabalho.',
         de: 'KI-Helfer mit Namen — jeder mit eigener Arbeit.',
       },
       // v5.1 canonical roster — 14 forniti in order §8 per POPRAVKA S299-19 team FINAL canon.
