@@ -223,6 +223,18 @@ const descMap: Record<RouteKind, Record<string, string>> = {
 const pageTitle = computed(() => titleMap[routeKind.value]?.[locale.value] ?? 'FolkUp')
 const pageDescription = computed(() => descMap[routeKind.value]?.[locale.value] ?? '')
 
+// F18-DE-1 per Bolik S16BOLIK cont+23 Option C hybrid recommendation +
+// Iskra §7 defer lifted via Andrey threshold override РЕЖИМ КОНЦА ЛИМИТОВ Bolik cont+25.
+// RU + PT initially stub-EN placeholder — Zeka/Alisa улучшают когда comfortable
+// (structural fix priority: locale-aware architecture enables future per-locale improvement).
+const ogImageAltMap: Record<string, string> = {
+  en: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
+  de: 'Werkstatt-Tisch: zwei Buch-Aufschläge, Federkiel, Bernstein-Lampe; ein warmer Abend',
+  ru: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
+  pt: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
+}
+const ogImageAlt = computed(() => ogImageAltMap[locale.value] ?? ogImageAltMap.en)
+
 const ogLocale = computed(() => {
   if (locale.value === 'ru') return 'ru_RU'
   if (locale.value === 'pt') return 'pt_PT'
@@ -350,12 +362,12 @@ useHead({
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:image:type', content: 'image/webp' },
-    { property: 'og:image:alt', content: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)' },
+    { property: 'og:image:alt', content: ogImageAlt.value },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: pageTitle.value },
     { name: 'twitter:description', content: pageDescription.value },
     { name: 'twitter:image', content: `${HOST}/images/og-folkup-path-b.webp?v=3` },
-    { name: 'twitter:image:alt', content: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)' },
+    { name: 'twitter:image:alt', content: ogImageAlt.value },
   ],
   link: () => [
     { rel: 'canonical', href: canonical.value },
