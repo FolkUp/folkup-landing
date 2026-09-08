@@ -225,13 +225,14 @@ const pageDescription = computed(() => descMap[routeKind.value]?.[locale.value] 
 
 // F18-DE-1 per Bolik S16BOLIK cont+23 Option C hybrid recommendation +
 // Iskra §7 defer lifted via Andrey threshold override РЕЖИМ КОНЦА ЛИМИТОВ Bolik cont+25.
-// RU + PT initially stub-EN placeholder — Zeka/Alisa улучшают когда comfortable
-// (structural fix priority: locale-aware architecture enables future per-locale improvement).
+// L-06 cont+8 S1ORCH (Iskra ZADACHI-S320-14 + PROVERKA-S320-13 §4): per-lang alt
+// text without dev tag «Frida Path B v1». EN/RU/PT — proper native descriptions;
+// DE — Bolik cont+25 canonical (Werkstatt-Tisch).
 const ogImageAltMap: Record<string, string> = {
-  en: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
+  en: 'FolkUp — workshop desk with a lantern, an open book, and tea; a warm evening',
+  ru: 'FolkUp — рабочий стол с фонарём, раскрытой книгой и чашкой чая; тёплый вечер',
+  pt: 'FolkUp — mesa de trabalho com lanterna, livro aberto e chá; uma noite acolhedora',
   de: 'Werkstatt-Tisch: zwei Buch-Aufschläge, Federkiel, Bernstein-Lampe; ein warmer Abend',
-  ru: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
-  pt: 'FolkUp — Workshop desk with lantern, book, and tea (Frida Path B v1)',
 }
 const ogImageAlt = computed(() => ogImageAltMap[locale.value] ?? ogImageAltMap.en)
 

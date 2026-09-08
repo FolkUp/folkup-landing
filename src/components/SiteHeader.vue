@@ -26,7 +26,12 @@ function navAnchor(anchor: string) {
 // T4 FIX-2 SITE-TEAM-001 (Andrey ratified Q5=B via Iskra S295-12 2026-08-23):
 // navTeam → /team on all routes (locale-aware) instead of fragment anchor #team.
 // Anchor pattern reserved для navProjects (still page-level scroll target).
-const teamUrl = computed(() => (locale.value === 'en' ? '/team' : `/${locale.value}/team`))
+//
+// L-08 cont+8 S1ORCH (Iskra ZADACHI-S320-14 + PROVERKA-S320-13 §4): remove
+// EN special-case `/team` (без префикса) → всегда `/${locale}/team` включая
+// `/en/team`. Iskra: «Шапка/футер на EN ведут на /team без префикса → 301 на
+// /en/team (лишний прыжок для робота). Ссылки — сразу /en/team.»
+const teamUrl = computed(() => `/${locale.value}/team`)
 
 // S301-09 §2 Тикет 2 P1 fix (Iskra Vier-Augen 2026-08-24 cont+8 S8SCOOP):
 // Locale-aware books.folkup.life URL per S301-08 LOCALE-DEFAULTS-1 table:
