@@ -289,15 +289,20 @@ export const homePage: Page = {
             ru: 'Почему договориться труднее, чем кажется: в голове играет оркестр — наружу выходит стук. О барьерах понимания и о том, как через них пробиваться.',
             pt: 'Porque é mais difícil chegar a acordo do que parece — dentro da cabeça toca uma orquestra, mas o que sai é um bater. Sobre as barreiras da compreensão e como atravessá-las.',
           },
-          // F8 (Iskra S317-08b §F8 canon → S1ORCH cont+3 PR-D2 2026-09-07):
-          // langs badge → «RU · translations in the workshop» pattern (non-RU переводы
-          // ещё в мастерской). Добавлен DE key (Iskra flag «RU-версию проверь тоже»
-          // → все 4 lang consistent).
-          // GLAV-12 kn7 honest langs (Iskra POPRAVKA-S319-03a §2 п.6 audit fix
-          // «Translations are in the workshop / переводы в мастерской» = false hope
-          // per Iskra §1 п.6 canon «переводы kn7 сняты (S314), обещания нет».
-          // Snято qualifier — только RU честно. Cont+7 S1ORCH.
-          langs: { en: 'RU', ru: 'RU', pt: 'RU', de: 'RU' },
+          // GLAV-12 kn7 langs badge (Iskra POMETKA-S320-05 supersedes POPRAVKA-S319-03a §2 п.6):
+          // Iskra RE-approved «RU · переводы в мастерской» pattern per S320-05 §2 п.1
+          // «строка языков «RU · переводы в мастерской / RU · translations in the workshop
+          // / RU · traduções na oficina / RU · Übersetzungen in der Werkstatt».»
+          // Rationale: kn7 RU LIVE с 01.09 (КНИГА-ОТКРЫТА-1), переводы в работе (S314-03
+          // восстановление у S1DEFIX). «В работе» remnant on card was ложь; новость
+          // «вышла» правда. Iskra S320-05 canon: card status = published RU + honest
+          // «переводы в мастерской» описание для non-RU languages. Cont+8 S1ORCH L-02.
+          langs: {
+            en: 'RU · translations in the workshop',
+            ru: 'RU · переводы в мастерской',
+            pt: 'RU · traduções na oficina',
+            de: 'RU · Übersetzungen in der Werkstatt',
+          },
           // Q2 amendment (Iskra SINHRO-S318-06 §1 → S1ORCH cont+4 PR-D2 2026-09-07):
           // kn7 category «Book» → «Trilogy» align с kn1/kn2 (kn7 = открывающая
           // книга трилогии «Общий язык», подтверждено news card «Book Seven is
@@ -411,6 +416,30 @@ export const homePage: Page = {
       },
       items: [
         {
+          id: 'kn1-pt-v1-0-0-live',
+          // L-02 news reorder (Iskra POMETKA-S320-05 §2 п.2 cont+8 S1ORCH):
+          // kn1 PT первой в новостях (главное событие — португальский перевод kn1),
+          // kn7 второй. Iskra canon RU text: «Книга 1 «Agile Sapiens» — теперь и на
+          // португальском. Перевод Zeka (PT-EU), редактура Iskra, орфография AO1990,
+          // полный аппарат.» (без «v1.0.0 estável»; EN/PT/DE — то же по смыслу).
+          //
+          // Name conflict resolution: Iskra в S320-05 example использует «Agile Sapiens»
+          // (dev/historical name), но GLAV-14 (Iskra POPRAVKA-S319-03a §2 п.3) canon
+          // «одно имя по series.yaml» → By Our Own Means/Своими силами/Pelas Próprias
+          // Mãos/Mit eigenen Mitteln. GLAV-14 iron rule prevails — apply canon name.
+          // Iskra retro-Vier-Augen решит если надо иначе.
+          //
+          // Style parity: короткая форма (5 полей) вместо long PT-only (v1.0.0 estável +
+          // Sophia + Saramago + Eça + Pessoa + Art.50 + BY-SA + Trilogia).
+          text: {
+            en: 'Book 1 «By Our Own Means» is now available in Portuguese. Translation by Zeka (PT-EU), editorial by Iskra, AO1990 orthography, full apparatus.',
+            ru: 'Книга 1 «Своими силами» — теперь и на португальском. Перевод Zeka (PT-EU), редактура Iskra, орфография AO1990, полный аппарат.',
+            pt: 'Livro 1 «Pelas Próprias Mãos» — agora em português. Tradução por Zeka (PT-EU), revisão editorial por Iskra, ortografia AO1990, aparato completo.',
+            de: 'Buch 1 «Mit eigenen Mitteln» — jetzt auf Portugiesisch. Übersetzung von Zeka (PT-EU), Lektorat von Iskra, AO1990-Rechtschreibung, vollständiger Apparat.',
+          },
+          link: 'https://books.folkup.life/kn1/pt/read/',
+        },
+        {
           // Kn7 anúncio per Iskra S312-01 §3 «GO АВТОМАТОМ» pre-visa executed cont+10
           // trigger fires post-batch 3 (Iskra S312-07/09) — 3 URLs verified:
           // /kn7/read/apparatus-level-3 FACT-GATE=0 + /kn7/read/colophon 200 + Art.50 +
@@ -423,6 +452,7 @@ export const homePage: Page = {
           // п.5 audit fix «kn7 EN edition in preparation» = false hope per S314
           // «переводы kn7 сняты, обещания нет». Snято «(EN edition in preparation)»
           // и «(edição em preparação)» и «(Ausgabe in Vorbereitung)». Cont+7 S1ORCH.
+          // L-02 news reorder (Iskra POMETKA-S320-05 cont+8): kn7 → position 2 (после kn1 PT).
           text: {
             en: 'Book Seven is out — «Lost in Conversation», the first book of the «Common Ground» trilogy: why agreeing is harder than it looks, and what to do about it. Read online (Russian) or download the EPUB → books.folkup.life/kn7',
             ru: 'Вышла седьмая книга — «Трудности диалога», первая в трилогии «Общий язык». Почему договориться труднее, чем кажется, и что с этим делать. Читать онлайн и скачать EPUB → books.folkup.life/kn7',
@@ -430,30 +460,6 @@ export const homePage: Page = {
             de: 'Buch Sieben ist erschienen — «Lost in Conversation», das erste Buch der «Common Ground»-Trilogie: warum eine Einigung schwieriger ist, als es scheint, und was man dagegen tun kann. Online lesen (Russisch) oder EPUB herunterladen → books.folkup.life/kn7',
           },
           link: 'https://books.folkup.life/kn7',
-        },
-        {
-          id: 'kn1-pt-v1-0-0-stable',
-          // F5 + F5-EN (Iskra S317-08 §5 + S317-08b §F5-EN → S1ORCH cont+3 PR-D2 2026-09-07):
-          // Прежний анонс «v1.0.0 estável… полный аппарат» противоречил порталу
-          // (portal /pt/kn1 показывает «pré-visualização» — flip PT ещё не сделан).
-          // Iskra canon: до flip PT — «Книга 1 читается по-португальски онлайн; EPUB
-          // и полный аппарат — в ближайшие дни»; после flip — вернуть анонс полный.
-          // Sync с F5 kn1 langs badge выше «RU · EN · PT (превью)».
-          // PT/DE — переводчики (Зека/Болик) применят у себя параллельно.
-          // GLAV-14 kn1 news одно имя книги (Iskra POPRAVKA-S319-03a §2 п.3 audit fix
-          // «одна книга — два имени: карточка «By Our Own Means», новость «Agile Sapiens»»
-          // per Iskra §1 п.3 canon «одно имя по series.yaml». Align с card name
-          // trilogy-own-means: «By Our Own Means» / «Своими силами» / «Pelas Próprias
-          // Mãos» / «Mit eigenen Mitteln». «Agile Sapiens» = portal repo name,
-          // сохранена в PT canon body (long form) как secondary reference только.
-          // Cont+7 S1ORCH.
-          text: {
-            en: 'Book 1 «By Our Own Means» is now readable in Portuguese online; EPUB and full apparatus — within days.',
-            ru: 'Книга 1 «Своими силами» читается по-португальски онлайн; EPUB и полный аппарат — в ближайшие дни.',
-            pt: 'Livro 1 «Pelas Próprias Mãos» já em português — v1.0.0 estável. Tradução: Zeka (PT-EU inspirado em Sophia de Mello Breyner, Saramago, Eça, Pessoa). Revisão editorial: Iskra. Ortografia AO1990. Divulgação sobre IA conforme o Regulamento (UE) 2024/1689, artigo 50.º, n.º 4. CC BY-SA 4.0. Trilogia «Pelas Próprias Mãos».',
-            de: 'Buch 1 «Mit eigenen Mitteln» jetzt auf Portugiesisch — v1.0.0 estável. Übersetzung von Zeka (PT-EU), Lektorat von Iskra. AO1990-Rechtschreibung, vollständiger Apparat, CC BY-SA 4.0.',
-          },
-          link: 'https://books.folkup.life/kn1/pt/read/',
         },
       ],
     },
