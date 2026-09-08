@@ -25,7 +25,7 @@ const endorsement = computed(() => resolveLocalized(footer.endorsement, locale.v
 // internal docs no longer surfaced на публичных поверхностях.
 //
 // Cont +42 fix 2026-06-30: only prefix locale если link starts с '/'.
-// Раньше mailto:anklem@folkup.app превращался в /rumailto:anklem@folkup.app
+// Раньше mailto:editor@folkup.app (тогда anklem@) превращался в /rumailto:...
 // — broken link для «Написать нам». Now: external/mailto/tel skip prefix,
 // rendered as plain <a> instead of router-link.
 const links = computed(() =>

@@ -62,13 +62,13 @@ export const aiUsePage: Page = {
 <p>No AI system interacts with you on these pages. There is no chatbot, no AI-generated response to user input, no real-time AI inference happening when you visit a FolkUp site. All public surfaces are static prerendered HTML.</p>
 
 <h2>Editorial responsibility</h2>
-<p>Andrei Klemenchenok (anklem@folkup.app) holds editorial responsibility for all content published on FolkUp properties. AI-assisted content carve-out per EU AI Act Art. 50(4) applies.</p>
+<p>Andrei Klemenchenok (editor@folkup.app) holds editorial responsibility for all content published on FolkUp properties. AI-assisted content carve-out per EU AI Act Art. 50(4) applies.</p>
 
 <h2>Future changes</h2>
 <p>If we ever ship a surface that involves direct AI interaction (chatbot, AI-driven NPC, AI form processing), it will be clearly disclosed at the point of interaction per EU AI Act Art. 50 requirements.</p>
 
 <h2>Questions</h2>
-<p>For questions about AI use: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a></p>`,
+<p>For questions about AI use: <a href="mailto:editor@folkup.app">editor@folkup.app</a></p>`,
         ru: `<p class="lead">Добровольное раскрытие. Статья 50(4) Регламента (ЕС) 2024/1689.</p>
 
 <h2>Ответственность за содержание</h2>
@@ -103,13 +103,13 @@ export const aiUsePage: Page = {
 <p>Nenhum sistema de IA interage consigo nestas páginas. Não há chatbot, nem respostas de IA ao input do utilizador, nem inferência de IA em tempo real ao visitar um site FolkUp. Todas as superfícies públicas são HTML estático pré-renderizado.</p>
 
 <h2>Responsabilidade editorial</h2>
-<p>Andrei Klemenchenok (anklem@folkup.app) detém a responsabilidade editorial por todo o conteúdo publicado nas propriedades FolkUp. Aplica-se a exclusão para conteúdo assistido por IA nos termos do EU AI Act Art. 50(4).</p>
+<p>Andrei Klemenchenok (editor@folkup.app) detém a responsabilidade editorial por todo o conteúdo publicado nas propriedades FolkUp. Aplica-se a exclusão para conteúdo assistido por IA nos termos do EU AI Act Art. 50(4).</p>
 
 <h2>Alterações futuras</h2>
 <p>Se alguma vez lançarmos uma superfície que envolva interação direta com IA (chatbot, NPC com IA, processamento de formulários por IA), será claramente divulgado no ponto de interação nos termos do EU AI Act Art. 50.</p>
 
 <h2>Questões</h2>
-<p>Para questões sobre uso de IA: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a></p>`,
+<p>Para questões sobre uso de IA: <a href="mailto:editor@folkup.app">editor@folkup.app</a></p>`,
       },
     },
   ],
