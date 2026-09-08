@@ -434,6 +434,131 @@ export const servicesPage: Page = {
 <p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Lemos com atenção.</p>
 
 <p class="services-legal-footer"><small>Ver também: <a href="/pt/privacy">Política de Privacidade</a> · <a href="/pt/about/ai-use">Como trabalhamos com IA</a></small></p>`,
+        de: `<p>Wir nehmen Arbeit an, die eine Lebenszeit länger als ein Quartal hat.</p>
+
+<p>Richtungen auf langen Fristen. Jede — mit einem konkreten Ergebnis und schriftlich festgelegten Grenzen.</p>
+
+<p>Nicht für alle. Einzelheiten unten.</p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-translation.webp" alt="Zwei Buchaufschläge mit Federkiel und Bernstein-Lampe in der Ecke" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Übersetzung eines Buchs oder eines langen Dokuments ins Deutsche oder europäische Portugiesisch</h2>
+
+<h3>Eine Übersetzung, die dem Übersetzer nicht schmeichelt.</h3>
+
+<p>Maschinelle Übersetzung ist heute gerade gut genug, dass der Auftraggeber nicht mehr versteht, wozu man einem Menschen zahlen soll. Er versteht es, wenn ein Deutscher die Seite mit den Worten zurückgibt: «Das ist übersetzt.»</p>
+
+<p>Wir übersetzen lange Texte ins Deutsche (Berliner Sprache — Heine, Brecht, Tucholsky) und ins europäische Portugiesisch (Lissabonner Norm — Saramago, Sophia de Mello, Eça de Queirós). Die Übersetzungen fertigen KI-Assistenten der Redaktion an, jeder unter seinem Namen; ein menschlicher Redakteur führt den Text und trägt die Verantwortung. Deutsche Übersetzungen werden zusätzlich von einem lebendigen Leser in Berlin gelesen; für Portugiesisch haben wir noch keinen lebendigen Leser — und wir sagen es offen.</p>
+
+<p>Wir nehmen Texte nicht kürzer als einen Autorenbogen. Wir machen keine technischen Anleitungen, keine Werbeslogans. Wir machen das, was man am Stück liest, nicht überfliegt.</p>
+
+<p><em>Passt, wenn die Übersetzung offen herauskommt — lesen, kopieren, weitergeben. Passt nicht, wenn eine anonyme Übersetzung unter fremdem Namen gebraucht wird.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-osint.webp" alt="Drei senkrechte Spalten von einer waagerechten bordeauxroten Linie durchquert, rechts eine Lupe mit Bernstein-Punkt" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Faktenprüfung und Recherche in offenen Quellen</h2>
+
+<h3>Eine Tatsache kostet wenig. Eine Widerlegung — viel.</h3>
+
+<p>Wenn ein Journalist eine Tatsache veröffentlicht, die eine Woche später widerlegt wird, verliert er nicht einen Artikel. Er verliert jenen Vertrauensvorrat, den er über Jahre erarbeitet hat.</p>
+
+<p>Wir prüfen Behauptungen, führen biographische Abgleiche durch, rekonstruieren Chronologien anhand offener Quellen — staatlicher Register, Presseinarchive, akademischer Datenbanken, Unternehmensberichte. Jede Behauptung in unserem Bericht — mit Verweis auf die Primärquelle. Nicht auf eine sekundäre Nacherzählung. Auf die Primärquelle.</p>
+
+<p>Wir arbeiten wie ein Bankrevisor: bis eine Tatsache durch zwei unabhängige Quellen bestätigt ist, wird sie gelb markiert.</p>
+
+<p><em>Wir helfen nicht dabei, eine Attacke auf einen konkreten Menschen aufzubauen. Wir helfen nicht dabei, Kompromat zu fabrizieren. Wir helfen zu verstehen, was in offenen Quellen tatsächlich steht.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-lucerna.webp" alt="Ein vielschichtiger Dokumentenschacht und ein einsamer Bernstein-Punkt-Laterne an einer hängenden Linie" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Lange Recherche einer Frage (Lucerna)</h2>
+
+<h3>Sechs Monate für eine Frage.</h3>
+
+<p>Wenn eine Frage nicht mit einem Bericht geschlossen wird — braucht es nicht die nächste Faktenprüfung, sondern ein halbjähriges Eintauchen. Dafür haben wir ein eigenes Projekt — <a href="https://lucerna.folkup.app" rel="noopener">Lucerna</a>.</p>
+
+<p>Das ist ein Labor. Recherche, methodologische Notizen, offene Quellen, in ein System gebracht. Was nicht in die Form einer Enzyklopädie passt, aber dieselbe Disziplin der Überprüfung braucht.</p>
+
+<p>Wir nehmen es an, wenn das Thema sechs Monate Arbeit wert ist. Und wenn das Ergebnis veröffentlicht werden kann — wenn auch langsam, aber offen.</p>
+
+<p><em>Wir machen keine Dossiers über Privatpersonen. Wir machen keine bezahlten «Insider für Investoren». Wir machen das, was der Auftraggeber liest und einem engen Kreis weiterleitet.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-longread.webp" alt="Eine abstrakte plane Komposition aus bernstein-sepia Rechtecken" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Lange Essays</h2>
+
+<h3>Wenn Sie etwas zu sagen haben, sollte man sich nicht beeilen.</h3>
+
+<p>Wenn heute die Hälfte der Artikel unter dem Motto «Content-Maschine» in dreißig Minuten geschrieben wird, ist es schon eine Tat, einen guten Artikel in zwei Wochen zu schreiben.</p>
+
+<p>Wir schreiben lange Essays von zehn- bis vierzigtausend Zeichen — zu einem Thema, das der Autor tiefer beherrscht, als er in einem Zug darlegen kann. Wir interviewen Sie — schriftlich oder mündlich, — entwickeln die Thesen, prüfen die Fakten, bauen die Erzählung. Am Ende ein Text, den man nicht schämt in ein dickes Magazin zu geben. Ausgangspunkt: Ihre Stimme.</p>
+
+<p>Jede Veröffentlichung ist mit dem Namen des Auftraggebers unterzeichnet. Von uns soll keine Spur im Text sein. Das ist der Sinn der Arbeit.</p>
+
+<p><em>Passt, wenn Sie wollen, dass der Text klingt wie Sie. Passt nicht, wenn «wie bei allen» unter Algorithmen gebraucht wird.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-encyclopedia.webp" alt="Ein Raster von Artikelkarten mit einer nach vorne geschobenen Bernstein-Karte" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Ein enzyklopädischer Abschnitt oder ein Buchprojekt</h2>
+
+<h3>Langgedächtnisliche Arbeit.</h3>
+
+<p>Offene Enzyklopädien — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">Padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">Pilze Portugals</a>. In Vorbereitung — <a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a> und <a href="https://dialup.folkup.city" rel="noopener">Retro-Technik der Neunziger</a>.</p>
+
+<p>Wir bauen eine Enzyklopädie — vom Glossar bis zu einer vollwertigen Referenzstruktur mit Suche, Querverweisen und strukturierten Metadaten. Ein halbes bis ein Jahr Arbeit. Der Text bleibt offen — lesen, kopieren, fortsetzen — damit er uns überlebt.</p>
+
+<p>Wir nehmen es an, wenn das Thema eng und würdig ist. Eng — sonst löst es sich auf. Würdig — denn unter jeder Enzyklopädie von FolkUp steht der Name der Redaktion, und der antwortet für jeden Artikel.</p>
+
+<p><em>Wir machen keine «Startup-Enzyklopädien» und keine SEO-Farmen. Wir machen das, was ein Mensch bis zum Ende lesen will.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-illustrations.webp" alt="Palette mit drei Punkten bordeaux-bernstein-salbei und ein Pinsel diagonal" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Illustrationen zu einem Buch, einem Longread oder einer Website</h2>
+
+<h3>Ein Bild, das nicht versucht, allen zu gefallen.</h3>
+
+<p>Zeitgenössische Illustration für das Internet ist meistens aus der Rücksicht gemacht «niemanden zu verletzen». Sie ist neutral, symmetrisch, harmlos. Nach einer Woche erinnert sich der Autor nicht mehr, welche Illustration in seinem letzten Artikel war.</p>
+
+<p>Wir machen Illustrationen in redaktionellem Geist — mit dem Anspruch, dass eine im Gedächtnis bleibt. Wir arbeiten mit Flux und eigener Bearbeitungskette (<a href="/de/about/ai-use">mehr über die Arbeit mit KI</a>). Jedes Bild schaut ein Künstler vor dem Start an — nicht «zwanzig Varianten generiert, die schönste ausgewählt».</p>
+
+<p>Passt für einen Buchumschlag, für einen Zeitschriftenaufschlag, für die Illustration eines langen Artikels.</p>
+
+<p><em>Wenn ein Bild von Shutterstock für zwanzig Euro gebraucht wird — dorthin gehen Sie. Wenn ein eigenes für zehn Jahre gebraucht wird — sprechen wir.</em></p>
+
+<figure class="services-hero">
+  <img src="/images/services/hero-website.webp" alt="Eine mehrschichtige senkrechte Säule mit einem Kompass-Laterne im Fundament" loading="lazy" width="1200" height="675">
+</figure>
+
+<h2>Eine langlebige Website für die Veröffentlichung</h2>
+
+<h3>Eine Website, die in zwei Jahren nicht neu gebaut werden muss.</h3>
+
+<p>Die meisten Websites sterben nicht an technischen Problemen, sondern daran, dass der Text veraltet, das Design in einem halben Jahr altert, das Werkzeug jedes Quartal ein Update verlangt.</p>
+
+<p>Statische Generierung. Inhalt in einer typisierten Struktur. Fonts von unserem eigenen Server. Kein verstecktes Tracking.</p>
+
+<p>Zugänglichkeit prüfen wir mit automatischen und manuellen Durchgängen vor jeder Ausgabe; persönliche Daten — nach GDPR, ohne Übermaß. Am Ende: eine Website, die drei Jahre später in anderthalb Sekunden öffnet.</p>
+
+<p>Unsere Websites laufen bereits.</p>
+
+<p><em>Wir machen keine kommerziellen Läden, keine Landing-Pages, die den Besucher zum Kauf treiben. Wir machen Verlags-Websites für ein intellektuelles Publikum.</em></p>
+
+<h2>Kontakt</h2>
+
+<p>Wenn diese Arbeit zu Ihrem Projekt passt — schreiben Sie: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Wir lesen von Hand.</p>
+
+<p class="services-legal-footer"><small>Siehe auch: <a href="/de/privacy">Datenschutzerklärung</a> · <a href="/de/about/ai-use">Wie wir mit KI arbeiten</a></small></p>`,
       },
     } as LegalPageSection,
   ],
