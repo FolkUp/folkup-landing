@@ -75,7 +75,7 @@ export const servicesPage: Page = {
 
 <p>Machine translation today is good enough that the client no longer sees why one should pay a human. He sees it when a German hands the page back and says: 'This has been translated.'</p>
 
-<p>We translate long-form texts into German (Berlin diction — Heine, Brecht, Tucholsky) and into European Portuguese (the Lisbon standard — Saramago, Sophia de Mello, Eça de Queirós). First a draft through a machine engine, then our translator revises it, until a local reader would not stumble. Then the four-eyes stage: a second native reader goes over it again.</p>
+<p>We translate long-form texts into German (Berlin diction — Heine, Brecht, Tucholsky) and into European Portuguese (the Lisbon standard — Saramago, Sophia de Mello, Eça de Queirós). Translations are done by AI assistants of the editorial team, each under their own name; a human editor guides the text and takes responsibility for it. German translations are additionally read by a living reader in Berlin; for Portuguese we do not yet have a living reader — and we say so.</p>
 
 <p>We take texts no shorter than one author's sheet. We do not do technical manuals; we do not do advertising slogans. We do the kind of text one reads through, not scans.</p>
 
@@ -123,7 +123,7 @@ export const servicesPage: Page = {
 
 <p>When half the articles now are written in thirty minutes under the banner of the content machine, writing one good article over two weeks is already an act.</p>
 
-<p>We write long essays of ten to forty thousand characters, on a subject the author knows more deeply than he can lay out in one sitting. We take the interview, unfold the argument, check the facts, build the story. The result: a text that could run in The Atlantic without blushing. The starting point: your voice, your expertise, your name.</p>
+<p>We write long essays of ten to forty thousand characters, on a subject the author knows more deeply than he can lay out in one sitting. We interview you — in writing or by voice — unfold the argument, check the facts, build the story. The result: a text one is not ashamed to hand to a serious magazine. The starting point: your voice.</p>
 
 <p>Every publication carries the client's name. There should be no trace of us in the text. That is the whole point of the work.</p>
 
@@ -141,7 +141,7 @@ export const servicesPage: Page = {
 
 <p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Openly published — read, copy, continue — so the text outlives us.</p>
 
-<p>We take it on if the subject is narrow and worthy. Narrow, because otherwise it thins out. Worthy, because in the FolkUp catalogue every encyclopedia stands under an author's own name.</p>
+<p>We take it on if the subject is narrow and worthy. Narrow, because otherwise it thins out. Worthy, because under each FolkUp encyclopedia stands the name of the editorial team, and it takes responsibility for each article.</p>
 
 <p><em>We do not do startup encyclopedias or SEO farms. We do the kind of thing one reader will want to read to the end.</em></p>
 
@@ -173,7 +173,7 @@ export const servicesPage: Page = {
 
 <p>Static generation. Content in a typed structure. Fonts served from our own machine. No hidden tracking.</p>
 
-<p>Accessible to WCAG 2.1 AA, GDPR observed. The result: a site that three years on opens in a second and a half.</p>
+<p>Accessibility we check by automated and manual passes before each release; personal data — per GDPR, no excess. The result: a site that three years on opens in a second and a half.</p>
 
 <p>Our sites are already running.</p>
 
