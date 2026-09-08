@@ -231,10 +231,10 @@ const SERVICES_LABELS: Record<ServiceKey, Record<LangCode, string>> = {
 export function servicesSchema(lang: LangCode): object {
   const consultationText =
     lang === 'ru'
-      ? 'По предварительному общению. anklem@folkup.app'
+      ? 'По предварительному общению. editor@folkup.app'
       : lang === 'pt'
-        ? 'Mediante contacto prévio. anklem@folkup.app'
-        : 'Consultation required. anklem@folkup.app'
+        ? 'Mediante contacto prévio. editor@folkup.app'
+        : 'Consultation required. editor@folkup.app'
 
   const listName =
     lang === 'ru' ? 'Услуги FolkUp' : lang === 'pt' ? 'Serviços FolkUp' : 'FolkUp Services'

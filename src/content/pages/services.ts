@@ -17,7 +17,7 @@ import type { Page, LegalPageSection } from '../types'
  * Per Андрей cont +42 verdicts: услуги без нумерации; tarot с оговоркой
  * «работа приостановлена»; Lucerna добавлена как самостоятельная услуга;
  * counts removed per Iskra §3 «живое слово без чисел» (cont+38 B2 2026-08-02);
- * CTA email anklem@folkup.app.
+ * CTA email editor@folkup.app.
  *
  * EN/PT translation pending — Translator pipeline dispatch отдельным батчем
  * (LAND-SERVICES-DEEP-001 next_steps). Placeholder копи указывает RU как
@@ -181,7 +181,7 @@ export const servicesPage: Page = {
 
 <h2>Get in touch</h2>
 
-<p>If this sounds like your project, write to us: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Read by hand.</p>
+<p>If this sounds like your project, write to us: <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Read by hand.</p>
 
 <p class="services-legal-footer"><small>See also: <a href="/en/privacy">Privacy Policy</a> · <a href="/en/about/ai-use">How we work with AI</a></small></p>`,
         ru: `<p>Мы берёмся за работу, у которой есть срок жизни длиннее квартала.</p>
@@ -306,7 +306,7 @@ export const servicesPage: Page = {
 
 <h2>Связаться</h2>
 
-<p>Если работа похожа на ваш проект — напишите: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Читаем вручную.</p>
+<p>Если работа похожа на ваш проект — напишите: <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Читаем вручную.</p>
 
 <p class="services-legal-footer"><small>См. также: <a href="/ru/privacy">Политика конфиденциальности</a> · <a href="/ru/about/ai-use">Как мы работаем с AI</a></small></p>`,
         pt: `<p>Aceitamos trabalhos cuja vida útil seja mais longa do que um trimestre.</p>
@@ -431,7 +431,7 @@ export const servicesPage: Page = {
 
 <h2>Contactar</h2>
 
-<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Lemos com atenção.</p>
+<p>Se este trabalho se parece com o seu projeto, escreva: <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Lemos com atenção.</p>
 
 <p class="services-legal-footer"><small>Ver também: <a href="/pt/privacy">Política de Privacidade</a> · <a href="/pt/about/ai-use">Como trabalhamos com IA</a></small></p>`,
         de: `<p>Wir nehmen Arbeit an, die eine Lebenszeit länger als ein Quartal hat.</p>
@@ -556,7 +556,7 @@ export const servicesPage: Page = {
 
 <h2>Kontakt</h2>
 
-<p>Wenn diese Arbeit zu Ihrem Projekt passt — schreiben Sie: <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Wir lesen von Hand.</p>
+<p>Wenn diese Arbeit zu Ihrem Projekt passt — schreiben Sie: <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Wir lesen von Hand.</p>
 
 <p class="services-legal-footer"><small>Siehe auch: <a href="/de/privacy">Datenschutzerklärung</a> · <a href="/de/about/ai-use">Wie wir mit KI arbeiten</a></small></p>`,
       },

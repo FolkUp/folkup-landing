@@ -17,7 +17,7 @@ import type { Page, LegalPageSection } from '../types'
  *  - No founding-year claims (Lesson #42 — would need primary-source verify)
  *  - No pricing / commercial commitments (Лев compliance veto on /services)
  *  - EU PT obligatory (translator-PT module canon — no Brazilian PT)
- *  - Contact email anklem@folkup.app per Posthorn forwarder canon
+ *  - Contact email editor@folkup.app per Posthorn forwarder canon
  */
 export const projectsPage: Page = {
   id: 'projects',
@@ -106,7 +106,7 @@ export const projectsPage: Page = {
 
 <p>Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. The workshop pattern is the same: specific subjects, careful sources, no shortcuts.</p>
 
-<p>If you have a project and want to see what it would look like coming through this workshop, write to <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Read by hand.</p>`,
+<p>If you have a project and want to see what it would look like coming through this workshop, write to <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Read by hand.</p>`,
         ru: `<p>Энциклопедии открыты сейчас. Португальский город, быстрорастущий ракеточный спорт и грибы, которые растут в португальских лесах. Список растёт — несколько ещё готовятся, впереди — длинная очередь.</p>
 
 <p>Каждый проект собирается одной и той же мастерской. Выбираем конкретную тему. Идём смотреть. Проверяем дважды, руками. Публикуем — бесплатно, подписано, своё.</p>
@@ -158,7 +158,7 @@ export const projectsPage: Page = {
 
 <p>Энциклопедии, каталоги библиотек, техническая документация — такие тексты мы делаем и на заказ. Мастерская работает по той же схеме: конкретные темы, проверенные источники, без срезаний углов.</p>
 
-<p>Если у тебя есть проект и хочется увидеть, как он пройдёт через эту мастерскую — напиши на <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Читаем вручную.</p>`,
+<p>Если у тебя есть проект и хочется увидеть, как он пройдёт через эту мастерскую — напиши на <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Читаем вручную.</p>`,
         pt: `<p>Enciclopédias estão abertas hoje. Uma cidade portuguesa, um desporto de raquete em rápido crescimento, e os cogumelos que crescem nas florestas portuguesas. A lista cresce — outras estão em construção, e a fila à frente é longa.</p>
 
 <p>Cada projeto sai da mesma oficina. Escolhemos um tema específico. Vamos ver. Verificamos duas vezes, à mão. Publicamos — grátis, assinado, nosso.</p>
@@ -210,7 +210,7 @@ export const projectsPage: Page = {
 
 <p>Enciclopédias, catálogos de biblioteca, documentação técnica — fazemos textos como estes também por encomenda. A oficina trabalha pela mesma receita: temas específicos, fontes verificadas, sem atalhos.</p>
 
-<p>Se tens um projeto e queres ver como ficaria a passar por esta oficina — escreve para <a href="mailto:anklem@folkup.app">anklem@folkup.app</a>. Lemos com atenção.</p>`,
+<p>Se tens um projeto e queres ver como ficaria a passar por esta oficina — escreve para <a href="mailto:editor@folkup.app">editor@folkup.app</a>. Lemos com atenção.</p>`,
       },
     } as LegalPageSection,
   ],
