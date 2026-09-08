@@ -325,7 +325,7 @@ export const servicesPage: Page = {
 
 <p>A tradução automática está hoje suficientemente boa para que o cliente não perceba porque há de pagar a uma pessoa. Percebe quando o alemão devolve a página com um comentário: «Isto foi traduzido.»</p>
 
-<p>Traduzimos textos longos para alemão (fala de Berlim — Heine, Brecht, Tucholsky) e para português europeu (norma de Lisboa — Saramago, Sophia de Mello, Eça de Queirós). Primeiro um rascunho passado por motor automático — depois o nosso tradutor corrige até o leitor local deixar de tropeçar. A seguir, «quatro olhos» — um segundo falante nativo verifica outra vez.</p>
+<p>Traduzimos textos longos para alemão (fala de Berlim — Heine, Brecht, Tucholsky) e para português europeu (norma de Lisboa — Saramago, Sophia de Mello, Eça de Queirós). A tradução é feita por assistentes de IA da redação, cada um sob o seu nome; um editor humano conduz o texto e responde por ele. As traduções alemãs são ainda lidas por um leitor vivo em Berlim; para o português ainda não temos leitor vivo — e dizemo-lo abertamente.</p>
 
 <p>Aceitamos textos não inferiores a uma folha de autor. Não fazemos manuais técnicos nem slogans publicitários. Fazemos aquilo que se lê seguido e não se percorre em diagonal.</p>
 
@@ -373,7 +373,7 @@ export const servicesPage: Page = {
 
 <p>Quando metade dos artigos de hoje se escreve em trinta minutos, sob a divisa da «máquina de conteúdos», escrever um bom artigo em duas semanas já é um gesto.</p>
 
-<p>Escrevemos ensaios longos, entre dez e quarenta mil caracteres — sobre um tema em que o autor tem mais fundo do que aquilo que consegue expor de uma assentada. Recolhemos entrevistas, desenvolvemos as teses, verificamos os factos, construímos a narrativa. À saída, um texto que se podia publicar no The Atlantic sem corar. À entrada, a sua voz, a sua experiência, o seu nome.</p>
+<p>Escrevemos ensaios longos, entre dez e quarenta mil caracteres — sobre um tema em que o autor tem mais fundo do que aquilo que consegue expor de uma assentada. Fazemos-lhe uma entrevista — por escrito ou por voz —, desenvolvemos as teses, verificamos os factos, construímos a narrativa. À saída, um texto que não é vergonha entregar a uma revista de peso. Ponto de partida — a sua voz.</p>
 
 <p>Cada publicação é assinada pelo nome do cliente. Do nosso rasto, nada deve ficar no texto. É esse o sentido do trabalho.</p>
 
@@ -391,7 +391,7 @@ export const servicesPage: Page = {
 
 <p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Texto aberto — ler, copiar, continuar — para que sobreviva a quem o fez.</p>
 
-<p>Aceitamos se o tema for restrito e à altura. Restrito, porque de outro modo se dilui. À altura, porque no catálogo FolkUp o autor de cada enciclopédia assina com o seu nome.</p>
+<p>Aceitamos se o tema for restrito e à altura. Restrito, porque de outro modo se dilui. À altura, porque sob cada enciclopédia FolkUp está o nome da redação, e é ela que responde por cada artigo.</p>
 
 <p><em>Não fazemos «enciclopédias de startups» nem quintas de SEO. Fazemos aquilo que uma pessoa quer ler até ao fim.</em></p>
 
@@ -423,7 +423,7 @@ export const servicesPage: Page = {
 
 <p>Geração estática. Conteúdo numa estrutura tipada. Tipos de letra no nosso servidor. Nada de rastreio dissimulado.</p>
 
-<p>Acessibilidade segundo a norma WCAG 2.1 AA, RGPD cumprido. À saída, um site que, três anos depois, abre em segundo e meio.</p>
+<p>A acessibilidade verificamo-la com passagens automáticas e manuais antes de cada lançamento; dados pessoais — segundo o RGPD, sem excessos. À saída, um site que, três anos depois, abre em segundo e meio.</p>
 
 <p>Os nossos sites já estão a funcionar.</p>
 
