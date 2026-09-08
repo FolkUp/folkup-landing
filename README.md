@@ -32,13 +32,13 @@ Ecosystem includes:
 
 ## Routes
 
-22 prerendered static HTML routes:
+29 prerendered static HTML routes:
 
-- `/`, `/ru`, `/pt` — home (per-language)
-- `/{en,ru,pt}/projects` — encyclopedia portfolio
-- `/{en,ru,pt}/services` — seven directions for commissions
-- `/{en,ru,pt}/about/ai-use` — AI-use transparency disclosure
-- `/{en,ru,pt}/privacy`, `/terms`, `/cookies` — legal pages
+- `/`, `/ru`, `/pt`, `/de` — home (per-language)
+- `/{en,ru,pt,de}/projects` — encyclopedia portfolio
+- `/{en,ru,pt,de}/services` — four commissions (энциклопедия / книга-исследование / перевод / помощь с домом)
+- `/{en,ru,pt,de}/about/ai-use` — AI-use transparency disclosure
+- `/{en,ru,pt,de}/privacy`, `/terms`, `/cookies` — legal pages
 - `/404` — localized fallback
 
 Brand canon: warm steampunk, lantern (фонарь), roots (корни), workshop (мастерская). No emoji, no marketing slop, no fake urgency.
@@ -60,7 +60,7 @@ npm run indexnow:ping     # ping Bing + Yandex IndexNow on deploy
 
 1. `vite-ssg build` — Vue SSG render to `dist/`
 2. `node scripts/generate-sitemap.mjs` — sitemap.xml with hreflang
-3. `node scripts/validate-build.mjs` — html lang, canonical, JSON-LD, bundle size gate (≤60 KB gzip), hreflang completeness
+3. `node scripts/validate-build.mjs` — html lang, canonical, JSON-LD, bundle size gate (≤68 KB gzip), hreflang completeness
 
 ## Deploy
 
@@ -71,7 +71,7 @@ Production runs on **Cloudflare Pages**. Push to `master` triggers full build ch
 - **WCAG 2.1 AA** — focus-visible, 44px touch targets, prefers-reduced-motion
 - **GDPR** — self-hosted fonts, no analytics by default, no IP logging
 - **Schema.org JSON-LD** — Organization + WebSite + per-page WebPage type
-- **Hreflang** — en / ru / pt / x-default (root = EN)
+- **Hreflang** — en / ru / pt / de / x-default (root = EN)
 - **EU AI Act Art. 50** — [/about/ai-use](https://folkup.app/en/about/ai-use) transparency disclosure
 
 ## Repository layout
@@ -115,7 +115,7 @@ Attribution format for CC BY-SA content:
 > Modifications: [describe if any].
 
 Copyright infringement notices → [`DMCA.md`](./DMCA.md) (GitHub referral +
-direct contact `info@folkup.app`, subject: DMCA).
+direct contact `editor@folkup.app`, subject: DMCA).
 
 ## Contributing
 
@@ -123,8 +123,8 @@ Pull requests welcomed. Content edits and code contributions: DCO Signed-off-by 
 
 ## Contact
 
-- Editorial / content: `info@folkup.app`
-- DMCA / copyright: `info@folkup.app` (subject: DMCA) — see [`DMCA.md`](./DMCA.md)
+- Editorial / content: `editor@folkup.app`
+- DMCA / copyright: `editor@folkup.app` (subject: DMCA) — see [`DMCA.md`](./DMCA.md)
 - Publisher: Команданте FolkUp / FolkUp Ecosystem
 
 ---

@@ -1,0 +1,4 @@
+Contact: mailto:editor@folkup.app
+Preferred-Languages: en, ru, pt, de
+Canonical: https://folkup.app/.well-known/security.txt
+Expires: 2027-09-08T00:00:00Z
