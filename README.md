@@ -4,7 +4,7 @@
 [![License CC BY-SA 4.0 (content)](https://img.shields.io/badge/content-CC%20BY--SA%204.0-green.svg)](LICENSE-CONTENT)
 [![Site](https://img.shields.io/badge/live-folkup.app-blue.svg)](https://folkup.app)
 
-**Главная страница экосистемы FolkUp — библиотека книг, энциклопедии Португалии, longform-исследования, The Unenclosed Knowledge Declaration. Vue 3 SSG на Cloudflare Pages, три языка (EN / RU / PT EU).**
+**Главная страница экосистемы FolkUp — библиотека книг, энциклопедии Португалии, longform-исследования, The Unenclosed Knowledge Declaration. Vue 3 SSG на Cloudflare Pages, четыре языка (DE / EN / RU / PT EU).**
 
 ## About / Manifesto
 
