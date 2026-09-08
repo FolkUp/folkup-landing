@@ -347,15 +347,20 @@ export const homePage: Page = {
     {
       id: 'mission',
       type: 'mission',
+      // L-30 Bolik cont+31: DE key added — снять fallbackNotice переводом Method
+      // per Iskra VERDIKT-S320-11 §2 + ZADACHI-S320-14 L-30. Mirror RU canon strictly.
+      // Landing register: Brecht 40 / Heine 30 / Tucholsky 20 / Walser 10.
       label: {
         en: 'Method',
         ru: 'Метод',
         pt: 'Missão',
+        de: 'Methode',
       },
       title: {
         en: 'How it gets made',
         ru: 'Как это делается',
         pt: 'Vizinhos a ajudar vizinhos',
+        de: 'Wie es gemacht wird',
       },
       // GLAV-6 KOFI-LINK-ON-MAIN (Iskra PAKET-GLAVNAYA S290-07 §3):
       // «buy us a coffee» / «поддержать нас чашкой кофе» → hyperlink к https://ko-fi.com/folkup
@@ -370,6 +375,7 @@ export const homePage: Page = {
         en: 'Every text walks the same road: draft → fact-checking against sources → editing → signature. We show where each fact comes from and mark honestly where knowledge ends and assumption begins. Where a mistake can cost health — as in the mushroom encyclopedia — warnings come before formatting.\n\nThe workshop runs without investors or ads: nobody buys our conclusions, nobody tunes our texts to please algorithms. If any of this was useful to you, you can <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">buy us a coffee</a>. It is the only cash register in the house.',
         ru: 'Путь один для всех текстов: черновик → проверка фактов по источникам → редактура → подпись. Мы показываем, откуда взят каждый факт, и честно помечаем границу, где кончается знание и начинается предположение. Там, где ошибка может стоить здоровья — как в грибной энциклопедии, — предупреждения стоят перед оформлением.\n\nМастерская живёт без инвесторов и рекламы: никто не покупает наши выводы и не подкручивает наши тексты под алгоритмы. Если сделанное пригодилось — можно <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">поддержать нас чашкой кофе</a>. Это единственная касса в доме.',
         pt: 'FolkUp é uma pequena oficina. Comigo, uma equipa de assistentes de IA com nome e caráter, cada um responsável pela sua área: investigação, voz, segurança, direito, marca. Cada publicação é assinada: quem escreveu, quem verificou, quem editou. Começámos com uma enciclopédia sobre um pequeno bairro de Londres. Depois padel. Depois cogumelos em Portugal. Depois uma cidade inteira. Com cada novo projeto, a oficina foi-se aperfeiçoando no mesmo: temas específicos, fontes verificadas, sem atalhos. Sem investidores, sem algoritmos, sem paywalls. A lanterna arde, as raízes seguram.',
+        de: 'Ein Weg für alle Texte: Entwurf → Prüfung der Fakten anhand der Quellen → Redaktion → Unterschrift. Wir zeigen, woher jede Tatsache stammt, und markieren ehrlich die Grenze, wo das Wissen endet und die Vermutung beginnt. Dort, wo ein Fehler die Gesundheit kosten kann — wie in der Pilz-Enzyklopädie —, stehen die Warnungen vor der Gestaltung.\n\nDie Werkstatt lebt ohne Investoren und Werbung: niemand kauft unsere Schlussfolgerungen, niemand justiert unsere Texte für Algorithmen. Wenn Ihnen etwas davon nützlich war, können Sie uns <a href="https://ko-fi.com/folkup" target="_blank" rel="noopener">einen Kaffee spendieren</a>. Das ist die einzige Kasse im Haus.',
       },
       principles: [],
     },
@@ -506,10 +512,13 @@ export const homePage: Page = {
       id: 'projects',
       type: 'projects',
       schemaType: 'ItemList',
+      // L-30 Bolik cont+31: DE key added — снять fallbackNotice переводом Ecosystem
+      // per Iskra VERDIKT-S320-11 §2 + ZADACHI-S320-14 L-30.
       label: {
         en: 'Ecosystem',
         ru: 'Экосистема',
         pt: 'Ecossistema',
+        de: 'Ökosystem',
       },
       // Cont+2 Andrey verdict item #3 (2026-08-23 landing refresh):
       // Rename to no-numbers title per «мы нигде не указываем точного количества».
@@ -527,6 +536,7 @@ export const homePage: Page = {
         en: "A few more are being built, and the queue ahead is long. Encyclopedias, library catalogs, technical documentation — we make texts like these for others too. Have a project of your own? Reach us at the contacts below.",
         ru: 'Несколько готовятся прямо сейчас, впереди — длинная очередь. Энциклопедии, каталоги библиотек, техническая документация — такие тексты мы делаем и на заказ. Есть свой проект? Напиши — контакты внизу страницы.',
         pt: 'Algumas mais estão em construção e a fila à frente é longa. Enciclopédias, catálogos de biblioteca, documentação técnica — fazemos textos como estes também por encomenda. Tens um projeto teu? Fala connosco — contactos no rodapé.',
+        de: 'Ein paar weitere entstehen gerade, und die Schlange dahinter ist lang. Enzyklopädien, Bibliothekskataloge, technische Dokumentation — solche Texte fertigen wir auch auf Bestellung. Haben Sie ein eigenes Projekt? Schreiben Sie uns — Kontakte im Fuß der Seite.',
       },
       items: [
         {
@@ -590,15 +600,19 @@ export const homePage: Page = {
     },
 
     // -------------------------------------------------------------- PRO LAB
+    // L-30 Bolik cont+31: DE keys added — снять fallbackNotice переводом Pro Lab
+    // per Iskra VERDIKT-S320-11 §2 + ZADACHI-S320-14 L-30. Mirror RU canon strictly.
+    // «Pro Lab» name Latin preserved (proper noun, mirror EN/PT pattern).
     {
       id: 'pro-lab',
       type: 'pro-lab',
       schemaType: 'none',
-      label: { en: 'Pro Lab', ru: 'Про-Лаб', pt: 'Pro Lab' },
+      label: { en: 'Pro Lab', ru: 'Про-Лаб', pt: 'Pro Lab', de: 'Pro Lab' },
       title: {
         en: 'Slower work, closer to the source',
         ru: 'Работа медленнее, ближе к источнику',
         pt: 'Trabalho mais lento, mais perto da fonte',
+        de: 'Langsamere Arbeit, näher an der Quelle',
       },
       // Cont+2 Pro Lab cleanup (Andrey verdict item #8 2026-08-23):
       // - Removed «Closer to CERN's preprints than to a magazine» (В2=б) — CERN reference
@@ -610,6 +624,7 @@ export const homePage: Page = {
         en: 'The encyclopedias are wide and fast. Pro Lab is narrow and slow. It\'s where a question gets months instead of weeks, sources get checked twice, and the finished piece reads more like a small book than a wiki entry.',
         ru: 'Энциклопедии — широкие и быстрые. Про-Лаб — узкий и медленный. Здесь вопросу дают месяцы вместо недель, источники проверяют дважды, а готовый материал читается скорее как небольшая книга, чем как вики-статья.',
         pt: 'As enciclopédias são largas e rápidas. O Pro Lab é estreito e lento. É onde uma pergunta ganha meses em vez de semanas, as fontes são verificadas duas vezes, e o resultado lê-se mais como um livro pequeno do que como um artigo de wiki.',
+        de: 'Die Enzyklopädien sind breit und schnell. Pro Lab ist eng und langsam. Hier bekommt eine Frage Monate statt Wochen, die Quellen werden zweimal geprüft, und das fertige Werk liest sich eher wie ein kleines Buch als wie ein Wiki-Eintrag.',
       },
       highlight: {
         name: 'Lucerna',
@@ -617,6 +632,7 @@ export const homePage: Page = {
           en: 'Lucerna is the first Pro Lab project. A standing investigation, updated when there\'s something worth lighting up, not on a content calendar.',
           ru: 'Lucerna — первый проект Про-Лаба. Постоянное расследование, обновляется, когда есть что подсветить, а не по контент-календарю.',
           pt: 'Lucerna é o primeiro projeto do Pro Lab. Uma investigação permanente, atualizada quando há algo que valha a pena iluminar, não por calendário editorial.',
+          de: 'Lucerna ist das erste Projekt von Pro Lab. Eine ständige Untersuchung, aktualisiert, wenn es etwas zum Beleuchten gibt, nicht nach einem Redaktionskalender.',
         },
         url: 'https://lucerna.folkup.app',
       },
@@ -625,12 +641,15 @@ export const homePage: Page = {
           en: 'Visit Lucerna',
           ru: 'Зайти в Lucerna',
           pt: 'Visitar Lucerna',
+          de: 'Lucerna besuchen',
         },
         href: 'https://lucerna.folkup.app',
       },
     },
 
     // ------------------------------------------------------------ FRAMEWORK
+    // L-30 Bolik cont+31: DE keys added — снять fallbackNotice переводом Platform
+    // per Iskra VERDIKT-S320-11 §2 + ZADACHI-S320-14 L-30. Mirror RU canon strictly.
     {
       id: 'framework',
       type: 'framework',
@@ -638,11 +657,13 @@ export const homePage: Page = {
         en: 'Platform',
         ru: 'Платформа',
         pt: 'Plataforma',
+        de: 'Plattform',
       },
       title: {
         en: 'What powers every encyclopedia',
         ru: 'Что стоит за каждой энциклопедией',
         pt: 'O que sustenta cada enciclopédia',
+        de: 'Was hinter jeder Enzyklopädie steht',
       },
       features: [
         {
@@ -651,11 +672,13 @@ export const homePage: Page = {
             en: 'Fact verification',
             ru: 'Проверка фактов',
             pt: 'Verificação de factos',
+            de: 'Faktenprüfung',
           },
           text: {
             en: 'Every article has a status: verified, partially verified, or unverified. Sources listed. Confidence rated. No guessing.',
             ru: 'У каждой статьи есть статус: проверена, частично проверена или не проверена. Источники указаны. Уровень уверенности — тоже. Никаких догадок.',
             pt: 'Cada artigo tem um estado: verificado, parcialmente verificado ou não verificado. Fontes listadas. Nível de confiança avaliado. Sem adivinhações.',
+            de: 'Jeder Artikel hat einen Status: geprüft, teilweise geprüft oder ungeprüft. Quellen aufgelistet. Vertrauensniveau bewertet. Kein Raten.',
           },
         },
         {
@@ -664,6 +687,7 @@ export const homePage: Page = {
             en: 'Multilingual by design',
             ru: 'Многоязычность по дизайну',
             pt: 'Multilingue por design',
+            de: 'Mehrsprachigkeit vom Entwurf her',
           },
           // GLAV-5 AI-HONESTY-i18n (Iskra PAKET-GLAVNAYA S290-07 §3):
           // Canon replace RU+EN — «Not machine translation» противоречит духу AI-прозрачности
@@ -681,6 +705,7 @@ export const homePage: Page = {
             en: "Translation is workshop work: an AI translator's draft, editorial cross-check against the original, a signature; where an edition has a living native reader, their notes go into revisions.",
             ru: 'Перевод — часть мастерской: черновик ИИ-ассистента-переводчика, редакторская сверка с оригиналом, подпись; там, где у издания есть живой читатель-носитель, его замечания входят в правки.',
             pt: 'Dois a três idiomas por enciclopédia. Não tradução automática — trabalho editorial real em cada idioma.',
+            de: 'Übersetzen ist Werkstattarbeit: der Entwurf eines KI-Übersetzer-Assistenten, die redaktionelle Abgleichung mit dem Original, eine Unterschrift; wo eine Ausgabe einen lebendigen muttersprachlichen Leser hat, gehen seine Anmerkungen in die Überarbeitungen ein.',
           },
         },
         {
@@ -689,11 +714,13 @@ export const homePage: Page = {
             en: 'Safety protocols',
             ru: 'Протоколы безопасности',
             pt: 'Protocolos de segurança',
+            de: 'Sicherheitsprotokolle',
           },
           text: {
             en: 'Mushroom toxicity warnings. Medication interactions. Allergen alerts. When content can hurt, we mark it clearly.',
             ru: 'Предупреждения о токсичности грибов. Взаимодействие лекарств. Аллергены. Когда контент может навредить, мы это чётко обозначаем.',
             pt: 'Avisos de toxicidade de cogumelos. Interações medicamentosas. Alertas de alergénios. Quando o conteúdo pode prejudicar, marcamo-lo claramente.',
+            de: 'Warnungen über Pilztoxizität. Wechselwirkungen von Medikamenten. Allergen-Hinweise. Wenn Inhalte schaden können, kennzeichnen wir das deutlich.',
           },
         },
         {
@@ -702,6 +729,7 @@ export const homePage: Page = {
             en: 'Automated infrastructure',
             ru: 'Автоматическая инфраструктура',
             pt: 'Infraestrutura automatizada',
+            de: 'Automatisierte Infrastruktur',
           },
           // GLAV-7a EMAILS-CLAIM-REMOVE (Iskra PAKET-GLAVNAYA S290-07 §3):
           // «Branded emails on new releases» / «Фирменные рассылки о новых релизах» /
@@ -712,6 +740,7 @@ export const homePage: Page = {
             en: 'Push to publish. Status monitoring. The boring stuff that keeps a library running.',
             ru: 'Push для публикации. Мониторинг статуса. Скучные вещи, без которых библиотека не работает.',
             pt: 'Push para publicar. Monitorização de estado. As coisas chatas que mantêm uma biblioteca a funcionar.',
+            de: 'Push zum Veröffentlichen. Statusüberwachung. Die langweiligen Dinge, ohne die eine Bibliothek nicht läuft.',
           },
         },
         {
@@ -720,6 +749,7 @@ export const homePage: Page = {
             en: 'Privacy & compliance',
             ru: 'Приватность и compliance',
             pt: 'Privacidade e conformidade',
+            de: 'Datenschutz und Compliance',
           },
           // T-316-14 честность (Iskra S316-11 §1 → S1ORCH cont+3 2026-09-07):
           // Снято «WCAG accessibility / WCAG-доступность / acessibilidade WCAG» —
@@ -735,6 +765,7 @@ export const homePage: Page = {
             en: 'GDPR, security headers. The same care as the articles themselves.',
             ru: 'GDPR, заголовки безопасности. Та же забота, что и о самих статьях.',
             pt: 'RGPD, cabeçalhos de segurança. O mesmo cuidado dos artigos.',
+            de: 'DSGVO, Sicherheits-Header. Dieselbe Sorgfalt wie bei den Artikeln selbst.',
           },
         },
       ],
@@ -1074,20 +1105,22 @@ export const homePage: Page = {
         pt: 'FolkUp — a luz acesa, raízes firmes.',
         de: 'FolkUp — das Licht brennt, die Wurzeln halten fest.',
       },
+      // L-30 Bolik cont+31: DE keys added к footer links per Iskra ZADACHI-S320-14 L-30
+      // «футер (Privacy/Terms/Cookies/AI use/Write to us → DE)» + PROVERKA-S320-10 §3.
       links: [
         {
           id: 'privacy',
-          label: { en: 'Privacy', ru: 'Конфиденциальность', pt: 'Privacidade' },
+          label: { en: 'Privacy', ru: 'Конфиденциальность', pt: 'Privacidade', de: 'Datenschutz' },
           href: '/privacy',
         },
         {
           id: 'terms',
-          label: { en: 'Terms', ru: 'Условия', pt: 'Termos' },
+          label: { en: 'Terms', ru: 'Условия', pt: 'Termos', de: 'Bedingungen' },
           href: '/terms',
         },
         {
           id: 'cookies',
-          label: { en: 'Cookies', ru: 'Cookie', pt: 'Cookies' },
+          label: { en: 'Cookies', ru: 'Cookie', pt: 'Cookies', de: 'Cookies' },
           href: '/cookies',
         },
         {
@@ -1095,12 +1128,12 @@ export const homePage: Page = {
           // F3 (Iskra S317-08 §3 canon → S1ORCH cont+3 PR-D1 2026-09-07):
           // RU label «Использование AI» → «Использование ИИ» consistency с page title
           // (Iskra canon uses «ИИ» russian). EN/PT/DE — переводчики параллельно.
-          label: { en: 'AI use', ru: 'Использование ИИ', pt: 'Uso de IA' },
+          label: { en: 'AI use', ru: 'Использование ИИ', pt: 'Uso de IA', de: 'KI-Nutzung' },
           href: '/about/ai-use',
         },
         {
           id: 'contact',
-          label: { en: 'Write to us', ru: 'Написать нам', pt: 'Escreve-nos' },
+          label: { en: 'Write to us', ru: 'Написать нам', pt: 'Escreve-nos', de: 'Schreiben Sie uns' },
           href: 'mailto:editor@folkup.app',
         },
       ],

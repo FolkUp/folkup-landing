@@ -183,41 +183,50 @@ const SERVICES_KEYS = [
 
 type ServiceKey = (typeof SERVICES_KEYS)[number]['key']
 
+// L-30 Bolik cont+31: DE keys added к SERVICES_LABELS для parity (bonus fix pre-existing
+// TS error 7 entries missing DE) per Iskra §2 «Bolik — DE весь лендинг» + §3 «одной ходкой».
 const SERVICES_LABELS: Record<ServiceKey, Record<LangCode, string>> = {
   translation: {
     en: 'Book or long-document translation to German or European Portuguese',
     ru: 'Перевод книги или большого документа на немецкий или европейский португальский',
     pt: 'Tradução de livro ou documento extenso para alemão ou português europeu',
+    de: 'Übersetzung eines Buches oder umfangreichen Dokuments ins Deutsche oder europäische Portugiesisch',
   },
   'fact-check': {
     en: 'Fact-checking and open-source research',
     ru: 'Проверка фактов и поиск по открытым источникам',
     pt: 'Verificação de factos e pesquisa em fontes abertas',
+    de: 'Faktenprüfung und Recherche in offenen Quellen',
   },
   lucerna: {
     en: 'Long-form investigation into a single subject (Lucerna)',
     ru: 'Долгое расследование одной темы (Lucerna)',
     pt: 'Investigação longa sobre um único tema (Lucerna)',
+    de: 'Lange Untersuchung eines einzelnen Themas (Lucerna)',
   },
   longread: {
     en: 'Long essay or a signed piece of writing',
     ru: 'Длинная статья или авторский очерк',
     pt: 'Artigo longo ou ensaio de autor',
+    de: 'Langer Artikel oder ein signierter Autorentext',
   },
   encyclopedia: {
     en: 'Encyclopedia section or a book project',
     ru: 'Энциклопедический раздел или книжный проект',
     pt: 'Secção enciclopédica ou projeto de livro',
+    de: 'Enzyklopädischer Abschnitt oder ein Buchprojekt',
   },
   illustration: {
     en: 'Illustrations for a book, long essay, or site',
     ru: 'Иллюстрации к книге, лонгриду или сайту',
     pt: 'Ilustração para livro, ensaio longo ou site',
+    de: 'Illustrationen für ein Buch, einen langen Artikel oder eine Website',
   },
   website: {
     en: 'A long-lived site for publishing',
     ru: 'Долгоживущий сайт для публикации',
     pt: 'Site duradouro para publicação',
+    de: 'Eine langlebige Website für Veröffentlichungen',
   },
 }
 
