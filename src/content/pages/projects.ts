@@ -53,6 +53,7 @@ export const projectsPage: Page = {
         en: 'Updated November 2026',
         ru: 'Обновлено в ноябре 2026',
         pt: 'Atualizado em novembro de 2026',
+        de: 'Aktualisiert im November 2026',
       },
       content: {
         en: `<p>Encyclopedias are open today. A Portuguese city, a fast-growing racket sport, and the mushrooms that grow in Portuguese forests. The list keeps growing — others are in build, and the queue ahead is long.</p>

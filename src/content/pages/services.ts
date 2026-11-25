@@ -57,6 +57,7 @@ export const servicesPage: Page = {
         en: 'Updated November 2026',
         ru: 'Обновлено в ноябре 2026',
         pt: 'Atualizado em novembro de 2026',
+        de: 'Aktualisiert im November 2026',
       },
       content: {
         en: `<p>We take on work with a shelf life longer than a quarter.</p>
