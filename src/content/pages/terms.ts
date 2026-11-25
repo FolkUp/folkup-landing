@@ -41,6 +41,7 @@ export const termsPage: Page = {
         en: 'Last reviewed November 2026 — substantive terms unchanged since March 2026',
         ru: 'Последний пересмотр — ноябрь 2026. Содержание условий не менялось с марта 2026',
         pt: 'Última revisão: novembro de 2026 — substância dos termos inalterada desde março de 2026',
+        de: 'Letzte Überprüfung November 2026 — Inhalt der Nutzungsbedingungen unverändert seit März 2026',
       },
       content: {
         en: `<h2>Acceptance</h2>

@@ -45,6 +45,7 @@ export const cookiesPage: Page = {
         en: 'Last reviewed November 2026 — substantive policy unchanged since March 2026',
         ru: 'Последний пересмотр — ноябрь 2026. Содержание политики не менялось с марта 2026',
         pt: 'Última revisão: novembro de 2026 — substância da política inalterada desde março de 2026',
+        de: 'Letzte Überprüfung November 2026 — Inhalt der Cookie-Richtlinie unverändert seit März 2026',
       },
       content: {
         en: `<h2>Do we use cookies?</h2>
