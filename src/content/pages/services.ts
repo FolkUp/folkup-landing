@@ -137,7 +137,7 @@ export const servicesPage: Page = {
 
 <h3>Work with a long memory.</h3>
 
-<p>Open encyclopedias — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a>. In preparation — <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a> and <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>.</p>
+<p>Open encyclopedias — <a href="https://setubal.folkup.city" rel="noopener">Setubal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">mushrooms of Portugal</a>, <a href="https://aquarium.folkup.city" rel="noopener">the aquarium encyclopedia</a>, <a href="https://dialup.folkup.city" rel="noopener">the retro tech of the nineties</a>.</p>
 
 <p>We build an encyclopedia from the glossary up to a full reference structure, with search, cross-references, and structured metadata. Six months to a year of work. Openly published — read, copy, continue — so the text outlives us.</p>
 
@@ -387,7 +387,7 @@ export const servicesPage: Page = {
 
 <h3>Trabalho para longa memória.</h3>
 
-<p>Enciclopédias abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a>. Em preparação — <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a> e <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>.</p>
+<p>Enciclopédias abertas — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">cogumelos de Portugal</a>, <a href="https://aquarium.folkup.city" rel="noopener">aquarium</a>, <a href="https://dialup.folkup.city" rel="noopener">retrotécnica dos anos noventa</a>.</p>
 
 <p>Construímos a enciclopédia desde o glossário até uma estrutura de consulta completa, com pesquisa, referências cruzadas e metadados estruturados. Entre meio ano e um ano de trabalho. Texto aberto — ler, copiar, continuar — para que sobreviva a quem o fez.</p>
 
@@ -512,7 +512,7 @@ export const servicesPage: Page = {
 
 <h3>Langgedächtnisliche Arbeit.</h3>
 
-<p>Offene Enzyklopädien — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">Padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">Pilze Portugals</a>. In Vorbereitung — <a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a> und <a href="https://dialup.folkup.city" rel="noopener">Retro-Technik der Neunziger</a>.</p>
+<p>Offene Enzyklopädien — <a href="https://setubal.folkup.city" rel="noopener">Setúbal</a>, <a href="https://padel.folkup.fit" rel="noopener">Padel</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">Pilze Portugals</a>, <a href="https://aquarium.folkup.city" rel="noopener">Aquarium</a>, <a href="https://dialup.folkup.city" rel="noopener">Retro-Technik der Neunziger</a>.</p>
 
 <p>Wir bauen eine Enzyklopädie — vom Glossar bis zu einer vollwertigen Referenzstruktur mit Suche, Querverweisen und strukturierten Metadaten. Ein halbes bis ein Jahr Arbeit. Der Text bleibt offen — lesen, kopieren, fortsetzen — damit er uns überlebt.</p>
 
