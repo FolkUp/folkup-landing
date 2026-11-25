@@ -262,7 +262,7 @@ export const servicesPage: Page = {
 
 <h3>Долгопамятная работа.</h3>
 
-<p>Открытые энциклопедии — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a>, <a href="https://padel.folkup.fit" rel="noopener">падел</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a>. В подготовке — <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a> и <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>.</p>
+<p>Открытые энциклопедии — <a href="https://setubal.folkup.city" rel="noopener">Сетубал</a>, <a href="https://padel.folkup.fit" rel="noopener">падел</a>, <a href="https://cogumelos.folkup.fit" rel="noopener">грибы Португалии</a>, <a href="https://aquarium.folkup.city" rel="noopener">аквариум</a>, <a href="https://dialup.folkup.city" rel="noopener">ретротехника девяностых</a>.</p>
 
 <p>Строим энциклопедию — от глоссария до полноценной справочной структуры с поиском, перекрёстными ссылками и структурированными метаданными. Полгода-год работы. Текст остаётся открытым — читайте, копируйте, продолжайте — чтобы пережил нас.</p>
 
