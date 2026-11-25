@@ -11,6 +11,8 @@ historical changes. This file begins with `1.4.2` and will be maintained forward
 
 ## [Unreleased]
 
+## [1.4.3] — 2026-11-25
+
 ### Fixed
 
 - Legal pages (`privacy.ts` + `terms.ts` + `cookies.ts` × EN/RU/PT = 9 `lastUpdated` strings): industry-standard reviewed/unchanged split wording per ICO/GDPR legal template pattern. «Last reviewed November 2026 — substantive policy/terms unchanged since March 2026» + native-register RU/PT. Per-file tune: `privacy`/`cookies` use «policy», `terms` uses «terms». PR #84 (S2ORCH cont+2 Q2), commit `63b104a`.
@@ -21,9 +23,15 @@ historical changes. This file begins with `1.4.2` and will be maintained forward
 
 - DE `lastUpdated` key for 5 schemas (`privacy.ts` + `terms.ts` + `cookies.ts` + `services.ts` + `projects.ts`): Translator-DE module native-register (Heine + Brecht + Tucholsky + Walser; DWDS/Duden/Linguee verified). Legal pattern «Letzte Überprüfung November 2026 — Inhalt der [Datenschutzrichtlinie / Nutzungsbedingungen / Cookie-Richtlinie] unverändert seit März 2026». Services/projects pattern «Aktualisiert im November 2026» (idiomatic adverbial per Duden). Closes EN-fallback gap on `/de/<path>` — GDPR-aware DE readers now see localized date on DE pages. PR #85 (S2ORCH cont+3 Q6), commit `331d0bd`.
 
+### Docs
+
+- CHANGELOG.md `[Unreleased]` accumulation pattern + Release Policy canonical block added (Keep a Changelog 1.1.0 + semver 2.0.0 + release ceremony checklist). Compare links anchored к `v1.4.2` tag. PR #86 (S2ORCH cont+3 Q9), commit `8be647f`.
+
 ### Notes
 
-- Accumulates post-`1.4.2` patch-level fixes (semver 2.0.0 PATCH class — backward-compatible, no API/routing/contract changes). Aggregate release к `1.4.3` at session SEAL closure OR next natural release boundary (per Release Policy below).
+- Aggregate release of S2ORCH cont+2 Q2 + cont+3 Q6 patch-level fixes + cont+3 Q9 docs (semver 2.0.0 PATCH class — backward-compatible, no API/routing/contract changes).
+- Release ceremony: session SEAL closure 2026-11-25 ~23:55 UTC per Release Policy canonical boundary.
+- GitHub Actions org-wide billing lock remained active throughout session. All 6 PR merges (#80-#86) deployed via manual wrangler Cooper-safe SOPS inline pattern (verified stable through 7 deploy iterations этой session arc).
 
 ## Release Policy (canonical from v1.4.2 forward)
 
@@ -50,5 +58,6 @@ historical changes. This file begins with `1.4.2` and will be maintained forward
 - GitHub Actions org-wide billing lock active since approximately 2026-11-16. All PR merges contributing to this release were deployed via manual `wrangler pages deploy dist --project-name=folkup-app-backup` with inline SOPS-decrypted credentials (scrubbed after each use).
 - No breaking changes. No API, routing, or component contract changes beyond new `/about/ai-use` canonical URLs (which are additive / drift closures, not regressions).
 
-[Unreleased]: https://github.com/FolkUp/folkup-landing/compare/v1.4.2...HEAD
+[Unreleased]: https://github.com/FolkUp/folkup-landing/compare/v1.4.3...HEAD
+[1.4.3]: https://github.com/FolkUp/folkup-landing/compare/v1.4.2...v1.4.3
 [1.4.2]: https://github.com/FolkUp/folkup-landing/compare/179da67...v1.4.2
