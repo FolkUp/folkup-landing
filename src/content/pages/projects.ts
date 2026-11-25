@@ -50,9 +50,9 @@ export const projectsPage: Page = {
         pt: 'Enciclopédias e uma oficina',
       },
       lastUpdated: {
-        en: 'Updated June 2026',
-        ru: 'Обновлено в июне 2026',
-        pt: 'Atualizado em junho de 2026',
+        en: 'Updated November 2026',
+        ru: 'Обновлено в ноябре 2026',
+        pt: 'Atualizado em novembro de 2026',
       },
       content: {
         en: `<p>Encyclopedias are open today. A Portuguese city, a fast-growing racket sport, and the mushrooms that grow in Portuguese forests. The list keeps growing — others are in build, and the queue ahead is long.</p>
