@@ -42,9 +42,9 @@ export const cookiesPage: Page = {
         pt: 'Política de Cookies',
       },
       lastUpdated: {
-        en: 'Last updated: March 2026',
-        ru: 'Последнее обновление: март 2026',
-        pt: 'Última atualização: março de 2026',
+        en: 'Last reviewed November 2026 — substantive policy unchanged since March 2026',
+        ru: 'Последний пересмотр — ноябрь 2026. Содержание политики не менялось с марта 2026',
+        pt: 'Última revisão: novembro de 2026 — substância da política inalterada desde março de 2026',
       },
       content: {
         en: `<h2>Do we use cookies?</h2>
@@ -54,7 +54,7 @@ export const cookiesPage: Page = {
 <p>We store one item in your browser's localStorage: your language preference (<code>folkup-lang</code>). This is not a cookie and is not transmitted to any server. You can clear it at any time via your browser settings.</p>
 
 <h2>Analytics</h2>
-<p>We may use a cookie-free, privacy-focused analytics tool hosted on our own infrastructure. When active, it does not use cookies, does not track personal data, and does not store IP addresses. As of March 2026, analytics are not yet enabled on this landing page.</p>
+<p>We may use a cookie-free, privacy-focused analytics tool hosted on our own infrastructure. When active, it does not use cookies, does not track personal data, and does not store IP addresses. As of November 2026, analytics are not yet enabled on this landing page.</p>
 
 <h2>Third-party cookies</h2>
 <p>We do not load any third-party scripts that set cookies. All fonts are self-hosted. No social media widgets or advertising networks are used.</p>
@@ -68,7 +68,7 @@ export const cookiesPage: Page = {
 <p>Мы сохраняем один элемент в localStorage вашего браузера: ваши языковые предпочтения (<code>folkup-lang</code>). Это не cookie-файл и не передаётся на сервер. Вы можете очистить его в любое время через настройки браузера.</p>
 
 <h2>Аналитика</h2>
-<p>Мы можем использовать инструмент аналитики без cookie-файлов, ориентированный на конфиденциальность, размещённый на нашей собственной инфраструктуре. При активации он не использует cookie, не отслеживает персональные данные и не сохраняет IP-адреса. По состоянию на март 2026 года аналитика на этой странице ещё не активирована.</p>
+<p>Мы можем использовать инструмент аналитики без cookie-файлов, ориентированный на конфиденциальность, размещённый на нашей собственной инфраструктуре. При активации он не использует cookie, не отслеживает персональные данные и не сохраняет IP-адреса. По состоянию на ноябрь 2026 года аналитика на этой странице ещё не активирована.</p>
 
 <h2>Cookie третьих сторон</h2>
 <p>Мы не загружаем сторонние скрипты, устанавливающие cookie. Все шрифты размещены на нашем сервере. Виджеты социальных сетей и рекламные сети не используются.</p>
@@ -82,7 +82,7 @@ export const cookiesPage: Page = {
 <p>Armazenamos um item no localStorage do seu navegador: a sua preferência de idioma (<code>folkup-lang</code>). Isto não é um cookie e não é transmitido a nenhum servidor. Pode limpá-lo a qualquer momento nas definições do navegador.</p>
 
 <h2>Análise</h2>
-<p>Podemos utilizar uma ferramenta de análise sem cookies, focada na privacidade, alojada na nossa própria infraestrutura. Quando ativa, não utiliza cookies, não rastreia dados pessoais e não armazena endereços IP. Em março de 2026, a análise ainda não está ativa nesta página.</p>
+<p>Podemos utilizar uma ferramenta de análise sem cookies, focada na privacidade, alojada na nossa própria infraestrutura. Quando ativa, não utiliza cookies, não rastreia dados pessoais e não armazena endereços IP. Em novembro de 2026, a análise ainda não está ativa nesta página.</p>
 
 <h2>Cookies de terceiros</h2>
 <p>Não carregamos scripts de terceiros que definam cookies. Todas as fontes tipográficas são auto-alojadas. Não são utilizados widgets de redes sociais nem redes de publicidade.</p>

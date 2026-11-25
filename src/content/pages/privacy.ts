@@ -41,16 +41,16 @@ export const privacyPage: Page = {
         pt: 'Política de Privacidade',
       },
       lastUpdated: {
-        en: 'Last updated: March 2026',
-        ru: 'Последнее обновление: март 2026',
-        pt: 'Última atualização: março de 2026',
+        en: 'Last reviewed November 2026 — substantive policy unchanged since March 2026',
+        ru: 'Последний пересмотр — ноябрь 2026. Содержание политики не менялось с марта 2026',
+        pt: 'Última revisão: novembro de 2026 — substância da política inalterada desde março de 2026',
       },
       content: {
         en: `<h2>Who we are</h2>
 <p>FolkUp is a research platform that builds knowledge tools for real people. This website is operated at folkup.app.</p>
 
 <h2>What data we collect</h2>
-<p>We may collect anonymous usage statistics using a privacy-focused, cookie-free analytics tool hosted on our own infrastructure. When active, no personal data, cookies, or IP addresses are stored. As of March 2026, analytics are not yet enabled on this landing page.</p>
+<p>We may collect anonymous usage statistics using a privacy-focused, cookie-free analytics tool hosted on our own infrastructure. When active, no personal data, cookies, or IP addresses are stored. As of November 2026, analytics are not yet enabled on this landing page.</p>
 
 <h2>Cookies</h2>
 <p>We store your language preference in localStorage (not a cookie). No tracking cookies are used.</p>
@@ -67,7 +67,7 @@ export const privacyPage: Page = {
 <p>FolkUp — исследовательская платформа, создающая инструменты знаний для живых людей. Этот сайт работает на folkup.app.</p>
 
 <h2>Какие данные мы собираем</h2>
-<p>Мы можем собирать анонимную статистику использования с помощью инструмента аналитики, ориентированного на конфиденциальность, без файлов cookie, размещённого на нашей собственной инфраструктуре. При активации персональные данные, файлы cookie и IP-адреса не сохраняются. По состоянию на март 2026 года аналитика на этой странице ещё не активирована.</p>
+<p>Мы можем собирать анонимную статистику использования с помощью инструмента аналитики, ориентированного на конфиденциальность, без файлов cookie, размещённого на нашей собственной инфраструктуре. При активации персональные данные, файлы cookie и IP-адреса не сохраняются. По состоянию на ноябрь 2026 года аналитика на этой странице ещё не активирована.</p>
 
 <h2>Файлы cookie</h2>
 <p>Мы сохраняем ваши языковые предпочтения в localStorage (это не cookie-файл). Отслеживающие cookie не используются.</p>
@@ -84,7 +84,7 @@ export const privacyPage: Page = {
 <p>O FolkUp é uma plataforma de investigação que cria ferramentas de conhecimento para pessoas reais. Este site opera em folkup.app.</p>
 
 <h2>Que dados recolhemos</h2>
-<p>Podemos recolher estatísticas de utilização anónimas através de uma ferramenta de análise focada na privacidade, sem cookies, alojada na nossa própria infraestrutura. Quando ativa, não são armazenados dados pessoais, cookies ou endereços IP. Em março de 2026, a análise ainda não está ativa nesta página.</p>
+<p>Podemos recolher estatísticas de utilização anónimas através de uma ferramenta de análise focada na privacidade, sem cookies, alojada na nossa própria infraestrutura. Quando ativa, não são armazenados dados pessoais, cookies ou endereços IP. Em novembro de 2026, a análise ainda não está ativa nesta página.</p>
 
 <h2>Cookies</h2>
 <p>Armazenamos a sua preferência de idioma no localStorage (não é um cookie). Não são utilizados cookies de rastreio.</p>
